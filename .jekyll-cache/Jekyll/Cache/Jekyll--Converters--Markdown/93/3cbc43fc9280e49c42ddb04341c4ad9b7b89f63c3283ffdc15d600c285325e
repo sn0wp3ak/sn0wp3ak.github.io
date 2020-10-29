@@ -1,0 +1,39 @@
+I"<p>虚拟环境 Virtual Environment<br />
+Python版本3.6<br />
+模块venv – 创建轻量级的虚拟环境<br /></p>
+
+<blockquote>
+  <p>虚拟环境主要作用:</p>
+  <ol>
+    <li>为每个应用隔离出自己需要的环境 (库, 包)</li>
+    <li>方便管理, 需要创建, 不需要了就删除</li>
+    <li>避免本机的真实环境中模块的混淆和冗余</li>
+  </ol>
+</blockquote>
+
+<p>由于我的真实机中不止一个版本的Python环境, 设置环境变量依然容易混淆, 所以我的命令都用绝对路径执行<br />
+目前我的真实机中有3.6的64位和32位版本以及2.7的64位和32位版本, 全都安装在C盘下<br /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\
+|
+`--Python27
+|
+`--Python27-32
+|
+`--Python36
+|
+`--Python36-32
+</code></pre></div></div>
+
+<p>我用Python3.6 (64-bit) 创建虚拟环境的命令如下,<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>c:\Python36\python -m venv d:\虚拟环境存放的路径
+</code></pre></div></div>
+
+<p>激活虚拟环境<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d:\虚拟环境存放的路径\Scripts\activate.bat
+</code></pre></div></div>
+
+<p>退出虚拟环境<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d:\虚拟环境存放的路径\Scripts\deactivate.bat
+</code></pre></div></div>
+:ET

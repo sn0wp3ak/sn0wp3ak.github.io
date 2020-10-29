@@ -1,0 +1,31 @@
+I"�<p><strong>解释器版本: Python3.6</strong></p>
+
+<p>查看python中的关键字</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">keyword</span>
+<span class="k">print</span><span class="p">(</span><span class="n">keyword</span><span class="p">.</span><span class="n">kwlist</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="s">'False'</span><span class="p">,</span> <span class="s">'None'</span><span class="p">,</span> <span class="s">'True'</span><span class="p">,</span> <span class="s">'and'</span><span class="p">,</span> <span class="s">'as'</span><span class="p">,</span> <span class="s">'assert'</span><span class="p">,</span> <span class="s">'break'</span><span class="p">,</span> <span class="s">'class'</span><span class="p">,</span> <span class="s">'continue'</span><span class="p">,</span> <span class="s">'def'</span><span class="p">,</span> <span class="s">'del'</span><span class="p">,</span> <span class="s">'elif'</span><span class="p">,</span> <span class="s">'else'</span><span class="p">,</span> <span class="s">'except'</span><span class="p">,</span>
+ <span class="s">'finally'</span><span class="p">,</span> <span class="s">'for'</span><span class="p">,</span> <span class="s">'from'</span><span class="p">,</span> <span class="s">'global'</span><span class="p">,</span> <span class="s">'if'</span><span class="p">,</span> <span class="s">'import'</span><span class="p">,</span> <span class="s">'in'</span><span class="p">,</span> <span class="s">'is'</span><span class="p">,</span> <span class="s">'lambda'</span><span class="p">,</span> <span class="s">'nonlocal'</span><span class="p">,</span> <span class="s">'not'</span><span class="p">,</span> <span class="s">'or'</span><span class="p">,</span> <span class="s">'pass'</span><span class="p">,</span> <span class="s">'raise'</span><span class="p">,</span> <span class="s">'return'</span><span class="p">,</span> <span class="s">'try'</span><span class="p">,</span> <span class="s">'while'</span><span class="p">,</span> <span class="s">'with'</span><span class="p">,</span> <span class="s">'yield'</span><span class="p">]</span>
+</code></pre></div></div>
+<p>看下一共多少个关键字 (3.6版本中)</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">keyword</span><span class="p">.</span><span class="n">kwlist</span><span class="p">))</span>
+</code></pre></div></div>
+<p><strong>一共33个</strong></p>
+
+<p>让我们来梳理一下这些关键字都是干嘛的
+<code class="language-plaintext highlighter-rouge">None</code> 空
+<code class="language-plaintext highlighter-rouge">del</code> 删除
+<code class="language-plaintext highlighter-rouge">with</code> 上下文
+<code class="language-plaintext highlighter-rouge">assert</code> 断言
+<code class="language-plaintext highlighter-rouge">lambda</code> 匿名函数
+<code class="language-plaintext highlighter-rouge">True False</code> 布尔
+<code class="language-plaintext highlighter-rouge">from import as</code> 导包
+<code class="language-plaintext highlighter-rouge">def class</code> 定义函数和类
+<code class="language-plaintext highlighter-rouge">if elif else</code> 条件判断
+<code class="language-plaintext highlighter-rouge">for in while</code> 循环语句
+<code class="language-plaintext highlighter-rouge">is or and not</code> 逻辑判断
+<code class="language-plaintext highlighter-rouge">continue break</code> 结束循环
+<code class="language-plaintext highlighter-rouge">global nonlocal</code> 全局变量
+<code class="language-plaintext highlighter-rouge">pass return yield</code> 函数返回
+<code class="language-plaintext highlighter-rouge">try except finally raise</code> 异常处理</p>
+:ET

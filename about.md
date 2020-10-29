@@ -3,4 +3,7 @@ layout: page
 title: About
 ---
 
-Something about me.
+Author: sn0wp3ak<br>
+Location: Beijing, China<br>
+Education: Bachelor of Science, Beijing University of Technology<br>
+Focus: Network Security, Penetration Test & Development<br>

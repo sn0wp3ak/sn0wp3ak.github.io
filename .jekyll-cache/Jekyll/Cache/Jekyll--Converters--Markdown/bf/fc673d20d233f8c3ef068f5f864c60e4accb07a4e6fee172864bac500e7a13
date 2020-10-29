@@ -1,0 +1,15 @@
+I"�<blockquote>
+  <p>ASCII
+American Standard Code for Information Interchange
+美国信息交换标准代码
+至今为止定义了128个字符 (序号:0-127)
+2^7=128
+7位二进制数字表示
+—-
+EASCII（Extended ASCII)
+延伸美国标准信息交换码
+在128个ASCII码的基础上, 又增加了128个新字符, 也就是EASCII一共定义了256个字符 (序号: 0-255)
+2^8=256
+8位二进制数字表示</p>
+</blockquote>
+:ET
