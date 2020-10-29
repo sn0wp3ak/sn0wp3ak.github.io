@@ -1,8 +1,8 @@
-I"�<p><strong>公共方法</strong></p>
+I"�<p><strong>公共方法</strong></p>
 
-<p><strong>运算符</strong></p>
+<p><strong>运算符</strong><br /></p>
 
-<p>对于str, list 和 tuple 这三个类型, 算数运算符 +号 和 *号 属于公有方法</p>
+<p>对于str, list 和 tuple 这三个类型, 算数运算符 +号 和 *号 属于公有方法<br /></p>
 
 <table>
   <thead>
@@ -32,13 +32,34 @@
   <li>注意: 对于字典dict来说, in/not in 仅仅判断key是否存在</li>
 </ul>
 
-<p><strong>Python内置函数</strong>
-| 函数  | 用途                   |
-| —– | ———————- |
-| len() | 计算容器中元素的个数   |
-| max() | 返回容器中元素的最大值 |
-| min() | 返回容器中元素的最小值 |
-| del() | 删除变量               |</p>
+<p><strong>Python内置函数</strong><br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>函数</th>
+      <th>用途</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>len()</td>
+      <td>计算容器中元素的个数</td>
+    </tr>
+    <tr>
+      <td>max()</td>
+      <td>返回容器中元素的最大值</td>
+    </tr>
+    <tr>
+      <td>min()</td>
+      <td>返回容器中元素的最小值</td>
+    </tr>
+    <tr>
+      <td>del()</td>
+      <td>删除变量</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>对于多维度list和tuple的访问<br />
 <code class="language-plaintext highlighter-rouge">变量名[x][y][...]</code><br /></p>
@@ -60,11 +81,12 @@
 
 <ul>
   <li>将一个可遍历的数据对象组合成一个索引序列, 并同时列出下标和数据
+<br />
     <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">alist</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
 </code></pre></div>    </div>
-    <p>结果</p>
+    <p>结果 <br /></p>
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>o a
 1 b
 2 c

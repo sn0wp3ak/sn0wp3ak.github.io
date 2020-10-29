@@ -1,4 +1,4 @@
-I"V <p><strong>集合</strong></p>
+I" <p><strong>集合</strong></p>
 
 <p><code class="language-plaintext highlighter-rouge">set = {item1, item2, ...}</code></p>
 
@@ -85,7 +85,7 @@
 
 <p><code class="language-plaintext highlighter-rouge">aset = {x for x in 可迭代对象 if 条件}</code></p>
 
-<p>集合的常用方法</p>
+<p>集合的常用方法<br /></p>
 
 <ol>
   <li>减法算数运算 (集合独占)</li>
@@ -103,32 +103,32 @@
 </code></pre></div></div>
 
 <ol>
-  <li>集合运算 (类似于数学中集合的运算)
-    <ul>
-      <li>取并集 | (包含于集合a的所有元素 + 包含于集合b的所有元素)
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">aset</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+  <li>集合运算 (类似于数学中集合的运算)</li>
+</ol>
+
+<ul>
+  <li>取并集 | (包含于集合a的所有元素 + 包含于集合b的所有元素)
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">aset</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
 <span class="n">bset</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">}</span>
 <span class="n">cset</span> <span class="o">=</span> <span class="n">aset</span> <span class="o">|</span> <span class="n">bset</span>
 <span class="k">print</span><span class="p">(</span><span class="n">cset</span><span class="p">)</span>
-</code></pre></div>        </div>
-        <p>结果<br /></p>
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{1, 2, 3, 4, 5, 6}
-</code></pre></div>        </div>
-      </li>
-      <li>取交集 &amp; (包含于集合a, 且同时包含于集合b)
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">aset</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+</code></pre></div>    </div>
+    <p>结果<br /></p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{1, 2, 3, 4, 5, 6}
+</code></pre></div>    </div>
+  </li>
+  <li>取交集 &amp; (包含于集合a, 且同时包含于集合b)
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">aset</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
 <span class="n">bset</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
 <span class="n">cset</span> <span class="o">=</span> <span class="n">aset</span> <span class="o">&amp;</span> <span class="n">bset</span>
 <span class="k">print</span><span class="p">(</span><span class="n">cset</span><span class="p">)</span>
-</code></pre></div>        </div>
-        <p>结果<br /></p>
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{1, 2}
-</code></pre></div>        </div>
-      </li>
-      <li>补集的并集 ^ (不同时包含于集合a和集合b的元素)</li>
-    </ul>
+</code></pre></div>    </div>
+    <p>结果<br /></p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{1, 2}
+</code></pre></div>    </div>
   </li>
-</ol>
+  <li>补集的并集 ^ (不同时包含于集合a和集合b的元素)</li>
+</ul>
 
 <p>首先理解一下补集是啥?<br /></p>
 

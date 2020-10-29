@@ -1,16 +1,19 @@
-I"m<blockquote>
-  <p>ASCII
-American Standard Code for Information Interchange
-美国信息交换标准代码
-至今为止定义了128个字符 (序号:0-127)
-2^7=128
-7位二进制数字表示
-—-
-EASCII（Extended ASCII)
-延伸美国标准信息交换码
-在128个ASCII码的基础上, 又增加了128个新字符, 也就是EASCII一共定义了256个字符 (序号: 0-255)
-2^8=256
-8位二进制数字表示</p>
+I"Jm<blockquote>
+  <p>ASCII<br />
+American Standard Code for Information Interchange<br />
+美国信息交换标准代码<br />
+至今为止定义了128个字符 (序号:0-127)<br />
+2^7=128<br />
+7位二进制数字表示<br />
+<br /></p>
+</blockquote>
+
+<blockquote>
+  <p>EASCII（Extended ASCII)<br />
+延伸美国标准信息交换码<br />
+在128个ASCII码的基础上, 又增加了128个新字符, 也就是EASCII一共定义了256个字符 (序号: 0-255)<br />
+2^8=256<br />
+8位二进制数字表示<br /></p>
 </blockquote>
 
 <p><strong>ASCII从能否显示的角度分为2大类:</strong></p>
@@ -53,7 +56,7 @@ _ :           下划冒号2个
 </code></pre></div></div>
 <p><strong>给一张初代ASCII码表的官方图(1968年版)</strong><br /></p>
 
-<p><img src="https://github.com/sn0wp3ak/images/blob/cc0d9363bcfdc319c19c3f8a86c401090b43abeb/for-my-blog/USASCII_code_chart.png" alt="ASCII-1" /></p>
+<p><img src="https://raw.githubusercontent.com/sn0wp3ak/images/main/for-my-blog/USASCII_code_chart.png" alt="" /></p>
 
 <p>从b1,b2…一直到b7, 也就是二进制位数只有7位<br />
 查表的顺序是从b7到b1代表二进制编号<br />
