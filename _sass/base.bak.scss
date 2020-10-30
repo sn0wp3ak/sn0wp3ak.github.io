@@ -6,7 +6,7 @@
 @import "default_colors";
 
 $body-background: $cod-grey !default;
-$body-foreground: $fg !default;
+$body-foreground: $gallery !default;
 $header: $conifer !default;
 $blockquote-color: $silver-chalice !default;
 $blockquote-border: $dove-grey !default;
@@ -51,7 +51,7 @@ li {
 
 header {
   background: rgba(0, 0, 0, 0.1);
-  border-bottom: 1px dashed $yellow; //header;
+  border-bottom: 1px dashed $conifer; //header;
   padding: 20px;
   margin: 0 0 40px 0;
 }
@@ -71,7 +71,7 @@ header h1 {
   text-align: center;
   font-weight: bold;
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-  color: $orange;//$header;
+  color: $conifer;//$header;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
                0 0 5px rgba(181, 232, 83, 0.1),
                0 0 10px rgba(181, 232, 83, 0.1);
@@ -82,7 +82,7 @@ header h1 {
 header h2 {
   font-size: 18px;
   font-weight: 300;
-  color: $fg;
+  color: #666;
 }
 
 /* Main Content
@@ -99,7 +99,7 @@ section img {
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-  color: $aqua;
+  color: $header;
   letter-spacing: -0.03em;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
                0 0 5px rgba(181, 232, 83, 0.1),
@@ -151,11 +151,11 @@ blockquote {
 }
 
 pre {
-  background: $bg;
-  border: 1px solid $green;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 10px;
   font-size: 16px;
-  color: #d65d0e;
+  color: #b5e853;
   border-radius: 2px;
   text-wrap: normal;
   overflow: auto;
@@ -163,11 +163,11 @@ pre {
 }
 
 code.highlighter-rouge {
-  background: $bg;
-  border: 1px solid $bg;
+  background: rgba(0,0,0,0.9);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 0px 3px;
   margin: 0px -3px;
-  color: $purple;
+  color: #aa759f;
   border-radius: 2px;
 }
 
@@ -178,7 +178,7 @@ table {
 
 th {
   text-align: left;
-  border-bottom: 1px dashed #d65d0e;
+  border-bottom: 1px dashed #b5e853;
   padding: 5px 10px;
 }
 
@@ -189,8 +189,8 @@ td {
 hr {
   height: 0;
   border: 0;
-  border-bottom: 1px dashed #d65d0e;
-  color: #d65d0e;
+  border-bottom: 1px dashed #b5e853;
+  color: #b5e853;
 }
 
 /* Buttons
@@ -235,7 +235,7 @@ hr {
 */
 
 a {
-  color: $blue;
+  color: #63c0f5;
   text-shadow: 0 0 5px rgba(104, 182, 255, 0.5);
 }
 
