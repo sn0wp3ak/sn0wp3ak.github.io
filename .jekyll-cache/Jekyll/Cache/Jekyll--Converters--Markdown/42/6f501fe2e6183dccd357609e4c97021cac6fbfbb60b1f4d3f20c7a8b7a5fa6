@@ -1,4 +1,4 @@
-I"<p>第一个数和它后面的所有数比较大小<br /></p>
+I"�<p>第一个数和它后面的所有数比较大小<br /></p>
 
 <blockquote>
   <p>两种情况:</p>
@@ -9,11 +9,11 @@
 </blockquote>
 
 <p>无论哪种情况出现, 结果都是最小的数排在第一位 <br />
-<code class="language-plaintext highlighter-rouge">The Smallest Number Comes First</code><br />
+<code class="highlighter-rouge">The Smallest Number Comes First</code><br />
 紧接着<br />
 第二个数和它后面的所有数比较大小<br />
 结果把第二小的数排在第二位 <br />
-<code class="language-plaintext highlighter-rouge">The Second Smallest Number Place In Second</code><br />
+<code class="highlighter-rouge">The Second Smallest Number Place In Second</code><br />
 以此类推, 最终完成排序</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">select_sort</span><span class="p">(</span><span class="n">data_list</span><span class="p">):</span>
