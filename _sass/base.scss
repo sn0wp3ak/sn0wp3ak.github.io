@@ -145,15 +145,15 @@ ul li {
 }
 
 blockquote {
-  color: $blockquote-color;
+  color: $fg;
   padding-left: 10px;
-  border-left: 1px dotted $blockquote-border;
+  border-left: 3px dotted $blockquote-border;
 }
 
 pre {
-  background: $bg;
+  background: #1d2021;
   padding: 10px;
-  font-size: 16px;
+  font-size: 18px;
   color: #d65d0e;
   border-radius: 2px;
   text-wrap: normal;
