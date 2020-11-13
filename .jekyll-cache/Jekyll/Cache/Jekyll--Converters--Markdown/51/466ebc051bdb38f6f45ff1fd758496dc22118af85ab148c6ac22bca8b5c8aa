@@ -1,4 +1,4 @@
-I"j<p><strong>公共方法</strong></p>
+I"�<p><strong>公共方法</strong></p>
 
 <p><strong>运算符</strong><br /></p>
 
@@ -62,7 +62,7 @@
 </table>
 
 <p>对于多维度list和tuple的访问<br />
-<code class="highlighter-rouge">变量名[x][y][...]</code><br /></p>
+<code class="language-plaintext highlighter-rouge">变量名[x][y][...]</code><br /></p>
 
 <p>带索引的遍历结果<br /></p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">]</span>
@@ -72,7 +72,7 @@
       <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 </code></pre></div></div>
 <p>结果 <br /></p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>o a
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>o a
 1 b
 2 c
 </code></pre></div></div>
@@ -87,7 +87,7 @@
     <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
 </code></pre></div>    </div>
     <p>结果 <br /></p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>o a
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>o a
 1 b
 2 c
 </code></pre></div>    </div>

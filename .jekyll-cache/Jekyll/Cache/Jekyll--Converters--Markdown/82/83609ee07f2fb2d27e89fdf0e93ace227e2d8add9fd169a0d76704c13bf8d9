@@ -1,4 +1,4 @@
-I"�l<blockquote>
+I"Jm<blockquote>
   <p>ASCII<br />
 American Standard Code for Information Interchange<br />
 美国信息交换标准代码<br />
@@ -27,8 +27,8 @@ American Standard Code for Information Interchange<br />
 而且在这些控制字符中, 有大半部分已经被弃用了<br />
 控制字符的在ASCII码表中的序号是: 0-31号和127号 <br />
 其中127号字符是DELETE字符, 对应你键盘上的DELETE键<br />
-虽然控制字符不能显示出来, 但是却可以输入, 在绝大部分的终端系统中, 输入<code class="highlighter-rouge">Ctrl+对应键盘字符</code>就能输入控制字符<br />
-例如: 我想输入NULL空字符, 根据ASCII码的脱出字符表示法<code class="highlighter-rouge">^@</code>, 需要按键盘的<code class="highlighter-rouge">Ctrl</code>键+<code class="highlighter-rouge">2</code>号数字键而并不是敲<code class="highlighter-rouge">Shift+6+2</code> <br /></p>
+虽然控制字符不能显示出来, 但是却可以输入, 在绝大部分的终端系统中, 输入<code class="language-plaintext highlighter-rouge">Ctrl+对应键盘字符</code>就能输入控制字符<br />
+例如: 我想输入NULL空字符, 根据ASCII码的脱出字符表示法<code class="language-plaintext highlighter-rouge">^@</code>, 需要按键盘的<code class="language-plaintext highlighter-rouge">Ctrl</code>键+<code class="language-plaintext highlighter-rouge">2</code>号数字键而并不是敲<code class="language-plaintext highlighter-rouge">Shift+6+2</code> <br /></p>
 
 <p><strong>可显示字符</strong>， 使用频率远远大于控制字符<br />
 但是95个字符的数量决定了ASCII码只能显示：<strong>阿拉伯数字, 英文字母和英语标点符号</strong><br />
@@ -38,7 +38,7 @@ American Standard Code for Information Interchange<br />
 个人觉得标点符号值得比较值得展示一下 <br />
 95 - 52 -10 = 32个标点符号<br /></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+ - * /       加减乘除4个
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+ - * /       加减乘除4个
 , . ; &lt;space&gt; 分隔符号4个
 ()[]{}        括号类6个
 ' " `         引号类3个

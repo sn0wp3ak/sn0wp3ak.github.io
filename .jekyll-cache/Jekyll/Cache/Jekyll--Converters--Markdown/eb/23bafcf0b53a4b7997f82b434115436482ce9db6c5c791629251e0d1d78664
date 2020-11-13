@@ -1,4 +1,4 @@
-I"�<h3 id="ip地址的作用">IP地址的作用</h3>
+I"�<h3 id="ip地址的作用">IP地址的作用</h3>
 <blockquote>
   <p>在网络中标识唯一主机</p>
 </blockquote>
@@ -26,7 +26,7 @@ IP地址范围: 0.0.0.0 ~ 255.255.255.255</p>
 <h3 id="网络位和主机位">网络位和主机位</h3>
 <blockquote>
   <p>网络位和主机位此消彼长<br /></p>
-  <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>假设: IP地址为 A.B.C.D
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>假设: IP地址为 A.B.C.D
 if 网络位 == A.B.C:
 	主机位 == D
 elif 网络位 == A.B:
@@ -46,7 +46,7 @@ elif 网络位 == A:
 子网掩码的<strong>作用</strong>: 用来判断IP地址网络位和主机位<br />
 子网掩码一共三种: <br /></p>
 
-  <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>255.0.0.0	代表: 网络位是A段        主机位是B.C.D段
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>255.0.0.0	代表: 网络位是A段        主机位是B.C.D段
 255.255.0.0	代表: 网络位是A.B段      主机位是C.D段
 255.255.255.0	代表: 网络位是A.B.C段    主机位是D段
 </code></pre></div>  </div>
@@ -68,7 +68,7 @@ elif 网络位 == A:
 <h3 id="iso定义的ip地址分类">ISO定义的IP地址分类</h3>
 <blockquote>
   <p>五大类A-E(以IP地址的<strong>第一位</strong>进行区分)<br /></p>
-  <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A类: 1-126 	默认子网掩码 255.0.0.0
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A类: 1-126 	默认子网掩码 255.0.0.0
 B类: 128-191 	默认子网掩码 255.255.0.0
 C类: 192-223 	默认子网掩码 255.255.255.0
 D类: 224-239 	组播地址
@@ -95,7 +95,7 @@ E类: 240-254 	科研使用
 网关也是IP地址<br />
 一般是该网段的第一个或最后一个IP地址</p>
 
-  <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>X.X.X.1  X.X.X.254
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>X.X.X.1  X.X.X.254
 </code></pre></div>  </div>
 </blockquote>
 
@@ -107,21 +107,21 @@ E类: 240-254 	科研使用
 <h3 id="例题1">例题1</h3>
 <blockquote>
   <p>IP 10.1.1.1 掩码255.255.255.0 问IP在哪个网段?<br />
-<code class="highlighter-rouge">10.1.1.0  (网段名称)</code><br />
+<code class="language-plaintext highlighter-rouge">10.1.1.0  (网段名称)</code><br />
 所在网段有多少个可用的IP地址?<br />
-<code class="highlighter-rouge">从1-254 一共254个可用 (0和255除外)</code><br />
+<code class="language-plaintext highlighter-rouge">从1-254 一共254个可用 (0和255除外)</code><br />
 该网段的广播地址是什么?<br />
-<code class="highlighter-rouge">10.1.1.255  (网段里的所有人)&lt;br&gt;</code></p>
+<code class="language-plaintext highlighter-rouge">10.1.1.255  (网段里的所有人)&lt;br&gt;</code></p>
 </blockquote>
 
 <h3 id="例题2">例题2</h3>
 <blockquote>
   <p>IP 10.1.1.1 掩码 255.255.0.0 问IP在哪个网段?<br />
-<code class="highlighter-rouge">10.1.0.0</code><br />
+<code class="language-plaintext highlighter-rouge">10.1.0.0</code><br />
 该网段一共有多少个可用IP<br />
-<code class="highlighter-rouge">65534 </code><br />
-<code class="highlighter-rouge">10.1.0.1 ~ 10.1.255.254 </code><br />
+<code class="language-plaintext highlighter-rouge">65534 </code><br />
+<code class="language-plaintext highlighter-rouge">10.1.0.1 ~ 10.1.255.254 </code><br />
 该网段的广播地址是什么?<br />
-<code class="highlighter-rouge">10.1.255.255</code><br /></p>
+<code class="language-plaintext highlighter-rouge">10.1.255.255</code><br /></p>
 </blockquote>
 :ET

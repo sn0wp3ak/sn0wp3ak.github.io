@@ -1,4 +1,4 @@
-I"�<p><strong>Python中有5种类型的容器</strong></p>
+I"�<p><strong>Python中有5种类型的容器</strong></p>
 <ol>
   <li>字符串</li>
   <li>列表</li>
@@ -11,7 +11,7 @@
 
 <p><strong>字符串</strong></p>
 
-<p>表现形式: <code class="highlighter-rouge">"str"和'str'或者"""str"""和'''str'''</code></p>
+<p>表现形式: <code class="language-plaintext highlighter-rouge">"str"和'str'或者"""str"""和'''str'''</code></p>
 <ul>
   <li>单引号, 双引号表示的字符串通常用在变量赋值中</li>
   <li>而三引号表示的字符串通常来说是注释</li>
@@ -110,7 +110,7 @@
 </ol>
 
 <p><strong>替换, 分隔, 插空加入这三种操作都不会影响原来的str, 而是返回一个新的str</strong></p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>举例: 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>举例: 
 alist = ["a", "b", "c"] 
 str="_"
 str.join(alist)的结果是 "a_b_c"

@@ -1,4 +1,4 @@
-I"2I<h2 id="面向对象qa">面向对象Q&amp;A</h2>
+I"�I<h2 id="面向对象qa">面向对象Q&amp;A</h2>
 
 <h3 id="1-问-为什么类的私有属性例如__name从外部不能直接访问">1. 问: 为什么类的私有属性(例如:__name),从外部不能直接访问?</h3>
 
@@ -18,13 +18,13 @@
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">__name</span> <span class="o">=</span> <span class="n">name</span>
     <span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__name</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">__name</span>
 
 
 <span class="n">stu</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s">"laowang"</span><span class="p">)</span>
-<span class="n">stu</span><span class="o">.</span><span class="n">get_name</span><span class="p">()</span>  <span class="c1"># 调用方法获取私有属性
+<span class="n">stu</span><span class="p">.</span><span class="n">get_name</span><span class="p">()</span>  <span class="c1"># 调用方法获取私有属性
 </span></code></pre></div></div>
 
 <h3 id="5-问-不仅想从外部访问私有属性-还想修改私有属性怎么办">5. 问: 不仅想从外部访问私有属性, 还想修改私有属性,怎么办?</h3>
@@ -32,9 +32,9 @@
 <p>答: 还是可以定义一个修改私有属性的方法,通过调用方法去修改私有属性的值</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">set_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">__name</span> <span class="o">=</span> <span class="n">name</span>
         
-<span class="n">stu</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s">"xiaowang"</span><span class="p">)</span>
+<span class="n">stu</span><span class="p">.</span><span class="n">set_name</span><span class="p">(</span><span class="s">"xiaowang"</span><span class="p">)</span>
 </code></pre></div></div>
 
 <h3 id="6-问--如果从外部动态的修改私有属性能修改成功吗">6. 问 : 如果从外部动态的修改私有属性,能修改成功吗?</h3>
@@ -77,7 +77,7 @@
 <p>答: 继承自统一个父类的所有子类, 如果都有一个同名方法, 那么如果公共方法正好调用对象的这个同名方法时, 在传入不同实例的情况下会自动调用对应的方法, 而不用修改公共方法本身!</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">run_once</span><span class="p">(</span><span class="n">animal</span><span class="p">):</span>
-    <span class="n">animal</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+    <span class="n">animal</span><span class="p">.</span><span class="n">run</span><span class="p">()</span>
     
 
 <span class="k">class</span> <span class="nc">Animal</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -102,7 +102,7 @@
 
 <h3 id="11-问-啥是鸭子类型">11. 问: 啥是鸭子类型?</h3>
 
-<p>答:  对于静态语言（例如Java）来说，如果需要传入<code class="highlighter-rouge">Animal</code>类型，则传入的对象必须是<code class="highlighter-rouge">Animal</code>类型或者它的子类，否则，将无法调用<code class="highlighter-rouge">run()</code>方法。对于Python这样的动态语言来说，则不一定需要传入<code class="highlighter-rouge">Animal</code>类型。我们只需要保证传入的对象有一个<code class="highlighter-rouge">run()</code>方法就可以了;这就是动态语言的“鸭子类型”，它并不要求严格的继承体系</p>
+<p>答:  对于静态语言（例如Java）来说，如果需要传入<code class="language-plaintext highlighter-rouge">Animal</code>类型，则传入的对象必须是<code class="language-plaintext highlighter-rouge">Animal</code>类型或者它的子类，否则，将无法调用<code class="language-plaintext highlighter-rouge">run()</code>方法。对于Python这样的动态语言来说，则不一定需要传入<code class="language-plaintext highlighter-rouge">Animal</code>类型。我们只需要保证传入的对象有一个<code class="language-plaintext highlighter-rouge">run()</code>方法就可以了;这就是动态语言的“鸭子类型”，它并不要求严格的继承体系</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Duck</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>  <span class="c1"># Duck继承自object类,并没继承自Animal类
 </span>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -143,15 +143,15 @@
 
     <span class="o">@</span><span class="nb">property</span>
     <span class="k">def</span> <span class="nf">birth</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># birth的读方法
-</span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_birth</span>
+</span>        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">_birth</span>
 
-    <span class="o">@</span><span class="n">birth</span><span class="o">.</span><span class="n">setter</span>
+    <span class="o">@</span><span class="n">birth</span><span class="p">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">birth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>  <span class="c1"># birth的写方法
-</span>        <span class="bp">self</span><span class="o">.</span><span class="n">_birth</span> <span class="o">=</span> <span class="n">value</span>
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">_birth</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="o">@</span><span class="nb">property</span>
     <span class="k">def</span> <span class="nf">age</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># 只读属性
-</span>        <span class="k">return</span> <span class="mi">2015</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_birth</span>
+</span>        <span class="k">return</span> <span class="mi">2015</span> <span class="o">-</span> <span class="bp">self</span><span class="p">.</span><span class="n">_birth</span>
 </code></pre></div></div>
 
 <h3 id="19-问-怎么理解mixin">19. 问: 怎么理解Mixin?</h3>

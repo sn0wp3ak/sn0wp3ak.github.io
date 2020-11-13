@@ -1,6 +1,6 @@
-I"<p><strong>元组</strong></p>
+I"-<p><strong>元组</strong></p>
 
-<p><code class="highlighter-rouge">tuple = (item1, item2, ...)</code></p>
+<p><code class="language-plaintext highlighter-rouge">tuple = (item1, item2, ...)</code></p>
 
 <p>定义一个空元组:</p>
 

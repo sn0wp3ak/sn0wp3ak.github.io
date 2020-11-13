@@ -1,4 +1,4 @@
-I"�<blockquote>
+I"H<blockquote>
   <p>需要准备:</p>
   <ol>
     <li>Ubuntu16.04虚拟机一部</li>
@@ -7,7 +7,7 @@
 </blockquote>
 
 <ul>
-  <li>强烈建议在做好每一个步骤时都 <code class="highlighter-rouge">poweroff</code> 一下, 做一个快照, 以备不时之需!!!</li>
+  <li>强烈建议在做好每一个步骤时都 <code class="language-plaintext highlighter-rouge">poweroff</code> 一下, 做一个快照, 以备不时之需!!!</li>
 </ul>
 
 <h3 id="第一步-更换apt软件源--安装ssh服务--关闭dnsmq服务port53">第一步: 更换apt软件源 + 安装ssh服务 + 关闭dnsmq服务(port:53)</h3>
@@ -23,7 +23,7 @@
 
 <ul>
   <li>首先, 更换源
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 备份原始文件
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 备份原始文件
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 # 给文件赋权
 sudo chmod 777 /etc/apt/sources.list
@@ -35,33 +35,33 @@ sudo vi /etc/apt/sources.list
 完整拷贝即可, 然后 :wq 保存退出
 </code></pre></div>    </div>
   </li>
-  <li>更新一下软件源列表 <code class="highlighter-rouge">sudo apt update</code></li>
-  <li>然后安装ssh服务 <code class="highlighter-rouge">sudo apt-get install ssh</code></li>
-  <li>更改sshd的配置文件 <code class="highlighter-rouge">vi /etc/ssh/sshd_config</code>  第28, 52行 开启 yes
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 允许远程ROOT用户登录
+  <li>更新一下软件源列表 <code class="language-plaintext highlighter-rouge">sudo apt update</code></li>
+  <li>然后安装ssh服务 <code class="language-plaintext highlighter-rouge">sudo apt-get install ssh</code></li>
+  <li>更改sshd的配置文件 <code class="language-plaintext highlighter-rouge">vi /etc/ssh/sshd_config</code>  第28, 52行 开启 yes
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 允许远程ROOT用户登录
 PermitRootLogin prohibit-password 改成 PermitRootLogin yes
 # 需要密码认证
 PasswordAuthentication yes 注释开启
 </code></pre></div>    </div>
   </li>
-  <li>启动ssh服务 <code class="highlighter-rouge">service ssh start</code></li>
-  <li>验证一下 <code class="highlighter-rouge">ss -antpl | grep ssh</code> 或者 <code class="highlighter-rouge">ps -aux | grep ssh</code></li>
+  <li>启动ssh服务 <code class="language-plaintext highlighter-rouge">service ssh start</code></li>
+  <li>验证一下 <code class="language-plaintext highlighter-rouge">ss -antpl | grep ssh</code> 或者 <code class="language-plaintext highlighter-rouge">ps -aux | grep ssh</code></li>
   <li>
-    <p>添加到开机自启动 <code class="highlighter-rouge">update-rc.d ssh enable</code></p>
+    <p>添加到开机自启动 <code class="language-plaintext highlighter-rouge">update-rc.d ssh enable</code></p>
   </li>
   <li>此时已经可以用Putty连接到Ubuntu了</li>
   <li>关闭53端口的服务 dnsmq (dns缓存)</li>
   <li>先备份配置文件 /etc/NetworkManger/NetworkManger.conf
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /etc/NetworkManger
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /etc/NetworkManger
 sudo cp NetworkManger.conf NetworkManger.conf.bak
 </code></pre></div>    </div>
   </li>
   <li>注释掉关键行
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># dns=dnsmq
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># dns=dnsmq
 </code></pre></div>    </div>
   </li>
   <li>重启计算机
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reboot
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reboot
 </code></pre></div>    </div>
   </li>
   <li>用Putty重新建立ssh连接</li>
@@ -73,18 +73,18 @@ sudo cp NetworkManger.conf NetworkManger.conf.bak
 Vulhub的官网推荐直接拉取<br />
 curl -s https://get.docker.com/ | sh   (这里不建议直接执行)<br />
     <ul>
-      <li>建议先打开链接, 把文本复制存成 <code class="highlighter-rouge">.sh</code>文件后, 在虚拟机本地执行
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo vi installDocker.sh
+      <li>建议先打开链接, 把文本复制存成 <code class="language-plaintext highlighter-rouge">.sh</code>文件后, 在虚拟机本地执行
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo vi installDocker.sh
 复制粘贴 :wq 保存退出
 </code></pre></div>        </div>
       </li>
       <li>添加可执行权限后执行安装docker
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chmod +x installDocker.sh
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chmod +x installDocker.sh
 ./installDocker.sh
 </code></pre></div>        </div>
       </li>
       <li>测试安装
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker 
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker 
 docker -v
 </code></pre></div>        </div>
       </li>
@@ -93,15 +93,15 @@ docker -v
   <li>安装docker-compose(快速启动器)
     <ul>
       <li>最好提前修改一下pip源(网上有很多教程和源, 参考即可, 不展开)
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt install python-pip
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt install python-pip
 更换pip源
 pip install docker-compose
 </code></pre></div>        </div>
       </li>
       <li>注意此处如果安装报错, 可能是pip版本太低导致
-执行 <code class="highlighter-rouge">sudo pip install --upgrade pip</code>后再次尝试安装, 大概率安装成功(具体看报错类型, 不绝对)</li>
+执行 <code class="language-plaintext highlighter-rouge">sudo pip install --upgrade pip</code>后再次尝试安装, 大概率安装成功(具体看报错类型, 不绝对)</li>
       <li>测试安装
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose
 docker-compose -v
 </code></pre></div>        </div>
       </li>
@@ -116,7 +116,7 @@ docker-compose -v
     <ul>
       <li>很多方法啦, 我用的是filezilla直接上传的</li>
       <li>下载地址 [https://github.com/vulhub/vulhub.git]</li>
-      <li>解压缩 <code class="highlighter-rouge">unzip vulhub-master.zip</code></li>
+      <li>解压缩 <code class="language-plaintext highlighter-rouge">unzip vulhub-master.zip</code></li>
     </ul>
   </li>
   <li>启动环境
@@ -125,14 +125,14 @@ docker-compose -v
       <li>找到漏洞环境对应的目录</li>
       <li>执行sudo</li>
       <li>此时会从网络上拉取镜像到虚拟机本地, 再启动环境
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo docker-compose build
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo docker-compose build
 sudo docker-compose up -d
 </code></pre></div>        </div>
       </li>
     </ul>
   </li>
   <li>测试完成删除环境
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo docker-compose down
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo docker-compose down
 </code></pre></div>    </div>
   </li>
 </ol>

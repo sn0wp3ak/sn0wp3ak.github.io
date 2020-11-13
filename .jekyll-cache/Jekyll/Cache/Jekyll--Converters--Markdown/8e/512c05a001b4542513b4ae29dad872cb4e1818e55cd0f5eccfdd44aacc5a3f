@@ -1,6 +1,6 @@
-I"�<p><strong>字典</strong></p>
+I"	<p><strong>字典</strong></p>
 
-<p><code class="highlighter-rouge">dict = {key1:value1, key2:value2, ...}</code></p>
+<p><code class="language-plaintext highlighter-rouge">dict = {key1:value1, key2:value2, ...}</code></p>
 
 <p>定义一个空字典</p>
 <ol>

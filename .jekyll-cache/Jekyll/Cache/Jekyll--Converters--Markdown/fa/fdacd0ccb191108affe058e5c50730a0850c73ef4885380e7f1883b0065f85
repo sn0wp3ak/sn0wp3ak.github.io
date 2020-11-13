@@ -1,4 +1,4 @@
-I"�<h3 id="首先要区分压缩和打包">首先要区分压缩和打包</h3>
+I"�<h3 id="首先要区分压缩和打包">首先要区分压缩和打包</h3>
 <ul>
   <li>压缩是把大文件压成小文件, 最终结果是大变小</li>
   <li>打包是把多个文件和目录装在一个文件里头, 最终结果是多变一</li>
@@ -11,36 +11,36 @@
 
 <h3 id="压缩">压缩</h3>
 <p>压缩的对象一定要是一个<strong>文件</strong>而不能是目录!!!<br />
-它可以压缩<code class="highlighter-rouge">.py</code> <code class="highlighter-rouge">.txt</code> 等类型的单个文件, 也可以压缩 <code class="highlighter-rouge">.tar</code> 的打包后的文件<br /></p>
+它可以压缩<code class="language-plaintext highlighter-rouge">.py</code> <code class="language-plaintext highlighter-rouge">.txt</code> 等类型的单个文件, 也可以压缩 <code class="language-plaintext highlighter-rouge">.tar</code> 的打包后的文件<br /></p>
 
 <p><em>压缩命令</em><br />
-<code class="highlighter-rouge">gzip 文件名</code><br /></p>
+<code class="language-plaintext highlighter-rouge">gzip 文件名</code><br /></p>
 
-<p><code class="highlighter-rouge">bzip2 文件名</code>  <br /></p>
+<p><code class="language-plaintext highlighter-rouge">bzip2 文件名</code>  <br /></p>
 
 <p><em>解压命令</em><br />
-<code class="highlighter-rouge">gunzip 压缩包名</code><br /></p>
+<code class="language-plaintext highlighter-rouge">gunzip 压缩包名</code><br /></p>
 
-<p><code class="highlighter-rouge">bunzip2 压缩包名</code> <br /></p>
+<p><code class="language-plaintext highlighter-rouge">bunzip2 压缩包名</code> <br /></p>
 
 <h3 id="打包">打包</h3>
 <p>正是因为压缩只能针对文件, 所以打包就派上用场了!!!<br />
 不能直接压缩目录, 必须先打包<br /></p>
 
 <p><em>打包命令</em><br />
-<code class="highlighter-rouge">tar -cf 目标路径 源路径</code>     不会影响源目录, 而是生成一个新的打包文件<br /></p>
+<code class="language-plaintext highlighter-rouge">tar -cf 目标路径 源路径</code>     不会影响源目录, 而是生成一个新的打包文件<br /></p>
 
 <p>c f – create file <br /></p>
 
 <p><em>列出打包文件信息</em><br />
-<code class="highlighter-rouge">tar -tvf 打包文件名</code>     查看打包文件中的所有文件信息<br /></p>
+<code class="language-plaintext highlighter-rouge">tar -tvf 打包文件名</code>     查看打包文件中的所有文件信息<br /></p>
 
 <p>t v f – list verbose file <br /></p>
 
 <p><em>拆包命令</em> <br />
-<code class="highlighter-rouge">tar -xf 打包文件</code>     在当前路径下拆包 <br /></p>
+<code class="language-plaintext highlighter-rouge">tar -xf 打包文件</code>     在当前路径下拆包 <br /></p>
 
-<p><code class="highlighter-rouge">tar -xf 打包文件 -C 指定路径</code>     在指定的路径下拆包 <br /></p>
+<p><code class="language-plaintext highlighter-rouge">tar -xf 打包文件 -C 指定路径</code>     在指定的路径下拆包 <br /></p>
 
 <p>x f – extract file <br />
 C – change to directory <br /></p>
@@ -61,16 +61,16 @@ C – change to directory <br /></p>
 逆过程则相反 先做gunzip或者bunzip2解压 再做tar命令拆包<br /></p>
 
 <p><em>打包的同时压缩</em><br />
-<code class="highlighter-rouge">tar -zcf 目标路径  源路径</code>     tar打包后, 用gzip格式压缩打包文件<br /></p>
+<code class="language-plaintext highlighter-rouge">tar -zcf 目标路径  源路径</code>     tar打包后, 用gzip格式压缩打包文件<br /></p>
 
-<p><code class="highlighter-rouge">tar -jcf 目标路径  源路径 </code>     tar打包后, 用bzip2格式压缩打包文件<br /></p>
+<p><code class="language-plaintext highlighter-rouge">tar -jcf 目标路径  源路径 </code>     tar打包后, 用bzip2格式压缩打包文件<br /></p>
 
-<p>加 <code class="highlighter-rouge">-v</code>  查看信息<br /></p>
+<p>加 <code class="language-plaintext highlighter-rouge">-v</code>  查看信息<br /></p>
 
 <p><em>解压缩同时拆包</em><br />
-<code class="highlighter-rouge">tar -zxf 压缩文件 -C 指定路径</code>    用gzip格式解压缩, 在指定路径下拆包<br /></p>
+<code class="language-plaintext highlighter-rouge">tar -zxf 压缩文件 -C 指定路径</code>    用gzip格式解压缩, 在指定路径下拆包<br /></p>
 
-<p><code class="highlighter-rouge">tar -jxf 压缩文件 -C 指定路径</code>    用bzip2格式解压缩, 在指定路径下拆包<br /></p>
+<p><code class="language-plaintext highlighter-rouge">tar -jxf 压缩文件 -C 指定路径</code>    用bzip2格式解压缩, 在指定路径下拆包<br /></p>
 
-<p>加 <code class="highlighter-rouge">-v</code>  查看信息<br /></p>
+<p>加 <code class="language-plaintext highlighter-rouge">-v</code>  查看信息<br /></p>
 :ET

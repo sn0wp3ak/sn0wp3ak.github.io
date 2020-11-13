@@ -1,11 +1,11 @@
-I"�<p><strong>列表</strong></p>
+I"�<p><strong>列表</strong></p>
 
-<p><code class="highlighter-rouge">list = [item1, item2, ...]</code></p>
+<p><code class="language-plaintext highlighter-rouge">list = [item1, item2, ...]</code></p>
 <ul>
   <li>
     <p>如何定义空列表</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. em_list = list()
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. em_list = list()
 2. em_list = []
 </code></pre></div>    </div>
   </li>
