@@ -1,0 +1,10 @@
+I"�<p>获取(拉取)镜像</p>
+<ol>
+  <li>格式: <code class="language-plaintext highlighter-rouge">docker pull [选项] [Docker Registry 地址[:端口号]/]仓库名[:标签]</code>;</li>
+  <li>地址的一般格式: <code class="language-plaintext highlighter-rouge">&lt;域名/IP&gt;[:端口号]</code> 域名或者IP, 端口号选填;</li>
+  <li>默认地址: Docker Hub ;</li>
+  <li>仓库名的一般格式: <code class="language-plaintext highlighter-rouge">&lt;用户名&gt;/&lt;软件名&gt;</code> 标签选填;</li>
+  <li>默认用户名 <code class="language-plaintext highlighter-rouge">library</code> ;</li>
+  <li>下载镜像的过程可以看出分层存储的概念, 一层一层下载</li>
+</ol>
+:ET

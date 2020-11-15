@@ -1,0 +1,99 @@
+I"�<p>获取(拉取)镜像</p>
+<ol>
+  <li>格式: <code class="language-plaintext highlighter-rouge">docker pull [选项] [Docker Registry 地址[:端口号]/]仓库名[:标签]</code>;</li>
+  <li>地址的一般格式: <code class="language-plaintext highlighter-rouge">&lt;域名/IP&gt;[:端口号]</code> 域名或者IP, 端口号选填;</li>
+  <li>默认地址: Docker Hub ;</li>
+  <li>仓库名的一般格式: <code class="language-plaintext highlighter-rouge">&lt;用户名&gt;/&lt;软件名&gt;</code> 标签选填;</li>
+  <li>默认用户名 <code class="language-plaintext highlighter-rouge">library</code> ;</li>
+  <li>
+    <h2 id="下载镜像的过程可以看出分层存储的概念-一层一层下载">下载镜像的过程可以看出分层存储的概念, 一层一层下载</h2>
+    <p>运行镜像</p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">docker run</code></li>
+</ol>
+
+<hr />
+<p>列出镜像</p>
+<ol>
+  <li>列出已下载的镜像 <code class="language-plaintext highlighter-rouge">docker image ls</code> ;</li>
+  <li>列出的项目: <code class="language-plaintext highlighter-rouge">仓库 标签 镜像ID 创建时间 占用空间</code> ;</li>
+  <li>镜像的唯一标识: <code class="language-plaintext highlighter-rouge">镜像ID</code> ID不同才能证明是不同的镜像;</li>
+  <li>过滤参数<code class="language-plaintext highlighter-rouge">--filter</code> 简写<code class="language-plaintext highlighter-rouge">docker image ls -f</code>;</li>
+  <li>根据创建时间过滤, 之后<code class="language-plaintext highlighter-rouge">since=&lt;仓库&gt;:&lt;标签&gt;</code>, 之前<code class="language-plaintext highlighter-rouge">before=&lt;仓库&gt;:&lt;标签&gt;</code>;</li>
+  <li>定义了<code class="language-plaintext highlighter-rouge">LABEL</code>则可以通过<code class="language-plaintext highlighter-rouge">docker image ls -f label=</code>去过滤;</li>
+  <li>
+    <h2 id="特定格式显示--q-镜像id列表">特定格式显示 <code class="language-plaintext highlighter-rouge">-q</code> 镜像ID列表;</h2>
+    <p>虚悬镜像</p>
+  </li>
+  <li>仓库和标签都为 <code class="language-plaintext highlighter-rouge">&lt;none&gt;</code>;</li>
+  <li>由于镜像更名引起;</li>
+  <li>
+    <h2 id="删除虚悬镜像-docker-image-prune">删除虚悬镜像 <code class="language-plaintext highlighter-rouge">docker image prune</code>;</h2>
+    <p>中间层镜像</p>
+  </li>
+  <li>无标签的镜像;</li>
+  <li>作为其他上层镜像的依赖, 不能随便删除;</li>
+  <li>只会存储一边, 被其他各个上层镜像同时使用, 不用担心重复占用空间;</li>
+  <li>
+    <h2 id="默认只列出顶层镜像-docker-image-ls--a可查中间层镜像">默认只列出顶层镜像, <code class="language-plaintext highlighter-rouge">docker image ls -a</code>可查中间层镜像;</h2>
+    <p>删除本地镜像</p>
+  </li>
+  <li>格式: <code class="language-plaintext highlighter-rouge">docker image rm [选项] &lt;镜像1&gt; [&lt;镜像2&gt; ...]</code>;</li>
+  <li>
+    <镜像>可以是: `镜像短ID、镜像长ID、镜像名 或者 镜像摘要`;
+</镜像>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>长ID: 完整ID</td>
+          <td>短ID: <code class="language-plaintext highlighter-rouge">ls</code>列出的就是短ID, 一般取前几位能区分就行;</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <h2 id="镜像摘要-docker-image-ls---digests-根据摘要删除-docker-image-rm-仓库摘要">镜像摘要 <code class="language-plaintext highlighter-rouge">docker image ls --digests</code>, 根据摘要删除 <code class="language-plaintext highlighter-rouge">docker image rm &lt;仓库&gt;@摘要</code>;<br /></h2>
+    <p>删除行为: <code class="language-plaintext highlighter-rouge">Untagged</code>和<code class="language-plaintext highlighter-rouge">Deleted</code><br /></p>
+  </li>
+  <li>Untagged是摘除所有该镜像的标签;</li>
+  <li>
+    <h2 id="deleted才是真正的删除">Deleted才是真正的删除;</h2>
+    <p>导致Deleted不被触发的情况：<br /></p>
+  </li>
+  <li>除了指定摘除的标签外, 该镜像还挂有其他标签;</li>
+  <li>有其他的镜像依赖于要删除的镜像;</li>
+  <li>
+    <h2 id="有正在启动的容器以该镜像为基础">有正在启动的容器以该镜像为基础;</h2>
+    <p>Docker Commit</p>
+  </li>
+  <li>把容器存储层的修改内容保存成一个镜像;</li>
+  <li>格式: <code class="language-plaintext highlighter-rouge">docker commit [选项] &lt;容器ID或容器名&gt; [&lt;仓库名&gt;[:&lt;标签&gt;]]</code>;</li>
+  <li><code class="language-plaintext highlighter-rouge">docker history</code> 查看镜像内的历史记录;</li>
+  <li><code class="language-plaintext highlighter-rouge">docker exec</code> 进入镜像内部;</li>
+  <li><code class="language-plaintext highlighter-rouge">docker diff</code> 对比改动;</li>
+  <li>
+    <h2 id="docker-commit-属于黑箱操作-有些改动并不是我们想要的结果-实际环境应该避免使用">Docker Commit 属于黑箱操作, 有些改动并不是我们想要的结果, 实际环境应该避免使用;</h2>
+    <p>Dockerfile – 定制镜像</p>
+  </li>
+  <li>Dockerfile就是用于定制镜像的一个脚本文件;</li>
+  <li>定制镜像就是以一个镜像为基础, 修改一些, 在做成新的镜像;</li>
+  <li>FROM 用来指定基础镜像;(FROM scratch 代表从空白镜像开始)</li>
+  <li>RUN 用来执行命令
+    <ul>
+      <li>shell格式: 命令行下的输入;</li>
+      <li>
+        <h2 id="exec格式-run-可执行文件-参数1-参数2">exec格式: <code class="language-plaintext highlighter-rouge">RUN ["可执行文件", "参数1", "参数2"]</code>;</h2>
+        <p>构建镜像</p>
+      </li>
+    </ul>
+  </li>
+  <li>格式: <code class="language-plaintext highlighter-rouge">docker build [选项] &lt;上下文路径/URL/-&gt;</code>;</li>
+  <li>docker bulid 命令并非是在本地完成的, 而是在远程的Docker引擎中构建的;</li>
+  <li>
+    <h2 id="命令中的代表的是上下文路径而非本地的包含dockerfile的目录">命令中的.代表的是上下文路径而非本地的包含Dockerfile的目录;</h2>
+  </li>
+</ol>
+
+:ET

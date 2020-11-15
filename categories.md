@@ -3,7 +3,7 @@ layout: page
 title: Categories
 ---
 
-<h3>所有分类</h3>
+<h2>Categories</h2>
 
 <ul>
     {% for post in site.posts %}
