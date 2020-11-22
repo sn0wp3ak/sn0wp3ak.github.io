@@ -5,7 +5,11 @@ layout: default
 <article>
   <h2>{{ page.title }}</h2>
   <time datetime="{{ page.date | date_to_xmlschema }}" class="by-line">{{ page.date | date_to_string }}</time>
-  <a>分类:{{ page.categories }}</a>
-  <a>标签:{{ page.tags }}</a>
+  {% if page.categories[0] %} 
+  <span>分类:<a>{{ page.categories }}</a></span>
+  {% endif %}
+  {% if page.tags[0] %} 
+  <span>标签:<a>{{ page.tags }}</a></span>
+  {% endif %}
   {{ content }}
 </article>

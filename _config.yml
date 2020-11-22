@@ -26,7 +26,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-sitemap
-
 # Custom variables
 owner : "sn0wp3ak"
 year : "2020"
+

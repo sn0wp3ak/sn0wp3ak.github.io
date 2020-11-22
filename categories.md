@@ -7,7 +7,7 @@ title: Categories
 
 <ul>
     {% for post in site.posts %}
-    {% if post.categories %}
+    {% if post.categories[0] %}
     <li><a>{{ post.categories }}</a></li>
     {% endif %}
     {% endfor %}

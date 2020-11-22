@@ -7,9 +7,9 @@ title: Tags
 
 <ul>
     {% for post in site.posts %}
-    	{% if post.tags != "" %}
+    	{% if post.tags[0] %}
     		<li><a>{{ post.tags }}</a></li>
-		{% endif %}
+	{% endif %}
     {% endfor %}
 </ul>
 
