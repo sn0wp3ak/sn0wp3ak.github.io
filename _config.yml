@@ -26,7 +26,16 @@ plugins:
   - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-archives
 # Custom variables
 owner : "sn0wp3ak"
 year : "2020"
-
+# jekyll-archives
+jekyll-archives:  
+  enabled: [categories, tags]
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    tag: '/tags/:name/'
+    category: '/categories/:name/'
