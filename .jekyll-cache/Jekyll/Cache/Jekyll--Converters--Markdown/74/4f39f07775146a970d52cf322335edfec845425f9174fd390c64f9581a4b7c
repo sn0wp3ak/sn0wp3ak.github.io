@@ -1,6 +1,8 @@
-I"€<h2>Some Information</h2>
+I"ô<h2>Some Information</h2>
 <p><br />
-<img src="assets/penguin.png" height="100" weight="100" /><br />
+<img src="assets/computer.png" height="50" weight="50" /> +
+<img src="assets/penguin.png" height="50" weight="50" /> ==
+<img src="assets/smile.png" height="50" weight="50" /><br />
 Author: sn0wp3ak<br />
 Location: Beijing, China<br />
 Education: Bachelor of Science, Beijing University of Technology<br />

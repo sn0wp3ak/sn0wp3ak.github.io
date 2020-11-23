@@ -3,9 +3,7 @@ layout: page
 title: About
 ---
 <h2>Some Information</h2><br>
-<img src="assets/computer.png" height=100 weight=100> +
-<img src="assets/penguin.png" height=100 weight=100> ==
-<img src="assets/smile.png" height=100 weight=100><br>
+<img src="assets/cactus.png" height=100 weight=100><br>
 Author: sn0wp3ak<br>
 Location: Beijing, China<br>
 Education: Bachelor of Science, Beijing University of Technology<br>
