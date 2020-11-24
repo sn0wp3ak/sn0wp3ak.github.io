@@ -26,7 +26,7 @@ title: Archive
           <ul>
         {% endif %}
       {% endunless %}
-        <li style="list-style-image:url('../assets/paper.png');"><time>{{ post.date | date:"%b %d" }} - </time>
+        <li><time>{{ post.date | date:"%d %b" }} - </time>
           <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
             {{ post.title }}
           </a>

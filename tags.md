@@ -6,10 +6,10 @@ title: Tag
 <h2>标签</h2>
 <ul>
     {% for tag in site.tags %}
-    	<li>
+    	<li style="list-style-image:url('../assets/tag.png');">
 	<a href="#{{ tag[0] }}">
 	<span>{{ tag[0] }}</span>
-	<span> -- {{ tag[1] | size }}篇</span>
+	<span>({{ tag[1] | size }}篇)</span>
 	</a>
 	</li>
     {% endfor %}
@@ -25,7 +25,8 @@ title: Tag
         </h2>
         <ul>
                 {% for post in tag[1] %}
-                        <li>
+                        <li style="list-style-image:url('../assets/paper.png');">
+			{{ post.date | date:"%Y %b %d" }} - 
                         <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}">
                              {{ post.title }}  
                         </a>
