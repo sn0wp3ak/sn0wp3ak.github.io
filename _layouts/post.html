@@ -6,10 +6,10 @@ layout: default
   <h2>{{ page.title }}</h2>
   <time datetime="{{ page.date | date_to_xmlschema }}" class="by-line">{{ page.date | date_to_string }}</time>
   {% if page.categories[0] %} 
-  <span>分类:<a>{{ page.categories }}</a></span>
+  <span>分类:<a href="{{ "/categories" | prepend: site.baseurl | replace: '//', '/' }}#{{ page.categories}}">{{ page.categories }}</a></span>
   {% endif %}
   {% if page.tags[0] %} 
-  <span>标签:<a>{{ page.tags }}</a></span>
+  <span>标签:<a href="{{ "/tags" | prepend: site.baseurl | replace: '//', '/' }}#{{ page.tags }}">{{ page.tags }}</a></span>
   {% endif %}
   {{ content }}
 </article>

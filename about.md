@@ -2,7 +2,7 @@
 layout: page
 title: About
 ---
-<h2>Some Information</h2><br>
+<h2>关于我</h2><br>
 <img src="assets/cactus.png" height=100 weight=100><br>
 Author: sn0wp3ak<br>
 Location: Beijing, China<br>

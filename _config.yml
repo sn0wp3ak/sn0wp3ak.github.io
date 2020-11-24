@@ -30,12 +30,3 @@ plugins:
 # Custom variables
 owner : "sn0wp3ak"
 year : "2020"
-# jekyll-archives
-jekyll-archives:  
-  enabled: [categories, tags]
-  layouts:
-    category: category
-    tag: tag
-  permalinks:
-    tag: '/tags/:name/'
-    category: '/categories/:name/'
