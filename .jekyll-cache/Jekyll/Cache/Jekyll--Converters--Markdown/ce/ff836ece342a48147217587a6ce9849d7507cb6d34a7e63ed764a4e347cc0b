@@ -1,4 +1,4 @@
-I"�<div>
+I"�<div>
 <h2>分类</h2>
 
 <ul>
@@ -20,7 +20,7 @@
     	<li style="list-style-image:url('../assets/category.png');">
 	<a href="#Linux">
 	<span>Linux</span>
-	<span>(3篇)</span>
+	<span>(4篇)</span>
 	</a>
 	</li>
     
@@ -34,7 +34,7 @@
     	<li style="list-style-image:url('../assets/category.png');">
 	<a href="#Python">
 	<span>Python</span>
-	<span>(9篇)</span>
+	<span>(8篇)</span>
 	</a>
 	</li>
     
@@ -98,6 +98,13 @@
 	Linux
 	</h2>
 	<ul>
+		
+			<li style="list-style-image:url('../assets/paper.png');">
+			2020 Nov 22 - 
+			<a href="/X-Window-System">
+        			X Window System 
+        		</a>
+			</li>
 		
 			<li style="list-style-image:url('../assets/paper.png');">
 			2020 Nov 10 - 
@@ -173,13 +180,6 @@
 			2020 Oct 16 - 
 			<a href="/Python%E5%AE%B9%E5%99%A8%E7%AF%87-5-%E9%9B%86%E5%90%88">
         			Python容器篇 5 -- 集合 
-        		</a>
-			</li>
-		
-			<li style="list-style-image:url('../assets/paper.png');">
-			2020 Oct 16 - 
-			<a href="/Python%E5%AE%B9%E5%99%A8%E7%AF%87-4-%E5%AD%97%E5%85%B8">
-        			Python容器篇 4 -- 字典 
         		</a>
 			</li>
 		

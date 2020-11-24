@@ -1,4 +1,4 @@
-I"�<h3 id="ip地址的作用">IP地址的作用</h3>
+I"�<h3 id="ip地址的作用">IP地址的作用</h3>
 <blockquote>
   <p>在网络中标识唯一主机</p>
 </blockquote>
@@ -111,7 +111,7 @@ E类: 240-254 	科研使用
 所在网段有多少个可用的IP地址?<br />
 <code class="language-plaintext highlighter-rouge">从1-254 一共254个可用 (0和255除外)</code><br />
 该网段的广播地址是什么?<br />
-<code class="language-plaintext highlighter-rouge">10.1.1.255  (网段里的所有人)&lt;br&gt;</code></p>
+<code class="language-plaintext highlighter-rouge">10.1.1.255  (网段里的所有人)</code><br /></p>
 </blockquote>
 
 <h3 id="例题2">例题2</h3>
