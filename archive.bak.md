@@ -11,7 +11,7 @@ title: Archive
     {% if currentyear == firstpostyear %}
         <h2>今年的随笔</h2>
     {% else %}  
-        <h2>{{ firstpostyear }}</h2>
+        <h2>{{ firstpostyear }}年的随笔</h2>
     {% endif %}
     
     {%for post in site.posts %}
@@ -22,7 +22,7 @@ title: Archive
         {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
         {% if year != nyear %}
           </ul>
-          <h3>{{ post.date | date: '%Y' }}</h3>
+          <h2>{{ post.date | date: '%Y' }}年的随笔</h3>
           <ul>
         {% endif %}
       {% endunless %}
