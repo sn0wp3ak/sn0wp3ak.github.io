@@ -1,0 +1,5 @@
+I"�<p>Shell脚本中定义变量的格式:<br /></p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">var_name</span><span class="o">=</span><span class="s2">"string"</span>
+</code></pre></div></div>
+<p>跟大多数编程语言不同, Shell变量的赋值号(=)的左右两边<strong>不能有空格符</strong>;<br /></p>
+:ET

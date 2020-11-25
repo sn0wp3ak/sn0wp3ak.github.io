@@ -1,0 +1,79 @@
+I"�<h2 id="变量的定义">变量的定义</h2>
+<p>Shell脚本中定义变量的格式:<br /></p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">var_name</span><span class="o">=</span><span class="s2">"string"</span>
+</code></pre></div></div>
+<p>跟大多数编程语言不同, Shell变量的赋值号 <code class="language-plaintext highlighter-rouge">=</code> 的左右两边<strong>不能有空格符</strong>;<br /></p>
+
+<p>变量的命名规则:<br /></p>
+<blockquote>
+  <ol>
+    <li>英文字母, 数字和下划线组成; 首字母不能是数字;<br /></li>
+    <li>变量名中间不能包含空格; 一般使用下划线连接;<br /></li>
+    <li>标点符号禁用;<br /></li>
+    <li>bash中的关键字不能使用, 保留的关键字可以通过 <code class="language-plaintext highlighter-rouge">help</code> 指令查看;<br /></li>
+  </ol>
+</blockquote>
+
+<p>隐式地给变量命名:<br /></p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for </span>file <span class="k">in</span> <span class="sb">`</span><span class="nb">ls</span> /etc<span class="sb">`</span> 
+或者
+<span class="k">for </span>file <span class="k">in</span> <span class="si">$(</span><span class="nb">ls</span> /etc<span class="si">)</span>
+</code></pre></div></div>
+<p>这两个语句都是把 <code class="language-plaintext highlighter-rouge">/etc</code> 下的文件名循环遍历出来在赋值给变量 <code class="language-plaintext highlighter-rouge">file</code><br /></p>
+
+<hr />
+
+<h2 id="变量的使用">变量的使用</h2>
+
+<p>在要使用的变量名前面加 <code class="language-plaintext highlighter-rouge">$</code> 就能使用变量了;<br /></p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">var_name</span><span class="o">=</span><span class="s2">"string"</span>
+<span class="nb">echo</span> <span class="nv">$var_name</span>
+<span class="nb">echo</span> <span class="k">${</span><span class="nv">var_name</span><span class="k">}</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">花括号</code>更加严谨, 是个很好的Shell编程习惯, <code class="language-plaintext highlighter-rouge">建议使用</code>养成良好的编程风格;<br />
+注意: 给变量二次赋值时, 不能用 <code class="language-plaintext highlighter-rouge">$</code> 引用, 直接使用变量名修改变量值<br /></p>
+
+<hr />
+
+<h2 id="只读变量">只读变量</h2>
+
+<p>只读 --&gt; readonly<br />
+只读变量的特点是不能被修改<br /></p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">ro_var</span><span class="o">=</span><span class="s2">"this variable is readonly"</span>
+<span class="nb">readonly </span>ro_var
+<span class="nv">ro_var</span><span class="o">=</span><span class="s2">"do chage"</span>
+</code></pre></div></div>
+<p>报错<br /></p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash: ro_var: <span class="nb">readonly </span>variable
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="变量的删除">变量的删除</h2>
+
+<p><code class="language-plaintext highlighter-rouge">unset</code> 命令<br /></p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">unset </span>var_name
+</code></pre></div></div>
+<p>注意: unset不能删除只读变量<br /></p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">a</span><span class="o">=</span><span class="s2">"aaaa"</span>
+<span class="nb">readonly </span>a
+<span class="nb">unset </span>a
+</code></pre></div></div>
+<p>报错<br /></p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash: <span class="nb">unset</span>: a: cannot <span class="nb">unset</span>: <span class="nb">readonly </span>variable
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="运行shell脚本时的变量类型">运行Shell脚本时的变量类型</h2>
+
+<p>3种变量:<br /></p>
+<blockquote>
+  <ol>
+    <li>局部变量: 在shell脚本中定义的或是在命令行下定义的变量, 作用域为当前shell实例, 其他的shell启动的程序不能访问局部变量;<br /></li>
+    <li>环境变量: 所有程序都能访问, 在shell脚本文件中也能定义环境变量;<br /></li>
+    <li>shell变量: shell应用程序本身设置的一些特殊变量, 有的是局部变量, 另一部分则是环境变量, 保证shell应用程序的正常运行;<br /></li>
+  </ol>
+</blockquote>
+
+:ET

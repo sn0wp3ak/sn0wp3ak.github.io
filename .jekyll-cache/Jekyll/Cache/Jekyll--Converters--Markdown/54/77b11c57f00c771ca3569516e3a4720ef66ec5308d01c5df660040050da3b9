@@ -1,0 +1,13 @@
+I"<p>CI/CD也是一种方法论; 在应用程序开发阶段, 通过引入<code class="language-plaintext highlighter-rouge">自动化</code>的方式来频繁地向客户交付的一种方法。<br /></p>
+
+<blockquote>
+  <p>CI: Continuous Integration(持续集成)<br />
+CD: Continuous Delivery(持续交付)<br />
+	Continuous Deployment(持续部署)<br /></p>
+</blockquote>
+
+<p>集成: 可以简单的理解为合并代码;<br />
+交付: 将测试过的代码发布到存储库<br />
+部署: 将应用代码发布到生产环境<br /></p>
+
+:ET

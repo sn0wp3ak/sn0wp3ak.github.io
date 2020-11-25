@@ -1,0 +1,14 @@
+I"�<p>字符串变量: 单引号, 双引号 或者 不用引号;<br /></p>
+<h2 id="单引号">单引号</h2>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">str</span><span class="o">=</span><span class="s1">'hello world'</span>
+</code></pre></div></div>
+<p>特点:<br /></p>
+<blockquote>
+  <ol>
+    <li>单引号中的任何字符都会原封不动的输出, 也就是说 <code class="language-plaintext highlighter-rouge">$</code> 就是 $ 而不能引用变量的值;<br /></li>
+    <li>单引号字符串中不能再出现单独的一个单引号, 但是可以成对出现;<br /></li>
+  </ol>
+</blockquote>
+
+:ET

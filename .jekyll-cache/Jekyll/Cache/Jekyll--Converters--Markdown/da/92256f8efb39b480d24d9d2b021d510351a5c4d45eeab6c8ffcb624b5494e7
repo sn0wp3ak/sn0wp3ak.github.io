@@ -1,0 +1,28 @@
+I"}<h2 id="变量的定义">变量的定义</h2>
+<p>Shell脚本中定义变量的格式:<br /></p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">var_name</span><span class="o">=</span><span class="s2">"string"</span>
+</code></pre></div></div>
+<p>跟大多数编程语言不同, Shell变量的赋值号 <code class="language-plaintext highlighter-rouge">=</code> 的左右两边<strong>不能有空格符</strong>;<br /></p>
+
+<p>变量的命名规则:<br /></p>
+<blockquote>
+  <ol>
+    <li>英文字母, 数字和下划线组成; 首字母不能是数字;<br /></li>
+    <li>变量名中间不能包含空格; 一般使用下划线连接;<br /></li>
+    <li>标点符号禁用;<br /></li>
+    <li>bash中的关键字不能使用, 保留的关键字可以通过 <code class="language-plaintext highlighter-rouge">help</code> 指令查看;<br /></li>
+  </ol>
+</blockquote>
+
+<p>隐式地给变量命名:<br /></p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for </span>file <span class="k">in</span> <span class="sb">`</span><span class="nb">ls</span> /etc<span class="sb">`</span> 
+或者
+<span class="k">for </span>file <span class="k">in</span> <span class="si">$(</span><span class="nb">ls</span> /etc<span class="si">)</span>
+</code></pre></div></div>
+<p>这两个语句都是把 <code class="language-plaintext highlighter-rouge">/etc</code> 下的文件名循环遍历出来在赋值给变量 <code class="language-plaintext highlighter-rouge">file</code><br /></p>
+
+<hr />
+
+<h2 id="变量的使用">变量的使用</h2>
+
+:ET
