@@ -7,17 +7,17 @@
 
 .highlight {
 
-  $plaintext: $alto !default;
-  $string: $green !default;
-  $literal: $purple !default;
-  $keyword: #458588 !default;
+  $plaintext: #d4d4d4 !default;
+  $string: #ce9178 !default;
+  $literal: #b5cea8 !default;
+  $keyword: #569cd6 !default;
   $error-foreground: $cod-grey !default;
   $error-background: $apple-blossom !default;
-  $comment: $grey !default;
+  $comment: #608b4e !default;
   $preprocessor: $rajah !default;
-  $name-space: $rajah !default;
+  $name-space: #d4d4d4 !default;
   $name-attribute: $hippie-blue !default;
-  $operator: $yellow !default;
+  $operator: #d4d4d4 !default;
   $keyword-type: $raw-sienna !default;
   $regex: $gulf-stream !default;
   $string-escape: $potters-clay !default;
@@ -57,8 +57,11 @@
     color: $header;
     font-weight: bold;
   }
-  .k,  .kn,  .kp,  .kr,  .kv {
+  .k,  .kp,  .kr,  .kv {
     color: $keyword;
+  }
+   .kn {
+    color: #569cd6;
   }
   .kc, .kt, .kd {
       color: $keyword-type;
