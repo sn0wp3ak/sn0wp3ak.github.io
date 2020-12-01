@@ -1,0 +1,26 @@
+I"�<p><strong>用户身份:</strong><br /></p>
+<ol>
+  <li>管理员 administrator (root)</li>
+  <li>系统用户 system</li>
+  <li>普通用户 <br /></li>
+</ol>
+
+<p>管理员 != 名字叫root<br />
+管理员 == <code class="language-plaintext highlighter-rouge">'UID=0'</code><br /></p>
+
+<p>UID是Linux系统中用户身份的<strong>唯一标识</strong>(不可重复)<br />
+UID=0才是判断该用户为管理员的依据!<br /></p>
+
+<p><strong>UID的范围</strong><br /></p>
+<blockquote>
+  <ol>
+    <li>root用户 UID=0;<br /></li>
+    <li>系统用户 UID=1~999;<br /></li>
+    <li>普通用户 UID=1000~…;<br /></li>
+  </ol>
+</blockquote>
+
+<p>在Linux操作系统中创建新用户时, 默认情况下会为该用户自动创建一个同名的基本组;<br />
+一个用户只有一个基本组, 用户之后加入的其他的组成为扩展组, 用户可加入的扩展组数量不做限制;<br /></p>
+
+:ET

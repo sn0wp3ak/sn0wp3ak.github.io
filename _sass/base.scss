@@ -149,10 +149,10 @@ blockquote {
 }
 
 pre {
-  background: #1e1e1e;
+  background: #181818;
   padding: 10px;
   font-size: 18px;
-  color: #1e1e1e;
+  color: #181818;
   border-radius: 2px;
   text-wrap: normal;
   overflow: auto;
@@ -161,7 +161,7 @@ pre {
 
 code.highlighter-rouge {
   background: $bg;
-  color: $red;
+  color: $pink;
 }
 
 table {
@@ -183,8 +183,8 @@ td {
 hr {
   height: 0;
   border: 0;
-  border-bottom: 2px solid $blue;
-  color: $aqua;
+  border-bottom: 2px solid $yelloworange;
+  color: $yelloworange;
 }
 
 /* Buttons
