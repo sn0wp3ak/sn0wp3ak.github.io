@@ -1,0 +1,1490 @@
+I"Jm<blockquote>
+  <p>ASCII<br />
+American Standard Code for Information Interchange<br />
+美国信息交换标准代码<br />
+至今为止定义了128个字符 (序号:0-127)<br />
+2^7=128<br />
+7位二进制数字表示<br />
+<br /></p>
+</blockquote>
+
+<blockquote>
+  <p>EASCII（Extended ASCII)<br />
+延伸美国标准信息交换码<br />
+在128个ASCII码的基础上, 又增加了128个新字符, 也就是EASCII一共定义了256个字符 (序号: 0-255)<br />
+2^8=256<br />
+8位二进制数字表示<br /></p>
+</blockquote>
+
+<p><strong>ASCII从能否显示的角度分为2大类:</strong></p>
+
+<ol>
+  <li>控制字符(不能显示) 33个</li>
+  <li>可显示字符 95个</li>
+</ol>
+
+<p><strong>控制字符</strong>主要是用来操作已经处理过的字符的, 也就是删除, 取消, 确认, 回车. 转义等功能性的字符<br />
+而且在这些控制字符中, 有大半部分已经被弃用了<br />
+控制字符的在ASCII码表中的序号是: 0-31号和127号 <br />
+其中127号字符是DELETE字符, 对应你键盘上的DELETE键<br />
+虽然控制字符不能显示出来, 但是却可以输入, 在绝大部分的终端系统中, 输入<code class="language-plaintext highlighter-rouge">Ctrl+对应键盘字符</code>就能输入控制字符<br />
+例如: 我想输入NULL空字符, 根据ASCII码的脱出字符表示法<code class="language-plaintext highlighter-rouge">^@</code>, 需要按键盘的<code class="language-plaintext highlighter-rouge">Ctrl</code>键+<code class="language-plaintext highlighter-rouge">2</code>号数字键而并不是敲<code class="language-plaintext highlighter-rouge">Shift+6+2</code> <br /></p>
+
+<p><strong>可显示字符</strong>， 使用频率远远大于控制字符<br />
+但是95个字符的数量决定了ASCII码只能显示：<strong>阿拉伯数字, 英文字母和英语标点符号</strong><br />
+<strong>细数一下：</strong><br />
+26个小写英文字母 + 26个大写英文字母 = 52个字符<br />
+阿拉伯数字0-9 = 10个字符<br />
+个人觉得标点符号值得比较值得展示一下 <br />
+95 - 52 -10 = 32个标点符号<br /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+ - * /       加减乘除4个
+, . ; &lt;space&gt; 分隔符号4个
+()[]{}        括号类6个
+' " `         引号类3个
+&amp; | ！        逻辑符号3个
+？            通配符号1个
+\             转义符号1个
+% ^           取模乘方2个
+&gt; &lt; =         比较符号3个
+$             变量符号1个
+#             注释符号1个
+_ :           下划冒号2个
+~             波浪符号1个
+4+4+6+3+3+1+1+2+3+1+1+2+1
+20+4+3+5=32
+</code></pre></div></div>
+<p><strong>给一张初代ASCII码表的官方图(1968年版)</strong><br /></p>
+
+<p><img src="https://raw.githubusercontent.com/sn0wp3ak/images/main/for-my-blog/USASCII_code_chart.png" alt="" /></p>
+
+<p>从b1,b2…一直到b7, 也就是二进制位数只有7位<br />
+查表的顺序是从b7到b1代表二进制编号<br />
+列开始顺序查找, 也就是先从第0列第0行开始, 到第7列第15行结束<br />
+这张表尤其适合查找字符的16进制编号<br /></p>
+
+<p><strong>控制符表</strong><br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>二进制</th>
+      <th>十进制</th>
+      <th>十六进制</th>
+      <th>缩写</th>
+      <th>名称／意义</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0000 0000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NUL</td>
+      <td>空字符（Null）</td>
+    </tr>
+    <tr>
+      <td>0000 0001</td>
+      <td>1</td>
+      <td>1</td>
+      <td>SOH</td>
+      <td>标题开始</td>
+    </tr>
+    <tr>
+      <td>0000 0010</td>
+      <td>2</td>
+      <td>2</td>
+      <td>STX</td>
+      <td>本文开始</td>
+    </tr>
+    <tr>
+      <td>0000 0011</td>
+      <td>3</td>
+      <td>3</td>
+      <td>ETX</td>
+      <td>本文结束</td>
+    </tr>
+    <tr>
+      <td>0000 0100</td>
+      <td>4</td>
+      <td>4</td>
+      <td>EOT</td>
+      <td>传输结束</td>
+    </tr>
+    <tr>
+      <td>0000 0101</td>
+      <td>5</td>
+      <td>5</td>
+      <td>ENQ</td>
+      <td>请求</td>
+    </tr>
+    <tr>
+      <td>0000 0110</td>
+      <td>6</td>
+      <td>6</td>
+      <td>ACK</td>
+      <td>确认回应</td>
+    </tr>
+    <tr>
+      <td>0000 0111</td>
+      <td>7</td>
+      <td>7</td>
+      <td>BEL</td>
+      <td>响铃</td>
+    </tr>
+    <tr>
+      <td>0000 1000</td>
+      <td>8</td>
+      <td>8</td>
+      <td>BS</td>
+      <td>退格</td>
+    </tr>
+    <tr>
+      <td>0000 1001</td>
+      <td>9</td>
+      <td>9</td>
+      <td>HT</td>
+      <td>水平定位符号</td>
+    </tr>
+    <tr>
+      <td>0000 1010</td>
+      <td>10</td>
+      <td>0A</td>
+      <td>LF</td>
+      <td>换行键</td>
+    </tr>
+    <tr>
+      <td>0000 1011</td>
+      <td>11</td>
+      <td>0B</td>
+      <td>VT</td>
+      <td>垂直定位符号</td>
+    </tr>
+    <tr>
+      <td>0000 1100</td>
+      <td>12</td>
+      <td>0C</td>
+      <td>FF</td>
+      <td>换页键</td>
+    </tr>
+    <tr>
+      <td>0000 1101</td>
+      <td>13</td>
+      <td>0D</td>
+      <td>CR</td>
+      <td>CR (字符)</td>
+    </tr>
+    <tr>
+      <td>0000 1110</td>
+      <td>14</td>
+      <td>0E</td>
+      <td>SO</td>
+      <td>取消变换（Shift out）</td>
+    </tr>
+    <tr>
+      <td>0000 1111</td>
+      <td>15</td>
+      <td>0F</td>
+      <td>SI</td>
+      <td>启用变换（Shift in）</td>
+    </tr>
+    <tr>
+      <td>0001 0000</td>
+      <td>16</td>
+      <td>10</td>
+      <td>DLE</td>
+      <td>跳出数据通讯</td>
+    </tr>
+    <tr>
+      <td>0001 0001</td>
+      <td>17</td>
+      <td>11</td>
+      <td>DC1</td>
+      <td>设备控制一（XON 激活软件速度控制）</td>
+    </tr>
+    <tr>
+      <td>0001 0010</td>
+      <td>18</td>
+      <td>12</td>
+      <td>DC2</td>
+      <td>设备控制二</td>
+    </tr>
+    <tr>
+      <td>0001 0011</td>
+      <td>19</td>
+      <td>13</td>
+      <td>DC3</td>
+      <td>设备控制三（XOFF 停用软件速度控制）</td>
+    </tr>
+    <tr>
+      <td>0001 0100</td>
+      <td>20</td>
+      <td>14</td>
+      <td>DC4</td>
+      <td>设备控制四</td>
+    </tr>
+    <tr>
+      <td>0001 0101</td>
+      <td>21</td>
+      <td>15</td>
+      <td>NAK</td>
+      <td>确认失败回应</td>
+    </tr>
+    <tr>
+      <td>0001 0110</td>
+      <td>22</td>
+      <td>16</td>
+      <td>SYN</td>
+      <td>同步用暂停</td>
+    </tr>
+    <tr>
+      <td>0001 0111</td>
+      <td>23</td>
+      <td>17</td>
+      <td>ETB</td>
+      <td>区块传输结束</td>
+    </tr>
+    <tr>
+      <td>0001 1000</td>
+      <td>24</td>
+      <td>18</td>
+      <td>CAN</td>
+      <td>取消</td>
+    </tr>
+    <tr>
+      <td>0001 1001</td>
+      <td>25</td>
+      <td>19</td>
+      <td>EM</td>
+      <td>连线介质中断</td>
+    </tr>
+    <tr>
+      <td>0001 1010</td>
+      <td>26</td>
+      <td>1A</td>
+      <td>SUB</td>
+      <td>替换</td>
+    </tr>
+    <tr>
+      <td>0001 1011</td>
+      <td>27</td>
+      <td>1B</td>
+      <td>ESC</td>
+      <td>退出键</td>
+    </tr>
+    <tr>
+      <td>0001 1100</td>
+      <td>28</td>
+      <td>1C</td>
+      <td>FS</td>
+      <td>文件分割符</td>
+    </tr>
+    <tr>
+      <td>0001 1101</td>
+      <td>29</td>
+      <td>1D</td>
+      <td>GS</td>
+      <td>组群分隔符</td>
+    </tr>
+    <tr>
+      <td>0001 1110</td>
+      <td>30</td>
+      <td>1E</td>
+      <td>RS</td>
+      <td>记录分隔符</td>
+    </tr>
+    <tr>
+      <td>0001 1111</td>
+      <td>31</td>
+      <td>1F</td>
+      <td>US</td>
+      <td>单元分隔符</td>
+    </tr>
+    <tr>
+      <td>0111 1111</td>
+      <td>127</td>
+      <td>7F</td>
+      <td>DEL</td>
+      <td>Delete字符</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>可显示字符表</strong><br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>二进制</th>
+      <th>十进制</th>
+      <th>十六进制</th>
+      <th>字符</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0010 0000</td>
+      <td>32</td>
+      <td>20</td>
+      <td>(space)</td>
+    </tr>
+    <tr>
+      <td>0010 0001</td>
+      <td>33</td>
+      <td>21</td>
+      <td>!</td>
+    </tr>
+    <tr>
+      <td>0010 0010</td>
+      <td>34</td>
+      <td>22</td>
+      <td>”</td>
+    </tr>
+    <tr>
+      <td>0010 0011</td>
+      <td>35</td>
+      <td>23</td>
+      <td>#</td>
+    </tr>
+    <tr>
+      <td>0010 0100</td>
+      <td>36</td>
+      <td>24</td>
+      <td>$</td>
+    </tr>
+    <tr>
+      <td>0010 0101</td>
+      <td>37</td>
+      <td>25</td>
+      <td>%</td>
+    </tr>
+    <tr>
+      <td>0010 0110</td>
+      <td>38</td>
+      <td>26</td>
+      <td>&amp;</td>
+    </tr>
+    <tr>
+      <td>0010 0111</td>
+      <td>39</td>
+      <td>27</td>
+      <td>’</td>
+    </tr>
+    <tr>
+      <td>0010 1000</td>
+      <td>40</td>
+      <td>28</td>
+      <td>(</td>
+    </tr>
+    <tr>
+      <td>0010 1001</td>
+      <td>41</td>
+      <td>29</td>
+      <td>)</td>
+    </tr>
+    <tr>
+      <td>0010 1010</td>
+      <td>42</td>
+      <td>2A</td>
+      <td>*</td>
+    </tr>
+    <tr>
+      <td>0010 1011</td>
+      <td>43</td>
+      <td>2B</td>
+      <td>+</td>
+    </tr>
+    <tr>
+      <td>0010 1100</td>
+      <td>44</td>
+      <td>2C</td>
+      <td>,</td>
+    </tr>
+    <tr>
+      <td>0010 1101</td>
+      <td>45</td>
+      <td>2D</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>0010 1110</td>
+      <td>46</td>
+      <td>2E</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>0010 1111</td>
+      <td>47</td>
+      <td>2F</td>
+      <td>/</td>
+    </tr>
+    <tr>
+      <td>0011 0000</td>
+      <td>48</td>
+      <td>30</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>0011 0001</td>
+      <td>49</td>
+      <td>31</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>0011 0010</td>
+      <td>50</td>
+      <td>32</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>0011 0011</td>
+      <td>51</td>
+      <td>33</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>0011 0100</td>
+      <td>52</td>
+      <td>34</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>0011 0101</td>
+      <td>53</td>
+      <td>35</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>0011 0110</td>
+      <td>54</td>
+      <td>36</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>0011 0111</td>
+      <td>55</td>
+      <td>37</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>0011 1000</td>
+      <td>56</td>
+      <td>38</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>0011 1001</td>
+      <td>57</td>
+      <td>39</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>0011 1010</td>
+      <td>58</td>
+      <td>3A</td>
+      <td>:</td>
+    </tr>
+    <tr>
+      <td>0011 1011</td>
+      <td>59</td>
+      <td>3B</td>
+      <td>;</td>
+    </tr>
+    <tr>
+      <td>0011 1100</td>
+      <td>60</td>
+      <td>3C</td>
+      <td>&lt;</td>
+    </tr>
+    <tr>
+      <td>0011 1101</td>
+      <td>61</td>
+      <td>3D</td>
+      <td>=</td>
+    </tr>
+    <tr>
+      <td>0011 1110</td>
+      <td>62</td>
+      <td>3E</td>
+      <td>&gt;</td>
+    </tr>
+    <tr>
+      <td>0011 1111</td>
+      <td>63</td>
+      <td>3F</td>
+      <td>?</td>
+    </tr>
+    <tr>
+      <td>0100 0000</td>
+      <td>64</td>
+      <td>40</td>
+      <td>@</td>
+    </tr>
+    <tr>
+      <td>0100 0001</td>
+      <td>65</td>
+      <td>41</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td>0100 0010</td>
+      <td>66</td>
+      <td>42</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <td>0100 0011</td>
+      <td>67</td>
+      <td>43</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <td>0100 0100</td>
+      <td>68</td>
+      <td>44</td>
+      <td>D</td>
+    </tr>
+    <tr>
+      <td>0100 0101</td>
+      <td>69</td>
+      <td>45</td>
+      <td>E</td>
+    </tr>
+    <tr>
+      <td>0100 0110</td>
+      <td>70</td>
+      <td>46</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <td>0100 0111</td>
+      <td>71</td>
+      <td>47</td>
+      <td>G</td>
+    </tr>
+    <tr>
+      <td>0100 1000</td>
+      <td>72</td>
+      <td>48</td>
+      <td>H</td>
+    </tr>
+    <tr>
+      <td>0100 1001</td>
+      <td>73</td>
+      <td>49</td>
+      <td>I</td>
+    </tr>
+    <tr>
+      <td>0100 1010</td>
+      <td>74</td>
+      <td>4A</td>
+      <td>J</td>
+    </tr>
+    <tr>
+      <td>0100 1011</td>
+      <td>75</td>
+      <td>4B</td>
+      <td>K</td>
+    </tr>
+    <tr>
+      <td>0100 1100</td>
+      <td>76</td>
+      <td>4C</td>
+      <td>L</td>
+    </tr>
+    <tr>
+      <td>0100 1101</td>
+      <td>77</td>
+      <td>4D</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <td>0100 1110</td>
+      <td>78</td>
+      <td>4E</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>0100 1111</td>
+      <td>79</td>
+      <td>4F</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td>0101 0000</td>
+      <td>80</td>
+      <td>50</td>
+      <td>P</td>
+    </tr>
+    <tr>
+      <td>0101 0001</td>
+      <td>81</td>
+      <td>51</td>
+      <td>Q</td>
+    </tr>
+    <tr>
+      <td>0101 0010</td>
+      <td>82</td>
+      <td>52</td>
+      <td>R</td>
+    </tr>
+    <tr>
+      <td>0101 0011</td>
+      <td>83</td>
+      <td>53</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <td>0101 0100</td>
+      <td>84</td>
+      <td>54</td>
+      <td>T</td>
+    </tr>
+    <tr>
+      <td>0101 0101</td>
+      <td>85</td>
+      <td>55</td>
+      <td>U</td>
+    </tr>
+    <tr>
+      <td>0101 0110</td>
+      <td>86</td>
+      <td>56</td>
+      <td>V</td>
+    </tr>
+    <tr>
+      <td>0101 0111</td>
+      <td>87</td>
+      <td>57</td>
+      <td>W</td>
+    </tr>
+    <tr>
+      <td>0101 1000</td>
+      <td>88</td>
+      <td>58</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <td>0101 1001</td>
+      <td>89</td>
+      <td>59</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>0101 1010</td>
+      <td>90</td>
+      <td>5A</td>
+      <td>Z</td>
+    </tr>
+    <tr>
+      <td>0101 1011</td>
+      <td>91</td>
+      <td>5B</td>
+      <td>[</td>
+    </tr>
+    <tr>
+      <td>0101 1100</td>
+      <td>92</td>
+      <td>5C</td>
+      <td>\</td>
+    </tr>
+    <tr>
+      <td>0101 1101</td>
+      <td>93</td>
+      <td>5D</td>
+      <td>]</td>
+    </tr>
+    <tr>
+      <td>0101 1110</td>
+      <td>94</td>
+      <td>5E</td>
+      <td>^</td>
+    </tr>
+    <tr>
+      <td>0101 1111</td>
+      <td>95</td>
+      <td>5F</td>
+      <td>_</td>
+    </tr>
+    <tr>
+      <td>0110 0000</td>
+      <td>96</td>
+      <td>60</td>
+      <td>`</td>
+    </tr>
+    <tr>
+      <td>0110 0001</td>
+      <td>97</td>
+      <td>61</td>
+      <td>a</td>
+    </tr>
+    <tr>
+      <td>0110 0010</td>
+      <td>98</td>
+      <td>62</td>
+      <td>b</td>
+    </tr>
+    <tr>
+      <td>0110 0011</td>
+      <td>99</td>
+      <td>63</td>
+      <td>c</td>
+    </tr>
+    <tr>
+      <td>0110 0100</td>
+      <td>100</td>
+      <td>64</td>
+      <td>d</td>
+    </tr>
+    <tr>
+      <td>0110 0101</td>
+      <td>101</td>
+      <td>65</td>
+      <td>e</td>
+    </tr>
+    <tr>
+      <td>0110 0110</td>
+      <td>102</td>
+      <td>66</td>
+      <td>f</td>
+    </tr>
+    <tr>
+      <td>0110 0111</td>
+      <td>103</td>
+      <td>67</td>
+      <td>g</td>
+    </tr>
+    <tr>
+      <td>0110 1000</td>
+      <td>104</td>
+      <td>68</td>
+      <td>h</td>
+    </tr>
+    <tr>
+      <td>0110 1001</td>
+      <td>105</td>
+      <td>69</td>
+      <td>i</td>
+    </tr>
+    <tr>
+      <td>0110 1010</td>
+      <td>106</td>
+      <td>6A</td>
+      <td>j</td>
+    </tr>
+    <tr>
+      <td>0110 1011</td>
+      <td>107</td>
+      <td>6B</td>
+      <td>k</td>
+    </tr>
+    <tr>
+      <td>0110 1100</td>
+      <td>108</td>
+      <td>6C</td>
+      <td>l</td>
+    </tr>
+    <tr>
+      <td>0110 1101</td>
+      <td>109</td>
+      <td>6D</td>
+      <td>m</td>
+    </tr>
+    <tr>
+      <td>0110 1110</td>
+      <td>110</td>
+      <td>6E</td>
+      <td>n</td>
+    </tr>
+    <tr>
+      <td>0110 1111</td>
+      <td>111</td>
+      <td>6F</td>
+      <td>o</td>
+    </tr>
+    <tr>
+      <td>0111 0000</td>
+      <td>112</td>
+      <td>70</td>
+      <td>p</td>
+    </tr>
+    <tr>
+      <td>0111 0001</td>
+      <td>113</td>
+      <td>71</td>
+      <td>q</td>
+    </tr>
+    <tr>
+      <td>0111 0010</td>
+      <td>114</td>
+      <td>72</td>
+      <td>r</td>
+    </tr>
+    <tr>
+      <td>0111 0011</td>
+      <td>115</td>
+      <td>73</td>
+      <td>s</td>
+    </tr>
+    <tr>
+      <td>0111 0100</td>
+      <td>116</td>
+      <td>74</td>
+      <td>t</td>
+    </tr>
+    <tr>
+      <td>0111 0101</td>
+      <td>117</td>
+      <td>75</td>
+      <td>u</td>
+    </tr>
+    <tr>
+      <td>0111 0110</td>
+      <td>118</td>
+      <td>76</td>
+      <td>v</td>
+    </tr>
+    <tr>
+      <td>0111 0111</td>
+      <td>119</td>
+      <td>77</td>
+      <td>w</td>
+    </tr>
+    <tr>
+      <td>0111 1000</td>
+      <td>120</td>
+      <td>78</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <td>0111 1001</td>
+      <td>121</td>
+      <td>79</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <td>0111 1010</td>
+      <td>122</td>
+      <td>7A</td>
+      <td>z</td>
+    </tr>
+    <tr>
+      <td>0111 1011</td>
+      <td>123</td>
+      <td>7B</td>
+      <td>{</td>
+    </tr>
+    <tr>
+      <td>0111 1100</td>
+      <td>124</td>
+      <td>7C</td>
+      <td>|</td>
+    </tr>
+    <tr>
+      <td>0111 1101</td>
+      <td>125</td>
+      <td>7D</td>
+      <td>}</td>
+    </tr>
+    <tr>
+      <td>0111 1110</td>
+      <td>126</td>
+      <td>7E</td>
+      <td>~</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>EASCII</strong><br />
+EASCII字符编码, 是把ASCII的7位二进制表示扩充到了8位<br />
+扩充出来的符号包括表格符号、计算符号、希腊字母和特殊的拉丁符号, 但还是仅收录了偏拉丁语的一系列国家的语言符号<br />
+ISO 8859 是最常见的8位字符编码。<br />
+除此之外，不同的操作系统都会有它的8位字符编码, 也就是说EASCII扩充的后半部分字符集在某些环境下是互不兼容的<br /></p>
+
+<p>ISO 8859 标准一共定义了15个字符集, 从1到16没有12, 分别去表示不同语言体系的语言字符<br /></p>
+
+<p><strong>ISO 8859-1 常用字符</strong><br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>字符</th>
+      <th>十六进制</th>
+      <th>十进制</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>A0</td>
+      <td>160</td>
+      <td>不换行空格（NBSP）</td>
+    </tr>
+    <tr>
+      <td>¡</td>
+      <td>A1</td>
+      <td>161</td>
+      <td>倒感叹号</td>
+    </tr>
+    <tr>
+      <td>¢</td>
+      <td>A2</td>
+      <td>162</td>
+      <td>英分</td>
+    </tr>
+    <tr>
+      <td>£</td>
+      <td>A3</td>
+      <td>163</td>
+      <td>英镑</td>
+    </tr>
+    <tr>
+      <td>¤</td>
+      <td>A4</td>
+      <td>164</td>
+      <td>货币记号</td>
+    </tr>
+    <tr>
+      <td>¥</td>
+      <td>A5</td>
+      <td>165</td>
+      <td>人民币/日元</td>
+    </tr>
+    <tr>
+      <td>¦</td>
+      <td>A6</td>
+      <td>166</td>
+      <td>断竖线</td>
+    </tr>
+    <tr>
+      <td>§</td>
+      <td>A7</td>
+      <td>167</td>
+      <td>小节符</td>
+    </tr>
+    <tr>
+      <td>¨</td>
+      <td>A8</td>
+      <td>168</td>
+      <td>分音符（元音变音）</td>
+    </tr>
+    <tr>
+      <td>©</td>
+      <td>A9</td>
+      <td>169</td>
+      <td>著作权符</td>
+    </tr>
+    <tr>
+      <td>ª</td>
+      <td>AA</td>
+      <td>170</td>
+      <td>阴性序数记号</td>
+    </tr>
+    <tr>
+      <td>«</td>
+      <td>AB</td>
+      <td>171</td>
+      <td>左指双尖引号</td>
+    </tr>
+    <tr>
+      <td>¬</td>
+      <td>AC</td>
+      <td>172</td>
+      <td>非标记</td>
+    </tr>
+    <tr>
+      <td>­</td>
+      <td>AD</td>
+      <td>173</td>
+      <td>选择性连接号（SHY）</td>
+    </tr>
+    <tr>
+      <td>®</td>
+      <td>AE</td>
+      <td>174</td>
+      <td>注册商标</td>
+    </tr>
+    <tr>
+      <td>¯</td>
+      <td>AF</td>
+      <td>175</td>
+      <td>长音符</td>
+    </tr>
+    <tr>
+      <td>°</td>
+      <td>B0</td>
+      <td>176</td>
+      <td>度</td>
+    </tr>
+    <tr>
+      <td>±</td>
+      <td>B1</td>
+      <td>177</td>
+      <td>正负号</td>
+    </tr>
+    <tr>
+      <td>²</td>
+      <td>B2</td>
+      <td>178</td>
+      <td>二次方号</td>
+    </tr>
+    <tr>
+      <td>³</td>
+      <td>B3</td>
+      <td>179</td>
+      <td>三次方号</td>
+    </tr>
+    <tr>
+      <td>´</td>
+      <td>B4</td>
+      <td>180</td>
+      <td>锐音符</td>
+    </tr>
+    <tr>
+      <td>µ</td>
+      <td>B5</td>
+      <td>181</td>
+      <td>微符</td>
+    </tr>
+    <tr>
+      <td>¶</td>
+      <td>B6</td>
+      <td>182</td>
+      <td>段落标记</td>
+    </tr>
+    <tr>
+      <td>·</td>
+      <td>B7</td>
+      <td>183</td>
+      <td>中心点</td>
+    </tr>
+    <tr>
+      <td>¸</td>
+      <td>B8</td>
+      <td>184</td>
+      <td>软音符</td>
+    </tr>
+    <tr>
+      <td>¹</td>
+      <td>B9</td>
+      <td>185</td>
+      <td>一次方号</td>
+    </tr>
+    <tr>
+      <td>º</td>
+      <td>BA</td>
+      <td>186</td>
+      <td>阳性序数记号</td>
+    </tr>
+    <tr>
+      <td>»</td>
+      <td>BB</td>
+      <td>187</td>
+      <td>右指双尖引号</td>
+    </tr>
+    <tr>
+      <td>¼</td>
+      <td>BC</td>
+      <td>188</td>
+      <td>四分之一</td>
+    </tr>
+    <tr>
+      <td>½</td>
+      <td>BD</td>
+      <td>189</td>
+      <td>二分之一</td>
+    </tr>
+    <tr>
+      <td>¾</td>
+      <td>BE</td>
+      <td>190</td>
+      <td>四分之三</td>
+    </tr>
+    <tr>
+      <td>¿</td>
+      <td>BF</td>
+      <td>191</td>
+      <td>竖翻问号</td>
+    </tr>
+    <tr>
+      <td>À</td>
+      <td>C0</td>
+      <td>192</td>
+      <td>带抑音符的A</td>
+    </tr>
+    <tr>
+      <td>Á</td>
+      <td>C1</td>
+      <td>193</td>
+      <td>带锐音符的A</td>
+    </tr>
+    <tr>
+      <td>Â</td>
+      <td>C2</td>
+      <td>194</td>
+      <td>带扬抑符的A</td>
+    </tr>
+    <tr>
+      <td>Ã</td>
+      <td>C3</td>
+      <td>195</td>
+      <td>带颚化符的A</td>
+    </tr>
+    <tr>
+      <td>Ä</td>
+      <td>C4</td>
+      <td>196</td>
+      <td>带分音符的A</td>
+    </tr>
+    <tr>
+      <td>Å</td>
+      <td>C5</td>
+      <td>197</td>
+      <td>带上圆圈的A</td>
+    </tr>
+    <tr>
+      <td>Æ</td>
+      <td>C6</td>
+      <td>198</td>
+      <td>大写连字AE</td>
+    </tr>
+    <tr>
+      <td>Ç</td>
+      <td>C7</td>
+      <td>199</td>
+      <td>带下加符的C</td>
+    </tr>
+    <tr>
+      <td>È</td>
+      <td>C8</td>
+      <td>200</td>
+      <td>带抑音符的E</td>
+    </tr>
+    <tr>
+      <td>É</td>
+      <td>C9</td>
+      <td>201</td>
+      <td>带锐音符的E</td>
+    </tr>
+    <tr>
+      <td>Ê</td>
+      <td>CA</td>
+      <td>202</td>
+      <td>带扬抑符的E</td>
+    </tr>
+    <tr>
+      <td>Ë</td>
+      <td>CB</td>
+      <td>203</td>
+      <td>带分音符的E</td>
+    </tr>
+    <tr>
+      <td>Ì</td>
+      <td>CC</td>
+      <td>204</td>
+      <td>带抑音符的I</td>
+    </tr>
+    <tr>
+      <td>Í</td>
+      <td>CD</td>
+      <td>205</td>
+      <td>带锐音符的I</td>
+    </tr>
+    <tr>
+      <td>Î</td>
+      <td>CE</td>
+      <td>206</td>
+      <td>带扬抑符的I</td>
+    </tr>
+    <tr>
+      <td>Ï</td>
+      <td>CF</td>
+      <td>207</td>
+      <td>带分音符的I</td>
+    </tr>
+    <tr>
+      <td>Ð</td>
+      <td>D0</td>
+      <td>208</td>
+      <td>带横线符的D</td>
+    </tr>
+    <tr>
+      <td>Ñ</td>
+      <td>D1</td>
+      <td>209</td>
+      <td>带颚化符的N</td>
+    </tr>
+    <tr>
+      <td>Ò</td>
+      <td>D2</td>
+      <td>210</td>
+      <td>带抑音符的O</td>
+    </tr>
+    <tr>
+      <td>Ó</td>
+      <td>D3</td>
+      <td>211</td>
+      <td>带锐音符的O</td>
+    </tr>
+    <tr>
+      <td>Ô</td>
+      <td>D4</td>
+      <td>212</td>
+      <td>带扬抑符的O</td>
+    </tr>
+    <tr>
+      <td>Õ</td>
+      <td>D5</td>
+      <td>213</td>
+      <td>带颚化符的O</td>
+    </tr>
+    <tr>
+      <td>Ö</td>
+      <td>D6</td>
+      <td>214</td>
+      <td>带分音符的O</td>
+    </tr>
+    <tr>
+      <td>×</td>
+      <td>D7</td>
+      <td>215</td>
+      <td>乘号</td>
+    </tr>
+    <tr>
+      <td>Ø</td>
+      <td>D8</td>
+      <td>216</td>
+      <td>带斜线的O</td>
+    </tr>
+    <tr>
+      <td>Ù</td>
+      <td>D9</td>
+      <td>217</td>
+      <td>带抑音符的U</td>
+    </tr>
+    <tr>
+      <td>Ú</td>
+      <td>DA</td>
+      <td>218</td>
+      <td>带锐音符的U</td>
+    </tr>
+    <tr>
+      <td>Û</td>
+      <td>DB</td>
+      <td>219</td>
+      <td>带扬抑符的U</td>
+    </tr>
+    <tr>
+      <td>Ü</td>
+      <td>DC</td>
+      <td>220</td>
+      <td>带分音符的U</td>
+    </tr>
+    <tr>
+      <td>Ý</td>
+      <td>DD</td>
+      <td>221</td>
+      <td>带锐音符的Y</td>
+    </tr>
+    <tr>
+      <td>Þ</td>
+      <td>DE</td>
+      <td>222</td>
+      <td>清音p</td>
+    </tr>
+    <tr>
+      <td>ß</td>
+      <td>DF</td>
+      <td>223</td>
+      <td>清音s</td>
+    </tr>
+    <tr>
+      <td>à</td>
+      <td>E0</td>
+      <td>224</td>
+      <td>带抑音符的a</td>
+    </tr>
+    <tr>
+      <td>á</td>
+      <td>E1</td>
+      <td>225</td>
+      <td>带锐音符的a</td>
+    </tr>
+    <tr>
+      <td>â</td>
+      <td>E2</td>
+      <td>226</td>
+      <td>带扬抑符的a</td>
+    </tr>
+    <tr>
+      <td>ã</td>
+      <td>E3</td>
+      <td>227</td>
+      <td>带颚化符的a</td>
+    </tr>
+    <tr>
+      <td>ä</td>
+      <td>E4</td>
+      <td>228</td>
+      <td>带分音符的a</td>
+    </tr>
+    <tr>
+      <td>å</td>
+      <td>E5</td>
+      <td>229</td>
+      <td>带上圆圈的a</td>
+    </tr>
+    <tr>
+      <td>æ</td>
+      <td>E6</td>
+      <td>230</td>
+      <td>小写连字AE</td>
+    </tr>
+    <tr>
+      <td>ç</td>
+      <td>E7</td>
+      <td>231</td>
+      <td>带下加符的c</td>
+    </tr>
+    <tr>
+      <td>è</td>
+      <td>E8</td>
+      <td>232</td>
+      <td>带抑音符的e</td>
+    </tr>
+    <tr>
+      <td>é</td>
+      <td>E9</td>
+      <td>233</td>
+      <td>带锐音符的e</td>
+    </tr>
+    <tr>
+      <td>ê</td>
+      <td>EA</td>
+      <td>234</td>
+      <td>带扬抑符的e</td>
+    </tr>
+    <tr>
+      <td>ë</td>
+      <td>EB</td>
+      <td>235</td>
+      <td>带分音符的e</td>
+    </tr>
+    <tr>
+      <td>ì</td>
+      <td>EC</td>
+      <td>236</td>
+      <td>带抑音符的i</td>
+    </tr>
+    <tr>
+      <td>í</td>
+      <td>ED</td>
+      <td>237</td>
+      <td>带锐音符的i</td>
+    </tr>
+    <tr>
+      <td>î</td>
+      <td>EE</td>
+      <td>238</td>
+      <td>带扬抑符的i</td>
+    </tr>
+    <tr>
+      <td>ï</td>
+      <td>EF</td>
+      <td>239</td>
+      <td>带分音符的i</td>
+    </tr>
+    <tr>
+      <td>ð</td>
+      <td>F0</td>
+      <td>240</td>
+      <td>带斜线的d</td>
+    </tr>
+    <tr>
+      <td>ñ</td>
+      <td>F1</td>
+      <td>241</td>
+      <td>带颚化符的n</td>
+    </tr>
+    <tr>
+      <td>ò</td>
+      <td>F2</td>
+      <td>242</td>
+      <td>带抑音符的o</td>
+    </tr>
+    <tr>
+      <td>ó</td>
+      <td>F3</td>
+      <td>243</td>
+      <td>带锐音符的o</td>
+    </tr>
+    <tr>
+      <td>ô</td>
+      <td>F4</td>
+      <td>244</td>
+      <td>带扬抑符的o</td>
+    </tr>
+    <tr>
+      <td>õ</td>
+      <td>F5</td>
+      <td>245</td>
+      <td>带颚化符的o</td>
+    </tr>
+    <tr>
+      <td>ö</td>
+      <td>F6</td>
+      <td>246</td>
+      <td>带分音符的o</td>
+    </tr>
+    <tr>
+      <td>÷</td>
+      <td>F7</td>
+      <td>247</td>
+      <td>除号</td>
+    </tr>
+    <tr>
+      <td>ø</td>
+      <td>F8</td>
+      <td>248</td>
+      <td>带斜线的o</td>
+    </tr>
+    <tr>
+      <td>ù</td>
+      <td>F9</td>
+      <td>249</td>
+      <td>带抑音符的u</td>
+    </tr>
+    <tr>
+      <td>ú</td>
+      <td>FA</td>
+      <td>250</td>
+      <td>带锐音符的u</td>
+    </tr>
+    <tr>
+      <td>û</td>
+      <td>FB</td>
+      <td>251</td>
+      <td>带扬抑符的u</td>
+    </tr>
+    <tr>
+      <td>ü</td>
+      <td>FC</td>
+      <td>252</td>
+      <td>带分音符的u</td>
+    </tr>
+    <tr>
+      <td>ý</td>
+      <td>FD</td>
+      <td>253</td>
+      <td>带锐音符的y</td>
+    </tr>
+    <tr>
+      <td>þ</td>
+      <td>FE</td>
+      <td>254</td>
+      <td>小写字母Thorn</td>
+    </tr>
+  </tbody>
+</table>
+:ET

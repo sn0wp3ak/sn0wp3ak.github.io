@@ -15,7 +15,7 @@ title: Category
 	</li>
     {% endfor %}
 </ul>
-<div>
+</div>
 <br>
 <hr />
 <br>
@@ -35,7 +35,7 @@ title: Category
 		{% endfor %}
 	</ul>
 {% endfor %}
-<div>
+</div>
 
 
 
