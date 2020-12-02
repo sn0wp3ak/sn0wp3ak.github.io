@@ -1,0 +1,70 @@
+I"�
+<h1 id="用户">用户</h1>
+<p><strong>用户身份:</strong><br /></p>
+<ol>
+  <li>管理员 administrator (root)</li>
+  <li>系统用户 system</li>
+  <li>普通用户 <br /></li>
+</ol>
+
+<p>管理员 != 名字叫root<br />
+管理员 == <code class="language-plaintext highlighter-rouge">'UID=0'</code><br /></p>
+
+<p>UID是Linux系统中用户身份的<strong>唯一标识</strong>(不可重复)<br />
+UID=0才是判断该用户为管理员的依据!<br /></p>
+
+<p><strong>UID的范围</strong><br /></p>
+<blockquote>
+  <ol>
+    <li>root用户 UID=<code class="language-plaintext highlighter-rouge">0</code>;<br /></li>
+    <li>系统用户 UID=<code class="language-plaintext highlighter-rouge">1~999</code>;<br /></li>
+    <li>普通用户 UID=<code class="language-plaintext highlighter-rouge">1000~...</code>;<br /></li>
+  </ol>
+</blockquote>
+
+<p>在有些版本比较早的Linux系统中系统用户和普通用户的分界线是500而不是1000, 不过普通用户的UID从500还是1000开始并不是特别重要, 系统在创建新用户时会自动推移, 如果非要指定用户的UID, 建议还是从1000往后取;<br /></p>
+
+<p><strong>与用户帐号相关的2个重要文件</strong>: <br /></p>
+
+<blockquote>
+  <ol>
+    <li>/etc/passwd : UID和GID等用户重要参数;<br /></li>
+    <li>/etc/shadow : 密码相关的数据;<br /></li>
+  </ol>
+</blockquote>
+
+<p><strong>/etc/passwd的文件结构:</strong><br /></p>
+
+<blockquote>
+  <ol>
+    <li>用户名;<br /></li>
+    <li>密码占位符 x (<code class="language-plaintext highlighter-rouge">/etc/shadow</code>); <br /></li>
+    <li>UID | 用户ID;<br /></li>
+    <li>GID | 组ID (<code class="language-plaintext highlighter-rouge">/etc/group</code>); <br /></li>
+    <li>用户说明 | 对用户账户的用途和意义的简单描述;<br /></li>
+    <li>家目录 | 用户的主要工作目录;<br /></li>
+    <li>终端解释器 | 用户的shell;<br /></li>
+  </ol>
+</blockquote>
+
+<p><strong>/etc/shadow的文件结构:</strong><br /></p>
+
+<blockquote>
+  <ol>
+    <li>用户名;<br /></li>
+    <li>加密过的密码;<br /></li>
+    <li>最近一次更新密码的日期 | 时间戳的形式;<br /></li>
+    <li>密码不能重新更改的天数 | 0 则可以随便改动;<br /></li>
+    <li>密码必须重新改动的天数 | 99999 则永远不会强制更改;<br /></li>
+    <li>密码需要到期更改的提前警告天数;<br /></li>
+    <li>密码过期之后的宽限天数 | 密码过期后几天之内还是可以登录, 但是会强制修改密码;<br /></li>
+    <li>密码失效日期 | 超过此日期(时间戳)后, 你的帐号就再也无法登录使用了;<br /></li>
+    <li>保留字段;<br /></li>
+  </ol>
+</blockquote>
+
+<h1 id="组">组</h1>
+
+<p><strong>与组有关的2个重要文件:</strong><br /></p>
+
+:ET

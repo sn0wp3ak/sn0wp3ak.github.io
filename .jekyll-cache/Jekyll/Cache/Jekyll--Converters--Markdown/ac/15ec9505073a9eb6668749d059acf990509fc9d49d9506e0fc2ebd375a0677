@@ -1,0 +1,50 @@
+I"0<p><strong>用户身份:</strong><br /></p>
+<ol>
+  <li>管理员 administrator (root)</li>
+  <li>系统用户 system</li>
+  <li>普通用户 <br /></li>
+</ol>
+
+<p>管理员 != 名字叫root<br />
+管理员 == <code class="language-plaintext highlighter-rouge">'UID=0'</code><br /></p>
+
+<p>UID是Linux系统中用户身份的<strong>唯一标识</strong>(不可重复)<br />
+UID=0才是判断该用户为管理员的依据!<br /></p>
+
+<p><strong>UID的范围</strong><br /></p>
+<blockquote>
+  <ol>
+    <li>root用户 UID=<code class="language-plaintext highlighter-rouge">0</code>;<br /></li>
+    <li>系统用户 UID=<code class="language-plaintext highlighter-rouge">1~999</code>;<br /></li>
+    <li>普通用户 UID=<code class="language-plaintext highlighter-rouge">1000~...</code>;<br /></li>
+  </ol>
+</blockquote>
+
+<p>在Linux操作系统中<strong>创建新用户</strong>时, 默认情况下会为该用户自动创建一个同名的<strong>基本组</strong>;<br />
+一个用户<code class="language-plaintext highlighter-rouge">只有一个</code>基本组, 用户之后加入的其他的组称为用户的<strong>扩展组</strong>, 用户可加入的扩展组数量不做限制;<br /></p>
+
+<p>与用户帐号相关的<strong>2个重要文件</strong>: <br /></p>
+
+<blockquote>
+  <ol>
+    <li>/etc/passwd : UID和GID等用户重要参数;<br /></li>
+    <li>/etc/shadow : 密码相关的数据;<br /></li>
+  </ol>
+</blockquote>
+
+<p><strong><code class="language-plaintext highlighter-rouge">useradd</code></strong><br />
+<strong>创建新用户</strong><br /></p>
+
+<p>作为Linux操作系统中的一个用户, 拥有的一些重要特性:<br /></p>
+
+<blockquote>
+  <ol>
+    <li>家目录 | 默认在 /home 下创建和用户同名的家目录;<br /></li>
+    <li>终端解释器 | 默认是 /bin/bash ;<br /></li>
+    <li>基本组 | 默认创建同名基本组;<br /></li>
+    <li>扩展组 | 需要手动指定;<br /></li>
+    <li>UID | 可以手动指定, 如果不指定根据现有的用户自动生成;<br /></li>
+    <li>用户账户的到期时间 |</li>
+  </ol>
+</blockquote>
+:ET
