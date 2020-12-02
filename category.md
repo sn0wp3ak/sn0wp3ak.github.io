@@ -7,7 +7,7 @@ title: Category
 
 <ul>
     {% for category in site.categories %}
-    	<li style="list-style-image:url('../assets/category.png');">
+    	<li class="category">
 	<a href="#{{ category[0] }}">
 	<span>{{ category[0] }}</span>
 	<span>({{ category[1] | size }}篇)</span>
@@ -26,7 +26,7 @@ title: Category
 	</h2>
 	<ul>
 		{% for post in category[1] %}
-			<li style="list-style-image:url('../assets/paper.png');">
+			<li class="file">
 			{{ post.date | date:"%Y %b %d" }} - 
 			<a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}">
         			{{ post.title }} 

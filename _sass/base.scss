@@ -268,3 +268,15 @@ a:active, a:focus {
 #wrapper {
   min-height: calc(100vh - 100px);
 }
+
+.file {
+  list-style-image:url('../assets/file.png');
+}
+
+.category {
+  list-style-image:url('../assets/category.png');
+}
+
+.tag {
+  list-style-image:url('../assets/tag.png');
+}
