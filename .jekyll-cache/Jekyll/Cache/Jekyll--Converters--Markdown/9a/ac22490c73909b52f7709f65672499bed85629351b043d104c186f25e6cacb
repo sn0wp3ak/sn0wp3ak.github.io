@@ -1,0 +1,80 @@
+I"C<h2 id="连接类">连接类</h2>
+<ul>
+  <li>TCP 3389
+    <blockquote>
+      <p>远程桌面(RDP)<br />
+Remote Desktop Protocol<br /></p>
+    </blockquote>
+  </li>
+  <li>TCP 23
+    <blockquote>
+      <p>Telnet<br /></p>
+    </blockquote>
+  </li>
+  <li>TCP 22
+    <blockquote>
+      <p>SSH服务<br />
+Secure Shell<br /></p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="文件传输类">文件传输类</h2>
+<ul>
+  <li>TCP/UDP 445
+    <blockquote>
+      <p>共享服务<br />
+SMB<br /></p>
+    </blockquote>
+  </li>
+  <li>TCP 20/21
+    <blockquote>
+      <p>FTP服务<br /></p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="基础服务类">基础服务类</h2>
+<ul>
+  <li>UDP 67/68
+    <blockquote>
+      <p>DHCP服务<br /></p>
+    </blockquote>
+  </li>
+  <li>TCP/UDP 53
+    <blockquote>
+      <p>DNS服务<br /></p>
+    </blockquote>
+  </li>
+  <li>TCP 80
+    <blockquote>
+      <p>HTTP服务<br /></p>
+    </blockquote>
+  </li>
+  <li>TCP 443
+    <blockquote>
+      <p>HTTPS服务<br /></p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="数据库类">数据库类</h2>
+<ul>
+  <li>TCP 3306
+    <blockquote>
+      <p>MySQL数据库<br /></p>
+    </blockquote>
+  </li>
+  <li>TCP 6379
+    <blockquote>
+      <p>Redis数据库<br /></p>
+    </blockquote>
+  </li>
+  <li>TCP 27017
+    <blockquote>
+      <p>MongoDB数据库<br /></p>
+    </blockquote>
+  </li>
+</ul>
+
+:ET

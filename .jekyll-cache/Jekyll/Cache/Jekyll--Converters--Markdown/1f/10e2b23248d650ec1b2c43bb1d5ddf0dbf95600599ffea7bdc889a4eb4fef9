@@ -1,106 +1,98 @@
-I"<div>
+I"�<div>
 <h2>分类</h2>
 
 <ul>
     
-    	
     	<li class="category">
 	<a href="#MySQL">
 	<span>MySQL</span>
 	<span>(1篇)</span>
 	</a>
 	</li>
-	
     
-    	
     	<li class="category">
 	<a href="#Authentication">
 	<span>Authentication</span>
 	<span>(1篇)</span>
 	</a>
 	</li>
-	
     
-    	
     	<li class="category">
 	<a href="#Algorithm">
 	<span>Algorithm</span>
 	<span>(2篇)</span>
 	</a>
 	</li>
-	
     
-    	
     	<li class="category">
 	<a href="#Network">
 	<span>Network</span>
 	<span>(1篇)</span>
 	</a>
 	</li>
-	
     
-    	
     	<li class="category">
 	<a href="#Linux">
 	<span>Linux</span>
 	<span>(5篇)</span>
 	</a>
 	</li>
-	
     
-    	
     	<li class="category">
 	<a href="#PenTest">
 	<span>PenTest</span>
 	<span>(3篇)</span>
 	</a>
 	</li>
-	
     
-    	
     	<li class="category">
 	<a href="#Python">
 	<span>Python</span>
 	<span>(9篇)</span>
 	</a>
 	</li>
-	
     
-    	
     	<li class="category">
 	<a href="#Charset">
 	<span>Charset</span>
 	<span>(1篇)</span>
 	</a>
 	</li>
-	
     
-    	
     	<li class="category">
 	<a href="#Docker">
 	<span>Docker</span>
 	<span>(3篇)</span>
 	</a>
 	</li>
-	
     
-    	
     	<li class="category">
 	<a href="#Shell">
 	<span>Shell</span>
 	<span>(3篇)</span>
 	</a>
 	</li>
-	
     
-    	
     	<li class="category">
 	<a href="#DEVOPS">
 	<span>DEVOPS</span>
 	<span>(1篇)</span>
 	</a>
 	</li>
-	
+    
+    	<li class="category">
+	<a href="#Word">
+	<span>Word</span>
+	<span>(1篇)</span>
+	</a>
+	</li>
+    
+    	<li class="category">
+	<a href="#Port">
+	<span>Port</span>
+	<span>(1篇)</span>
+	</a>
+	</li>
     
 </ul>
 </div>
@@ -110,7 +102,6 @@
 <p><br /></p>
 <div>
 
-	
 	<h2 id="MySQL">
 	MySQL
 	</h2>
@@ -124,9 +115,7 @@
 			</li>
 		
 	</ul>
-	
 
-	
 	<h2 id="Authentication">
 	Authentication
 	</h2>
@@ -140,9 +129,7 @@
 			</li>
 		
 	</ul>
-	
 
-	
 	<h2 id="Algorithm">
 	Algorithm
 	</h2>
@@ -163,9 +150,7 @@
 			</li>
 		
 	</ul>
-	
 
-	
 	<h2 id="Network">
 	Network
 	</h2>
@@ -179,9 +164,7 @@
 			</li>
 		
 	</ul>
-	
 
-	
 	<h2 id="Linux">
 	Linux
 	</h2>
@@ -223,9 +206,7 @@
 			</li>
 		
 	</ul>
-	
 
-	
 	<h2 id="PenTest">
 	PenTest
 	</h2>
@@ -253,9 +234,7 @@
 			</li>
 		
 	</ul>
-	
 
-	
 	<h2 id="Python">
 	Python
 	</h2>
@@ -325,9 +304,7 @@
 			</li>
 		
 	</ul>
-	
 
-	
 	<h2 id="Charset">
 	Charset
 	</h2>
@@ -341,9 +318,7 @@
 			</li>
 		
 	</ul>
-	
 
-	
 	<h2 id="Docker">
 	Docker
 	</h2>
@@ -371,9 +346,7 @@
 			</li>
 		
 	</ul>
-	
 
-	
 	<h2 id="Shell">
 	Shell
 	</h2>
@@ -401,9 +374,7 @@
 			</li>
 		
 	</ul>
-	
 
-	
 	<h2 id="DEVOPS">
 	DEVOPS
 	</h2>
@@ -417,7 +388,34 @@
 			</li>
 		
 	</ul>
-	
+
+	<h2 id="Word">
+	Word
+	</h2>
+	<ul>
+		
+			<li class="file">
+			2020 Dec 02 - 
+			<a href="/word-linux">
+        			Linux Word 
+        		</a>
+			</li>
+		
+	</ul>
+
+	<h2 id="Port">
+	Port
+	</h2>
+	<ul>
+		
+			<li class="file">
+			2020 Dec 03 - 
+			<a href="/%E7%AB%AF%E5%8F%A3%E5%8F%B7%E5%A4%A7%E5%85%A8">
+        			端口号大全 
+        		</a>
+			</li>
+		
+	</ul>
 
 </div>
 

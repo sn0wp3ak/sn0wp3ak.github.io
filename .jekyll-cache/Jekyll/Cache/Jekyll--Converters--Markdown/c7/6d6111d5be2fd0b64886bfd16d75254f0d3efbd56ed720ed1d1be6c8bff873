@@ -107,7 +107,7 @@ UID=0才是判断该用户为管理员的依据!<br /></p>
 <p>假设user用户既在A组里也在B组里, user同时拥有A, B两个用户组的权限<br />
 对于<strong>已经存在的</strong>属于A,B组其他组员的文件, user可以根据文件所属组的权限去做rwx操作;<br />
 <code class="language-plaintext highlighter-rouge">但是如果此时user用户新建一个文件, 所属组的权限是A组还是B组呢?</code><br />
-那就要看user用户的<code class="language-plaintext highlighter-rouge">有效组</code>是那个组了.<br /></p>
+那就要看user用户的<code class="language-plaintext highlighter-rouge">有效组</code>是哪个组了.<br /></p>
 
 <blockquote>
   <p>初始组: 一般是用户同名的那个组, 用户一登录就自动获取该组的所有权限;<br />
