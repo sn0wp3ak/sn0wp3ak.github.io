@@ -1,0 +1,86 @@
+I"J<p>用户管理的几大方面:<br /></p>
+
+<blockquote>
+  <ol>
+    <li>添加用户</li>
+    <li>删除用户</li>
+    <li>密码管理</li>
+    <li>修改属性</li>
+  </ol>
+</blockquote>
+
+<hr />
+
+<h2 id="添加用户">添加用户</h2>
+<p>命令 <code class="language-plaintext highlighter-rouge">useradd</code><br /></p>
+
+<p>参考文件:</p>
+<ul>
+  <li>/etc/default/useradd</li>
+  <li>/etc/login.defs</li>
+  <li>/etc/skel/*</li>
+</ul>
+
+<p>常用参数:<br /></p>
+
+<blockquote>
+  <p>-u | 为用户指定UID<br />
+-g | 为用户指定初始组<br />
+-G | 为用户指定扩展组(次要组)<br />
+-N | 不给创建用户同名基本组<br />
+-c | 添加用户描述<br />
+-d | 为用户指定主文件夹(绝对路径)<br />
+-m | 强制创建主文件夹<br />
+-M | 强制不创建主文件夹<br />
+对于普通用户默认会创建主文件夹;<br />
+而对于系统用户则默认不给创建主文件夹<br />
+-r | 创建系统用户<br />
+-s | 指定用户的Shell<br />
+nologin作为shell的用户无法登录, 一般给系统用户指定/sbin/nologin<br />
+-e | 指定用户过期的时间 YYYY-MM-DD<br />
+-l | 用户永不失效<br />
+-f | 从密码过期之日到用户永久失效的宽限时间<br />
+0则代表一旦密码过期, 同一时间该用户也会永久失效<br /></p>
+</blockquote>
+
+<p>特殊参数:<br /></p>
+
+<blockquote>
+  <p>-D | 显示默认设置文件的内容(不使用参数创建用户的默认配置)<br />
+相关文件路径: /etc/default/useradd<br /></p>
+
+  <blockquote>
+    <p><code class="language-plaintext highlighter-rouge">GROUP=users</code><br />
+<code class="language-plaintext highlighter-rouge">HOME=/home</code><br />
+<code class="language-plaintext highlighter-rouge">INACTIVE=-1</code><br />
+<code class="language-plaintext highlighter-rouge">EXPIRE=</code><br />
+<code class="language-plaintext highlighter-rouge">SHELL=/bin/bash</code><br />
+<code class="language-plaintext highlighter-rouge">SKEL=/etc/skel</code><br />
+<code class="language-plaintext highlighter-rouge">CREATE_MAIL_SPOOL=no</code><br /></p>
+  </blockquote>
+
+  <p><code class="language-plaintext highlighter-rouge">GROUP</code>会给新创建的用户指定一个默认的用户组, <br />
+然而是否参考这条默认设置则会因采用的用户组机制的不同而有所区别!<br /></p>
+
+  <blockquote>
+    <p>私有用户组机制: 不会参考GROUP这条配置;<br />
+公有用户组机制: 会参考GROUP配置;<br /></p>
+  </blockquote>
+
+  <p>不同的Linux发行版会采用不同的用户组机制<br />
+RHEL, Fedora, CentOS 采用私有用户组机制, 添加新用户时不参考GROUP配置<br />
+而SuSE等发行版则使用公有用户组机制, 会把users这个公有组作为新用户的初始组<br />
+公有组users的成员, 其主文件夹默认权限是drwxr-xr-x<br />
+<code class="language-plaintext highlighter-rouge">HOME</code>主文件夹存放的目录<br />
+<code class="language-plaintext highlighter-rouge">INACTIVE</code>代表密码过期后的宽限时间<br />
+-1代表即使密码过期但永远不会失效, 随时可以使用原密码登录, 但可能会强制修改密码才能继续使用;<br />
+0代表密码过期后立即就失效, 在也不能使用原密码登录用户帐号了;<br />
+<code class="language-plaintext highlighter-rouge">EXPIRE</code>代表帐号失效日, 不管密码什么状态, 超过规定日期用户账户直接失效<br />
+<code class="language-plaintext highlighter-rouge">SHELL</code>代表默认Shell解释器<br />
+<code class="language-plaintext highlighter-rouge">SKEL</code>代表在创建用户主文件夹时参考的基准目录<br />
+这个目录下的所以东西, 新用户的主文件夹里也会复制一份<br />
+<code class="language-plaintext highlighter-rouge">CREATE_MAIL_SPOOL</code>代表是否创建邮件目录<br />
+邮件目录的位置: /var/spool/mail/用户名<br /></p>
+</blockquote>
+
+:ET
