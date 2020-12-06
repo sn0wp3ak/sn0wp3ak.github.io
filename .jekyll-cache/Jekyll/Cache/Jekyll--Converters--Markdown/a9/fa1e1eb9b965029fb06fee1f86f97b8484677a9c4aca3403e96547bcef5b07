@@ -1,0 +1,63 @@
+I"�<p>Linux组管理的几个方面:<br /></p>
+<ol>
+  <li>添加组</li>
+  <li>删除组</li>
+  <li>修改组的属性</li>
+  <li>组管理员</li>
+</ol>
+
+<hr />
+<h2 id="添加组">添加组</h2>
+
+<p>命令 <code class="language-plaintext highlighter-rouge">groupadd</code><br /></p>
+
+<p>常用参数:<br /></p>
+
+<blockquote>
+  <p>-g | 指定GID<br />
+-r | 创建系统组<br /></p>
+</blockquote>
+
+<hr />
+<h2 id="删除组">删除组</h2>
+
+<p>命令 <code class="language-plaintext highlighter-rouge">groupdel</code><br /></p>
+
+<p>如果有某个用户的初始组是该组, 则不能删除!<br /></p>
+
+<hr />
+<h2 id="修改组的属性">修改组的属性</h2>
+
+<p>命令 <code class="language-plaintext highlighter-rouge">groupmod</code><br /></p>
+
+<p>常用参数:<br /></p>
+
+<blockquote>
+  <p>-g | 修改GID<br />
+-n | 修改组名<br /></p>
+</blockquote>
+
+<hr />
+<h2 id="组管理员">组管理员</h2>
+
+<p>命令 <code class="language-plaintext highlighter-rouge">gpasswd</code><br /></p>
+
+<p>不加任何参数 <code class="language-plaintext highlighter-rouge">gpasswd 组名</code>, 表示给改组设置一个组密码(/etc/gshadow)<br /></p>
+
+<p>root 常用参数:<br /></p>
+
+<blockquote>
+  <p>-A | 指定组管理员<br />
+-M | 把多个用户加入该组<br />
+-r | 删除组密码<br />
+-R | 让组密码失效<br /></p>
+</blockquote>
+
+<p>组管理员常用参数:<br /></p>
+
+<blockquote>
+  <p>-a | 把某一个用户加入该组<br />
+-d | 把某一个用户踢出该组<br /></p>
+</blockquote>
+
+:ET
