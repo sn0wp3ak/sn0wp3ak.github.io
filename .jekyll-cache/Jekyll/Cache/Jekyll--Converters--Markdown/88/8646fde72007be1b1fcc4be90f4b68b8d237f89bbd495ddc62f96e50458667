@@ -1,0 +1,46 @@
+I"�<p><strong>批处理处理的是什么?</strong></p>
+
+<blockquote>
+  <p>DOS命令</p>
+</blockquote>
+
+<ul>
+  <li><strong>windows的批处理文件相当于linux的shell脚本</strong></li>
+</ul>
+
+<p><strong>创建批处理</strong></p>
+
+<blockquote>
+  <p>扩展名: <code class="language-plaintext highlighter-rouge">.bat</code></p>
+
+  <p>创建方式: 创建记事本修改扩展名</p>
+</blockquote>
+
+<p><strong>批处理语法</strong></p>
+
+<blockquote>
+  <p>暂停: <code class="language-plaintext highlighter-rouge">pause</code></p>
+
+  <p>关闭回显: <code class="language-plaintext highlighter-rouge">@echo off</code>  (屏蔽执行过程)</p>
+
+  <p>控制台颜色: <code class="language-plaintext highlighter-rouge">color 背景色 字体颜色</code> (<code class="language-plaintext highlighter-rouge">color 0a</code>: 黑底绿字)</p>
+
+  <blockquote>
+    <p>查看控制台支持的颜色 <code class="language-plaintext highlighter-rouge">color ?</code></p>
+  </blockquote>
+
+  <p>设置批处理程序标题: <code class="language-plaintext highlighter-rouge">title 标题</code></p>
+
+  <p>空一行: <code class="language-plaintext highlighter-rouge">echo.</code></p>
+
+  <p>定义命令区间: <code class="language-plaintext highlighter-rouge">:名字</code>  (仅仅定义,没有用,需要配合跳转命令)</p>
+
+  <blockquote>
+    <p>跳转命令区间: <code class="language-plaintext highlighter-rouge">goto 名字</code></p>
+  </blockquote>
+
+  <p>打开程序: <code class="language-plaintext highlighter-rouge">start 程序</code>  (不写默认打开 cmd)</p>
+
+  <p>if判断: <code class="language-plaintext highlighter-rouge">if 条件</code>  (可以配合goto使用)</p>
+</blockquote>
+:ET

@@ -1,0 +1,131 @@
+I"�<h1 id="虚拟机">虚拟机</h1>
+
+<p>windows服务器 2000/03/08/12</p>
+
+<p>虚拟机运行架构：</p>
+
+<blockquote>
+  <p>1.寄居架构</p>
+
+  <p>2.原生架构: 直接在硬件上安装虚拟机平台, 然后通过虚拟机平台虚拟出多个操作系统</p>
+</blockquote>
+
+<p>虚拟机产品：</p>
+
+<blockquote>
+  <p>1.VMware</p>
+
+  <ul>
+    <li>VMware Workstation（寄居）</li>
+    <li>VMware vSphere（原生）</li>
+  </ul>
+
+  <p>2.微软</p>
+
+  <ul>
+    <li>Hyper-V（寄居）</li>
+  </ul>
+
+  <p>3.甲骨文</p>
+
+  <ul>
+    <li>VirtualBox</li>
+  </ul>
+</blockquote>
+
+<p>生产环境主流的虚拟机架构</p>
+
+<blockquote>
+  <p>VMware vSphere</p>
+</blockquote>
+
+<p>复制虚拟机</p>
+
+<blockquote>
+  <p>window系统的点复制</p>
+
+  <p>linux系统的点移动</p>
+</blockquote>
+
+<p>安装虚拟机</p>
+
+<blockquote>
+  <p>windows系统的一率典型安装</p>
+
+  <p>linux系统的一率自定义安装</p>
+</blockquote>
+
+<p>文件系统</p>
+
+<blockquote>
+  <p>1.Windows:</p>
+
+  <ul>
+    <li>
+      <p>NTFS(新的)</p>
+    </li>
+    <li>
+      <p>FAT(旧的)</p>
+    </li>
+  </ul>
+</blockquote>
+
+<p>32位/64位</p>
+
+<blockquote>
+  <p>32位系统最多支持3.3GB内存,</p>
+
+  <p>在大内存时代,32位系统逐渐被淘汰</p>
+
+  <p>#一般来说XP没有64位中文版, 所有原来的</p>
+
+  <p>中文版XP系统一般都是32位的</p>
+</blockquote>
+
+<p>VMware克隆</p>
+
+<blockquote>
+  <ul>
+    <li>链接克隆(推荐)
+      <ul>
+        <li>空间占用小</li>
+        <li>依赖母体, 母体删除克隆体也失效</li>
+      </ul>
+    </li>
+    <li>完全克隆
+      <ul>
+        <li>空间占用大</li>
+        <li>不依赖母体</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<p>VMware网络适配器</p>
+
+<blockquote>
+  <p>自定义: 特定虚拟网络</p>
+
+  <p>相当于提供了20台<strong>虚拟的交换机</strong></p>
+
+  <p>不要使用0号</p>
+</blockquote>
+
+<p>部署系统步骤</p>
+
+<blockquote>
+  <p>1.安装虚拟机  推荐移除声卡和打印机  内存到合理范围最小</p>
+
+  <p>2.安装VMware tools</p>
+
+  <p>3.调出桌面图标  我的电脑 网上邻居</p>
+
+  <p>4.关闭防火墙和自动更新</p>
+
+  <p>5.更改计算机名称</p>
+
+  <p>6.关机做快照</p>
+
+  <p>7.克隆虚拟机</p>
+</blockquote>
+:ET

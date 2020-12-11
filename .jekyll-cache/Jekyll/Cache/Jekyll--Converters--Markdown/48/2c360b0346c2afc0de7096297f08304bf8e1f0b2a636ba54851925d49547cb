@@ -1,0 +1,12 @@
+I"�<ul>
+  <li>GUI 图形化用户接口 Graphic User Interface<br /></li>
+  <li>CLI 命令行接口 Command Line Interface<br />
+    <ul>
+      <li>TUI 文本用户接口 Text User Interface<br /></li>
+    </ul>
+  </li>
+  <li>API 应用程序编程接口 Application Programming Interface<br /></li>
+  <li>ABI 应用程序二进制接口 Application Binary Interface<br /></li>
+  <li>POSIX 可移植操作系统接口 Portable Operating System Interface<br /></li>
+</ul>
+:ET

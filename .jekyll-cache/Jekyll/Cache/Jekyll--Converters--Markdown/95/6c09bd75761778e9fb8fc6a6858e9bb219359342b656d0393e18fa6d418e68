@@ -1,0 +1,7 @@
+I"	<ol>
+  <li>Ethernet                     10Mb/s            十兆口</li>
+  <li>FastEthernet               100Mb/s          百兆口</li>
+  <li>GigabitEthernet          1000Mb/s        千兆口</li>
+  <li>TenGigabitEthernet     10000Mb/s      万兆口</li>
+</ol>
+:ET

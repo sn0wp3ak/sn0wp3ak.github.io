@@ -1,0 +1,13 @@
+I"�<p>API 应用程序编程接口<br />
+ABI 应用程序二进制接口<br /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>应用程序编程接口 Application programming interface
+    |
+    |--库调用接口 Library call interface
+    |        |
+    |        |    
+    `--操作系统调用接口 System call interface
+             |
+             `--硬件接口  Hardware interface
+</code></pre></div></div>
+:ET
