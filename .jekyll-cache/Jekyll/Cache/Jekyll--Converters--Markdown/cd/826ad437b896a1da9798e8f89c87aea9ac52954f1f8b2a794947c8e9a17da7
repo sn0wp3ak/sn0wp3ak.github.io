@@ -1,0 +1,111 @@
+I"�<ul>
+  <li>FHS
+    <ul>
+      <li>Filesystem Hierarchy Standard</li>
+      <li>文件系统层次化标准</li>
+    </ul>
+  </li>
+  <li>RAID
+    <ul>
+      <li>RedundantArrays of Inexpensive Disks</li>
+      <li>容错廉价磁盘阵列</li>
+    </ul>
+  </li>
+  <li>Quota
+    <ul>
+      <li>磁盘配额</li>
+    </ul>
+  </li>
+  <li>PAM
+    <ul>
+      <li>Pluggable Authentication Modules</li>
+      <li>插件式认证模块</li>
+    </ul>
+  </li>
+  <li>LVM
+    <ul>
+      <li>Logical Volume Manager</li>
+      <li>逻辑卷管理器</li>
+    </ul>
+  </li>
+  <li>ACL
+    <ul>
+      <li>Access Control List</li>
+      <li>访问控制列表</li>
+    </ul>
+  </li>
+  <li>MBR
+    <ul>
+      <li>Master Boot Record</li>
+      <li>主引导记录</li>
+    </ul>
+  </li>
+  <li>BIOS
+    <ul>
+      <li>Basic Input Output System</li>
+      <li>基本输入输出系统</li>
+    </ul>
+  </li>
+  <li>EXT
+    <ul>
+      <li>Extended File System</li>
+      <li>延伸文件系统</li>
+    </ul>
+  </li>
+  <li>VFS
+    <ul>
+      <li>Virtual Filesystem Switch</li>
+      <li>虚拟文件系统交换机</li>
+    </ul>
+  </li>
+  <li>SELinux
+    <ul>
+      <li>Security Enhanced Linux</li>
+      <li>安全强化的Linux</li>
+    </ul>
+  </li>
+  <li>DAC
+    <ul>
+      <li>Discretionary Access Control</li>
+      <li>自主访问控制</li>
+    </ul>
+  </li>
+  <li>MAC
+    <ul>
+      <li>Mandatory Access Control</li>
+      <li>强制访问控制</li>
+    </ul>
+  </li>
+  <li>RPM
+    <ul>
+      <li>RedHat Package Manager</li>
+      <li>红帽包管理器</li>
+    </ul>
+  </li>
+  <li>SRPM
+    <ul>
+      <li>Source RPM</li>
+      <li>提供的是源代码 Source Code</li>
+    </ul>
+  </li>
+  <li>DPKG
+    <ul>
+      <li>Debian Packager</li>
+      <li>Debian包管理工具</li>
+    </ul>
+  </li>
+  <li>YUM
+    <ul>
+      <li>Yellow dog Updater, Modified</li>
+      <li>解决RPM的软件包依赖问题</li>
+    </ul>
+  </li>
+  <li>CUPS
+    <ul>
+      <li>Common Unix Printing System</li>
+      <li>通用Unix打印系统</li>
+    </ul>
+  </li>
+</ul>
+
+:ET
