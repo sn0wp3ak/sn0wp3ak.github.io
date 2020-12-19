@@ -9,6 +9,5 @@ title: About
 `Education`: Bachelor of Science, Beijing University of Technology<br>
 `Focus`: Dev and Ops<br>
 `DesktopEnv`: ArchLinux with LightDM and OpenboxWM<br>
-`Editor`: Vim<br>
-`IDE`: Code - OSS<br>
+~~IDE:~~`Editor`: Vim<br>
 `Github`: [https://github.com/sn0wp3ak](https://github.com/sn0wp3ak)<br>
