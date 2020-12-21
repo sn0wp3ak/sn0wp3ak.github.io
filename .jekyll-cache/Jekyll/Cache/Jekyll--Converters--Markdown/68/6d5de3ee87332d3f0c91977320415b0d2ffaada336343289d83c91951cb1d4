@@ -1,4 +1,4 @@
-I"�<h1 id="概念">概念</h1>
+I"�<h1 id="概念">概念</h1>
 <p>什么是虚拟化?<br />
 以<code class="language-plaintext highlighter-rouge">一套</code>物理硬件设备为基础模拟出<code class="language-plaintext highlighter-rouge">多套</code>虚拟的硬件设备,<br />
 满足在一台设备上同时运行多个不同环境的技术。<br /></p>
@@ -14,4 +14,35 @@
 <p>打破了硬件资源的限制, 更加充分有效地去利用设备的硬件资源, 实现一机多用.<br />
 解决了硬件设备利用率不足和资源浪费的现象<br />
 减低了提供服务器资源的成本<br /></p>
+
+<h1 id="工作原理">工作原理</h1>
+
+<p>虚拟机监控程序Hypervisor负责分割和分配物理资源<br />
+而Hypervisor则有两种存在方式:</p>
+
+<blockquote>
+  <ol>
+    <li>Hypervisor作为主机操作系统之上安装的一个应用程序 -- 开发实验 (寄生架构)<br /></li>
+    <li>Hypervisor不依赖操作操作系统, 而是直接运行在硬件之上 -- 生产 (原生架构)<br /></li>
+  </ol>
+</blockquote>
+
+<h1 id="类型">类型</h1>
+<ol>
+  <li>数据虚拟化</li>
+  <li>操作系统虚拟化
+    <ul>
+      <li>一台机器部署多个虚拟客户机操作系统</li>
+    </ul>
+  </li>
+  <li>桌面虚拟化
+    <ul>
+      <li>自动化批量化向多台机器同时部署虚拟机操作系统</li>
+    </ul>
+  </li>
+  <li>服务器虚拟化</li>
+  <li>网络虚拟化</li>
+</ol>
+
+<p><strong>粗体测试</strong></p>
 :ET

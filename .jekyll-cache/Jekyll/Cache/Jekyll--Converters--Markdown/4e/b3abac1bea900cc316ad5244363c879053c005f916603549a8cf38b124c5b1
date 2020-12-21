@@ -1,4 +1,4 @@
-I"�<h1 id="概念">概念</h1>
+I"�<h1 id="概念">概念</h1>
 <p>什么是虚拟化?<br />
 以<code class="language-plaintext highlighter-rouge">一套</code>物理硬件设备为基础模拟出<code class="language-plaintext highlighter-rouge">多套</code>虚拟的硬件设备,<br />
 满足在一台设备上同时运行多个不同环境的技术。<br /></p>
@@ -22,8 +22,8 @@
 
 <blockquote>
   <ol>
-    <li>Hypervisor作为主机操作系统之上安装的一个应用程序 -- 开发实验<br /></li>
-    <li>Hypervisor不依赖操作操作系统, 而是直接运行在硬件之上 -- 生产<br /></li>
+    <li>Hypervisor作为主机操作系统之上安装的一个应用程序 -- 开发实验 (寄生架构)<br /></li>
+    <li>Hypervisor不依赖操作操作系统, 而是直接运行在硬件之上 -- 生产 (原生架构)<br /></li>
   </ol>
 </blockquote>
 
@@ -44,4 +44,5 @@
   <li>网络虚拟化</li>
 </ol>
 
+<p>==高亮测试==</p>
 :ET
