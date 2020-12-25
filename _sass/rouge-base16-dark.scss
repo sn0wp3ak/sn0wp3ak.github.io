@@ -7,13 +7,13 @@
 
 .highlight {
 
-  $plaintext: #3c3836 !default;
-  $string: #79740e !default;
-  $literal: #8f3f71 !default;
-  $keyword: #9d0006 !default;
+  $plaintext: $fg !default;
+  $string: $greg !default;
+  $literal: $lightseagreen !default;
+  $keyword: $blue !default;
   $error-foreground: $cod-grey !default;
   $error-background: $apple-blossom !default;
-  $comment: #928374 !default;
+  $comment: $slategreg !default;
   $preprocessor: $rajah !default;
   $name-space: $string !default;
   $name-attribute: $hippie-blue !default;
@@ -61,7 +61,7 @@
     color: $keyword;
   }
    .kn {
-    color: #076678;
+    color: $deepskyblue;
   }
   .kc, .kt, .kd {
       color: $keyword-type;
