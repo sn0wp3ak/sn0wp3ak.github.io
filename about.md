@@ -3,7 +3,7 @@ layout: page
 title: About
 ---
 <h2>关于我</h2><br>
-<img src="assets/avatar.gif" height=100 weight=100 style="border-radius:50%;background:#282828"><br>
+<img src="assets/avatar.png" height=100 weight=100><br>
 `Author`: sn0wp3ak<br>
 `Location`: Beijing, China<br>
 `Education`: Bachelor of Science, Beijing University of Technology<br>

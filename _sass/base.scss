@@ -70,7 +70,7 @@ header h1 {
   text-align: center;
   font-weight: bold;
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-  color: $orange;//$header;
+  color: $royalblue;//$header;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
                0 0 5px rgba(181, 232, 83, 0.1),
                0 0 10px rgba(181, 232, 83, 0.1);
@@ -98,7 +98,7 @@ section img {
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-  color: $orange;
+  color: $deepskyblue;
   letter-spacing: -0.03em;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
                0 0 5px rgba(181, 232, 83, 0.1),
@@ -161,7 +161,7 @@ pre {
 
 code.highlighter-rouge {
   background: $bg;
-  color: $purple;
+  color: $slateblue;
 }
 
 table {
@@ -171,20 +171,20 @@ table {
 
 th {
   text-align: left;
-  border-bottom: 1px solid $yellow;
+  border-bottom: 1px solid $slateblue;
   padding: 5px 10px;
 }
 
 td {
   padding: 5px 10px;
-  border-bottom: 1px solid $yellow;
+  border-bottom: 1px solid $slateblue;
 }
 
 hr {
   height: 0;
   border: 0;
-  border-bottom: 2px solid $yellow;
-  color: $yellow;
+  border-bottom: 2px solid $slateblue;
+  color: $slateblue;
 }
 
 /* Buttons
@@ -285,7 +285,11 @@ a:active, a:focus {
   list-style-image:url('../assets/word.png');
 }
 
+.map {
+  list-style-image:url('../assets/map.png');
+}
+
 strong {
-    background: $red;
+    background: $skyblue;
     border: 2px;
 }
