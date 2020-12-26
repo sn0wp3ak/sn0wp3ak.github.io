@@ -1,0 +1,66 @@
+I"�<p><strong>FTP服务器</strong></p>
+
+<blockquote>
+  <ol>
+    <li>
+      <p>File Transfor Protocol  文件传输协议</p>
+    </li>
+    <li>
+      <p>端口号:  <code class="language-plaintext highlighter-rouge">TCP 20/21</code></p>
+    </li>
+  </ol>
+
+</blockquote>
+
+<p><strong>FTP工作模式</strong></p>
+
+<blockquote>
+  <ol>
+    <li>主动(活动)模式
+      <ul>
+        <li>21端口: 控制端口</li>
+        <li>20端口: 数据端口</li>
+        <li>主动模式不建议在客户机开启防火墙时使用</li>
+        <li>在服务器开启防火墙并且固定开放21和20端口时, 适合用主动模式</li>
+        <li>服务器如果没开启防火墙则主动或被动都行</li>
+      </ul>
+    </li>
+    <li>被动模式
+      <ul>
+        <li>21端口：控制端口</li>
+        <li>随机端口: 数据端口</li>
+      </ul>
+    </li>
+    <li>主动和被动说的是服务器主动/被动向客户机提供资源</li>
+    <li>主动还是被动选择权在客户机, 是由客户机发起的</li>
+    <li>主被动模式说的是数据的传输过程</li>
+  </ol>
+</blockquote>
+
+<p><strong>FTP部署</strong></p>
+
+<blockquote>
+  <ul>
+    <li>默认FTP站点路径: <code class="language-plaintext highlighter-rouge">c:\Inetpub\ftproot</code>
+      <ol>
+        <li>配置静态IP</li>
+        <li>安装IIS-FTP插件</li>
+        <li>使用默认站点或者创建新的站点</li>
+        <li>禁用匿名访问</li>
+      </ol>
+    </li>
+  </ul>
+</blockquote>
+
+<p><strong>FTP最终权限</strong></p>
+
+<blockquote>
+  <ul>
+    <li>FTP权限和本地NTFS权限的交集∩
+      <ul>
+        <li>建议: FTP权限全选, 让NTFS权限决定最终权限</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+:ET

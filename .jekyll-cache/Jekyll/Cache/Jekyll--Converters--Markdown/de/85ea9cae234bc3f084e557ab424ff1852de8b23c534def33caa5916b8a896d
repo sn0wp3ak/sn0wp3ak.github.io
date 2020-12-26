@@ -1,0 +1,8 @@
+I"#<p>1.安装<br /></p>
+<ul>
+  <li>下载3个源码包 dwm|dmenu|st .tar.gz</li>
+  <li>在家目录～下面的.local/中mkdir applications/dwm</li>
+  <li>把3个源码包放到新建的目录中分别解压缩 tar zxvf</li>
+  <li>分别编译3个源码包 make | sudo make install</li>
+</ul>
+:ET

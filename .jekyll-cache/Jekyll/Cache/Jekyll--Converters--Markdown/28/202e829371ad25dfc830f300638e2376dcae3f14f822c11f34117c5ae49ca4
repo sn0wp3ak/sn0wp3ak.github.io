@@ -1,0 +1,58 @@
+I"<ol>
+  <li>安装
+    <ul>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>下载3个源码包 dwm</td>
+              <td>dmenu</td>
+              <td>st .tar.gz</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>在家目录～下面的.local/中mkdir applications/dwm</li>
+      <li>把3个源码包放到新建的目录中分别解压缩 tar zxvf</li>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>分别编译3个源码包 make</td>
+              <td>sudo make install</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </li>
+  <li>启动<br />
+两种方法, 用login界面选择桌面环境启动或者直接通过startx启动<br /></li>
+</ol>
+
+<ul>
+  <li>直接通过startx启动，需要先安装xorg-xinit，然后在家目录创建.xinitrc并写入exec dwm</li>
+  <li>用lightdm的登录界面选择启动环境, 需要新建一个dwm.desktop的xsession;
+    <ul>
+      <li>存放路径/usr/share/xsession</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Desktop Entry]
+Encoding=UTF-8
+Name=Dynamic Window Manger
+Comment=Runs the window manager defined by xsession script
+Exec=dwm
+Icon=dwm
+Type=XSession
+</code></pre></div></div>
+
+<ol>
+  <li>桌面背景
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nitrogen 
+nitrogen --restore
+</code></pre></div>    </div>
+  </li>
+</ol>
+:ET

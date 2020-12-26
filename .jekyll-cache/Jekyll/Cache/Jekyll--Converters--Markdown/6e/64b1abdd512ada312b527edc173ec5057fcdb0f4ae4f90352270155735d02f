@@ -1,0 +1,36 @@
+I"G<p><strong>制作u盘启动盘</strong></p>
+
+<blockquote>
+  <p>网上下载PE制作软件: 大白菜, 老毛桃…</p>
+
+  <p>一键制作</p>
+</blockquote>
+
+<p><strong>PE版本</strong></p>
+
+<blockquote>
+  <p>winxp, win7, win10…</p>
+
+  <p>推荐选择对应系统的版本</p>
+</blockquote>
+
+<p><strong>虚拟机使用CD当PE</strong></p>
+
+<blockquote>
+  <p>在虚拟机设置的CD项, 选择PE镜像</p>
+
+  <p>开机下拉菜单–&gt;打开电源时进入固件</p>
+
+  <p>BIOS–&gt;BOOT–&gt;把CD顺序拉到最上面(shift +)–&gt;F10保存</p>
+</blockquote>
+
+<p><strong>运行PE系统</strong></p>
+
+<blockquote>
+  <p>破解windows密码</p>
+
+  <p><code class="language-plaintext highlighter-rouge">c:\windows\system32\config\SAM</code></p>
+
+  <p>点击用户, 更改口令–&gt;保存更改–&gt;破解完成</p>
+</blockquote>
+:ET

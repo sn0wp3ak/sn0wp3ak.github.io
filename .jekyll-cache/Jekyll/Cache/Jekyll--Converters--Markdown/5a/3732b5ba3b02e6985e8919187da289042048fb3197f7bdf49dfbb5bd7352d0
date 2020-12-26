@@ -1,0 +1,152 @@
+I"<p>DHCP–Dynamic Host Configuration Protocol 动态主机设置协议</p>
+
+<p><strong>DHCP的作用</strong></p>
+
+<blockquote>
+  <ul>
+    <li>自动分配IP地址</li>
+  </ul>
+</blockquote>
+
+<p><strong>DHCP相关概念</strong></p>
+
+<blockquote>
+  <ul>
+    <li>地址池/作用域: (IP, 子网掩码, 网关, DNS, 租期), DHCP协议的端口是<code class="language-plaintext highlighter-rouge">UDP 67/68</code></li>
+  </ul>
+</blockquote>
+
+<p><strong>DHCP的优点</strong></p>
+
+<blockquote>
+  <ul>
+    <li>减少工作量, 避免IP冲突, 提高地址利用率</li>
+  </ul>
+</blockquote>
+
+<p><strong>DHCP的原理</strong></p>
+
+<blockquote>
+  <ul>
+    <li>也称为DHCP租约过程, 分4个步骤:
+      <ul>
+        <li><strong>1. 客户机发送DHCP Discovery广播包</strong>
+          <ul>
+            <li>客户机广播请求IP地址(包含客户机的MAC地址)</li>
+          </ul>
+        </li>
+        <li><strong>2. 服务器响应DHCP Offer广播包</strong>
+          <ul>
+            <li>服务器响应提供的IP地址(但是没有子网掩码, 网关等参数)</li>
+          </ul>
+        </li>
+        <li><strong>3. 客户机发送DHCP Request广播包</strong>
+          <ul>
+            <li>客户机选择IP(确定使用哪个IP地址)</li>
+          </ul>
+        </li>
+        <li><strong>4. 服务器发送DHCP ACK广播包</strong>
+          <ul>
+            <li>服务器确定了租约, 并提供网卡详细参数IP, 掩码, 网关, DNS, 租期等</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<p><strong>DHCP续约</strong></p>
+
+<blockquote>
+  <ul>
+    <li>当50%过后, 客户机会<strong>再次发送</strong>DHCP <strong>Request包</strong>, 进行<strong>续约</strong>, 如服务器无响应, 则继续使用, 并在87.5%再次发送DHCP Request包, 进行续约, 如果仍然没有响应, 释放IP地址, 重新发送DHCP Discovery广播包来获取IP地址</li>
+    <li>当没有任何服务器响应时, 自动给自己分配一个<code class="language-plaintext highlighter-rouge">169.254.X.X/16</code>, 属于全球统一无效IP地址, 用于临时内网通信!</li>
+  </ul>
+</blockquote>
+
+<p><strong>部署DHCP服务器</strong></p>
+
+<blockquote>
+  <ol>
+    <li>
+      <p>IP地址固定(作为服务器必须固定IP地址)</p>
+    </li>
+    <li>
+      <p>安装DHCP服务插件</p>
+    </li>
+    <li>
+      <p>新建作用域及作用域选项</p>
+    </li>
+    <li>
+      <p>激活</p>
+    </li>
+    <li>
+      <p>客户机验证:</p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ipconfig /release 释放IP(取消租约)
+转换成手动配IP也相当于取消租约
+   
+ipconfig /renew   重新获取IP
+当有地址时 /renew 相当于发送Request包 相当于续约
+没有地址时 /renew 相当于发送Discovery包
+</code></pre></div>      </div>
+    </li>
+  </ol>
+</blockquote>
+
+<p><strong>Vmware默认为VMnet1和8提供您DHCP服务器</strong></p>
+
+<blockquote>
+  <ul>
+    <li>编辑–&gt;虚拟网络编辑器–&gt;更改设置–&gt;使用本地DHCP服务将IP地址分配给虚拟机–&gt;取消选中</li>
+    <li>重启客户机的本地连接</li>
+    <li>或者选择除去VMnet1和8以外的虚拟交换机</li>
+  </ul>
+</blockquote>
+
+<p><strong>地址保留</strong></p>
+
+<blockquote>
+  <ul>
+    <li>客户机永远可以的到同一个IP地址</li>
+    <li>需要: 客户机的MAC地址</li>
+    <li>支持类型: 两者</li>
+  </ul>
+</blockquote>
+
+<p><strong>DHCP备份</strong></p>
+
+<blockquote>
+  <ul>
+    <li>备份–&gt;存储在安全磁盘</li>
+    <li>还原–&gt;租期和保留都还原</li>
+  </ul>
+</blockquote>
+
+<p><strong>选项优先级</strong></p>
+
+<blockquote>
+  <ul>
+    <li>优先级:  作用域选项 &gt; 服务器选项</li>
+    <li>当服务器上多个作用域时, 可以在服务器选项中设置DNS服务器</li>
+    <li>服务器选项会被各个作用域选项继承</li>
+  </ul>
+</blockquote>
+
+<p><strong>DHCP攻击与防御</strong></p>
+
+<blockquote>
+  <ol>
+    <li>
+      <p>攻击DHCP服务器: 频繁地发送伪装成客户机的DHCP请求, 直到将DHCP地址池资源耗尽</p>
+
+      <p><strong>防御</strong>: 在交换机(管理型)的端口上做动态MAC地址绑定</p>
+    </li>
+    <li>
+      <p>伪装DHCP服务器攻击: 通过将自己的电脑部署成DHCP服务器, 为客户机提供非法的IP地址</p>
+
+      <p><strong>防御</strong>: 在交换机(管理型)上, 除合法的DHCP服务器所在的接口外, 全部设置成禁止发送DHCP Offer</p>
+    </li>
+  </ol>
+</blockquote>
+:ET

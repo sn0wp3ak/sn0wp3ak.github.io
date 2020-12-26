@@ -1,0 +1,91 @@
+I"�<p><strong>WEB服务器</strong></p>
+
+<blockquote>
+  <ul>
+    <li>WEB服务器也称网页服务器或HTTP服务器或万维网(www)服务器</li>
+    <li>WEB服务器使用的协议是HTTP或HTTPS</li>
+    <li>HTTP协议端口号 <code class="language-plaintext highlighter-rouge">TCP80</code>  HTTPS协议端口号 <code class="language-plaintext highlighter-rouge">TCP443</code></li>
+  </ul>
+</blockquote>
+
+<p><strong>WEB服务器发布软件</strong></p>
+
+<blockquote>
+  <ul>
+    <li>微软: IIS (Internet Information Service)
+      <ul>
+        <li>IIS可以发布WEB网站还可以发布FTP网站</li>
+      </ul>
+    </li>
+    <li>Linux:  Apache, LAMP/LNMP, Tomcat, Nginx 等</li>
+    <li>第三方: phpstudy, XAMPP(学习测试使用, 不推荐生产)</li>
+  </ul>
+</blockquote>
+
+<p><strong>部署WEB服务器</strong></p>
+
+<blockquote>
+  <ol>
+    <li>配置静态IP地址</li>
+    <li>安装IIS-WEB插件
+      <ul>
+        <li><code class="language-plaintext highlighter-rouge">应用程序服务器--&gt;Internet信息服务(IIS)双击打开--&gt;万维网服务</code></li>
+        <li>匿名用户: <code class="language-plaintext highlighter-rouge">IUSER_计算机名</code> 在安装完IIS插件后自动创建</li>
+      </ul>
+    </li>
+    <li>停用默认站点
+      <ul>
+        <li>默认WEB站点路径: <code class="language-plaintext highlighter-rouge">C:\Inetpub\wwwroot</code></li>
+      </ul>
+    </li>
+    <li>新建网站-地址端口绑定-指定网站的路径-设置权限
+      <ul>
+        <li>网站IP:  如果选择<code class="language-plaintext highlighter-rouge">全部未分配</code>则访问服务器的任何一个IP都能访问到网站</li>
+      </ul>
+    </li>
+    <li>设置默认文件(设置网站首页)
+      <ul>
+        <li><code class="language-plaintext highlighter-rouge">网站属性--&gt;文档--&gt;把你自己写的index.html添加到默认内容文档列表中--&gt;上移到第一顺位</code></li>
+      </ul>
+    </li>
+  </ol>
+</blockquote>
+
+<p><strong>一台服务器部署多个网站的方法</strong></p>
+
+<blockquote>
+  <ol>
+    <li>改IP地址–同端口不同IP</li>
+    <li>该端口号–同IP不同端口号</li>
+    <li>(推荐) 服务器给每个网站创建一个DNS区域并且新建A记录  IIS在绑定时选择<code class="language-plaintext highlighter-rouge">高级--&gt;主机头值:www.网站域名</code>
+      <ul>
+        <li>客户机在浏览器中根据不同的域名进行访问, 从而实现在一个服务器同IP同端口提供不同的服务</li>
+      </ul>
+    </li>
+  </ol>
+</blockquote>
+
+<p><strong>网站类型</strong></p>
+
+<blockquote>
+  <ul>
+    <li>静态网站: 一般扩展名<code class="language-plaintext highlighter-rouge">.html</code>或者<code class="language-plaintext highlighter-rouge">.htm</code>
+      <ul>
+        <li>不带后台数据库</li>
+      </ul>
+    </li>
+    <li>动态网站: 一般扩展名<code class="language-plaintext highlighter-rouge">.asp</code>或者<code class="language-plaintext highlighter-rouge">.php</code> 等
+      <ul>
+        <li>asp(Active Server Pages)</li>
+        <li>有后台数据库, <code class="language-plaintext highlighter-rouge">.asp</code>或<code class="language-plaintext highlighter-rouge">.php</code>可以连接前台页面和后台数据库</li>
+        <li>权限 : <code class="language-plaintext highlighter-rouge">运行脚本</code> 和<code class="language-plaintext highlighter-rouge">执行</code>视情况添加</li>
+        <li>WEB服务扩展: <code class="language-plaintext highlighter-rouge">Active Server Pages --&gt; 允许</code></li>
+        <li>想访问子目录的文件: <code class="language-plaintext highlighter-rouge">网站 --&gt; 属性 --&gt; 主目录 --&gt; 应用程序设置 --&gt; 配置 --&gt; 选项 --&gt; 应用程序配置 --&gt; 启用父路径</code></li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<p><strong>Windows地址栏不区分大小写, 而Linux是严格区分大小写的</strong></p>
+
+:ET
