@@ -1,0 +1,81 @@
+I"�	<ol>
+  <li>
+    <p>源码包</p>
+
+    <p>来源: GNU社区 Github 软件官网</p>
+
+    <p>特点:</p>
+
+    <p>1) 以压缩包形式提供</p>
+
+    <p>2) 开源</p>
+
+    <p>安装的注意事项:</p>
+
+    <p>编译    可以指定安装的路径和编译需要的功能</p>
+
+    <p>1) 解压+拆包</p>
+
+    <p>2) 进入解压路径了解软件的作用以及安装方法</p>
+
+    <p>3) 通过配置脚本指定安装路径和功能, 并且生成makefile编译脚本文件</p>
+
+    <p>4) 通过make控制makefile文件进行顺序编译</p>
+
+    <p>5) 通过make install 将编译好的文件拷贝到安装路径下</p>
+
+    <p><code class="language-plaintext highlighter-rouge">ss -antpl | grep 端口号</code>   查看服务</p>
+
+    <p><code class="language-plaintext highlighter-rouge">setenforce 0</code> 关闭seLinux</p>
+  </li>
+  <li>
+    <p>封装后的软件包</p>
+
+    <p>安装便捷</p>
+
+    <p>特点后缀</p>
+
+    <p>rpm  redhat package manager</p>
+
+    <p>deb  debian</p>
+
+    <p>源码包则不会考虑发行版</p>
+
+    <p>1) 确认有没有安装过 <code class="language-plaintext highlighter-rouge">rpm -qa | grep xxx</code>  列出所有已安装的rpm包</p>
+
+    <p>2) 确认该软件的作用 <code class="language-plaintext highlighter-rouge">rpm -qpi xxx.rpm </code></p>
+
+    <p>3) 确认软件的安装路径 <code class="language-plaintext highlighter-rouge">rpm -qpl xxx.rpm</code></p>
+
+    <p>4) 安装软件 <code class="language-plaintext highlighter-rouge">rpm -ivh xxx.rpm</code></p>
+
+    <p>5) 使用软件</p>
+
+    <p>6) 卸载软件 <code class="language-plaintext highlighter-rouge">rpm -e xxx</code></p>
+  </li>
+</ol>
+
+<p>卸载软件—&gt;依赖关系—&gt;不是你想卸载谁就卸载谁!!!</p>
+
+<p>安装软件—&gt;依赖关系—&gt;不是你想安装谁就安装谁!!!</p>
+
+<p>一般来说卸载和安装软件包的顺序正好相反</p>
+
+<p>根据依赖关系表进行软件安装卸载    yum源</p>
+
+<p>/etc/yum.repos.d</p>
+
+<p>标签 []</p>
+
+<p>描述 name=”…”</p>
+
+<p>1) 告诉操作系统依赖关系列表的位置 <code class="language-plaintext highlighter-rouge">baseurl=file:/...</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">gpgcheck=0/1    是否进行秘钥对检查</code></p>
+
+<p>2) 通过yum工具进行软件的卸载与安装</p>
+
+<p><code class="language-plaintext highlighter-rouge">yum remove xxx</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">yum install xxx</code></p>
+:ET

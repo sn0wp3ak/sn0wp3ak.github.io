@@ -1,0 +1,172 @@
+I"�<p><strong>分层思想</strong></p>
+
+<blockquote>
+  <ul>
+    <li>为什么要分层?
+      <ul>
+        <li>完成一项工作需要的协议太多</li>
+      </ul>
+    </li>
+    <li>什么是分层?
+      <ul>
+        <li>将复杂的流程分解成几个功能相对单一的子过程
+          <ul>
+            <li>流程更清晰, 复杂问题简单化</li>
+            <li>更容易发现问题, 并有针对性的解决</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<p><strong>OSI七层模型</strong></p>
+
+<blockquote>
+  <ul>
+    <li>同层使用相同协议</li>
+    <li>目的: 全世界标准统一</li>
+    <li>哪七层?
+      <ul>
+        <li>应用</li>
+        <li>表示</li>
+        <li>会话</li>
+        <li>传输</li>
+        <li>网络</li>
+        <li>数据链路</li>
+        <li>物理</li>
+      </ul>
+    </li>
+    <li>该模型其实<strong>并没有被广泛使用</strong></li>
+    <li>数据单元:
+      <ul>
+        <li>物理层: 比特</li>
+        <li>数据链路层: 帧</li>
+        <li>网络层: 数据包</li>
+        <li>传输层: 数据段</li>
+        <li>应用层: 原始数据</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<p><strong>TCP/IP五层协议簇(最常用)</strong></p>
+
+<blockquote>
+  <ul>
+    <li>用较少的<strong>表示层</strong>和<strong>会话层</strong>与<strong>应用层</strong>合并, 统称<strong>应用层</strong></li>
+    <li>哪五层?
+      <ul>
+        <li>应用</li>
+        <li>传输</li>
+        <li>网络</li>
+        <li>数据链路</li>
+        <li>物理</li>
+      </ul>
+    </li>
+    <li><strong><code class="language-plaintext highlighter-rouge">IP协议 --&gt; 网络层</code></strong></li>
+    <li><strong><code class="language-plaintext highlighter-rouge">TCP协议 --&gt; 传输层</code></strong></li>
+    <li><strong>TCP/IP协议簇: 先有协议, 后有模型</strong></li>
+    <li><strong>OSI模型: 先有模型, 再有协议</strong></li>
+    <li>OSI模型和TCP/IP协议簇属于<strong>同一时期诞生</strong>, OSI出现稍早一些</li>
+  </ul>
+</blockquote>
+
+<p><strong>TCP/IP四层模型</strong></p>
+
+<blockquote>
+  <ul>
+    <li>把<strong>物理层</strong>和<strong>数据链路层</strong>统一为<strong>网络接口层</strong></li>
+    <li>哪四层?
+      <ul>
+        <li>应用</li>
+        <li>传输</li>
+        <li>网络</li>
+        <li>网路接口</li>
+      </ul>
+    </li>
+    <li>比较鸡肋, 没什么人这么用</li>
+  </ul>
+</blockquote>
+
+<p><strong>数据的封装与解封装</strong></p>
+
+<blockquote>
+  <ul>
+    <li>封装过程由上至下</li>
+  </ul>
+
+  <p><strong><code class="language-plaintext highlighter-rouge">应用层:</code></strong> “Hello!”</p>
+
+  <p><strong><code class="language-plaintext highlighter-rouge">传输层:</code></strong>  <code class="language-plaintext highlighter-rouge">TCP/UDP头</code>“Hello!” (封装)    # <code class="language-plaintext highlighter-rouge">TCP/UDP头</code>包含<code class="language-plaintext highlighter-rouge">源端口号</code> <code class="language-plaintext highlighter-rouge">目标端口号</code>  进程到进程</p>
+
+  <p><strong><code class="language-plaintext highlighter-rouge">网络层:</code></strong>  <code class="language-plaintext highlighter-rouge">IP包头</code> <code class="language-plaintext highlighter-rouge">TCP/UDP头</code>“Hello!”   #  <code class="language-plaintext highlighter-rouge">IP包头</code>包含<code class="language-plaintext highlighter-rouge">源IP </code> <code class="language-plaintext highlighter-rouge">目标IP</code>   点到点</p>
+
+  <hr />
+
+  <p>数据到达<strong>网卡</strong></p>
+
+  <hr />
+
+  <p><strong><code class="language-plaintext highlighter-rouge">数据链路层:</code></strong>   <code class="language-plaintext highlighter-rouge">MAC子层</code> <code class="language-plaintext highlighter-rouge">IP包头</code>  <code class="language-plaintext highlighter-rouge">TCP/UDP头</code> “Hello!” <code class="language-plaintext highlighter-rouge">FCS</code></p>
+
+  <p>#<code class="language-plaintext highlighter-rouge">MAC子层</code>包含 <code class="language-plaintext highlighter-rouge">源MAC地址</code> <code class="language-plaintext highlighter-rouge">目标MAC地址</code></p>
+
+  <p>#<strong>交换机</strong>工作在数据链路层, 只认MAC地址不认IP地址</p>
+
+  <hr />
+
+  <p>到达<strong>网线口</strong></p>
+
+  <hr />
+
+  <p><strong><code class="language-plaintext highlighter-rouge">物理层:</code></strong>  数字信号</p>
+
+  <ul>
+    <li>解封装逆行向上</li>
+  </ul>
+</blockquote>
+
+<p><strong>PDU协议数据单元</strong></p>
+
+<blockquote>
+  <ul>
+    <li>来自上层的信息和当前层的实体附加的信息</li>
+    <li><code class="language-plaintext highlighter-rouge">应用层:  </code> 原始信息</li>
+    <li><code class="language-plaintext highlighter-rouge">传输层: </code> 段 == TCP/IP头 + 原始信息</li>
+    <li><code class="language-plaintext highlighter-rouge">网络层: </code> 报文/包  == IP包头 + TCP/IP头 + 原始信息</li>
+    <li><code class="language-plaintext highlighter-rouge">数据链路层:</code>  帧(Frame) == MAC子层(帧头) + IP包头 + TCP/IP头 + 原始信息 + FCS(帧尾)</li>
+    <li><code class="language-plaintext highlighter-rouge">物理层: </code> 比特(电脉冲1/0) == 数字信号(比特流)     8bit = 1Byte
+      <ul>
+        <li>100Mb/s  – 运营商说的100兆网速   –  实际网速 100/8  不到10MB/s的速度</li>
+        <li>100MB/s  –  真正的每秒100兆</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<p><strong>五层工作设备</strong></p>
+
+<blockquote>
+  <ul>
+    <li>5层-应用层:  PC  防火墙</li>
+    <li>4层-传输层:  防火墙</li>
+    <li>3层-网络层:  路由器</li>
+    <li>2层-数据链路层:  交换机  网卡</li>
+    <li>1层-物理层:  网线</li>
+  </ul>
+</blockquote>
+
+<p><strong>五层协议</strong></p>
+
+<blockquote>
+  <ul>
+    <li>应用层: <code class="language-plaintext highlighter-rouge">HTTP HTTPS SSH Telnet FTP DHCP DNS SMTP POP3 RDP SMB ...</code></li>
+    <li>传输层: <code class="language-plaintext highlighter-rouge">TCP UDP</code></li>
+    <li>网络层: <code class="language-plaintext highlighter-rouge">IP ICMP ARP...</code></li>
+    <li>数据链路层: <code class="language-plaintext highlighter-rouge">MAC子层</code></li>
+    <li>物理层: <code class="language-plaintext highlighter-rouge">比特流</code></li>
+  </ul>
+</blockquote>
+
+:ET

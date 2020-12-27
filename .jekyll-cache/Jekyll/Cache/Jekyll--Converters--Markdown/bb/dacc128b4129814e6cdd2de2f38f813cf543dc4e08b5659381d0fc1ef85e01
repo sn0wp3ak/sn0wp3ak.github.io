@@ -1,0 +1,368 @@
+I"�#<p><strong>交换机5大基本工作模式及命令</strong></p>
+
+<blockquote>
+  <p>第一次配置网络设备，需要使用console线
+在PC需要使用“超级终端”或其他软件。</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>1）用户模式：</strong><br />
+switch&gt;<br />
+可以查看交换机的<strong>基本简单信息</strong>，且不能做任何修改配置！<br />
+<strong>2）特权模式：</strong><br />
+switch&gt; enable<br />
+switch#<br />
+可以查看<strong>所有配置</strong>，且不能修改配置<br />
+但可以做测试、保存、初始化等操作<br />
+<strong>3）全局配置模式：</strong><br />
+switch# configure terminal<br />
+switch(config)#<br />
+默认不能查看配置！<br />
+可以修改配置，且全局生效！<br />
+<strong>4）接口配置模式：</strong><br />
+switch(config)# interface f0/1<br />
+switch(config-if)#<br />
+默认不能查看配置！<br />
+可以修改配置，且对该端口生效！<br />
+<strong>5）console口/线/控制台模式：</strong><br />
+switch(config-if)# line console 0<br />
+switch(config-line)#<br />
+默认不能查看配置！<br />
+可以修改配置，且对console口生效！<br /></p>
+</blockquote>
+
+<p><strong>命令</strong></p>
+
+<blockquote>
+  <ul>
+    <li><strong>切换模式简写</strong>
+      <ul>
+        <li>用户–&gt;特权  switch&gt; en</li>
+        <li>特权–&gt;全局  switch# conf t</li>
+        <li>全局–&gt;接口  switch(config)# int f0/1</li>
+        <li>全局–&gt;console  switch(config)# line co 0</li>
+        <li>除用户模式外–&gt;特权  end</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li><strong>退出模式</strong>
+      <ul>
+        <li>exit退出一级</li>
+        <li>end直接退到特权模式</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>?的用法  查看所有的补全命令</li>
+    <li>历史命令  ↑</li>
+    <li>tab补全命令</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>
+      <p><strong>配置主机名</strong></p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conf t
+hostname 设备名    缩写: ho 设备名
+</code></pre></div>      </div>
+    </li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>
+      <p><strong>设置用户密码</strong></p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>line co 0
+password 密码
+login
+exit
+</code></pre></div>      </div>
+    </li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>
+      <p><strong>快捷键</strong></p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctrl+u ：快速删除光标前所有字符
+ctrl+a ：快速定位光标到行首
+ctrl+e ：快速定位光标到行尾
+</code></pre></div>      </div>
+    </li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li><strong>在内存中存在一个文件</strong>
+<code class="language-plaintext highlighter-rouge">running-config</code>
+      <ul>
+        <li>第一次开机，系统会在内存中自动创建一个新的干净的running-config</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>
+      <p><strong>保存配置</strong></p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>en
+copy running-config startup-config
+或
+write
+</code></pre></div>      </div>
+    </li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li><strong>交换机开机动作</strong>
+先去硬盘中查找startup-config是否存在，
+如果不存在，在内存中创建新的run
+若果存在，则复制到内存中并改名为running-config</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>
+      <p><strong>查看running-config配置</strong></p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>en
+show running-config
+sh run   # 简写
+</code></pre></div>      </div>
+    </li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li><strong>查看startup-config配置</strong>
+<code class="language-plaintext highlighter-rouge">show startup-config</code></li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>
+      <p><strong>重启设备</strong></p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>en
+reload
+</code></pre></div>      </div>
+    </li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>
+      <p><strong>配置特权密码</strong></p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conf t
+enable password 密码  （明文）
+enable secret 密码   （密文）
+</code></pre></div>      </div>
+    </li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li><strong>查看MAC地址表</strong>
+<code class="language-plaintext highlighter-rouge">show mac-address-table</code></li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>
+      <p><strong>查看接口状态列表</strong></p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>show ip int brief
+sh ip int b
+  
+administratively down  # 人为管理down
+Protocol  down  # 连上了 但是没协商好
+</code></pre></div>      </div>
+    </li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>
+      <p><strong>手工关闭接口</strong></p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int f0/x
+shutdown
+exit
+</code></pre></div>      </div>
+    </li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>
+      <p><strong>手工开启接口</strong></p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int f0/x
+no shutdown
+exit
+</code></pre></div>      </div>
+    </li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>
+      <p><strong>do的用法</strong>
+其他模式加do空格可以强制使用特权模式的命令
+如：</p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>do sh run
+do sh ip int b
+do wr   
+...
+</code></pre></div>      </div>
+    </li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>
+      <p><strong>删除配置</strong>
+1）在哪配置的，就在哪删！
+2）命令前加no空格
+3）原命令中有参数，并且参数具有唯一性，则
+      删除时不需要加参数
+如:</p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conf t
+hostname sw1
+conf t
+no hostname
+</code></pre></div>      </div>
+    </li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>
+      <p><strong>清空/擦除/初始化配置</strong></p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>en
+erase startup-config
+</code></pre></div>      </div>
+    </li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>
+      <p><strong>为3层端口配置IP</strong></p>
+
+      <p>二层端口出厂up, 三层默认人为down</p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int f0/0
+ip add 10.1.1.254 255.255.255.0
+no shut
+exit
+</code></pre></div>      </div>
+    </li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>
+      <p><strong>开启远程控制</strong></p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conf t
+line vty 0 4
+transport input telnet/ssh/none/all
+password  密码
+login
+exit
+# 远程连接时需要提前设置 特权密码  自我保护机制
+conf t
+enable password 密码
+exit
+# ssh连接
+conf t
+# 需要配置主机名
+hostname r1
+# 需要配置域名
+ip domain-name r1.qf.com
+crypto key generate rsa  生成密钥对！
+# 身份验证
+line vty 0 4
+transport input telnet/ssh/none/all
+login local  # 验证本地账户数据库
+exit
+# 配置用户名
+username xx password 123.com
+</code></pre></div>      </div>
+    </li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>
+      <p><strong>为交换机配置管理IP</strong></p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conf t
+int vlan 1
+ip add 10.1.1.253 255.255.255.0
+no shut
+</code></pre></div>      </div>
+    </li>
+    <li>
+      <p><strong>为交换机配置默认网关</strong>
+目的：可被跨网段管理！</p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conf t
+ip default-gateway 10.1.1.254
+</code></pre></div>      </div>
+    </li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>
+      <p><strong>关闭命令自动解析功能</strong></p>
+
+      <p>命令报错不会卡死</p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conf t
+no ip domain-lookup
+</code></pre></div>      </div>
+    </li>
+  </ul>
+</blockquote>
+
+:ET

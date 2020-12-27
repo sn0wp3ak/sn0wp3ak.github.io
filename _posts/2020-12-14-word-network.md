@@ -13,7 +13,11 @@ categories:
 * Firewall
 	* 防火墙
 * IPS
+	* Intrusion Prevention System
+	* 入侵预防系统
 * IDS
+	* Intrusion Detection System
+	* 入侵检测系统
 * WAF
 	* Web Application Firewall
 	* Web应用程序防火墙

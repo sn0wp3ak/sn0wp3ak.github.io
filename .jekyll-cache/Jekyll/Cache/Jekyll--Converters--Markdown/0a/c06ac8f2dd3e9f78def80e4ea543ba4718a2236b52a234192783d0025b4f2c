@@ -1,0 +1,143 @@
+I"Z<p><strong>VTP( VLAN Trunking Protocol )</strong></p>
+
+<blockquote>
+  <ul>
+    <li>
+      <p>虚拟局域网中继(干道)协议</p>
+    </li>
+    <li>
+      <p>Cisco<strong>私有</strong>协议</p>
+    </li>
+    <li>
+      <p>作用: 手动配置VLAN工作量太大, 使用VTP协议,</p>
+
+      <p>把<strong>一台</strong>交换机配成VTP Server, 其他的配成VTP Client</p>
+
+      <p>这样client就能自动学习到server的VLAN信息</p>
+    </li>
+    <li>
+      <p>VTP协议是二层协议</p>
+    </li>
+    <li>
+      <p>特点: 单点维护全局</p>
+    </li>
+  </ul>
+</blockquote>
+
+<p><strong>VTP的使用场景</strong></p>
+
+<blockquote>
+  <ul>
+    <li>对于大型网络来说，可能有成百上千台交换机，而一台交换机上都可能存在几十乃至数百个VLAN，如果仅凭网络工程师手工配置的话是一个非常大的工作量，并且也不利于日后维护</li>
+    <li>每一次添加修改或删除VLAN都需要在所有的交换机上部署</li>
+    <li>要使用VTP，首先必须建立一个VTP管理域，在同一管理域中的交换机共享vlan信息</li>
+    <li>并且一个交换机只能参加一个管理域。不同域中的交换机不能共享vlan信息。</li>
+  </ul>
+</blockquote>
+
+<p><strong>VTP域</strong></p>
+
+<blockquote>
+  <ul>
+    <li>VTP域也称VLAN管理域</li>
+    <li>VTP域:  是一组VTP域名相同并通过中继链路(trunk)相互连接的交换机。</li>
+    <li>VTP域的要求:
+      <ol>
+        <li>域内的每台交换机都必须使用<strong>相同的域名</strong></li>
+        <li><strong>相邻的</strong>交换机需要具有相同的域名</li>
+        <li>在所有交换机之间，<strong>必须配置中继链路</strong></li>
+      </ol>
+    </li>
+  </ul>
+</blockquote>
+
+<p><strong>VTP模式有3种</strong></p>
+
+<blockquote>
+  <ul>
+    <li><strong>服务器模式（Server）</strong>
+      <ul>
+        <li><strong>可以</strong>创建、删除和修改 VLAN</li>
+        <li>学习、转发相同域名的 VTP 通告</li>
+      </ul>
+    </li>
+    <li><strong>客户机模式（Client）</strong>
+      <ul>
+        <li>学习、转发相同域名的 VTP 通告</li>
+        <li><strong>不可以</strong>创建、删除和修改 VLAN</li>
+      </ul>
+    </li>
+    <li><strong>透明模式（Transparent）</strong>
+      <ul>
+        <li>可以创建、删除和修改 VLAN ，但只在<strong>本地有效</strong></li>
+        <li><strong>转发但不学习</strong> VTP 通告</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<p><strong>VTP通告</strong></p>
+
+<blockquote>
+  <ul>
+    <li><strong>VTP通告内容</strong>
+      <ul>
+        <li>管理域</li>
+        <li>版本号</li>
+        <li>配置修改编号
+          <ul>
+            <li>新增的交换机配置修改编号应该重新置 0</li>
+            <li>交换机重启或修改域名，修订号也将被重置为 0</li>
+            <li>一旦被重置为 0 ，将立即方法通告请求</li>
+          </ul>
+        </li>
+        <li>VLAN及某些数据</li>
+      </ul>
+    </li>
+    <li><strong>VTP通告类型</strong>
+      <ul>
+        <li>汇总通告( 服务器 )</li>
+        <li>通告请求( 客户机, 服务器 )</li>
+        <li>详细通告( 服务器 )</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<p><strong>VTP命令</strong></p>
+
+<blockquote>
+  <ul>
+    <li>
+      <p>创建VTP域</p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vtp domain 域名
+</code></pre></div>      </div>
+    </li>
+    <li>
+      <p>配置VTP模式</p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vtp mode {server|client|transparent}
+</code></pre></div>      </div>
+    </li>
+    <li>
+      <p>配置VTP版本</p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vtp version 2
+</code></pre></div>      </div>
+    </li>
+    <li>
+      <p>配置VTP密码</p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vtp password 密码
+</code></pre></div>      </div>
+    </li>
+    <li>
+      <p>查看VTP配置信息</p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>show vtp status
+</code></pre></div>      </div>
+    </li>
+  </ul>
+</blockquote>
+:ET

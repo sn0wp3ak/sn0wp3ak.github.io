@@ -1,0 +1,20 @@
+I"�<p><strong>HSRP命令</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int f0/x
+	standby 1(组号) ip 虚拟IP
+	standby 1 priority 200(优先级)
+	standby 1 preempt    # 配置占先权
+	standby 1 track f0/y(外网端口) 51(自减优先级)   # 活跃路由器 跟踪外网端口
+</code></pre></div></div>
+
+<p><strong>查看热备份表</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>show standby b
+</code></pre></div></div>
+
+<p><strong>查看完整热备份表</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>show standby
+</code></pre></div></div>
+
+:ET

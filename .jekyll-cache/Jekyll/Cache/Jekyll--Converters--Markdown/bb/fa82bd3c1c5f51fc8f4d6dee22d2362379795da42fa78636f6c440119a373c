@@ -1,0 +1,89 @@
+I"%	<p><strong>路由</strong></p>
+
+<blockquote>
+  <ul>
+    <li>路由器为IP包<strong>选择路径</strong>的过程</li>
+    <li>跨越从源主机到目标主机的一个互联网络来转发数据包的过程</li>
+  </ul>
+</blockquote>
+
+<p><strong>路由表</strong></p>
+
+<blockquote>
+  <ul>
+    <li>C  直连路由, 自动</li>
+    <li>S  静态路由, 手动</li>
+    <li>S* 默认路由, 手动  <code class="language-plaintext highlighter-rouge">S* 0.0.0.0/0   下一跳</code></li>
+    <li>路由条目中记录的是 <code class="language-plaintext highlighter-rouge">网段  端口号</code>或者<code class="language-plaintext highlighter-rouge">网段    下一跳IP地址</code></li>
+    <li>想匹配所有地址, 把条目设置成<strong>默认路由</strong></li>
+    <li><strong>边缘路由器</strong>适合配置默认路由</li>
+  </ul>
+</blockquote>
+
+<p><strong>管理距离值</strong></p>
+
+<blockquote>
+  <ul>
+    <li>C   0</li>
+    <li>S   1</li>
+    <li>S*  ∞</li>
+    <li></li>
+  </ul>
+</blockquote>
+
+<p><strong>路由条目的优先级和管理距离值成反比</strong></p>
+
+<blockquote>
+  <ul>
+    <li>优先级:  C  –&gt;  S  –&gt;  S*</li>
+  </ul>
+</blockquote>
+
+<p><strong>优化路由表</strong></p>
+
+<blockquote>
+  <ul>
+    <li><strong>边缘路由器</strong>  除直连路由以外的条目 可以替换成  <strong>默认路由</strong></li>
+    <li>多个路由的<strong>下一跳相同</strong>的情况下,  可以替换成  <strong>默认路由</strong></li>
+  </ul>
+</blockquote>
+
+<p><strong>浮动路由</strong></p>
+
+<blockquote>
+  <ul>
+    <li>一般用作备用路由</li>
+    <li>冲突的静态路由, 优先级低的就会被隐藏起来, 当优先级高的路由消失后, 临时顶替</li>
+  </ul>
+</blockquote>
+
+<p><strong>路由器交换机的对比</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>路由器</th>
+      <th>交换机</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>工作层</strong></td>
+      <td>网络层(3层)</td>
+      <td>数据链路层(2层)</td>
+    </tr>
+    <tr>
+      <td><strong>转发依据</strong></td>
+      <td>路由表</td>
+      <td>MAC地址表</td>
+    </tr>
+    <tr>
+      <td><strong>转发方式</strong></td>
+      <td>路由转发</td>
+      <td>硬件转发</td>
+    </tr>
+  </tbody>
+</table>
+
+:ET

@@ -1,0 +1,63 @@
+I"�<p><strong>数据链路层（2层 Data Link Layer）</strong></p>
+
+<blockquote>
+  <p>1.属于2层
+2.传输单元：帧
+3.帧结构:请参见图片
+  帧头：6+6+2=14字节
+  MTU值：1500字节
+  帧尾：4字节</p>
+</blockquote>
+
+<blockquote>
+  <p>帧头内容：目标MAC、源MAC、类型
+  类型的作用：识别上层协议
+  0x0800：上层为IP协议
+  0x0806：上层为ARP协议
+  0x代表16进制</p>
+</blockquote>
+
+<p><strong>工作在数据链路层的设备：交换机/网卡</strong></p>
+
+<p><strong>交换机工作原理</strong></p>
+
+<blockquote>
+  <p>收到一个数据帧后：
+1.首先学习帧中的源MAC地址来形成MAC地址表
+2.然后检查帧中的目标MAC地址，并匹配MAC地址表：
+如表中有匹配项，则单播转发
+如表中无匹配项，则除接受端口外广播转发
+3.MAC地址表的老化时间默认是300秒（可修改）</p>
+</blockquote>
+
+<p><strong>交换机的端口</strong></p>
+
+<blockquote>
+  <p>E 10Mb
+F 100Mb
+G  1000Mb
+Te 10000Mb</p>
+</blockquote>
+
+<p><strong>F0/1</strong></p>
+
+<blockquote>
+  <p>0模块号
+1接口号</p>
+</blockquote>
+
+<blockquote>
+  <p>接口速率自适应：1000/100/10M自适应
+速率工作模式可以为10,100,1000任何一种状态(取决于对方)</p>
+</blockquote>
+
+<blockquote>
+  <p>端口状态：up/down
+down的3种可能：
+1）人工down掉
+2）速率不匹配
+3）双工模式不匹配（双工duplex）
+   双工模式：单工、半双工、全双工</p>
+</blockquote>
+
+:ET

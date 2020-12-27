@@ -1,0 +1,157 @@
+I"q<p><code class="language-plaintext highlighter-rouge"># root</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">$ 普通用户</code></p>
+
+<p><strong>了解当前系统信息</strong></p>
+
+<p>1.<strong>硬盘大小</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">fdisk -l</code></p>
+
+<p>/dev/sda   sd(硬盘类型) a(编号)</p>
+
+<p>linux一切皆文件</p>
+
+<p>为什么磁盘大小有出入?  厂家按1000生产  操作系统按1024读取</p>
+
+<p>2.<strong>内存大小</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">cat /proc/meminfo</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">MemTotal内存总大小</code></p>
+
+<p>3.<strong>cpu型号</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">cat /proc/cpuinfo</code></p>
+
+<p>4.<strong>关机和重启命令</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">reboot  poweroff</code></p>
+
+<p><strong>Linux操作系统树状结构</strong></p>
+
+<p>/bin <code class="language-plaintext highlighter-rouge">普通用户和管理员都能执行的命令</code></p>
+
+<p>/sbin <code class="language-plaintext highlighter-rouge">只有root用户才能执行的命令</code></p>
+
+<p>/boot <code class="language-plaintext highlighter-rouge">主引导目录 独立的分区 启动菜单 内核</code></p>
+
+<p>/dev <code class="language-plaintext highlighter-rouge">设备文件存放目录</code></p>
+
+<p>/etc <code class="language-plaintext highlighter-rouge">配置文件存放目录</code></p>
+
+<p>/home <code class="language-plaintext highlighter-rouge">普通用户的家目录</code></p>
+
+<p>/root <code class="language-plaintext highlighter-rouge">管理员的家目录</code></p>
+
+<p>/lib <code class="language-plaintext highlighter-rouge">32位 函数库</code></p>
+
+<p>/lib64 <code class="language-plaintext highlighter-rouge">64位 函数库 </code></p>
+
+<p>/media <code class="language-plaintext highlighter-rouge">光驱的挂载目录</code></p>
+
+<p>/mnt <code class="language-plaintext highlighter-rouge">临时设备的挂载目录 如U盘</code></p>
+
+<p>/proc <code class="language-plaintext highlighter-rouge">进程  里面的数据都在内存中</code></p>
+
+<p>/tmp <code class="language-plaintext highlighter-rouge">临时文件存放目录</code></p>
+
+<p>/usr <code class="language-plaintext highlighter-rouge">第三方软件的安装目录</code></p>
+
+<p>/var <code class="language-plaintext highlighter-rouge">常变文件存放目录 如日志文件 邮件文件</code></p>
+
+<p><strong>Linux系统中如何分辨文件类型–颜色</strong></p>
+
+<p>蓝色  <code class="language-plaintext highlighter-rouge">目录</code></p>
+
+<p>黑色  <code class="language-plaintext highlighter-rouge">普通文件</code></p>
+
+<p>浅蓝色  <code class="language-plaintext highlighter-rouge">符号链接(快捷方式)</code></p>
+
+<p>黑底黄字  <code class="language-plaintext highlighter-rouge">设备文件(硬盘)</code></p>
+
+<p>绿色  <code class="language-plaintext highlighter-rouge">可执行文件</code></p>
+
+<p>红色  <code class="language-plaintext highlighter-rouge">压缩包</code></p>
+
+<p>紫色   <code class="language-plaintext highlighter-rouge">图片 模块文件...</code></p>
+
+<p>符号链接(软链接)  <code class="language-plaintext highlighter-rouge">ln -s 源文件的绝对路径 链接文件</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">ls -R</code>  递归列出所有文件</p>
+
+<p><strong>怎么查看命令帮助信息</strong></p>
+
+<p>内部命令:  命令解释器自带 <code class="language-plaintext highlighter-rouge">help 命令</code> 查看用法   如: cd</p>
+
+<p>外部命令: 第三方软件带的命令  <code class="language-plaintext highlighter-rouge">man 命令</code> 查看手册 如: ls</p>
+
+<p>空文件</p>
+
+<p><code class="language-plaintext highlighter-rouge">dd if=/dev/zero of=/tmp/bigfile bs=1M count=100</code></p>
+
+<p>if —&gt;input file</p>
+
+<p>of—&gt;output file</p>
+
+<p>bs–&gt;单位</p>
+
+<p>count—&gt;计数</p>
+
+<p><strong>常用压缩格式: bzip2, gzip</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">file 文件名</code>  分析文件</p>
+
+<p><strong>针对文件</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">gzip 文件名</code>  压缩文件</p>
+
+<p><code class="language-plaintext highlighter-rouge">gunzip 压缩包名</code>  解压缩</p>
+
+<p><code class="language-plaintext highlighter-rouge">bzip2 文件名</code>  压缩文件</p>
+
+<p><code class="language-plaintext highlighter-rouge">bunzip2 压缩包名</code>   解压缩</p>
+
+<p><code class="language-plaintext highlighter-rouge">ls -lhd 目录</code>   查看目录本身的信息</p>
+
+<p><code class="language-plaintext highlighter-rouge">du -sh 目录</code>  查看目录所有文件大小</p>
+
+<p><strong>针对目录</strong></p>
+
+<p>不能直接压缩目录, 必须先打包</p>
+
+<p><code class="language-plaintext highlighter-rouge">tar -cf 目标路径 源路径</code>     不影响源目录, 而是生成一个新的打包文件</p>
+
+<p>c f – create file</p>
+
+<p><code class="language-plaintext highlighter-rouge">tar -tvf 打包文件名</code>     查看打包文件中的所有文件信息</p>
+
+<p>tvf – list verbose file</p>
+
+<p><strong>解压缩tar文件的压缩包</strong></p>
+
+<p>先对压缩格式(.gz/.bz2)进行解压缩</p>
+
+<p><code class="language-plaintext highlighter-rouge">gunzip xxx.tar.gz</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">bunzip2 xxx.tar.bz2</code></p>
+
+<p>再对tar包进行拆包</p>
+
+<p><strong>打包同时压缩</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">tar -zcf 目标路径  源路径</code>     tar打包后, 用gzip格式压缩打包文件</p>
+
+<p><code class="language-plaintext highlighter-rouge">tar -jcf 目标路径  源路径 </code>     tar打包后, 用bzip2格式压缩打包文件</p>
+
+<p>加 <code class="language-plaintext highlighter-rouge">-v</code>  查看信息</p>
+
+<p><strong>解压缩同时拆包</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">tar -zxf 压缩文件 -C 指定路径</code>    用gzip格式解压缩, 在指定路径下拆包</p>
+
+<p><code class="language-plaintext highlighter-rouge">tar -jxf 压缩文件 -C 指定路径</code>    用bzip2格式解压缩, 在指定路径下拆包</p>
+
+<p>加 <code class="language-plaintext highlighter-rouge">-v</code>  查看信息</p>
+
+:ET

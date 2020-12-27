@@ -1,0 +1,94 @@
+I"�	<p><strong>PKI</strong></p>
+
+<blockquote>
+  <ul>
+    <li>名称: 公钥基础设施 <code class="language-plaintext highlighter-rouge">Public Key infrastruction</code></li>
+    <li>作用: 通过加密技术和数字签名保证信息的安全</li>
+    <li>组成: 公钥加密技术, 数字证书, CA, RA</li>
+  </ul>
+</blockquote>
+
+<p><strong>信息安全三要素</strong></p>
+
+<blockquote>
+  <ol>
+    <li>机密性</li>
+    <li>完整性</li>
+    <li>身份验证/操作的不可否认性</li>
+  </ol>
+</blockquote>
+
+<p><strong>哪些领域用到PKI技术</strong></p>
+
+<blockquote>
+  <ol>
+    <li>SSL/HTTPS</li>
+    <li>IPsecVPN</li>
+    <li>部分远程访问VPN</li>
+  </ol>
+</blockquote>
+
+<p><strong>公钥加密技术</strong></p>
+
+<blockquote>
+  <ul>
+    <li>作用: 实现对信息加密, 数字签名等安全保障</li>
+    <li>加密算法:
+      <ol>
+        <li>对称加密算法
+          <ul>
+            <li>加密和解密的秘钥一致</li>
+            <li>秘钥数量: 1个</li>
+            <li>缺点: 秘钥容易丢失</li>
+            <li>例: DES 3DES AES</li>
+          </ul>
+        </li>
+        <li>非对称加密算法
+          <ul>
+            <li>秘钥数量: 两对公/私钥, 共计4个秘钥</li>
+            <li>通信的双方各自生成自己的一对公私钥</li>
+            <li>双方只交换公钥</li>
+            <li>公钥和私钥互相加解密</li>
+            <li>公钥和私钥不可互相逆推</li>
+            <li>例: RSA DH</li>
+          </ul>
+        </li>
+        <li>HASH算法(不可逆)
+          <ul>
+            <li>例: MD5 SHA</li>
+            <li>HASH值不可逆 (验证信息完整性要素)</li>
+          </ul>
+        </li>
+      </ol>
+    </li>
+  </ul>
+</blockquote>
+
+<p><strong>数字签名</strong></p>
+
+<blockquote>
+  <ul>
+    <li>用自己的私钥对摘要加密得出的密文就是数字签名</li>
+  </ul>
+</blockquote>
+
+<p><strong>数字证书</strong></p>
+
+<blockquote>
+  <ul>
+    <li>用于保证公钥的合法性</li>
+    <li>格式遵循X.509标准</li>
+    <li>数字证书包含的信息:
+      <ul>
+        <li>使用者的公钥值</li>
+        <li>使用者的标识信息 (如名称和电子邮件地址)</li>
+        <li>有效期 (证书的有效时间)</li>
+        <li>颁发者的标识信息</li>
+        <li>颁发者的数字签名</li>
+      </ul>
+    </li>
+    <li>数字证书由权威公正的 第三方机构 (CA) 签发</li>
+  </ul>
+</blockquote>
+
+:ET

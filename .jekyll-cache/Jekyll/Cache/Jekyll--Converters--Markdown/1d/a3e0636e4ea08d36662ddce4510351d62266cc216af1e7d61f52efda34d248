@@ -1,0 +1,964 @@
+I"uF<section>
+  
+
+    
+    
+    
+        <h2>今年的随笔</h2>
+    
+    
+    
+      
+        <ul>
+      
+        <li><time>26 Dec - </time>
+          <a href="/dwm%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE">
+            dwm安装和配置
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>20 Dec - </time>
+          <a href="/%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF">
+            虚拟化技术
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>20 Dec - </time>
+          <a href="/Openstack%E6%A6%82%E8%BF%B0">
+            Openstack概述
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>17 Dec - </time>
+          <a href="/%E7%89%A9%E7%90%86%E5%88%86%E5%89%B2%E5%92%8C%E9%80%BB%E8%BE%91%E5%88%86%E5%89%B2">
+            物理分割和逻辑分割
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>14 Dec - </time>
+          <a href="/word-software">
+            Software Word
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>14 Dec - </time>
+          <a href="/word-network">
+            Network Word
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>14 Dec - </time>
+          <a href="/word-hardware">
+            Hardware Word
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>11 Dec - </time>
+          <a href="/%E6%8E%A5%E5%8F%A3">
+            接口
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>06 Dec - </time>
+          <a href="/Linux%E7%BB%84%E7%AE%A1%E7%90%86">
+            Linux组管理
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>03 Dec - </time>
+          <a href="/%E7%AB%AF%E5%8F%A3%E5%8F%B7%E5%A4%A7%E5%85%A8">
+            端口号大全
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>02 Dec - </time>
+          <a href="/word-linux">
+            Linux Word
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>02 Dec - </time>
+          <a href="/Linux%E7%9A%84%E7%94%A8%E6%88%B7%E5%92%8C%E7%BB%84">
+            Linux的用户和组
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>02 Dec - </time>
+          <a href="/Linux%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86">
+            Linux用户管理
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>25 Nov - </time>
+          <a href="/%E4%BB%80%E4%B9%88%E6%98%AFCICD">
+            什么是CI/CD
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>25 Nov - </time>
+          <a href="/Shell%E5%AD%97%E7%AC%A6%E4%B8%B2">
+            Shell字符串
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>25 Nov - </time>
+          <a href="/Shell%E5%8F%98%E9%87%8F">
+            Shell变量
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>25 Nov - </time>
+          <a href="/Shell-Hello-World">
+            Shell Hello World
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>22 Nov - </time>
+          <a href="/X-Window-System">
+            X Window System
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>15 Nov - </time>
+          <a href="/Docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03-%E5%AE%B9%E5%99%A8">
+            Docker学习笔记3-容器
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>13 Nov - </time>
+          <a href="/Docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02-%E9%95%9C%E5%83%8F">
+            Docker学习笔记2-镜像
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>13 Nov - </time>
+          <a href="/Docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5">
+            Docker学习笔记1-基本概念
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>12 Nov - </time>
+          <a href="/Nmap%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">
+            Nmap学习笔记
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>10 Nov - </time>
+          <a href="/ArchLinux%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95">
+            ArchLinux安装记录
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>18 Oct - </time>
+          <a href="/Python%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83">
+            Python虚拟环境
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>18 Oct - </time>
+          <a href="/ASCII%E7%A0%81%E8%AF%A6%E8%A7%A3">
+            ASCII码详解
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>17 Oct - </time>
+          <a href="/Python%E5%AE%B9%E5%99%A8%E7%AF%87-6-%E5%AE%B9%E5%99%A8%E7%9A%84%E5%85%AC%E5%85%B1%E6%96%B9%E6%B3%95">
+            Python容器篇 6 -- 容器的公共方法
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>16 Oct - </time>
+          <a href="/Python%E5%AE%B9%E5%99%A8%E7%AF%87-5-%E9%9B%86%E5%90%88">
+            Python容器篇 5 -- 集合
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>16 Oct - </time>
+          <a href="/Python%E5%AE%B9%E5%99%A8%E7%AF%87-4-%E5%AD%97%E5%85%B8">
+            Python容器篇 4 -- 字典
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>16 Oct - </time>
+          <a href="/Python%E5%AE%B9%E5%99%A8%E7%AF%87-3-%E5%85%83%E7%BB%84">
+            Python容器篇 3 -- 元组
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>15 Oct - </time>
+          <a href="/Python%E5%AE%B9%E5%99%A8%E7%AF%87-2-%E5%88%97%E8%A1%A8">
+            Python容器篇 2 -- 列表
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>15 Oct - </time>
+          <a href="/Python%E5%AE%B9%E5%99%A8%E7%AF%87-1-%E5%AD%97%E7%AC%A6%E4%B8%B2">
+            Python容器篇 1 -- 字符串
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>15 Oct - </time>
+          <a href="/Python%E4%B8%AD%E7%9A%84%E5%85%B3%E9%94%AE%E5%AD%97">
+            Python中的关键字
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>10 Oct - </time>
+          <a href="/SQLI-LABS%E9%9D%B6%E5%9C%BA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E8%AF%A6%E7%BB%86%E6%B5%81%E7%A8%8B">
+            SQLI-LABS靶场环境搭建详细流程
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>09 Oct - </time>
+          <a href="/Python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%97%AE%E7%AD%94%E6%94%B6%E9%9B%86">
+            Python面向对象问答收集
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>08 Oct - </time>
+          <a href="/Vulhub%E9%9D%B6%E5%9C%BA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA">
+            Vulhub靶场环境搭建
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>05 Oct - </time>
+          <a href="/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B8%B8%E7%94%A8%E7%AC%A6%E5%8F%B7">
+            Linux命令行常用符号
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>27 Sep - </time>
+          <a href="/Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E5%8E%8B%E7%BC%A9%E5%92%8C%E6%89%93%E5%8C%85">
+            Linux系统中的压缩和打包
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>27 Sep - </time>
+          <a href="/IP%E5%9C%B0%E5%9D%80%E8%AF%A6%E8%A7%A3">
+            IP地址详解
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>26 Sep - </time>
+          <a href="/Python%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F">
+            Python选择排序
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>26 Sep - </time>
+          <a href="/Python%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F">
+            Python冒泡排序
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>15 Sep - </time>
+          <a href="/Linux%E4%B8%AD%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%88%86%E7%B1%BB">
+            Linux中软件的分类
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>14 Sep - </time>
+          <a href="/Linux%E5%9F%BA%E7%A1%801">
+            Linux基础 -- 1
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>13 Sep - </time>
+          <a href="/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%88%86%E7%B1%BB">
+            文件系统分类
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>12 Sep - </time>
+          <a href="/%E5%B8%A7%E7%BB%93%E6%9E%84">
+            帧结构
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>11 Sep - </time>
+          <a href="/%E6%BC%8F%E6%B4%9E%E5%92%8C%E6%9C%A8%E9%A9%AC">
+            漏洞和木马
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>10 Sep - </time>
+          <a href="/DNS%E6%AC%BA%E9%AA%97%E4%B8%8E%E9%92%93%E9%B1%BC%E7%BD%91%E7%AB%99">
+            DNS欺骗与钓鱼网站
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>09 Sep - </time>
+          <a href="/%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB">
+            中间人攻击
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>08 Sep - </time>
+          <a href="/%E9%98%B2%E7%81%AB%E5%A2%99">
+            防火墙
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>07 Sep - </time>
+          <a href="/VPN">
+            VPN
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>06 Sep - </time>
+          <a href="/%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AERIP">
+            动态路由协议RIP
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>05 Sep - </time>
+          <a href="/NAT">
+            NAT
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>04 Sep - </time>
+          <a href="/ACL(%E7%BD%91%E7%BB%9C)">
+            ACL(网络)
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>03 Sep - </time>
+          <a href="/HSRP%E5%91%BD%E4%BB%A4">
+            HSRP命令
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>02 Sep - </time>
+          <a href="/%E4%B8%89%E5%B1%82%E4%BA%A4%E6%8D%A2%E6%8A%80%E6%9C%AF">
+            三层交换技术
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>01 Sep - </time>
+          <a href="/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9A%84%E7%AB%AF%E5%8F%A3">
+            交换机的端口
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>31 Aug - </time>
+          <a href="/ICMP%E5%8D%8F%E8%AE%AE">
+            ICMP协议
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>30 Aug - </time>
+          <a href="/DHCP%E4%B8%AD%E7%BB%A7">
+            DHCP中继
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>29 Aug - </time>
+          <a href="/VTP">
+            VTP
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>28 Aug - </time>
+          <a href="/%E5%8D%95%E8%87%82%E8%B7%AF%E7%94%B1">
+            单臂路由
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>27 Aug - </time>
+          <a href="/Trunk">
+            Trunk
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>26 Aug - </time>
+          <a href="/VLAN">
+            VLAN
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>25 Aug - </time>
+          <a href="/ARP%E9%98%B2%E5%BE%A1">
+            ARP防御
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>24 Aug - </time>
+          <a href="/ARP%E5%8D%8F%E8%AE%AE">
+            ARP协议
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>23 Aug - </time>
+          <a href="/%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E5%91%BD%E4%BB%A4">
+            静态路由命令
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>22 Aug - </time>
+          <a href="/%E8%B7%AF%E7%94%B1%E5%8E%9F%E7%90%86">
+            路由原理
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>21 Aug - </time>
+          <a href="/IP%E5%8C%85%E5%A4%B4">
+            IP包头
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>20 Aug - </time>
+          <a href="/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4">
+            交换机基本命令
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>19 Aug - </time>
+          <a href="/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82&amp;%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86">
+            数据链路层&amp;交换机工作原理
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>18 Aug - </time>
+          <a href="/OSI%E4%B8%8ETCP-IP%E5%8D%8F%E8%AE%AE%E7%B0%87">
+            OSI与TCP/IP协议簇
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>16 Aug - </time>
+          <a href="/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%AE%80%E5%8D%95%E6%B5%81%E7%A8%8B">
+            渗透测试简单流程
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>15 Aug - </time>
+          <a href="/PKI">
+            PKI公钥基础设施
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>14 Aug - </time>
+          <a href="/%E5%9F%9F">
+            域
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>13 Aug - </time>
+          <a href="/IIS%E4%B9%8BWEB%E6%9C%8D%E5%8A%A1%E5%99%A8">
+            IIS之Web服务器
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>12 Aug - </time>
+          <a href="/IIS%E4%B9%8BFTP%E6%9C%8D%E5%8A%A1%E5%99%A8">
+            IIS之FTP服务器
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>11 Aug - </time>
+          <a href="/DNS%E9%83%A8%E7%BD%B2%E4%B8%8E%E5%AE%89%E5%85%A8">
+            DNS部署与安全
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>10 Aug - </time>
+          <a href="/DHCP%E9%83%A8%E7%BD%B2%E4%B8%8E%E5%AE%89%E5%85%A8">
+            DHCP部署与安全
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>09 Aug - </time>
+          <a href="/%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB%E6%9C%8D%E5%8A%A1%E5%99%A8">
+            文件共享服务器
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>08 Aug - </time>
+          <a href="/%E5%88%A9%E7%94%A8PE%E7%A0%B4%E8%A7%A3%E7%B3%BB%E7%BB%9F%E5%AF%86%E7%A0%81">
+            利用PE破解系统密码
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>07 Aug - </time>
+          <a href="/NTFS%E5%AE%89%E5%85%A8%E6%9D%83%E9%99%90">
+            NTFS安全权限
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>06 Aug - </time>
+          <a href="/Windows%E7%94%A8%E6%88%B7%E4%B8%8E%E7%BB%84%E7%AE%A1%E7%90%86">
+            Windows用户与组管理
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>05 Aug - </time>
+          <a href="/%E7%A0%B4%E8%A7%A3%E7%B3%BB%E7%BB%9F%E5%AF%86%E7%A0%81">
+            破解系统密码
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>04 Aug - </time>
+          <a href="/%E6%89%B9%E5%A4%84%E7%90%86">
+            批处理
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>03 Aug - </time>
+          <a href="/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86">
+            服务器远程管理
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>01 Aug - </time>
+          <a href="/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%BB%8B%E7%BB%8D">
+            虚拟机介绍
+          </a>
+        </li>
+    
+      
+        
+        
+        
+      
+        <li><time>06 Apr - </time>
+          <a href="/Flask%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%AE%9E%E7%8E%B0JWT(%E5%8F%8Ctoken)%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6">
+            Flask项目中实现JWT(双token)认证机制
+          </a>
+        </li>
+    
+      
+        
+        
+        
+          </ul>
+          <h2>2019年的随笔&lt;/h3&gt;
+          <ul>
+        
+      
+        <li><time>14 Dec - </time>
+          <a href="/MyISAM%E5%92%8CInnoDB%E7%9A%84%E5%8C%BA%E5%88%AB">
+            MyISAM和InnoDB的区别
+          </a>
+        </li>
+    
+    </ul>
+
+  
+&lt;/section&gt;
+</h2></section>
+:ET

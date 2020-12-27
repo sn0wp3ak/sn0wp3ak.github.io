@@ -1,0 +1,113 @@
+I"w<p><strong>VLAN ( Virtual LAN )</strong>  虚拟(逻辑)局域网</p>
+
+<blockquote>
+  <ul>
+    <li>VLAN的目的: 逻辑隔离广播域, 降低广播量</li>
+  </ul>
+
+  <ol>
+    <li>
+      <p>广播/广播域</p>
+    </li>
+    <li>
+      <p>广播的危害:</p>
+
+      <ul>
+        <li>增加网络负担/终端负担</li>
+        <li>传播病毒</li>
+        <li>安全性降低</li>
+      </ul>
+    </li>
+    <li>
+      <p>如何控制广播?</p>
+
+      <p>控制广播 == 隔离分割广播域</p>
+
+      <p>路由器隔离广播( 物理隔离 )   —  缺点: 成本高, 不灵活</p>
+    </li>
+    <li>
+      <p>采用新的技术VLAN来控制广播</p>
+
+      <p>VLAN技术是在<strong>交换机上</strong>实现的</p>
+
+      <p>且是通过逻辑隔离划分的广播域</p>
+    </li>
+    <li>
+      <p>VLAN是干什么的?</p>
+
+      <p>控制广播, 逻辑隔离广播域</p>
+    </li>
+    <li>
+      <p>一个VLAN==一个广播域==一个网段</p>
+
+      <p>把一个网段设置成一个VLAN, 固定广播域大小</p>
+    </li>
+    <li>
+      <p>VLAN的类型</p>
+
+      <ul>
+        <li>静态VLAN
+          <ul>
+            <li>手工配置</li>
+            <li>基于<strong>端口</strong>划分的VLAN</li>
+          </ul>
+        </li>
+        <li>动态VLAN
+          <ul>
+            <li>手工配置</li>
+            <li>基于<strong>MAC地址</strong>划分的VLAN(目前已经淘汰)</li>
+            <li>源MAC和VLAN表比对</li>
+            <li>采用802.1x端口认证基于账号来划分VLAN(高级动态)</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <p>静态VLAN命令</p>
+
+      <ul>
+        <li>
+          <p>创建VLAN</p>
+
+          <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  conf t
+  vlan ID, ID, ID-ID
+ 		[name 自定义名称]
+  exit
+</code></pre></div>          </div>
+        </li>
+        <li>
+          <p>查看VALN表</p>
+
+          <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sh VLAn b
+</code></pre></div>          </div>
+        </li>
+        <li>
+          <p>将端口加入到VLAN</p>
+
+          <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int f0/端口号
+switchport access vlan ID
+exit
+</code></pre></div>          </div>
+        </li>
+        <li>
+          <p>默认VLAN ID</p>
+
+          <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1 -- 默认VLAN  所有端口一开始都在VLAN 1中
+# 保留VLAN  淘汰了没人用了
+1002
+1003
+1004
+1005
+</code></pre></div>          </div>
+        </li>
+        <li>
+          <p>同一交换机, 出入两个端口必须是同一个VLAN数据包才能转发</p>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <p>VLAN是二层技术</p>
+    </li>
+  </ol>
+</blockquote>
+:ET

@@ -1,0 +1,148 @@
+I"<p><strong>广播与广播域</strong></p>
+
+<blockquote>
+  <ul>
+    <li>广播: 将广播地址作为目的地址的<strong>数据帧</strong></li>
+    <li>广播域: 网络中能接收到同一个广播所有<strong>节点的集合</strong>
+      <ul>
+        <li>广播域<strong>越小越好</strong>, 避免垃圾信息</li>
+        <li><strong>交换机无法隔离</strong>广播域</li>
+        <li>路由器能控制广播域</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<p><strong>MAC地址广播</strong></p>
+
+<blockquote>
+  <ul>
+    <li>广播地址为 <code class="language-plaintext highlighter-rouge">FF-FF-FF-FF-FF-FF</code></li>
+  </ul>
+</blockquote>
+
+<p><strong>IP地址广播</strong></p>
+
+<blockquote>
+  <ul>
+    <li><code class="language-plaintext highlighter-rouge">255.255.255.255</code></li>
+    <li>广播IP地址为IP地址网段的广播地址, 如: <code class="language-plaintext highlighter-rouge">192.168.0.255/24</code></li>
+  </ul>
+</blockquote>
+
+<p><strong>什么是ARP协议?</strong></p>
+
+<blockquote>
+  <ul>
+    <li><strong>地址解析协议</strong>  Address Resolution Protocol</li>
+    <li>作用: 将一个<strong>已知</strong>的IP地址解析成MAC地址  <code class="language-plaintext highlighter-rouge">IP --&gt; MAC</code></li>
+    <li>由于ARP协议的广播范围仅限于局域网, 所以ARP协议是<strong>内网协议</strong></li>
+  </ul>
+</blockquote>
+
+<p><strong>步骤</strong></p>
+
+<blockquote>
+  <ul>
+    <li>ARP广播请求
+      <ul>
+        <li>ARP报文内容:我是10.1.1.1 我的mac：AA  谁是10.1.1.3 你的mac：???</li>
+      </ul>
+    </li>
+    <li>ARP单播应答</li>
+  </ul>
+</blockquote>
+
+<p><strong>Windows中的ARP命令</strong></p>
+
+<blockquote>
+  <ul>
+    <li><code class="language-plaintext highlighter-rouge">arp -a</code>   查看ARP缓存表</li>
+    <li><code class="language-plaintext highlighter-rouge">arp -d</code>   清除ARP缓存表</li>
+    <li><code class="language-plaintext highlighter-rouge">arp -s</code>   ARP绑定</li>
+  </ul>
+</blockquote>
+
+<p><strong>Cisco中的ARP命令</strong></p>
+
+<blockquote>
+  <ul>
+    <li><code class="language-plaintext highlighter-rouge">Router#show arp</code>  查看ARP缓存表</li>
+    <li><code class="language-plaintext highlighter-rouge">Router#clear arp-cache</code>  清除ARP缓存表</li>
+    <li><code class="language-plaintext highlighter-rouge">Router(config)#arp ip-address mac-address arpa</code>  ARP绑定</li>
+  </ul>
+</blockquote>
+
+<p><strong>ARP原理展示</strong></p>
+
+<blockquote>
+  <ul>
+    <li>PC1和PC2第一次通信</li>
+    <li>步骤:
+      <ul>
+        <li>使用 <code class="language-plaintext highlighter-rouge">ipconfig/all</code> 查看PC1和PC2的MAC地址</li>
+        <li>用 <code class="language-plaintext highlighter-rouge">arp -a</code> 查看ARP缓存</li>
+        <li>在PC1上ping PC2后, 再用 <code class="language-plaintext highlighter-rouge">arp -a</code> 查看ARP缓存</li>
+      </ul>
+    </li>
+    <li>当目标IP与自己在同一网段, 直接ARP广播找目标</li>
+    <li>当目标IP与自己不在同一网段, 也发ARP广播, 但是去找网关</li>
+  </ul>
+</blockquote>
+
+<p><strong>ARP攻击原理</strong></p>
+
+<blockquote>
+  <ul>
+    <li><strong>应答攻击</strong>
+      <ul>
+        <li>内网中攻击者<strong>伪造了ARP应答</strong></li>
+        <li>ARP广播者收到2份ARP应答</li>
+        <li>广播者的ARP缓存只记录后来者(不一定真的先到还是假的先到)</li>
+        <li>攻击者不停的向广播者回ARP应答, 以保证广播者的ARP缓存中记录的永远是<strong>假MAC地址</strong></li>
+        <li><strong>目的: 1. 中断内网间通信(假装目标)  2. 中断和外网的通信(假装网关)</strong></li>
+      </ul>
+    </li>
+    <li><strong>广播攻击</strong>
+      <ul>
+        <li>攻击者伪造ARP广播报文, 把自己伪装成网关</li>
+        <li>内网的所有PC都听到了广播, 把假的网关MAC记录到ARP缓存表</li>
+        <li>内网的PC就无法和外网通信了</li>
+      </ul>
+    </li>
+    <li>通过发送虚假的广播/应答报文, 实现中断网络通信的目的</li>
+  </ul>
+</blockquote>
+
+<p><strong>ARP欺骗原理</strong></p>
+
+<blockquote>
+  <ul>
+    <li>与攻击类似, 伪造ARP应答, 不过并不是伪造MAC地址, 而是<strong>暴露欺骗者自己的MAC地址</strong></li>
+    <li>信息并不会丢弃, 而是被欺骗者偷窥后, 再发送给真实的目标</li>
+    <li><strong>目的: 1. 作为中间人偷窥,窃取,篡改通信内容, 控制别人的通信速度 2. 控制流量, 限制访问外网(假装网关)</strong></li>
+  </ul>
+</blockquote>
+
+<p><u>**攻击和欺骗都是发假报文, 只不过攻击者发的MAC地址根本不存在, 而欺骗者则是发送自己的MAC地址**</u></p>
+
+<ul>
+  <li>
+    <p><strong>ARP协议没有验证机制</strong></p>
+  </li>
+  <li>
+    <p><strong>ARP攻击者通过发送虚假伪造的arp报文对受害者进行ARP缓存投毒</strong></p>
+  </li>
+  <li>
+    <p><strong>路由器的工作原理</strong>
+1）一个帧到达路由，路由器首先检查目标MAC地址是否自己，如果不是则丢弃，如果是则解封装，并将IP包送到路由器内部</p>
+
+    <p>2）路由器检查IP包头中的目标IP，并匹配路由表，如果匹配失败，则丢弃，并向源IP回馈错误信息，如匹配成功，则将IP包路由到出接口。</p>
+
+    <p>3）封装帧，首先将出接口的MAC地址作为源MAC封装好，然后检查ARP缓存表，检查是否有下一跳的MAC地址，如有，将提取并作为目标MAC地址封装到帧中，如没有，则发送ARP广播请求下一跳的MAC，并获取到对方的mac地址，再记录缓存，并封装帧，最后将帧发送出去。</p>
+  </li>
+  <li>
+    <p><strong>如果公司有人在做ARP欺骗，该如何找到此人？</strong></p>
+  </li>
+</ul>
+:ET

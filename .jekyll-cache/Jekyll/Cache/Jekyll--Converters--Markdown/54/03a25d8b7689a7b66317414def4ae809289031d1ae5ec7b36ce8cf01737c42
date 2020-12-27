@@ -1,0 +1,77 @@
+I"�<p>ICMP协议</p>
+
+<blockquote>
+  <ul>
+    <li>
+      <p>ICMP端口号是多少?</p>
+
+      <p>没有端口号(5层协议才有)</p>
+    </li>
+    <li>
+      <p>ICMP是干嘛的?</p>
+
+      <p>网络探测与回馈机制</p>
+
+      <ol>
+        <li>网络探测</li>
+        <li>路由跟踪
+          <ul>
+            <li>windows:  <code class="language-plaintext highlighter-rouge">tracert IP地址</code></li>
+            <li>linux或路由:  <code class="language-plaintext highlighter-rouge">traceroute IP地址</code></li>
+            <li>在ICMP报文的IP头的TTL做手脚
+              <ul>
+                <li>TTL = 1</li>
+                <li>TTL = 2 …</li>
+                <li>回包ICMP类型11,  且带有路由器的源IP</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>错误反馈</li>
+      </ol>
+    </li>
+    <li>
+      <p>ICMP协议的封装格式</p>
+
+      <p>完整ICMP报文</p>
+
+      <table>
+        <tbody>
+          <tr>
+            <td>2层帧头</td>
+            <td>IP包头</td>
+            <td>ICMP头</td>
+            <td>数据</td>
+            <td>2层帧尾</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <ul>
+        <li>ICMP头
+          <ul>
+            <li>ICMP类型字段
+              <ul>
+                <li>8:  ping请求</li>
+                <li>0:  ping应答</li>
+                <li>3:  目标主机不可达</li>
+                <li>11:  TTL超时</li>
+              </ul>
+            </li>
+            <li>代码
+              <ul>
+                <li>类型为8 / 0时没啥意义 也用8 /0填充</li>
+                <li>类型为3时有意义   代表哪种主机</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>数据:  填充报文(无意义数据)</li>
+      </ul>
+    </li>
+    <li>
+      <p>ICMP不仅回馈ping错误, 应该回馈任何协议的错误</p>
+    </li>
+  </ul>
+</blockquote>
+:ET

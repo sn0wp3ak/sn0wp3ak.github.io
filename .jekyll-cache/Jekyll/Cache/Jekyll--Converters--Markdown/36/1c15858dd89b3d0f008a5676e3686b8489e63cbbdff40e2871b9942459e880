@@ -1,0 +1,34 @@
+I"}<p><strong>静态路由(S)：</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conf t
+ip route 目标网段 子网掩码 下一跳IP
+如：
+ip route 70.1.1.0 255.255.255.0 20.1.1.2
+</code></pre></div></div>
+
+<p><strong>默认路由(S*)：</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conf t
+ip route 0.0.0.0  0.0.0.0 下一跳IP
+如：
+ip route 0.0.0.0  0.0.0.0 20.1.1.2
+</code></pre></div></div>
+
+<p><strong>浮动路由：</strong>
+在静态或默认路由后加空格+数字（正整数）</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ip route 0.0.0.0 0.0.0.0 20.1.1.2
+ip route 0.0.0.0 0.0.0.0 30.1.1.1 2
+</code></pre></div></div>
+
+<p><strong>查看路由表：</strong>
+<code class="language-plaintext highlighter-rouge">show ip route</code></p>
+
+<p><strong>查看接口列表：</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>show ip int b
+
+sh run
+</code></pre></div></div>
+
+:ET

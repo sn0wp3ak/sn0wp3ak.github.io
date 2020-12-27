@@ -1,0 +1,13 @@
+I"<p>Windows:</p>
+<ol>
+  <li>FAT  ( 文件分配表 File Allocation Table )
+    <ul>
+      <li>FAT12</li>
+      <li>FAT16</li>
+      <li>FAT32</li>
+    </ul>
+  </li>
+  <li>exFAT   16EB/F ( 16EB = 16 * 1024 * 1024TB )</li>
+  <li>NTFS ( New Technology File System )</li>
+</ol>
+:ET

@@ -1,0 +1,158 @@
+I"�<p><strong>动态路由</strong></p>
+
+<ul>
+  <li>基于某种路由协议实现</li>
+</ul>
+
+<p><strong>动态路由的特点</strong></p>
+
+<ul>
+  <li>减少了管理任务</li>
+  <li>占用了网络带宽</li>
+  <li>硬件资源要求高</li>
+</ul>
+
+<p><strong>动态路由协议概述</strong></p>
+
+<ul>
+  <li>路由器之间用来交换信息的语言</li>
+</ul>
+
+<p><strong>度量值</strong></p>
+
+<ul>
+  <li>
+    <p>Metric</p>
+  </li>
+  <li>
+    <p>跳数, 带宽, 负载, 时延, 可靠性, 成本</p>
+  </li>
+</ul>
+
+<p><strong>静态路由和动态路由的比较</strong></p>
+
+<ul>
+  <li>网络中静态路由和动态路由相互补充</li>
+</ul>
+
+<p><strong>收敛</strong></p>
+
+<ul>
+  <li>所有路由器都达到一致状态的过程</li>
+</ul>
+
+<p><strong>按照路由执行的算法分类</strong></p>
+
+<ul>
+  <li>距离矢量路由协议
+    <ul>
+      <li>依据从源网络到目标网络所经过的路由器的个数选择路由</li>
+      <li>RIP, IGRP</li>
+    </ul>
+  </li>
+  <li>链路状态路由协议
+    <ul>
+      <li>综合考虑从源网络到目标网络的各条路径的情况选择路由</li>
+      <li>OSPF, IS-IS</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>RIP是距离-矢量路由选择协议   度量值: 跳数</strong></p>
+
+<ul>
+  <li>RIP的基本概念
+    <ul>
+      <li>定期更新</li>
+      <li>邻居</li>
+      <li>广播更新</li>
+      <li>全路由表更新</li>
+    </ul>
+  </li>
+  <li>
+    <p>路由器学习到直连路由</p>
+  </li>
+  <li>
+    <p>更新周期30s一到, 路由器会向邻居发送路由表</p>
+  </li>
+  <li>每过30s, 再次发送路由表
+    <ul>
+      <li>Next hop 下一跳</li>
+      <li>条目类型 R</li>
+      <li>学习Metirc + 1</li>
+    </ul>
+  </li>
+  <li>
+    <p>RIP度量值为跳数</p>
+
+    <ul>
+      <li>最大跳数15跳, 16跳为不可达</li>
+    </ul>
+  </li>
+  <li>
+    <p>RIP更新时间</p>
+
+    <ul>
+      <li>每隔30s发送路由更新消息, UDP520端口</li>
+    </ul>
+  </li>
+  <li>
+    <p>RIP路由更新消息的方式</p>
+
+    <ul>
+      <li>发送整个路由表信息</li>
+    </ul>
+  </li>
+  <li><strong>路由环路</strong>
+    <ul>
+      <li>如果某条线路坏了, Hop自动被标记为16</li>
+      <li>此时路由器错误的学习了邻居的Hop值较低的数据, 又把Hop16更新掉了, 形成了路由环路</li>
+      <li>路由器继续将该条目发送给邻居, 虽然Metric值不是最小但是因为来自同一路由器, 也得学习</li>
+      <li>循环往复, 直到这两个路由的该条目Hop值都变成16</li>
+    </ul>
+  </li>
+  <li><strong>执行水平分割可以阻止路由环路的发生</strong>
+    <ul>
+      <li>从一个接口学习到的路由信息, 不再从这个接口发回去 (从别人那学的, 不再返回头教别人)</li>
+      <li>同时也能减少路由更新信息占用的链路带宽资源</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>命令</strong></p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conf t
+router rip
+	version 2
+	no auto-summary	   # 不按默认掩码学习, 关闭自动汇总
+	network 10.0.0.0   # 按默认子网掩码学习
+	network 20.0.0.0
+	exit
+</code></pre></div>    </div>
+
+    <p>RIP管理距离值: 120</p>
+
+    <p>version1 只能学习默认子网的网段, 一般不用</p>
+
+    <p>version2 常用</p>
+  </li>
+  <li>
+    <p><strong>检查路由协议</strong></p>
+
+    <p>1) 查路由表</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sh ip route
+</code></pre></div>    </div>
+
+    <p>2) 查运行配置</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sh run
+</code></pre></div>    </div>
+
+    <p>3) 查看协议</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sh ip protocols
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+:ET

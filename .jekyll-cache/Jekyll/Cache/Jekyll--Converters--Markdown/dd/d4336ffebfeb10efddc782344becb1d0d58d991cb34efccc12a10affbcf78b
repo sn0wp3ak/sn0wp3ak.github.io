@@ -1,0 +1,64 @@
+I"�<p><strong>ARP攻击防御</strong></p>
+
+<blockquote>
+  <ol>
+    <li>
+      <p><strong>静态ARP绑定</strong></p>
+
+      <p>手工绑定/双向绑定</p>
+
+      <ul>
+        <li>
+          <p>windows客户机上：</p>
+
+          <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>arp -s 网关的IP地址  网关的MAC地址
+arp -a  # 查看ARP缓存表   静态
+</code></pre></div>          </div>
+        </li>
+        <li>
+          <p>路由器上静态绑定：</p>
+
+          <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Router(config)#arp 客户机IP 客户机MAC地址 arpa f0/0
+</code></pre></div>          </div>
+
+          <ul>
+            <li>优点：配置简单</li>
+            <li>缺点：工作量大，维护量大</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>ARP防火墙</strong></p>
+
+      <p>自动绑定静态ARP</p>
+
+      <ul>
+        <li>主动防御
+          <ul>
+            <li>优点：简单易用</li>
+            <li>缺点：当开启人数较多时，会增大网络负担</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>硬件级ARP防御</strong></p>
+
+      <p>交换机支持“端口”做<strong>动态ARP绑定</strong>（配合DHCP服务器）</p>
+
+      <p>或做静态ARP绑定</p>
+
+      <p>如：</p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conf t
+ip dhcp snooping   # 开启DHCP监听功能
+int range f0/1 - 48
+   
+switch(config-range-if)#
+</code></pre></div>      </div>
+    </li>
+  </ol>
+</blockquote>
+
+:ET
