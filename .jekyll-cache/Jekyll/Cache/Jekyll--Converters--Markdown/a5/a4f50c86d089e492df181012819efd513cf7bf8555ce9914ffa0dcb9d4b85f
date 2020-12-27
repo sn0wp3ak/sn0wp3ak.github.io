@@ -1,0 +1,10 @@
+I"Q<p>修改文件权限的命令: <code class="language-plaintext highlighter-rouge">chmod</code><br />
+操作基本权限rwx<br /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>数字表示法
+chmod 000～777 
+
+字母表示法
+chmod u/g/o/a +/- r/w/x
+</code></pre></div></div>
+:ET
