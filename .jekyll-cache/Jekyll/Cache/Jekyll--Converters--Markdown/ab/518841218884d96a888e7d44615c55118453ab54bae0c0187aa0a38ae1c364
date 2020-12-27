@@ -1,0 +1,44 @@
+I"<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>运算符----|---赋值运算符: =                  
+         |
+	 `---算术运算符: + - * / // % ** () 
+	 |
+	 `---复合赋值运算符: += -= *= /= //= **= %=
+	 |
+	 `---比较运算符: == != &gt; &lt; &gt;= &lt;=
+	 |
+	 `---逻辑运算符: and or not
+</code></pre></div></div>
+<p>混合运算的优先级: () 高于 ** 高于 * / // % 高于 + -<br />
+/ 除法的结果一律都是float浮点型 --&gt; 想整除就用//<br />
+多个变量同时赋值： var1, var2, var3 = 10, 0.5, “abc” (变量和值要一一对应)<br />
+多个变量赋同一个值: var1 = var2 = var3 = “abc”<br /></p>
+
+<p>使用复合赋值运算时, 先算右边的表达式, 再做复合赋值运算:<br /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">c</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">c</span> <span class="o">+=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="c1"># 计算顺序
+</span><span class="n">c</span> <span class="o">+=</span> <span class="mi">3</span> 
+<span class="n">c</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="mi">3</span>
+</code></pre></div></div>
+
+<p>在逻辑表达式的两边加上小括号()可以增强代码的可读性, 是个很好的编程习惯<br /></p>
+
+<p>数字之间的逻辑运算:<br />
+and运算, 逻辑”且”, 只要有一个值为0, 则结果为0, 否则为最后一个非0数字;<br />
+1假则假<br /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="mi">0</span> <span class="ow">and</span> <span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="mi">0</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">1</span> <span class="ow">and</span> <span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="mi">2</span>
+</code></pre></div></div>
+<p>or运算, 逻辑”或”, 所有数字都是0, 结果才是0, 否则为第一个非0数字;<br />
+1真则真<br /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="mi">0</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="mi">0</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">0</span> <span class="ow">or</span> <span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="mi">1</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">2</span> <span class="ow">or</span> <span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="mi">2</span>
+</code></pre></div></div>
+
+:ET
