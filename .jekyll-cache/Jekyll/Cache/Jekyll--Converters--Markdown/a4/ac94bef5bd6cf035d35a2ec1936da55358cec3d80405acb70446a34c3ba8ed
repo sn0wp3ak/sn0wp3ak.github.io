@@ -1,0 +1,87 @@
+I"�<p>RAID<br />
+Redundant Array of Independent Disks<br />
+独立磁盘的冗余阵列<br /></p>
+
+<p>目的: 获得更快的存取速度, 备份数据, 做到数据的安全高可用<br /></p>
+
+<p>常见方案: 0, 1, 5, 10<br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">RAID 0</code><br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      ------RAID 0------
+      |                |       
+-------------    -------------
+|datablock 1|    |datablock 2|
+-------------    -------------
+|datablock 3|    |datablock 4|
+-------------    -------------
+|datablock 5|    |datablock 6|
+-------------    -------------
+|datablock 7|    |datablock 8|
+-------------    -------------
+    disk1            disk2
+</code></pre></div></div>
+<p>RAID 0 把数据分开存放, 提高了读写的速度, 但是因为不做备份, 一旦其中某个数据块有问题就会导致整个系统的崩溃<br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">RAID 1</code><br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      ------RAID 1------
+      |                |       
+-------------    -------------
+|datablock 1|    |datablock 1|
+-------------    -------------
+|datablock 2|    |datablock 2|
+-------------    -------------
+|datablock 3|    |datablock 3|
+-------------    -------------
+|datablock 4|    |datablock 4|
+-------------    -------------
+    disk1            disk2
+</code></pre></div></div>
+<p>RAID 1 和 RAID 0 是相对的; RAID做了备份, 但是不考虑读写速度和硬盘的利用率, 因为占用了2倍的空间且备份需要花费额外的时间<br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">综上, RAID 0 追求速度, 而 RAID 1 追求安全, 且这两个方案都没有任何平衡妥协的操作</code><br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">RAID 5</code><br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                       RAID 5
+      --------------------------------------
+      |                  |                 |                
+--------------    --------------    --------------    
+|datablock 1a|    |datablock 2a|    |datablock 3a|    
+-------------     --------------    --------------    
+|datablock 1b|    |datablock 2b|    |   parity   |    
+--------------    --------------    --------------    
+|datablock 1c|    |   parity   |    |datablock 3b|    
+--------------    --------------    --------------    
+|   parity   |    |datablock 2c|    |datablock 3c|    
+--------------    --------------    --------------    
+    disk1             disk2              disk3              
+</code></pre></div></div>
+<p>RAID 5 方案中的parity是用来存放奇偶校验信息的数据块;<br />
+这些parity数据块并不是单独存放在某一块硬盘中, 而是存放在</p>
+
+<p><code class="language-plaintext highlighter-rouge">RAID 10</code><br />
+RAID 10 == RAID 0 + RAID 1<br />
+10代表0方案和1方案混用, 而并非第10号方案<br />
+<strong>目前最为广泛使用的RAID方案</strong><br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                             RAID 10
+			       |
+               --------------RAID 0---------------
+	       |                                 |
+      -------RAID 1------               -------RAID 1------
+      |                 |               |                 |
+-------------    -------------    -------------    -------------
+|datablock 1|    |datablock 1|    |datablock 2|    |datablock 2|
+-------------    -------------    -------------    -------------
+|datablock 3|    |datablock 3|    |datablock 4|    |datablock 4|
+-------------    -------------    -------------    -------------
+|datablock 5|    |datablock 5|    |datablock 6|    |datablock 6|
+-------------    -------------    -------------    -------------
+|datablock 7|    |datablock 7|    |datablock 8|    |datablock 8|
+-------------    -------------    -------------    -------------
+    disk1            disk2            disk3            disk4    
+</code></pre></div></div>
+<p>现如今的企业对于数据的估值远远大于硬盘设备, 也就是说大多数数据驱动型的企业对于硬盘价格已经不是那么在意了, 所以为了数据的高吞吐和高可用, RAID 10就成为了泛用方案<br />
+RAID 10 方案至少需要4块硬盘, 其中两两组成RAID 1互为备份, 实现高可用;<br />
+再对RAID 1阵列实施RAID 0方案, 分散存储数据, 实现高吞吐, 提高整体读写速度;<br />
+理论上, 如果不是相同的数据块(比如: db1 和 db1)同时损坏,<br /> 
+RAID 10可以最高负担50%的硬盘故障率, 且不会丢失任何数据<br /></p>
+:ET

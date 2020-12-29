@@ -1,0 +1,27 @@
+I"�<p>修改文件权限的命令: <code class="language-plaintext highlighter-rouge">chmod</code><br />
+操作基本权限rwx<br /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>数字表示法
+chmod 000～777 
+
+字母表示法
+chmod u/g/o/a +/-/= r/w/x
+</code></pre></div></div>
+<p>操作特殊权限s/t<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SUID: chmod u +/- s file
+SGID: chmod g +/- s file
+      chmod -R g +/- s dir
+SBIT: chmod -R o +/- t dir
+</code></pre></div></div>
+<p>修改文件所有者的命令: <code class="language-plaintext highlighter-rouge">chown</code><br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chown username file
+</code></pre></div></div>
+
+<p>修改文件所属组的命令: <code class="language-plaintext highlighter-rouge">chgrp</code>/<code class="language-plaintext highlighter-rouge">chown</code><br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chgrp groupname file
+chown :groupname file
+# 所有者和所属组一起修改
+chown username:groupname file
+</code></pre></div></div>
+
+:ET

@@ -1,0 +1,21 @@
+I"<p>RAID<br />
+Redundant Array of Independent Disks<br />
+独立磁盘的冗余阵列<br /></p>
+
+<p>目的: 获得更快的存取速度, 备份数据, 做到数据的安全高可用<br /></p>
+
+<p>常见方案: 0, 1, 5, 10<br /></p>
+
+<p>RAID 0<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-------------
+|datablock 1|
+-------------
+|datablock 3|
+-------------
+| datablock 5 |
+-------------
+|datablock 7|
+-------------
+    disk1
+</code></pre></div></div>
+:ET
