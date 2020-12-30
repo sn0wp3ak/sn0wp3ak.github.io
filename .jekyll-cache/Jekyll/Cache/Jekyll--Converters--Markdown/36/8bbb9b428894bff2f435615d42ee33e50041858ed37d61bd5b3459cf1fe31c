@@ -1,0 +1,57 @@
+I"|	<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">状态码</th>
+      <th style="text-align: center">状态</th>
+      <th style="text-align: center">含义</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">100</td>
+      <td style="text-align: center">Continue</td>
+      <td style="text-align: center">继续。客户端应继续其请求</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">101</td>
+      <td style="text-align: center">Switching Protocols</td>
+      <td style="text-align: center">切换协议。服务器根据客户端的请求切换协议。只能切换到更高级的协议,例如,切换到HTTP的新版本协议</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">200</td>
+      <td style="text-align: center">OK</td>
+      <td style="text-align: center">请求成功。一般用于GET与POST请求</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">201</td>
+      <td style="text-align: center">Created</td>
+      <td style="text-align: center">已创建。成功请求并创建了新的资源</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">202</td>
+      <td style="text-align: center">Accepted</td>
+      <td style="text-align: center">已接受。已经接受请求,但未处理完成</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">203</td>
+      <td style="text-align: center">Non-Authoritative Information</td>
+      <td style="text-align: center">非授权信息。请求成功。但返回的meta信息不在原始的服务器,而是一个副本</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">204</td>
+      <td style="text-align: center">No Content</td>
+      <td style="text-align: center">无内容。服务器成功处理,但未返回内容。在未更新网页的情况下,可确保浏览器继续显示当前文档</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">205</td>
+      <td style="text-align: center">Reset Content</td>
+      <td style="text-align: center">重置内容。服务器处理成功,用户终端(例如:浏览器)应重置文档视图。可通过此返回码清除浏览器的表单域</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">206</td>
+      <td style="text-align: center">Partial Content</td>
+      <td style="text-align: center">部分内容。服务器成功处理了部分GET请求</td>
+    </tr>
+  </tbody>
+</table>
+:ET

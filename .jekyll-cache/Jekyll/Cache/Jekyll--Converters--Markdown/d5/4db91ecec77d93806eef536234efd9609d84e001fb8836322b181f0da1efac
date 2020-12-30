@@ -1,0 +1,51 @@
+I"<p><strong>设备列表</strong></p>
+<ul>
+  <li>交换机2台: Switch1 和 Switch2</li>
+  <li>PC4台</li>
+</ul>
+
+<p><strong>PC状态</strong></p>
+<ul>
+  <li>10.1.1.1   AA</li>
+  <li>10.1.1.2   BB</li>
+  <li>10.1.1.3   CC</li>
+  <li>10.1.1.4   DD</li>
+</ul>
+
+<p><strong>交换机连通状态</strong></p>
+<ul>
+  <li>Switch1
+    <ul>
+      <li>F0/1   Switch2</li>
+      <li>F0/2   AA</li>
+      <li>F0/3	 BB</li>
+    </ul>
+  </li>
+  <li>Switch2
+    <ul>
+      <li>F0/3   Switch1</li>
+      <li>F0/4   CC</li>
+      <li>F0/9   DD
+<img src="https://img-blog.csdnimg.cn/20200914155301143.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzQ2MjM4Nzc1,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" /></li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>数据帧的生命周期</strong></p>
+<ol>
+  <li>AA要给DD发送一条请求 “Hello!”, 层层包装成帧</li>
+  <li>Switch1学习数据帧的源MAC地址  AA  F0/2</li>
+  <li>Switch1想在自己的MAC地址表中寻找目标MAC地址DD, 无果, 随后广播出去</li>
+  <li>BB收到数据帧, 拆开MAC子层, 发现不是给他的, 所以就不继续解析了</li>
+  <li>Switch1把数据帧发给Switch2了</li>
+  <li>Switch2学习MAC地址AA, 但是Switch2只认识自己的接口, 所以Switch2的MAC地址列表添加一条 AA  F0/3 而不是 F0/2</li>
+  <li>Switch2也在自己的MAC地址列表中寻找DD, 无果, 随后广播出去</li>
+  <li>CC收到数据帧, 拆开MAC子层, 发现不是给他的, 所以就不继续解析了</li>
+  <li>DD收到数据帧, 发现是给自己的, 层层解析, 发现请求, 然后把响应数据层层封装成另一个数据帧, 发送回去</li>
+  <li>Switch2收到返回帧后学习源MAC地址 DD F0/9</li>
+  <li>Switch2在自己的MAC地址列表中找到了 AA 定点发送</li>
+  <li>Switch1收到返回帧了, 学习源MAC DD  F0/1</li>
+  <li>Switch1在自己的MAC地址列表中找到AA, 定点发送</li>
+  <li>AA收到返回帧, 层层解析, 拿到响应数据</li>
+</ol>
+:ET

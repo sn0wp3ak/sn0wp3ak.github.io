@@ -1,0 +1,5 @@
+I"<ul>
+  <li>先用<code class="language-plaintext highlighter-rouge">fdisk -l</code>指令查看一下添加硬盘的名称;<br /></li>
+  <li><code class="language-plaintext highlighter-rouge">mdadm</code>命令用于创建和管理软件RAID;<br /></li>
+</ul>
+:ET

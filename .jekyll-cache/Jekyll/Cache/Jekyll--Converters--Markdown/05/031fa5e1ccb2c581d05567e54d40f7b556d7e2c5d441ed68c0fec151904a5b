@@ -1,0 +1,35 @@
+I"o<ul>
+  <li>先用<code class="language-plaintext highlighter-rouge">fdisk -l</code>指令查看一下添加硬盘的名称;<br /></li>
+  <li><code class="language-plaintext highlighter-rouge">mdadm</code>命令用于创建和管理软件RAID;<br /></li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">以4块硬盘组成的RAID 10为例</code><br />
+创建RAID:<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~]# mdadm -Cv /dev/md0 -a yes -n 4 -l 10 /dev/sdb /dev/sdc /dev/sdd /dev/sde
+</code></pre></div></div>
+<p>格式化RAID:<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~]# mkfs.ext4 /dev/md0
+</code></pre></div></div>
+<p>创建挂载点+挂载RAID:<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~]# mkdir /RAID
+~]# mount /dev/md0 /RAID
+~]# df -h
+</code></pre></div></div>
+<p>查看RAID的详细信息并写入配置文件:<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~]# mdadm -D /dev/md0
+~]# echo "/dev/md0 /RAID ext4 defaults 0 0"
+</code></pre></div></div>
+<p>mdadm命令常用参数:<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-a    检测设备名称
+-n    指定设备数量
+-l    指定RAID级别
+-C    创建RAID
+-v    显示过程信息
+-f    模拟设备损坏的情况
+-r    移除设备
+-Q    查看摘要信息
+-D    查看详细信息
+-S    停止RAID
+</code></pre></div></div>
+
+:ET

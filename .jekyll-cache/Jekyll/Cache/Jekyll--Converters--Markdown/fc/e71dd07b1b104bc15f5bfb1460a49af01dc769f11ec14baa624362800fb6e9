@@ -1,0 +1,17 @@
+I"�<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">状态码</th>
+      <th style="text-align: center">英义</th>
+      <th style="text-align: center">中义</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">100</td>
+      <td style="text-align: center">Continue</td>
+      <td style="text-align: center">继续。客户端应继续其请求</td>
+    </tr>
+  </tbody>
+</table>
+:ET
