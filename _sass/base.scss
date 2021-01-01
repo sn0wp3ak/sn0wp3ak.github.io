@@ -14,7 +14,10 @@ $blockquote-border: $dove-grey !default;
 body {
   margin: 0;
   padding: 0;
-  background: $bg;
+  background: url("../assets/bg.png");
+  background-repeat: no-repeat;
+  background-position: center 100pt;
+  background-attachment: fixed;
   color: $body-foreground;
   font-size: 20px;
   line-height: 1.5;
@@ -157,6 +160,11 @@ pre {
   text-wrap: normal;
   overflow: auto;
   overflow-y: hidden;
+  opacity: 0.7;
+}
+
+pre:hover {
+  opacity: 1;
 }
 
 code.highlighter-rouge {

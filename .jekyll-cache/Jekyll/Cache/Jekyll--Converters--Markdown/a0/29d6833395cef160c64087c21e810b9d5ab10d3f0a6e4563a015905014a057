@@ -1,6 +1,0 @@
-I"=<p>备份盘 spare disk<br />
-在 <code class="language-plaintext highlighter-rouge">mdadm -D</code> 列出的详细信息里 Spare Devices 代表备份盘的数量<br />
-工作盘 = 活动盘(Active Devices) + 备份盘<br />
-所有硬盘 = 工作盘(Working Devices) + 不工作的硬盘(Failed Devices)<br /></p>
-
-:ET

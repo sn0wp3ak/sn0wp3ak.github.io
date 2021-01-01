@@ -1,9 +1,0 @@
-I"<ol>
-  <li>先用<code class="language-plaintext highlighter-rouge">fdisk -l</code>指令查看一下添加硬盘的名称;<br /></li>
-  <li><code class="language-plaintext highlighter-rouge">mdadm</code>命令用于创建和管理软件RAID;<br /></li>
-</ol>
-
-<p>以4块硬盘组成的RAID 10为例:<br /></p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~]# mdadm -Cv /dev/md0 -a yes -n 4 -l 10 /dev/sdb /dev/sdc /dev/sdd /dev/sde
-</code></pre></div></div>
-:ET
