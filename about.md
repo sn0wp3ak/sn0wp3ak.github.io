@@ -3,7 +3,6 @@ layout: page
 title: About
 ---
 <h2>关于我</h2><br>
-<img src="assets/avatar.png" height=100 weight=100><br>
 `Author`: sn0wp3ak<br>
 `Location`: Beijing, China<br>
 `Education`: Bachelor of Science, Beijing University of Technology<br>
@@ -12,4 +11,3 @@ title: About
 ~~**IDE:**~~`Editor`: Vim<br>
 `Github`: [https://github.com/sn0wp3ak](https://github.com/sn0wp3ak)<br>
 `Email:`sn0wp3ak@gmail.com\|949627092@qq.com<br>
-

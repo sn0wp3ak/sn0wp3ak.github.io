@@ -46,6 +46,7 @@ li {
   line-height: 1.4 ;
 }
 
+
 /* Header, <header>
    header   - container
    h1       - project name
@@ -149,6 +150,12 @@ blockquote {
   color: $fg;
   padding-left: 10px;
   border-left: 3px dotted $blockquote-border;
+  background: $bg;
+  opacity: 0.9;
+}
+
+blockquote:hover {
+  opacity: 1;
 }
 
 pre {
@@ -175,7 +182,9 @@ code.highlighter-rouge {
 table {
   width: 100%;
   margin: 0 0 0 0;
+  background: $bg;
 }
+
 
 th {
   text-align: left;
@@ -242,6 +251,7 @@ a {
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
                 0 0 5px rgba(181, 232, 83, 0.1),
                 0 0 10px rgba(181, 232, 83, 0.1);
+  opacity: 0.7;
 }
 
 a:active, a:focus {
@@ -250,6 +260,10 @@ a:active, a:focus {
   -moz-outline-style: none
 }
 
+a:hover {
+  background: $bg;
+  opacity: 1;
+}
 /* Clearfix */
 
 .cf:before, .cf:after {
@@ -300,4 +314,13 @@ a:active, a:focus {
 strong {
     background: $skyblue;
     border: 2px;
+}
+
+p {
+  opacity: 0.9;
+}
+
+p:hover {
+  background: $bg;	
+  opacity: 1;
 }
