@@ -98,7 +98,7 @@ tags:
 	- 编辑 `visudo` 打开wheel组的注释
 7. 安装图像界面(重要)
 	- 先安装X服务 `sudo pacman -S xorg xorg-server`
-	- 选择一个喜欢的桌面环境安装, 本人使用Mate
+	- 选择一个喜欢的桌面环境安装
 	- 安装登录管理器 `sudo pacman -S lightdm lightdm-gtk-greeter`
 	- 开机启动登录管理器 `systemctl enable lightdm`
 8. 推荐安装
