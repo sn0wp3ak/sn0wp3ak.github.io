@@ -1,0 +1,139 @@
+I"�	<h2 id="网络设备">网络设备</h2>
+<ul>
+  <li>Switch
+    <ul>
+      <li>交换机</li>
+    </ul>
+  </li>
+  <li>Router
+    <ul>
+      <li>路由器</li>
+    </ul>
+  </li>
+  <li>Firewall
+    <ul>
+      <li>防火墙</li>
+    </ul>
+  </li>
+  <li>IPS
+    <ul>
+      <li>Intrusion Prevention System</li>
+      <li>入侵预防系统</li>
+    </ul>
+  </li>
+  <li>IDS
+    <ul>
+      <li>Intrusion Detection System</li>
+      <li>入侵检测系统</li>
+    </ul>
+  </li>
+  <li>WAF
+    <ul>
+      <li>Web Application Firewall</li>
+      <li>Web应用程序防火墙</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="网络协议标准">网络协议/标准</h2>
+<ul>
+  <li>VPN
+    <ul>
+      <li>Virtual Private Network</li>
+      <li>虚拟私人网络</li>
+    </ul>
+  </li>
+  <li>VTP
+    <ul>
+      <li>VLAN Trunking Protocol</li>
+      <li>虚拟局域网中继协议</li>
+      <li>Cisco私有协议</li>
+    </ul>
+  </li>
+  <li>RIP
+    <ul>
+      <li>Routing Information Protocol</li>
+      <li>路由信息协议</li>
+      <li>动态路由协议</li>
+    </ul>
+  </li>
+  <li>VLAN
+    <ul>
+      <li>Virtual LAN</li>
+      <li>虚拟局域网</li>
+    </ul>
+  </li>
+  <li>NAT
+    <ul>
+      <li>Network Address Translations</li>
+      <li>网络地址转换</li>
+    </ul>
+  </li>
+  <li>HSRP
+    <ul>
+      <li>Hot Standby Router Protocol</li>
+      <li>热备份路由协议</li>
+    </ul>
+  </li>
+  <li>IP
+    <ul>
+      <li>Internet Protocol</li>
+      <li>网络互连协议</li>
+    </ul>
+  </li>
+  <li>ICMP
+    <ul>
+      <li>Internet Control Message Protocol</li>
+      <li>网络控制报文协议</li>
+    </ul>
+  </li>
+  <li>ARP
+    <ul>
+      <li>Address Resolution Protocol</li>
+      <li>地址解析协议</li>
+    </ul>
+  </li>
+  <li>DHCP
+    <ul>
+      <li>Dynamic Host Configuration Protocol</li>
+      <li>动态主机配置协议</li>
+    </ul>
+  </li>
+  <li>DNS
+    <ul>
+      <li>Domain Names System</li>
+      <li>域名系统</li>
+    </ul>
+  </li>
+  <li>TCP
+    <ul>
+      <li>Transmission Control Protocol</li>
+      <li>传输控制协议</li>
+      <li>面向连接, 可靠</li>
+    </ul>
+  </li>
+  <li>UDP
+    <ul>
+      <li>User Datagram Protocol</li>
+      <li>用户数据报协议</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="网络覆盖范围">网络覆盖范围</h2>
+<ul>
+  <li>LAN
+    <ul>
+      <li>Local Area Network</li>
+      <li>局域网(内网)</li>
+    </ul>
+  </li>
+  <li>WAN
+    <ul>
+      <li>Wide Area Network</li>
+      <li>广域网(外网)</li>
+    </ul>
+  </li>
+</ul>
+
+:ET

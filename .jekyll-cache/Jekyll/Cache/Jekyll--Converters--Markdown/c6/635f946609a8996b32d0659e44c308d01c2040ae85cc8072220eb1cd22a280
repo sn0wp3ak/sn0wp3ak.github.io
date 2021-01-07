@@ -1,0 +1,70 @@
+I"�<h2 id="网络设备">网络设备</h2>
+<ul>
+  <li>Switch
+    <ul>
+      <li>交换机</li>
+    </ul>
+  </li>
+  <li>Router
+    <ul>
+      <li>路由器</li>
+    </ul>
+  </li>
+  <li>Firewall
+    <ul>
+      <li>防火墙</li>
+    </ul>
+  </li>
+  <li>IPS
+    <ul>
+      <li>Intrusion Prevention System</li>
+      <li>入侵预防系统</li>
+    </ul>
+  </li>
+  <li>IDS
+    <ul>
+      <li>Intrusion Detection System</li>
+      <li>入侵检测系统</li>
+    </ul>
+  </li>
+  <li>WAF
+    <ul>
+      <li>Web Application Firewall</li>
+      <li>Web应用程序防火墙</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="网络协议标准">网络协议/标准</h2>
+<ul>
+  <li>VPN
+    <ul>
+      <li>Virtual Private Network</li>
+      <li>虚拟私人网络</li>
+    </ul>
+  </li>
+  <li>VTP
+    <ul>
+      <li>VLAN Trunking Protocol</li>
+      <li>虚拟局域网中继协议</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="网络覆盖范围">网络覆盖范围</h2>
+<ul>
+  <li>LAN
+    <ul>
+      <li>Local Area Network</li>
+      <li>局域网(内网)</li>
+    </ul>
+  </li>
+  <li>WAN
+    <ul>
+      <li>Wide Area Network</li>
+      <li>广域网(外网)</li>
+    </ul>
+  </li>
+</ul>
+
+:ET

@@ -1,4 +1,4 @@
-I"�<p><img src="assets/post_image/Moby-logo.png" height="100" weight="100" /><br />
+I"�<p><img src="assets/post_image/Moby-logo.png" height="100" weight="100" /><br />
 用docker的理由</p>
 <ol>
   <li>更高效地利用系统资源 – 不需要虚拟硬件</li>
@@ -51,7 +51,7 @@
   <li>一个Registry包含多个仓库; 一个仓库包含多个标签; 一个标签对应一个镜像;</li>
   <li>最常用的Registry就是官方默认的Docker Hub;</li>
   <li>一般来说一个仓库就是一个软件, 其中包含的多个标签就是软件的版本号;</li>
-  <li>指定一个镜像 <Repository>:<Tag> ;</Tag></Repository></li>
+  <li>指定一个镜像 &lt;Repository&gt;:&lt;Tag&gt; ;</li>
 </ol>
 
 <hr />
