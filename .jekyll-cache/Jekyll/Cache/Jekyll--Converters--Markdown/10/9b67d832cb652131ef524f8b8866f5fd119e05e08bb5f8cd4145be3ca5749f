@@ -1,4 +1,4 @@
-I"SJ<div>
+I"J<div>
 <h2>分类</h2>
 
 <ul>
@@ -76,7 +76,7 @@
     	<li class="category">
 	<a href="#Linux">
 	<span>Linux</span>
-	<span>(16篇)</span>
+	<span>(15篇)</span>
 	</a>
 	</li>
     
@@ -125,7 +125,7 @@
     	<li class="category">
 	<a href="#Word">
 	<span>Word</span>
-	<span>(3篇)</span>
+	<span>(4篇)</span>
 	</a>
 	</li>
     
@@ -661,13 +661,6 @@
 			</li>
 		
 			<li class="file">
-			2020 Oct 13 - 
-			<a href="/LVM%E9%80%BB%E8%BE%91%E5%8D%B7%E7%AE%A1%E7%90%86%E5%99%A8">
-        			LVM逻辑卷管理器 
-        		</a>
-			</li>
-		
-			<li class="file">
 			2020 Oct 12 - 
 			<a href="/RAID%E5%A4%87%E4%BB%BD%E7%9B%98">
         			RAID备份盘 
@@ -916,6 +909,13 @@
 			2020 Dec 14 - 
 			<a href="/word-software">
         			Software Word 
+        		</a>
+			</li>
+		
+			<li class="file">
+			2020 Dec 14 - 
+			<a href="/word-network">
+        			Network Word 
         		</a>
 			</li>
 		
