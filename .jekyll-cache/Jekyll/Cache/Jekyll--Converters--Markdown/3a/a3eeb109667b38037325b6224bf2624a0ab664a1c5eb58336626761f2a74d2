@@ -1,0 +1,26 @@
+I"e<p>SELinux是一个强制访问控制(MAC)的安全子系统<br />
+使用SELinux的目的是使各个服务进程都受到约束<br />
+<code class="language-plaintext highlighter-rouge">进程只能访问那些在他的任务中所需要的文件</code><br /></p>
+
+<p>监控的方向:<br /></p>
+
+<blockquote>
+  <p>1.服务程序的功能: SELinux域<br />
+2.文件资源的访问: SELinux上下文<br /></p>
+</blockquote>
+
+<p>三种配置模式:<br /></p>
+
+<blockquote>
+  <p>1.enforcing: 强制启用安全策略, 拦截不合法请求<br />
+2.permissive: 只警告而不会强制拦截<br />
+3.disabled: 对越权行为既不警告也不拦截<br /></p>
+</blockquote>
+
+<p>主配置文件: <code class="language-plaintext highlighter-rouge">/etc/selinux/config</code><br />
+更改主配置文件后, 参数不会立刻生效, 系统重启后才会生效<br /></p>
+
+<p>获取当前SELinux的运行模式的命令: <code class="language-plaintext highlighter-rouge">getenforce</code><br />
+临时修改当前SELinux的运行模式的命令: <code class="language-plaintext highlighter-rouge">setenforce [0|1]</code><br /></p>
+
+:ET

@@ -1,0 +1,25 @@
+I"+<p>对文件/目录设置ACL == 针对用户或用户组设置某个文件/目录的操作权限<br /></p>
+
+<blockquote>
+  <ol>
+    <li>如果针对目录设置了ACL, 那么其中的所有文件会自动继承其ACL<br /></li>
+    <li>如果针对文件设置了ACL, 则该文件不再继承来自所在目录的ACL<br /></li>
+  </ol>
+</blockquote>
+
+<p>管理文件ACL规则的命令: <code class="language-plaintext highlighter-rouge">setfacl [参数] 文件名</code><br />
+对目录设置ACL: <code class="language-plaintext highlighter-rouge">-R</code> 参数;<br />
+对文件设置ACL：<code class="language-plaintext highlighter-rouge">-m</code> 参数;<br /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 假设sn0wp3ak是一个普通用户, 针对他给/root目录设置rwx权限
+~]# setfacl -Rm u:sn0wp3ak:rwx /root
+</code></pre></div></div>
+<p>删除文件ACl规则: <code class="language-plaintext highlighter-rouge">-b</code> 参数<br />
+怎么知道文件是否设置了ACL?<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ls -ld /root
+&gt;&gt;dr-xr-x---.
+&gt;&gt;dr-xr-x---+
+</code></pre></div></div>
+<p>权限后面的.变成+ 就意味着该文件已经设置了ACL<br /></p>
+
+:ET

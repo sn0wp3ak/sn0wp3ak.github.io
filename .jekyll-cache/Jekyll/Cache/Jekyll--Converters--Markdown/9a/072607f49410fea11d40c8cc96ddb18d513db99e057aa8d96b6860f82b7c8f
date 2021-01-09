@@ -1,0 +1,17 @@
+I"*<p>su命令用来切换用户身份<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>su - sn0wp3ak
+su - root
+</code></pre></div></div>
+
+<blockquote>
+  <ol>
+    <li>root用户切到普通用户不需要密码<br /></li>
+    <li>普通用户切到root用户需要密码<br /></li>
+  </ol>
+</blockquote>
+
+<p>为什么su后面要加 - ？<br />
+加 - 可以保证完全切换到另一个用户, 即环境变量等信息完全改变<br />
+强烈建议在切换用户的时候加上 - <br /></p>
+
+:ET

@@ -38,8 +38,14 @@ categories:
 	* Virtual LAN
 	* 虚拟局域网
 * NAT
-	* Network Address Translations
+	* Network Address Translation
 	* 网络地址转换
+* SNAT
+	* Source Network Address Translation
+	* 源网络地址转换
+* DNAT
+	* Destination Network Address Translation
+	* 目标网络地址转换
 * HSRP
 	* Hot Standby Router Protocol
 	* 热备份路由协议

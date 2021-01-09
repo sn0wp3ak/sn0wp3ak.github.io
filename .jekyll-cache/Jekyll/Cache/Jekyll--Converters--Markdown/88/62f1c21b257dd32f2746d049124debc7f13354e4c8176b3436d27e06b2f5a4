@@ -1,0 +1,17 @@
+I"A<p>对文件/目录设置ACL == 针对用户或用户组设置某个文件/目录的操作权限<br /></p>
+
+<blockquote>
+  <ol>
+    <li>如果针对目录设置了ACL, 那么其中的所有文件会自动继承其ACL<br /></li>
+    <li>如果针对文件设置了ACL, 则该文件不再继承来自所在目录的ACL<br /></li>
+  </ol>
+</blockquote>
+
+<p>管理文件ACL的命令: <code class="language-plaintext highlighter-rouge">setfacl [参数] 文件名</code><br />
+对目录设置ACL: <code class="language-plaintext highlighter-rouge">-R</code> 参数;<br />
+对文件设置ACL：<code class="language-plaintext highlighter-rouge">-m</code> 参数;<br /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~]# setfacl -Rm u:sn0wp3ak:rwx /root
+</code></pre></div></div>
+
+:ET

@@ -1,0 +1,43 @@
+I"�<p><img src="assets/post_image/httpd.png" height="100" weight="100" /><br />
+配置文件的用途和存放位置:<br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">用途</th>
+      <th style="text-align: center">位置</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">服务目录</td>
+      <td style="text-align: center">/etc/httpd</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">主配置文件</td>
+      <td style="text-align: center">/etc/httpd/conf/httpd.conf</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">网站数据目录</td>
+      <td style="text-align: center">/var/www/html</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">访问日志</td>
+      <td style="text-align: center">/var/log/httpd/access_log</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">错误日志</td>
+      <td style="text-align: center">/var/log/httpd/error_log</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>主配置文件<strong>httpd.conf</strong>中有三种类型的信息:<br /></p>
+
+<blockquote>
+  <p>1.注释<br />
+2.全局配置<br />
+3.区域配置<br /></p>
+</blockquote>
+
+:ET
