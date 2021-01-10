@@ -1,0 +1,25 @@
+I"�<p>挂载是在Linux操作系统中使用硬件的最后一个步骤;<br />
+挂载其实就是将文件系统和目录进行关联的操作;<br /></p>
+
+<p>挂载的基本格式: <code class="language-plaintext highlighter-rouge">mount [参数] 文件系统 目录</code><br />
+常见参数:<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-t    指定文件系统的类型
+-a    自动挂载在/etc/fstab中定义的文件系统
+</code></pre></div></div>
+
+<p>在/etc/fstab中定义文件系统的格式:<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>设备 要挂载的目录 格式 权限 是否备份 是否自检
+</code></pre></div></div>
+
+<blockquote>
+  <p>设备    路径+设备名/UUID<br />
+目录    要挂载的目录, 提前创建<br />
+格式    Ext4, SWAP, vfat …<br />
+权限    如果设为defaults, 默认权限:rw, suid, dev, exec, auto, nouser, async<br />
+是否备份  1 - 开机后使用dnmp进行磁盘备份; 0 - 不备份<br />
+是否自检  1 - 开机后磁盘自检; 0 - 不自检<br /></p>
+</blockquote>
+
+<p><strong>在/etc/fstab中定义过的文件系统, 重启后也能成功挂载</strong><br /></p>
+
+:ET

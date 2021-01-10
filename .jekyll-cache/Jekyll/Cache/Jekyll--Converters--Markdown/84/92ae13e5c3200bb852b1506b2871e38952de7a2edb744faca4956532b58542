@@ -1,0 +1,77 @@
+I"�
+<p>部署LVM时, 要逐个配置PV, VG和LV<br /></p>
+
+<p>常用的部署命令:<br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">功能/命令</th>
+      <th style="text-align: left">物理卷管理</th>
+      <th style="text-align: left">卷组管理</th>
+      <th style="text-align: left">逻辑卷管理</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">扫描</td>
+      <td style="text-align: left">pvscan</td>
+      <td style="text-align: left">vgscan</td>
+      <td style="text-align: left">lvscan</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">创建</td>
+      <td style="text-align: left">pvcreate</td>
+      <td style="text-align: left">vgcreate</td>
+      <td style="text-align: left">lvcreate</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">显示</td>
+      <td style="text-align: left">pvdisplay</td>
+      <td style="text-align: left">vgdisplay</td>
+      <td style="text-align: left">lvdisplay</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">删除</td>
+      <td style="text-align: left">pvremove</td>
+      <td style="text-align: left">vgremove</td>
+      <td style="text-align: left">lvremove</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">扩展</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">vgextend</td>
+      <td style="text-align: left">lvextend</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">缩小</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">vgreduce</td>
+      <td style="text-align: left">lvreduce</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>首先要把硬盘资源加入到LVM的资源池中, 也就是创建PV物理卷<br />
+<code class="language-plaintext highlighter-rouge">pvcreate 设备名</code><br />
+然后创建卷组并把PV加入其中<br />
+<code class="language-plaintext highlighter-rouge">vgcreate 卷组名 设备名</code><br />
+查看卷组<br />
+<code class="language-plaintext highlighter-rouge">vgdisplay 卷组名</code><br />
+切割出逻辑卷<br />
+切割单位:<br /></p>
+
+<blockquote>
+  <ol>
+    <li>容量      参数-L<br /></li>
+    <li>基本单元  参数-l  每个PE的默认大小4MB<br /></li>
+  </ol>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">lvcreate -n 逻辑卷名称 -l PE的数量 VG名称</code><br />
+<code class="language-plaintext highlighter-rouge">lvcreate -n 逻辑卷名称 -L LV的容量 VG名称</code><br />
+格式化逻辑卷, 并挂载使用<br />
+Linux系统会把LVM中的逻辑卷在/dev目录下做符号链接<br />
+路径: <code class="language-plaintext highlighter-rouge">/dev/VG名称/LV名称</code><br /></p>
+
+:ET
