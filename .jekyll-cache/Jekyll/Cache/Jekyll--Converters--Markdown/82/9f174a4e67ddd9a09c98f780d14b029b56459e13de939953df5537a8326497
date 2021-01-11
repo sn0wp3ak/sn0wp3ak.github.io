@@ -1,0 +1,29 @@
+I"<p>iptables命令常用参数:<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-P        设置默认策略
+-F        清空规则链
+-L        查看规则链
+-A        尾部追加规则链
+-I        头部插入规则连
+-D        删除某条规则
+-s        匹配源地址IP/MASK 加"!"的IP不用匹配
+-d        匹配目标地址
+-i        匹配从网卡流入的数据
+-o        匹配从网卡流出的数据
+-p        匹配协议
+--dport   匹配目标端口号
+--sport   匹配源端口号
+</code></pre></div></div>
+<p>策略的4种动作:<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ACCEPT    允许
+REJECT    拒绝
+LOG       记录
+DROP      丢弃
+</code></pre></div></div>
+<p>REJECT和DROP的区别, 都是拒绝, DROP直接不处理导致请求超时, 而REJECT则会返回错误提示<br /></p>
+
+<p>防火墙策略规则的匹配顺序是从上到下的, 优先级高的放在前面<br />
+iptables命令配置的策略是临时生效的, 重启后失效, 想要永久生效需要保存<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>service iptables save
+</code></pre></div></div>
+
+:ET

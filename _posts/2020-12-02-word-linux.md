@@ -58,4 +58,6 @@ categories:
 * CUPS
 	* Common Unix Printing System
 	* 通用Unix打印系统
-
+* LVS
+	* Linux Virtual Server
+	* linux虚拟服务器
