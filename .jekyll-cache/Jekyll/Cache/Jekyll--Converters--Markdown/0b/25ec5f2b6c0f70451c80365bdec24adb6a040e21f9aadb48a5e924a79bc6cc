@@ -1,4 +1,4 @@
-I"c<ul>
+I"�<ul>
   <li>FHS
     <ul>
       <li>Filesystem Hierarchy Standard</li>
@@ -110,6 +110,12 @@
     <ul>
       <li>Linux Virtual Server</li>
       <li>linux虚拟服务器</li>
+    </ul>
+  </li>
+  <li>NFS
+    <ul>
+      <li>Network File System</li>
+      <li>网络文件系统</li>
     </ul>
   </li>
 </ul>

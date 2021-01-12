@@ -23,6 +23,20 @@ categories:
 	* Web应用程序防火墙
 
 ## 网络协议/标准
+* FTP
+	* File Transfer Protocol
+	* 文件传输协议
+* TFTP
+	* Trivial File Transfer Protocol
+	* 简单文件传输协议
+* RDP
+	* Remote Desktop Protocol
+	* 远程桌面协议
+* Telnet
+	* 远程终端协议
+* SMB
+	* Server Messages Block
+	* 服务器消息块协议
 * VPN
 	* Virtual Private Network
 	* 虚拟私人网络
@@ -81,3 +95,13 @@ categories:
 	* Wide Area Network
 	* 广域网(外网)
 
+## 邮件协议
+* SMTP
+	* Simple Mail Transfer Protocol
+	* 简单电子邮件传输协议
+* POP3
+	* Post Office Protocol 3
+	* 邮局协议版本3
+* IMAP4
+	* Internet Message Access Protocol 4
+	* 网络消息访问协议版本4

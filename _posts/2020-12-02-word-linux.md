@@ -61,3 +61,7 @@ categories:
 * LVS
 	* Linux Virtual Server
 	* linux虚拟服务器
+* NFS
+	* Network File System
+	* 网络文件系统
+
