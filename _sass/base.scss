@@ -51,7 +51,7 @@ li {
 */
 
 header {
-  background: $bg;
+  background: #39322b url(../assets/favicon.png)  no-repeat center left;
   padding: 20px;
   margin: 0 0 40px 0;
 }
@@ -81,8 +81,8 @@ header h1 {
 
 header h2 {
   font-size: 20px;
-  font-weight: 300;
-  color: $fg;
+  font-weight: bold;
+  color: $bg;
 }
 
 /* Main Content
@@ -151,7 +151,7 @@ blockquote {
 }
 
 pre {
-  background: #f1f1f1;
+  background: #f7f7f7;
   padding: 10px;
   font-size: 18px;
   color: #222222;
@@ -246,9 +246,6 @@ a:active, a:focus {
   -moz-outline-style: none
 }
 
-a:hover {
-  background: #fffacd;
-}
 /* Clearfix */
 
 .cf:before, .cf:after {
