@@ -164,31 +164,34 @@ pre {
 code.highlighter-rouge {
   background: $bg;
   color: #fe8019;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
+                0 0 5px rgba(181, 232, 83, 0.1),
+                0 0 10px rgba(181, 232, 83, 0.1);
 }
 
 table {
   width: 100%;
   margin: 0 0 0 0;
-  background: $bg;
+  background: #f7f7f7;
 }
 
 
 th {
   text-align: left;
-  border: 2px solid $slateblue;
+  border: 2px solid $fg;
   padding: 5px 10px;
 }
 
 td {
   padding: 5px 10px;
-  border: 2px solid $slateblue;
+  border: 2px solid $fg;
 }
 
 hr {
   height: 0;
   border: 0;
-  border-bottom: 4px solid $slateblue;
-  color: $slateblue;
+  border-bottom: 4px solid #fe8019;
+  color: #fe8019;
 }
 
 /* Buttons
