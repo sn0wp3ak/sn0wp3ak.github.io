@@ -4,7 +4,7 @@ title: Category
 ---
 <div>
 <h2>分类</h2>
-
+<hr>
 <ul>
     {% for category in site.categories %}
     	<li class="category">

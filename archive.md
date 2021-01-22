@@ -10,8 +10,10 @@ title: Archive
     {% capture firstpostyear %}{{ site.posts[0].date | date: '%Y' }}{% endcapture %}
     {% if currentyear == firstpostyear %}
         <h2>今年的随笔</h2>
+	<hr>
     {% else %}  
         <h2>{{ firstpostyear }}年的随笔</h2>
+	<hr>
     {% endif %}
     
     {%for post in site.posts %}
@@ -23,6 +25,7 @@ title: Archive
         {% if year != nyear %}
           </ul>
           <h2>{{ post.date | date: '%Y' }}年的随笔</h2>
+	  <hr>
           <ul>
         {% endif %}
       {% endunless %}

@@ -3,7 +3,7 @@ layout: page
 title: Word
 ---
 <h2>词汇积累</h2>
-
+<hr>
 <div>
 {% for category in site.categories %}
 	{% if category[0] == "Word" %}

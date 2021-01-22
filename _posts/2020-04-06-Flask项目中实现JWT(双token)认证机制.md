@@ -2,7 +2,7 @@
 title: Flask项目中实现JWT(双token)认证机制
 date: 2020-04-06
 categories:
-- Authentication
+- Flask
 tags:
 - JWT
 ---

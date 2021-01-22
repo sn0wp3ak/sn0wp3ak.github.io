@@ -51,7 +51,7 @@ li {
 */
 
 header {
-  background: #39322b url(../assets/favicon.png)  no-repeat center left;
+  background: #39322b url(../assets/favicon.png)  no-repeat center left 450px;
   padding: 20px;
   margin: 0 0 40px 0;
 }
@@ -190,8 +190,8 @@ td {
 hr {
   height: 0;
   border: 0;
-  border-bottom: 4px solid #fe8019;
-  color: #fe8019;
+  border-bottom: 4px solid #889e66;
+  color: #889e66;
 }
 
 /* Buttons
@@ -248,6 +248,7 @@ a:active, a:focus {
   border: none;
   -moz-outline-style: none
 }
+
 
 /* Clearfix */
 

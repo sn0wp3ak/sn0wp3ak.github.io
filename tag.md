@@ -4,6 +4,7 @@ title: Tag
 ---
 <div>
 <h2>标签</h2>
+<hr>
 <ul>
     {% for tag in site.tags %}
     	<li class="tag">
