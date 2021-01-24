@@ -7,10 +7,10 @@
 
 .highlight {
 
-  $plaintext: #222222 !default;
-  $string: #999999 !default;
-  $literal: #008ec4 !default;
-  $keyword: #008ec4  !default;
+  $plaintext: #ebdbb2 !default;
+  $string: #98971a !default;
+  $literal: #d3869b !default;
+  $keyword: #fb4934  !default;
   $error-foreground: $cod-grey !default;
   $error-background: $apple-blossom !default;
   $comment: $string !default;
@@ -41,10 +41,16 @@
   .cp {
     color: $preprocessor;
   }
-  .o,  .ow {
+  .o {
     color: $operator;
+  } 
+  .ow {
+    color: #fb4934;
   }
-  .p,  .pi {
+  .p {
+    color: #fe8019;
+  }
+  .pi {
     color: $plaintext;
   }
   .gi {
@@ -61,7 +67,7 @@
     color: $keyword;
   }
    .kn {
-    color: $plaintext;
+    color: #83a598;
   }
   .kc, .kt, .kd {
       color: $keyword-type;
@@ -77,6 +83,9 @@
   }
   .nt, .nn,  .nc, .no{
     color: $name-space;
+  }
+  .nf {
+    color: #8ec07c;
   }
   .na {
     color: $name-attribute;
