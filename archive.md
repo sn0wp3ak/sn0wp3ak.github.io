@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Archive
 ---
 
@@ -9,10 +9,10 @@ title: Archive
     {% capture currentyear %}{{ 'now' | date: "%Y" }}{% endcapture %}
     {% capture firstpostyear %}{{ site.posts[0].date | date: '%Y' }}{% endcapture %}
     {% if currentyear == firstpostyear %}
-        <h2>今年的随笔</h2>
+        <h2>今年的笔记</h2>
 	<hr>
     {% else %}  
-        <h2>{{ firstpostyear }}年的随笔</h2>
+        <h2>{{ firstpostyear }}年的笔记</h2>
 	<hr>
     {% endif %}
     
@@ -24,7 +24,7 @@ title: Archive
         {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
         {% if year != nyear %}
           </ul>
-          <h2>{{ post.date | date: '%Y' }}年的随笔</h2>
+          <h2>{{ post.date | date: '%Y' }}年的笔记</h2>
 	  <hr>
           <ul>
         {% endif %}

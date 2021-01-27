@@ -1,44 +1,159 @@
 ---
-layout: page
+layout: default
 title: Category
 ---
-<div>
-<h2>分类</h2>
-<hr>
-<ul>
-    {% for category in site.categories %}
-    	<li class="category">
-	<a href="#{{ category[0] }}">
-	<span>{{ category[0] }}</span>
-	<span>({{ category[1] | size }}篇)</span>
-	</a>
-	</li>
-    {% endfor %}
-</ul>
-</div>
-<br>
-<hr />
-<br>
-<div>
-{% for category in site.categories %}
-	<h2 id="{{ category[0] }}">
-	{{ category[0] }}
-	</h2>
-	<ul>
-		{% for post in category[1] %}
-			<li class="file">
-			{{ post.date | date:"%Y %b %d" }} - 
-			<a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}">
-        			{{ post.title }} 
-        		</a>
-			</li>
-		{% endfor %}
-	</ul>
-{% endfor %}
-</div>
-
-
-
-
-
-
+<table align="center" border="0" width="70%">
+	<tbody>
+		<!-- 标题 -->
+		<tr>
+			<td >
+				<p align="center">
+					<font size="7" color="#000000">
+						<b>Category</b>
+					</font>
+				</p>
+				<hr>
+			</td>
+		</tr>
+		<!-- 具体分类 -->
+		<tr>
+			<td>
+			<table border="2px" width="80%" align="center" cellpadding="5" cellspacing="5">
+				<tbody>
+					<!-- 第一行 -->
+					<tr>
+						<td width="33%" align="center">
+							<a href="cate-python">
+								<img src="/assets/python.png" border="0">
+								<br>
+								Python
+							</a>
+						</td>
+						<td width="33%" align="center">
+							<a>
+								<img src="/assets/linux.png" border="0">
+								<br>
+								Linux
+							</a>
+						</td>
+						<td width="33%" align="center">
+							<a>
+								<img src="/assets/network.png">
+								<br>
+								Network
+							</a>
+						</td>
+					</tr>
+					<!-- 第二行 -->
+					<tr>
+						<td width="33%" align="center">
+							<a>
+								<img src="/assets/web.png" border="0">
+								<br>
+								Web
+							</a>
+						</td>
+						<td width="33%" align="center">
+							<a>
+								<img src="/assets/windows.png" border="0">
+								<br>
+								Windows
+							</a>
+						</td>
+						<td width="33%" align="center">
+							<a>
+								<img src="/assets/secure.png">
+								<br>
+								Security
+							</a>
+						</td>
+					</tr>
+					<!-- 第三行 -->
+					<tr>
+						<td width="33%" align="center">
+							<a>
+								<img src="/assets/docker.png">
+								<br>
+								Docker
+							</a>
+						</td>
+						<td width="33%" align="center">
+							<a>
+								<img src="/assets/cloud.png">
+								<br>
+								Cloud
+							</a>
+						</td>
+						<td width="33%" align="center">
+							<a>
+								<img src="/assets/ruby.png">
+								<br>
+								Ruby
+							</a>
+						</td>
+					</tr>
+					<!-- 第四行 -->
+					<tr>
+						<td width="33%" align="center">
+							<a>
+								<img src="/assets/shell.png">
+								<br>
+								Shell
+							</a>
+						</td>
+						<td width="33%" align="center">
+							<a>
+							</a>
+						</td>
+						<td width="33%" align="center">
+							<a>
+							</a>
+						</td>
+					</tr>
+					<!-- 第五行 -->
+					<tr>
+						<td width="33%" align="center">
+							<a>
+								<img src="/assets/perl.png">
+								<br>
+								Perl
+							</a>
+						</td>
+						<td width="33%" align="center">
+							<a>
+							</a>
+						</td>
+						<td width="33%" align="center">
+							<a>
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+		<!-- 站内跳转 -->
+		<tr>
+			<td>
+				<center>
+					<p>&nbsp;</p>
+					<table width="80%" align="center" cellpadding="5" cellspacing="5">
+						<tbody>
+							<tr>
+								<td width="100%" align="center">
+									<a href="/">
+										<img src="/assets/home.png">
+										<br>
+										Go Home
+									</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<hr>
+					<font size="3" color="#000000">powered by jekyll</font>
+				</center>
+			</td>
+		</tr>
+	</tbody>
+</table>

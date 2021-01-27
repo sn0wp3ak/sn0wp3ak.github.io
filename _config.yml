@@ -1,32 +1,5 @@
-title: sn0wp3ak
-description: 
-author:
-  name: "sn0wp3ak"
-  email: "sn0wp3ak@gmail.com"
-  url: "https://github.com/sn0wp3ak/sn0wp3ak.github.io"
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+title: "" # the name of your site, e.g. ACME Corp.
 
-baseurl: /
 
-source: .
-destination: ./_site
-permalink: /:title
-paginate: 5
-paginate_path: /page/:num/
-
-defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-
-future: true
-plugins:
-  - jekyll-seo-tag
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-archives
-# Custom variables
-owner : "sn0wp3ak"
-year : "2020"
