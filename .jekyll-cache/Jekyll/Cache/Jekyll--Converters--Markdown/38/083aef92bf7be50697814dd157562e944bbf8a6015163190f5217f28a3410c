@@ -1,4 +1,0 @@
-I"<p>SELinux是一个强制访问控制(MAC)的安全子系统<br />
-使用SELinux的目的是使各个服务进程都受到约束<br />
-<code class="language-plaintext highlighter-rouge">进程只能访问那些在他的任务中所需要的文件</code><br /></p>
-:ET

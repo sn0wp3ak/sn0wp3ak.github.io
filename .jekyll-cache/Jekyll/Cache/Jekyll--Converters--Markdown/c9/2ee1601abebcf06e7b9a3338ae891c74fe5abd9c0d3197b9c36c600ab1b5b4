@@ -1,7 +1,0 @@
-I"�<p><code class="language-plaintext highlighter-rouge">SHELL</code>: 命令/程序设计语言;<br />
-SHELL本身是C语言编写的应用程序, 作为用户控制Linux操作系统的桥梁;<br />
-<code class="language-plaintext highlighter-rouge">最早的SHELL</code>: 肯-汤普森为Unix编写的Shell (<code class="language-plaintext highlighter-rouge">Thompson shell</code>);<br />
-<code class="language-plaintext highlighter-rouge">改进的SHELL</code>: 史蒂夫-伯恩发布的取代最初SHELL的新一代Bourne Shell(<code class="language-plaintext highlighter-rouge">sh</code>)<br />
-<code class="language-plaintext highlighter-rouge">最流行的SHELL</code>: Bourne Again Shell (<code class="language-plaintext highlighter-rouge">bash</code>);<br />
-Shell脚本的开头行: <code class="language-plaintext highlighter-rouge">#!/bin/bash</code> (#!指定解释该脚本文件的Shell程序);<br /></p>
-:ET
