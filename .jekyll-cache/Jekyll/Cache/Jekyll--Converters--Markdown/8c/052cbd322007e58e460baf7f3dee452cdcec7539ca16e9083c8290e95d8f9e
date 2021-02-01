@@ -1,18 +1,14 @@
----
-layout: default
-title: Word
----
-<table align="center" border="0" width="70%">
+I"X<table align="center" border="0" width="70%">
          <tbody>
                  <!-- 标题 -->
                  <tr>
-                         <td >
+                         <td>
                                  <p align="center">
                                          <font size="7" color="#000000">
                                                  <b>Word</b>
                                          </font>
                                  </p>
-                                 <hr>
+                                 <hr />
                          </td>
                  </tr>
 		 <!-- 词汇列表 -->
@@ -21,21 +17,85 @@ title: Word
 				<table width="30%" border="1px" align="center" cellspacing="5" cellpadding="5">
 					<tbody>
 							<div>
-							{% for category in site.categories %}
-								{% if category[0] == "Word" %}
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
 									<ul>
-										{% for post in category[1] %}
+										
 										<tr>
 											<td width="100%" align="center">
-												<a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}">
-													<b>{{ post.title }}</b>
+												<a href="/word/2020/12/14/word-software.html">
+													<b>Software Word</b>
 												</a>
 											</td>
 										</tr>
-										{% endfor %}
+										
+										<tr>
+											<td width="100%" align="center">
+												<a href="/word/2020/12/14/word-network.html">
+													<b>Network Word</b>
+												</a>
+											</td>
+										</tr>
+										
+										<tr>
+											<td width="100%" align="center">
+												<a href="/word/2020/12/14/word-hardware.html">
+													<b>Hardware Word</b>
+												</a>
+											</td>
+										</tr>
+										
+										<tr>
+											<td width="100%" align="center">
+												<a href="/word/2020/12/02/word-linux.html">
+													<b>Linux Word</b>
+												</a>
+											</td>
+										</tr>
+										
 									</ul>
-								{% endif %}
-							{% endfor %}
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
 							</div>
 					</tbody>
 				</table>
@@ -51,18 +111,19 @@ title: Word
                                                         <tr>
                                                                 <td width="100%" align="center">
                                                                         <a href="/">
-                                                                                <img src="/assets/home.png">
-                                                                                <br>
+                                                                                <img src="/assets/home.png" />
+                                                                                <br />
                                                                                 Go Home
                                                                         </a>
                                                                 </td>
                                                         </tr>
                                                 </tbody>
                                         </table>
-                                        <hr>
+                                        <hr />
                                         <font size="3" color="#000000">powered by jekyll</font>
                                 </center>
                         </td>
                 </tr>
 	</tbody>
 </table>
+:ET

@@ -1,18 +1,14 @@
----
-layout: default
-title: Category
----
-<table align="center" border="0" width="70%">
+I"�<table align="center" border="0" width="70%">
 	<tbody>
 		<!-- 标题 -->
 		<tr>
-			<td >
+			<td>
 				<p align="center">
 					<font size="7" color="#000000">
 						<b>Category</b>
 					</font>
 				</p>
-				<hr>
+				<hr />
 			</td>
 		</tr>
 		<!-- 具体分类 -->
@@ -24,29 +20,29 @@ title: Category
 					<tr>
 						<td width="25%" align="center">
 							<a href="/cate/cate-python">
-								<img src="/assets/python.png" border="0">
-								<br>
+								<img src="/assets/python.png" border="0" />
+								<br />
 								Python
 							</a>
 						</td>
 						<td width="25%" align="center">
-							<a href="/cate/cate-Linux">
-								<img src="/assets/linux.png" border="0">
-								<br>
+							<a href="/cate/cate-linux">
+								<img src="/assets/linux.png" border="0" />
+								<br />
 								Linux
 							</a>
 						</td>
 						<td width="25%" align="center">
 							<a href="/cate/cate-network">
-								<img src="/assets/network.png">
-								<br>
+								<img src="/assets/network.png" />
+								<br />
 								Network
 							</a>
 						</td>
 						<td width="25%" align="center">
 							<a>
-								<img src="/assets/vim.png">
-								<br>
+								<img src="/assets/vim.png" />
+								<br />
 								Vim
 							</a>
 						</td>
@@ -55,22 +51,22 @@ title: Category
 					<tr>
 						<td width="25%" align="center">
 							<a>
-								<img src="/assets/web.png" border="0">
-								<br>
+								<img src="/assets/web.png" border="0" />
+								<br />
 								Web
 							</a>
 						</td>
 						<td width="25%" align="center">
 							<a href="/cate/cate-windows">
-								<img src="/assets/windows.png" border="0">
-								<br>
+								<img src="/assets/windows.png" border="0" />
+								<br />
 								Windows
 							</a>
 						</td>
 						<td width="25%" align="center">
 							<a>
-								<img src="/assets/secure.png">
-								<br>
+								<img src="/assets/secure.png" />
+								<br />
 								Security
 							</a>
 						</td>
@@ -81,22 +77,22 @@ title: Category
 					<tr>
 						<td width="25%" align="center">
 							<a href="/cate/cate-docker">
-								<img src="/assets/docker.png">
-								<br>
+								<img src="/assets/docker.png" />
+								<br />
 								Docker
 							</a>
 						</td>
 						<td width="25%" align="center">
 							<a>
-								<img src="/assets/cloud.png">
-								<br>
+								<img src="/assets/cloud.png" />
+								<br />
 								Cloud
 							</a>
 						</td>
 						<td width="25%" align="center">
 							<a>
-								<img src="/assets/ruby.png">
-								<br>
+								<img src="/assets/ruby.png" />
+								<br />
 								Ruby
 							</a>
 						</td>
@@ -107,8 +103,8 @@ title: Category
 					<tr>
 						<td width="25%" align="center">
 							<a href="/cate/cate-shell">
-								<img src="/assets/shell.png">
-								<br>
+								<img src="/assets/shell.png" />
+								<br />
 								Shell
 							</a>
 						</td>
@@ -125,8 +121,8 @@ title: Category
 					<tr>
 						<td width="25%" align="center">
 							<a>
-								<img src="/assets/perl.png">
-								<br>
+								<img src="/assets/perl.png" />
+								<br />
 								Perl
 							</a>
 						</td>
@@ -155,18 +151,19 @@ title: Category
 							<tr>
 								<td width="100%" align="center">
 									<a href="/">
-										<img src="/assets/home.png">
-										<br>
+										<img src="/assets/home.png" />
+										<br />
 										Go Home
 									</a>
 								</td>
 							</tr>
 						</tbody>
 					</table>
-					<hr>
+					<hr />
 					<font size="3" color="#000000">powered by jekyll</font>
 				</center>
 			</td>
 		</tr>
 	</tbody>
 </table>
+:ET

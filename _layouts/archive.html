@@ -1,6 +1,5 @@
 ---
 layout: default
-title: Tag
 ---
 <table align="center" border="0" width="70%">
 	<tbody>
@@ -9,37 +8,24 @@ title: Tag
 			<td >
 				<p align="center">
 					<font size="7" color="#000000">
-						<b>Tag</b>
+						<b>Archive</b>
 					</font>
 				</p>
 				<hr>
 			</td>
 		</tr>
-		<!-- 标签列表 -->
+		<!-- 笔记列表 -->
 		<tr>
 			<td>
 			<table width="80%" align="center" cellpadding="5" cellspacing="5">
 				<tbody>
 					<tr>
-						<td width="25%" align="center">
+						<td width="25%">
 						</td>
 						<td width="50%" align="left">
-							<table width="40%" align="center" cellpadding="5" cellspacing="5" border="1px">
-								<tbody>
-									
-									{% for tag in site.tags %}
-										<tr>
-											<td>
-												<a href="/ta/ta-{{ tag[0] }}">
-													{{ tag[0] }}
-												</a>
-											</td>
-										</tr>
-									{% endfor %}
-								</tbody>
-							</table>
+							{{ content }}
 						</td>
-						<td width="25%" align="center">
+						<td width="25%">
 						</td>
 					</tr>
 				</tbody>

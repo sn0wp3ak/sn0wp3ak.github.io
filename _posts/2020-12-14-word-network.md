@@ -1,4 +1,5 @@
 ---
+layout: word
 title: Network Word
 date: 2020-12-14
 categories:

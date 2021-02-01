@@ -1,6 +1,5 @@
 ---
 layout: default
-title: Tag
 ---
 <table align="center" border="0" width="70%">
 	<tbody>
@@ -8,38 +7,34 @@ title: Tag
 		<tr>
 			<td >
 				<p align="center">
-					<font size="7" color="#000000">
-						<b>Tag</b>
+					<font size="5" color="#000000">
+						<b>{{ page.title }}</b>
 					</font>
 				</p>
 				<hr>
 			</td>
 		</tr>
-		<!-- 标签列表 -->
+		<!-- 分类标签 -->
+		<tr>
+			<td>
+				<p align="center">
+					{% if page.categories[0] %}
+					分类: <a href="/cate/cate-{{page.categories}}">{{ page.categories }}</a>      
+					{% endif %}
+					{% if page.tags[0] %}
+					标签: <a href="/ta/ta-{{page.tags}}">{{ page.tags }}</a>
+					{% endif %}
+				</p>
+			</td>
+		</tr>
+		<!-- 笔记内容 -->
 		<tr>
 			<td>
 			<table width="80%" align="center" cellpadding="5" cellspacing="5">
 				<tbody>
 					<tr>
-						<td width="25%" align="center">
-						</td>
-						<td width="50%" align="left">
-							<table width="40%" align="center" cellpadding="5" cellspacing="5" border="1px">
-								<tbody>
-									
-									{% for tag in site.tags %}
-										<tr>
-											<td>
-												<a href="/ta/ta-{{ tag[0] }}">
-													{{ tag[0] }}
-												</a>
-											</td>
-										</tr>
-									{% endfor %}
-								</tbody>
-							</table>
-						</td>
-						<td width="25%" align="center">
+						<td width="100%" align="left">
+							{{ content }}
 						</td>
 					</tr>
 				</tbody>
@@ -54,11 +49,18 @@ title: Tag
 					<table width="80%" align="center" cellpadding="5" cellspacing="5">
 						<tbody>
 							<tr>
-								<td width="100%" align="center">
+								<td width="50%" align="center">
 									<a href="/">
 										<img src="/assets/home.png">
 										<br>
 										Go Home
+									</a>
+								</td>
+								<td width="50%" align="center">
+									<a href="/word">
+										<img src="/assets/word.png">
+										<br>
+										Word
 									</a>
 								</td>
 							</tr>
