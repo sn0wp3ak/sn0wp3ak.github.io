@@ -18,12 +18,14 @@ layout: default
 		<tr>
 			<td>
 				<p align="center">
+					<font size="4" color="#000000">
 					{% if page.categories[0] %}
 					分类: <a href="/cate/cate-{{page.categories}}">{{ page.categories }}</a>      
 					{% endif %}
 					{% if page.tags[0] %}
 					标签: <a href="/ta/ta-{{page.tags}}">{{ page.tags }}</a>
 					{% endif %}
+					</font>
 				</p>
 			</td>
 		</tr>
@@ -33,7 +35,7 @@ layout: default
 			<table width="80%" align="center" cellpadding="5" cellspacing="5">
 				<tbody>
 					<tr>
-						<td width="100%" align="left">
+						<td id="note" width="100%" align="left">
 							{{ content }}
 						</td>
 					</tr>

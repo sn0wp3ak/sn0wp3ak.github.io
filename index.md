@@ -23,7 +23,7 @@ title: Home
 				<tbody>
 					<tr>
 						<td width="50%" align="left">
-<pre>
+<pre id="indexpre">
 @Home
   |
   `-- Archive:  笔记时间线

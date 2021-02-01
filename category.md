@@ -23,7 +23,7 @@ title: Category
 					<!-- 第一行 -->
 					<tr>
 						<td width="25%" align="center">
-							<a href="/cate/cate-python">
+							<a href="/cate/cate-Python">
 								<img src="/assets/python.png" border="0">
 								<br>
 								Python
@@ -37,7 +37,7 @@ title: Category
 							</a>
 						</td>
 						<td width="25%" align="center">
-							<a href="/cate/cate-network">
+							<a href="/cate/cate-Network">
 								<img src="/assets/network.png">
 								<br>
 								Network
@@ -61,7 +61,7 @@ title: Category
 							</a>
 						</td>
 						<td width="25%" align="center">
-							<a href="/cate/cate-windows">
+							<a href="/cate/cate-Windows">
 								<img src="/assets/windows.png" border="0">
 								<br>
 								Windows
@@ -75,12 +75,17 @@ title: Category
 							</a>
 						</td>
 						<td width="25%" align="center">
+							<a>
+								<img src="/assets/freebsd.png">
+								<br>
+								FreeBSD
+							</a>
 						</td>
 					</tr>
 					<!-- 第三行 -->
 					<tr>
 						<td width="25%" align="center">
-							<a href="/cate/cate-docker">
+							<a href="/cate/cate-Docker">
 								<img src="/assets/docker.png">
 								<br>
 								Docker
@@ -106,13 +111,18 @@ title: Category
 					<!-- 第四行 -->
 					<tr>
 						<td width="25%" align="center">
-							<a href="/cate/cate-shell">
+							<a href="/cate/cate-Shell">
 								<img src="/assets/shell.png">
 								<br>
 								Shell
 							</a>
 						</td>
 						<td width="25%" align="center">
+							<a href="/cate/cate-Algorithm">
+								<img src="/assets/algorithm.png">
+								<br>
+								Algorithm
+							</a>
 						</td>
 						<td width="25%" align="center">
 							<a>

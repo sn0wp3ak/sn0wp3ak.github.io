@@ -1,0 +1,167 @@
+I"�D<h2 id="核心思想">核心思想</h2>
+<p>解决单一token的安全问题,设置2个token一个对接业务,有需求就带着业务token去认证然后操作相关功能,有效期较短,2小时;另一个token专门用来刷新业务token,简称刷新token,具有较长的过期时间,14天;
+当业务token过期时,必须携带刷新token通过put接口来实现token的刷新,新的业务token还是存活2小时,这期间刷新token一直不变,直到14天后刷新token过期,重新开始新一轮的循环;在调用生成token的接口时,利用一个布尔型标识need_refresh_token来判断是否生成刷新token,保证有效期内只会生成新的业务token而刷新token则一直保持不变</p>
+<h2 id="准备工作">准备工作</h2>
+<p>用Pycharm的朋友可以在你项目的Sources Root 目录下面的utils目录(如果有,没有可以新建)新建一个middleware.py文件用来存放各种中间件代码</p>
+<ul>
+  <li>Sources Root 目录, 用来搜包的目录, 可以解决Pycharm层面的代码导包类报红提示</li>
+  <li>具体操作:右击文件夹–&gt;Mark Directory As–&gt;Sources Root</li>
+</ul>
+
+<p>在工具文件夹utils下定义jwt的生成和校验的工具函数:
+此处使用的是pyjwt三方包 <code class="language-plaintext highlighter-rouge">$ pip install pyjwt</code>签名所用算法<code class="language-plaintext highlighter-rouge">HS256</code></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">jwt</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">current_app</span>
+
+
+<span class="k">def</span> <span class="nf">generate_jwt</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="n">expiry</span><span class="p">,</span> <span class="n">secret</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="s">"""
+    生成jwt
+    :param payload: dict 载荷
+    :param expiry: datetime 有效期
+    :param secret: 密钥
+    :return: jwt
+    """</span>
+    <span class="n">_payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'exp'</span><span class="p">:</span> <span class="n">expiry</span><span class="p">}</span>
+    <span class="n">_payload</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">secret</span><span class="p">:</span>
+        <span class="n">secret</span> <span class="o">=</span> <span class="n">current_app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="s">'JWT_SECRET'</span><span class="p">]</span>
+
+    <span class="n">token</span> <span class="o">=</span> <span class="n">jwt</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span><span class="n">_payload</span><span class="p">,</span> <span class="n">secret</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s">'HS256'</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">token</span><span class="p">.</span><span class="n">decode</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">verify_jwt</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">secret</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="s">"""
+    检验jwt
+    :param token: jwt
+    :param secret: 密钥
+    :return: dict: payload
+    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">secret</span><span class="p">:</span>
+        <span class="n">secret</span> <span class="o">=</span> <span class="n">current_app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="s">'JWT_SECRET'</span><span class="p">]</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="n">jwt</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">secret</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="p">[</span><span class="s">'HS256'</span><span class="p">])</span>
+    <span class="k">except</span> <span class="n">jwt</span><span class="p">.</span><span class="n">PyJWTError</span><span class="p">:</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">return</span> <span class="n">payload</span>
+</code></pre></div></div>
+<h2 id="代码实现">代码实现</h2>
+<p>1.middlewares.py中定义JWT的认证函数jwt_authentication</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">g</span><span class="p">,</span> <span class="n">request</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">jwt_util</span>
+
+<span class="c1"># 用户认证机制==&gt;每次请求前获取并校验token
+</span>
+<span class="c1"># @app.before_request 不使@调用装饰器 在 init文件直接装饰
+</span><span class="k">def</span> <span class="nf">jwt_authentication</span><span class="p">():</span>
+    <span class="s">"""
+    1.获取请求头Authorization中的token
+    2.判断是否以 Bearer开头
+    3.使用jwt模块进行校验
+    4.判断校验结果,成功就提取token中的载荷信息,赋值给g对象保存
+    """</span>
+    <span class="n">auth</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">headers</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'Authorization'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">auth</span> <span class="ow">and</span> <span class="n">auth</span><span class="p">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">'Bearer '</span><span class="p">):</span>
+        <span class="c1"># 提取token 0-6 被Bearer和空格占用 取下标7以后的所有字符
+</span>        <span class="n">token</span> <span class="o">=</span> <span class="n">auth</span><span class="p">[</span><span class="mi">7</span><span class="p">:]</span>
+        <span class="c1"># 校验token
+</span>        <span class="n">payload</span> <span class="o">=</span> <span class="n">jwt_util</span><span class="p">.</span><span class="n">verify_jwt</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+        <span class="c1"># 判断token的校验结果
+</span>        <span class="k">if</span> <span class="n">payload</span><span class="p">:</span>
+            <span class="c1"># 获取载荷中的信息赋值给g对象
+</span>            <span class="n">g</span><span class="p">.</span><span class="n">user_id</span> <span class="o">=</span> <span class="n">payload</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'user_id'</span><span class="p">)</span>
+            <span class="n">g</span><span class="p">.</span><span class="n">refresh</span> <span class="o">=</span> <span class="n">payload</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'refresh'</span><span class="p">)</span>
+</code></pre></div></div>
+<p>2.在init文件中直接以调用钩子函数的方式装饰函数</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 添加请求钩子
+</span><span class="kn">from</span> <span class="nn">utils.middlewares</span> <span class="kn">import</span> <span class="n">jwt_authentication</span>
+<span class="n">app</span><span class="p">.</span><span class="n">before_request</span><span class="p">(</span><span class="n">jwt_authentication</span><span class="p">)</span>
+</code></pre></div></div>
+<p>3.在视图文件中定义token的生成方法</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_generate_tokens</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">need_refresh_token</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+	<span class="s">"""
+	生成token 和refresh_token
+	:param user_id: 用户id
+	:return: token2小时, refresh_token14天
+	"""</span>
+	<span class="k">pass</span>
+	<span class="c1"># 生成时间信息
+</span>	<span class="n">current_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="n">utcnow</span><span class="p">()</span>
+	<span class="c1"># 指定有效期  业务token -- 2小时
+</span>	<span class="n">expire_time</span> <span class="o">=</span> <span class="n">current_time</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="n">current_app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="s">'JWT_EXPIRY_HOURS'</span><span class="p">])</span>
+
+	<span class="c1"># 生成业务token  refresh 标识是否是刷新token
+</span>	<span class="n">token</span> <span class="o">=</span> <span class="n">generate_jwt</span><span class="p">({</span><span class="s">'user_id'</span><span class="p">:</span> <span class="n">user_id</span><span class="p">,</span> <span class="s">'refresh'</span><span class="p">:</span> <span class="bp">False</span><span class="p">},</span> <span class="n">expiry</span><span class="o">=</span><span class="n">expire_time</span><span class="p">)</span>
+	
+	<span class="c1"># 给刷新token设置一个默认值None
+</span>	<span class="n">refresh_token</span> <span class="o">=</span> <span class="bp">None</span>
+	<span class="c1"># 根据传入的参数判断是否需要生成刷新token
+</span>	<span class="c1"># 不需要生成的传入need_refresh_token=False,需要的传入True或不传使用默认值
+</span>	<span class="k">if</span> <span class="n">need_refresh_token</span><span class="p">:</span>
+	    <span class="c1"># 指定有效期  刷新token -- 14天
+</span>	    <span class="n">refresh_expires</span> <span class="o">=</span> <span class="n">current_time</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">current_app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="s">'JWT_REFRESH_DAYS'</span><span class="p">])</span>
+	    <span class="c1"># 生成刷新token
+</span>	    <span class="n">refresh_token</span> <span class="o">=</span> <span class="n">generate_jwt</span><span class="p">({</span><span class="s">'user_id'</span><span class="p">:</span> <span class="n">user_id</span><span class="p">,</span> <span class="s">'refresh'</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span> <span class="n">expiry</span><span class="o">=</span><span class="n">refresh_expires</span><span class="p">)</span>
+	<span class="c1"># 返回这两个token
+</span>	<span class="k">return</span> <span class="n">token</span><span class="p">,</span> <span class="n">refresh_token</span>
+</code></pre></div></div>
+<p>4.在视图文件中定义token的刷新方法</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""
+        1.携带刷新token,返回业务token
+        2.用户必须登录g.user_id , 必须携带刷新token不允许携带业务token
+        3.客户端请求参数 刷新token
+        """</span>
+        <span class="c1"># 1.判断是否登录 2.判断refresh字段是否为True--是否是刷新token
+</span>        <span class="k">if</span> <span class="n">g</span><span class="p">.</span><span class="n">user_id</span> <span class="ow">and</span> <span class="n">g</span><span class="p">.</span><span class="n">refresh</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="c1"># 调用生成token的方法 参数 need_refresh_token=False 不需要生成刷新token 仅生成业务token
+</span>            <span class="n">token</span><span class="p">,</span> <span class="n">refresh_token</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">_generate_tokens</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">user_id</span><span class="p">,</span> <span class="n">need_refresh_token</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+            <span class="c1"># 返回业务token  修改成功状态码201
+</span>            <span class="k">return</span> <span class="p">{</span><span class="s">'token'</span><span class="p">:</span> <span class="n">token</span><span class="p">},</span> <span class="mi">201</span>
+        <span class="k">else</span><span class="p">:</span>
+	    <span class="c1"># 失败返回错误信息和状态码
+</span>            <span class="k">return</span> <span class="p">{</span><span class="s">'message'</span><span class="p">:</span> <span class="s">'Wrong Token'</span><span class="p">},</span> <span class="mi">403</span>
+        <span class="k">pass</span>
+</code></pre></div></div>
+<p>5.强制登录装饰器,添加到视图类的method_decorators字典/列表中全局或局部装饰</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""
+登录验证装饰器
+python中的装饰器：会改变被装饰器装饰的函数的函数名(属性)
+使用方法：放在method_decorators中
+"""</span>
+<span class="kn">import</span> <span class="nn">functools</span>
+
+
+<span class="k">def</span> <span class="nf">login_required</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="c1"># 让装饰器装饰的函数属性不会变 -- name属性
+</span>    <span class="c1"># 第1种方法,使用functools模块的wraps装饰内部函数
+</span>    <span class="o">@</span><span class="n">functools</span><span class="p">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">g</span><span class="p">.</span><span class="n">user_id</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s">'message'</span><span class="p">:</span> <span class="s">'User must be authorized.'</span><span class="p">},</span> <span class="mi">401</span>
+        <span class="k">elif</span> <span class="n">g</span><span class="p">.</span><span class="n">is_refresh_token</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s">'message'</span><span class="p">:</span> <span class="s">'Do not use refresh token.'</span><span class="p">},</span> <span class="mi">403</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="c1"># 第2种方法,在返回内部函数之前,先修改wrapper的name属性
+</span>    <span class="c1"># wrapper.__name__ = f.__name__
+</span>    <span class="k">return</span> <span class="n">wrapper</span>
+</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask_restful</span> <span class="kn">import</span> <span class="n">Resource</span>
+
+
+<span class="k">class</span> <span class="nc">AuthorizationResource</span><span class="p">(</span><span class="n">Resource</span><span class="p">):</span>
+    <span class="s">"""
+    认证
+    """</span>
+    <span class="n">method_decorators</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">'post'</span><span class="p">:</span> <span class="p">[</span><span class="n">login_required</span><span class="p">,</span><span class="n">set_db_to_write</span><span class="p">],</span>
+        <span class="s">'put'</span><span class="p">:</span> <span class="p">[</span><span class="n">login_required</span><span class="p">,</span><span class="n">set_db_to_read</span><span class="p">]</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+:ET

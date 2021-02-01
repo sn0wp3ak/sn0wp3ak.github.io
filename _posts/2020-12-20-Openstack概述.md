@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Openstack概述
 date: 2020-12-20
 categories:

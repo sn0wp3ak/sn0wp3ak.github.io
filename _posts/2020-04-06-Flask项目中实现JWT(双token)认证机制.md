@@ -1,4 +1,5 @@
 ﻿---
+layout: post
 title: Flask项目中实现JWT(双token)认证机制
 date: 2020-04-06
 categories:
@@ -7,15 +8,18 @@ tags:
 - JWT
 ---
 ## 核心思想
-解决单一token的安全问题,设置2个token一个对接业务,有需求就带着业务token去认证然后操作相关功能,有效期较短,2小时;另一个token专门用来刷新业务token,简称刷新token,具有较长的过期时间,14天;
-当业务token过期时,必须携带刷新token通过put接口来实现token的刷新,新的业务token还是存活2小时,这期间刷新token一直不变,直到14天后刷新token过期,重新开始新一轮的循环;在调用生成token的接口时,利用一个布尔型标识need_refresh_token来判断是否生成刷新token,保证有效期内只会生成新的业务token而刷新token则一直保持不变
+解决**单一**token的安全问题,设置2个token;<br>
+一个对接业务,有需求就带着业务token去认证然后操作相关功能,有效期较短,2小时;<br>
+另一个token专门用来刷新业务token,简称刷新token,具有较长的过期时间,14天;<br>
+当业务token过期时,必须携带刷新token通过put接口来实现token的刷新,新的业务token还是存活2小时,这期间刷新token一直不变,直到14天后刷新token过期,重新开始新一轮的循环;<br>
+在调用生成token的接口时,利用一个布尔型标识need_refresh_token来判断是否生成刷新token,保证有效期内只会生成新的业务token而刷新token则一直保持不变<br>
 ## 准备工作
-用Pycharm的朋友可以在你项目的Sources Root 目录下面的utils目录(如果有,没有可以新建)新建一个middleware.py文件用来存放各种中间件代码
+用Pycharm的朋友可以在你项目的Sources Root 目录下面的utils目录(如果有,没有可以新建)新建一个middleware.py文件用来存放各种中间件代码<br>
 * Sources Root 目录, 用来搜包的目录, 可以解决Pycharm层面的代码导包类报红提示
 * 具体操作:右击文件夹-->Mark Directory As-->Sources Root
 
-在工具文件夹utils下定义jwt的生成和校验的工具函数:
-此处使用的是pyjwt三方包 ```$ pip install pyjwt```签名所用算法```HS256```
+在工具文件夹utils下定义jwt的生成和校验的工具函数:<br>
+此处使用的是pyjwt三方包 `$ pip install pyjwt`签名所用算法`HS256`
 ```python
 import jwt
 from flask import current_app
@@ -63,9 +67,9 @@ from flask import g, request
 
 from . import jwt_util
 
-"""用户认证机制==>每次请求前获取并校验token"""
+# 用户认证机制==>每次请求前获取并校验token
 
-"@app.before_request 不使@调用装饰器 在 init文件直接装饰" 
+# @app.before_request 不使@调用装饰器 在 init文件直接装饰
 def jwt_authentication():
     """
     1.获取请求头Authorization中的token
@@ -75,21 +79,21 @@ def jwt_authentication():
     """
     auth = request.headers.get('Authorization')
     if auth and auth.startswith('Bearer '):
-        "提取token 0-6 被Bearer和空格占用 取下标7以后的所有字符"
+        # 提取token 0-6 被Bearer和空格占用 取下标7以后的所有字符
         token = auth[7:]
-        "校验token"
+        # 校验token
         payload = jwt_util.verify_jwt(token)
-        "判断token的校验结果"
+        # 判断token的校验结果
         if payload:
-            "获取载荷中的信息赋值给g对象"
+            # 获取载荷中的信息赋值给g对象
             g.user_id = payload.get('user_id')
             g.refresh = payload.get('refresh')
 ```
 2.在init文件中直接以调用钩子函数的方式装饰函数
 ```python
-	"添加请求钩子"
-    from utils.middlewares import jwt_authentication
-    app.before_request(jwt_authentication)
+# 添加请求钩子
+from utils.middlewares import jwt_authentication
+app.before_request(jwt_authentication)
 ```
 3.在视图文件中定义token的生成方法
 ```python
@@ -100,24 +104,24 @@ def _generate_tokens(self, user_id, need_refresh_token=True):
 	:return: token2小时, refresh_token14天
 	"""
 	pass
-	'生成时间信息'
+	# 生成时间信息
 	current_time = datetime.utcnow()
-	'指定有效期  业务token -- 2小时'
+	# 指定有效期  业务token -- 2小时
 	expire_time = current_time + timedelta(hours=current_app.config['JWT_EXPIRY_HOURS'])
 
-	'生成业务token  refresh 标识是否是刷新token''
+	# 生成业务token  refresh 标识是否是刷新token
 	token = generate_jwt({'user_id': user_id, 'refresh': False}, expiry=expire_time)
 	
-	'给刷新token设置一个默认值None'
+	# 给刷新token设置一个默认值None
 	refresh_token = None
-	'根据传入的参数判断是否需要生成刷新token''
-	'不需要生成的传入need_refresh_token=False,需要的传入True或不传使用默认值'
+	# 根据传入的参数判断是否需要生成刷新token
+	# 不需要生成的传入need_refresh_token=False,需要的传入True或不传使用默认值
 	if need_refresh_token:
-	    '指定有效期  刷新token -- 14天'
+	    # 指定有效期  刷新token -- 14天
 	    refresh_expires = current_time + timedelta(days=current_app.config['JWT_REFRESH_DAYS'])
-	    '生成刷新token'
+	    # 生成刷新token
 	    refresh_token = generate_jwt({'user_id': user_id, 'refresh': True}, expiry=refresh_expires)
-	'返回这两个token''
+	# 返回这两个token
 	return token, refresh_token
 ```
 4.在视图文件中定义token的刷新方法
@@ -128,14 +132,14 @@ def put(self):
         2.用户必须登录g.user_id , 必须携带刷新token不允许携带业务token
         3.客户端请求参数 刷新token
         """
-        '1.判断是否登录 2.判断refresh字段是否为True--是否是刷新token'
+        # 1.判断是否登录 2.判断refresh字段是否为True--是否是刷新token
         if g.user_id and g.refresh is True:
-            '调用生成token的方法 参数 need_refresh_token=False 不需要生成刷新token 仅生成业务token'
+            # 调用生成token的方法 参数 need_refresh_token=False 不需要生成刷新token 仅生成业务token
             token, refresh_token = self._generate_tokens(g.user_id, need_refresh_token=False)
-            '返回业务token  修改成功状态码201'
+            # 返回业务token  修改成功状态码201
             return {'token': token}, 201
         else:
-            '失败返回错误信息和状态码'
+	    # 失败返回错误信息和状态码
             return {'message': 'Wrong Token'}, 403
         pass
 ```
@@ -150,8 +154,8 @@ import functools
 
 
 def login_required(f):
-    '让装饰器装饰的函数属性不会变 -- name属性'
-    '第1种方法,使用functools模块的wraps装饰内部函数'
+    # 让装饰器装饰的函数属性不会变 -- name属性
+    # 第1种方法,使用functools模块的wraps装饰内部函数
     @functools.wraps(f)
     def wrapper(*args, **kwargs):
         if not g.user_id:
@@ -160,7 +164,7 @@ def login_required(f):
             return {'message': 'Do not use refresh token.'}, 403
         else:
             return func(*args, **kwargs)
-    '第2种方法,在返回内部函数之前,先修改wrapper的name属性'
+    # 第2种方法,在返回内部函数之前,先修改wrapper的name属性
     # wrapper.__name__ = f.__name__
     return wrapper
 ```

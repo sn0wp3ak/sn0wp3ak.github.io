@@ -1,4 +1,5 @@
 ---
+layout: post
 title: X Window System
 date: 2020-11-22
 categories:

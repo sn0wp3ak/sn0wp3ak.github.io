@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Shell Hello World
 date: 2020-11-25
 categories:
