@@ -1,4 +1,4 @@
-I"�<table align="center" border="0" width="70%">
+I"@<table align="center" border="0" width="70%">
 	<tbody>
 		<!-- 标题 -->
 		<tr>
@@ -40,7 +40,7 @@
 							</a>
 						</td>
 						<td width="25%" align="center">
-							<a>
+							<a href="/cate/cate-Vim">
 								<img src="/assets/vim.png" />
 								<br />
 								Vim
@@ -50,7 +50,7 @@
 					<!-- 第二行 -->
 					<tr>
 						<td width="25%" align="center">
-							<a>
+							<a href="/cate/cate-Web">
 								<img src="/assets/web.png" border="0" />
 								<br />
 								Web
@@ -64,14 +64,14 @@
 							</a>
 						</td>
 						<td width="25%" align="center">
-							<a>
+							<a href="/cate/cate-Security">
 								<img src="/assets/secure.png" />
 								<br />
 								Security
 							</a>
 						</td>
 						<td width="25%" align="center">
-							<a>
+							<a href="/cate/cate-FreeBSD">
 								<img src="/assets/freebsd.png" />
 								<br />
 								FreeBSD
@@ -88,14 +88,14 @@
 							</a>
 						</td>
 						<td width="25%" align="center">
-							<a>
+							<a href="/cate/cate-Cloud">
 								<img src="/assets/cloud.png" />
 								<br />
 								Cloud
 							</a>
 						</td>
 						<td width="25%" align="center">
-							<a>
+							<a href="/cate/cate-Ruby">
 								<img src="/assets/ruby.png" />
 								<br />
 								Ruby
@@ -126,27 +126,41 @@
 							</a>
 						</td>
 						<td width="25%" align="center">
-							<a>
+							<a href="/cate/cate-Database">
+								<img src="/assets/database.png" />
+								<br />
+								Database
 							</a>
 						</td>
 						<td width="25%" align="center">
+							<a href="/cate/cate-Flask">
+								<img src="/assets/flask.png" />
+								<br />
+								Flask
+							</a>
 						</td>
 					</tr>
 					<!-- 第五行 -->
 					<tr>
 						<td width="25%" align="center">
-							<a>
+							<a href="/cate/cate-Perl">
 								<img src="/assets/perl.png" />
 								<br />
 								Perl
 							</a>
 						</td>
 						<td width="25%" align="center">
-							<a>
+							<a href="/cate/cate-Concept">
+								<img src="/assets/concept.png" />
+								<br />
+								Concept
 							</a>
 						</td>
 						<td width="25%" align="center">
-							<a>
+							<a href="/cate/cate-Django">
+								<img src="/assets/django.png" />
+								<br />
+								Django
 							</a>
 						</td>
 						<td width="25%" align="center">

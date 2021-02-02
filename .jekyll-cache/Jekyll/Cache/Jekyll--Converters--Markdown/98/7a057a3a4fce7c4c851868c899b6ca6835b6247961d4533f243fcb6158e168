@@ -1,5 +1,4 @@
-I"T
-<!-- 声明分类变量 -->
+I"�<!-- 声明分类变量 -->
 
 <table align="center" border="0" width="70%">
 	<tbody>
@@ -8,7 +7,7 @@
 			<td>
 				<p align="center">
 					<font size="7" color="#000000">
-						<b>Shell</b>
+						<b>Database</b>
 					</font>
 				</p>
 				<hr />
@@ -45,12 +44,6 @@
 				
 					
 				
-					
-				
-					
-						
-							<p>Count: 3 notes</p>
-						
 					
 				
 					
@@ -103,31 +96,6 @@
 									
 										
 									
-										
-									
-										
-											
-												<li>
-												2020 Nov 25
-												<a href="/shell/2020/11/25/Shell%E5%AD%97%E7%AC%A6%E4%B8%B2.html">
-												Shell字符串
-												</a>
-												</li><br />
-											
-												<li>
-												2020 Nov 25
-												<a href="/shell/2020/11/25/Shell%E5%8F%98%E9%87%8F.html">
-												Shell变量
-												</a>
-												</li><br />
-											
-												<li>
-												2020 Nov 25
-												<a href="/shell/2020/11/25/Shell-Hello-World.html">
-												Shell Hello World
-												</a>
-												</li><br />
-											
 										
 									
 										

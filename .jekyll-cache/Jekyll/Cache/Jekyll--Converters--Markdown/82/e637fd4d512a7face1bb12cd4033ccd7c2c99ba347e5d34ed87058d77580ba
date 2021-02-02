@@ -1,0 +1,205 @@
+I"�<table align="center" border="0" width="70%">
+	<tbody>
+		<!-- 标题 -->
+		<tr>
+			<td>
+				<p align="center">
+					<font size="7" color="#000000">
+						<b>Category</b>
+					</font>
+				</p>
+				<hr />
+			</td>
+		</tr>
+		<!-- 具体分类 -->
+		<tr>
+			<td>
+			<table border="2px" width="80%" align="center" cellpadding="5" cellspacing="5">
+				<tbody>
+					<!-- 第一行 -->
+					<tr>
+						<td width="25%" align="center">
+							<a href="/cate/cate-Python">
+								<img src="/assets/python.png" border="0" />
+								<br />
+								Python
+							</a>
+						</td>
+						<td width="25%" align="center">
+							<a href="/cate/cate-Linux">
+								<img src="/assets/linux.png" border="0" />
+								<br />
+								Linux
+							</a>
+						</td>
+						<td width="25%" align="center">
+							<a href="/cate/cate-Network">
+								<img src="/assets/network.png" />
+								<br />
+								Network
+							</a>
+						</td>
+						<td width="25%" align="center">
+							<a href="/cate/cate-Vim">
+								<img src="/assets/vim.png" />
+								<br />
+								Vim
+							</a>
+						</td>
+						<td width="20%" align="center">
+							<a href="/cate/cate-Crawler">
+								<img src="/assets/crawler.png" />
+								<br />
+								Crawler
+							</a>
+						</td>
+					</tr>
+					<!-- 第二行 -->
+					<tr>
+						<td width="25%" align="center">
+							<a href="/cate/cate-Web">
+								<img src="/assets/web.png" border="0" />
+								<br />
+								Web
+							</a>
+						</td>
+						<td width="25%" align="center">
+							<a href="/cate/cate-Windows">
+								<img src="/assets/windows.png" border="0" />
+								<br />
+								Windows
+							</a>
+						</td>
+						<td width="25%" align="center">
+							<a href="/cate/cate-Security">
+								<img src="/assets/secure.png" />
+								<br />
+								Security
+							</a>
+						</td>
+						<td width="25%" align="center">
+							<a href="/cate/cate-FreeBSD">
+								<img src="/assets/freebsd.png" />
+								<br />
+								FreeBSD
+							</a>
+						</td>
+					</tr>
+					<!-- 第三行 -->
+					<tr>
+						<td width="25%" align="center">
+							<a href="/cate/cate-Docker">
+								<img src="/assets/docker.png" />
+								<br />
+								Docker
+							</a>
+						</td>
+						<td width="25%" align="center">
+							<a href="/cate/cate-Cloud">
+								<img src="/assets/cloud.png" />
+								<br />
+								Cloud
+							</a>
+						</td>
+						<td width="25%" align="center">
+							<a href="/cate/cate-Ruby">
+								<img src="/assets/ruby.png" />
+								<br />
+								Ruby
+							</a>
+						</td>
+						<td width="25%" align="center">
+							<a href="/cate/cate-Devops">
+								<img src="/assets/devops.png" />
+								<br />
+								Devops
+							</a>
+						</td>
+					</tr>
+					<!-- 第四行 -->
+					<tr>
+						<td width="25%" align="center">
+							<a href="/cate/cate-Shell">
+								<img src="/assets/shell.png" />
+								<br />
+								Shell
+							</a>
+						</td>
+						<td width="25%" align="center">
+							<a href="/cate/cate-Algorithm">
+								<img src="/assets/algorithm.png" />
+								<br />
+								Algorithm
+							</a>
+						</td>
+						<td width="25%" align="center">
+							<a href="/cate/cate-Database">
+								<img src="/assets/database.png" />
+								<br />
+								Database
+							</a>
+						</td>
+						<td width="25%" align="center">
+							<a href="/cate/cate-Flask">
+								<img src="/assets/flask.png" />
+								<br />
+								Flask
+							</a>
+						</td>
+					</tr>
+					<!-- 第五行 -->
+					<tr>
+						<td width="25%" align="center">
+							<a href="/cate/cate-Perl">
+								<img src="/assets/perl.png" />
+								<br />
+								Perl
+							</a>
+						</td>
+						<td width="25%" align="center">
+							<a href="/cate/cate-Concept">
+								<img src="/assets/concept.png" />
+								<br />
+								Concept
+							</a>
+						</td>
+						<td width="25%" align="center">
+							<a href="/cate/cate-Django">
+								<img src="/assets/django.png" />
+								<br />
+								Django
+							</a>
+						</td>
+						<td width="25%" align="center">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+		<!-- 站内跳转 -->
+		<tr>
+			<td>
+				<center>
+					<p>&nbsp;</p>
+					<table width="80%" align="center" cellpadding="5" cellspacing="5">
+						<tbody>
+							<tr>
+								<td width="100%" align="center">
+									<a href="/">
+										<img src="/assets/home.png" />
+										<br />
+										Go Home
+									</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<hr />
+					<font size="3" color="#000000">powered by jekyll</font>
+				</center>
+			</td>
+		</tr>
+	</tbody>
+</table>
+:ET
