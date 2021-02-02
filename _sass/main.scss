@@ -8,6 +8,8 @@ $prefg: #e8e8d3;
 $preblue: #597bc5;
 $precyan: #71b9f8;
 $preyellow: #d8ad4c;
+$pregrey: #888888;
+$prered: #cf6a4c;
 
 $green: #008000;
 
@@ -71,4 +73,37 @@ code.highlighter-rouge {
   border: 2px solid $bodyColor;
 }
 
+.highlight {
 
+  .k {
+    color: $preblue;
+  }
+
+  .ow {
+    color: $preblue;
+  }
+
+  .kn {
+    color: $precyan;
+  }
+
+  .nf {
+    color: $preyellow;
+  }
+
+  .bp {
+    color: $preyellow;
+  }
+
+  .s {
+    color: $pregreen;
+  }
+  
+  .c, .c1, .cd, .cm, .cs {
+    color: $pregrey;
+  }
+
+  .mi {
+    color: $prered;
+  }
+}
