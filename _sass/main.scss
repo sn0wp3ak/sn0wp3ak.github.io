@@ -7,6 +7,7 @@ $pregreen: #99ad6a;
 $prefg: #e8e8d3;
 $preblue: #597bc5;
 $precyan: #71b9f8;
+$preyellow: #d8ad4c;
 
 body {
   padding: 0;
@@ -45,10 +46,9 @@ blockquote {
 }
 
 code.highlighter-rouge {
-  background: $prebg;
-  color: $precyan;
-  border-left: 4px solid $prebg;
-  border-right: 4px solid $prebg;
+  color: $pregreen;
+  border-left: 4px solid $backgroundColor;
+  border-right: 4px solid $backgroundColor;
 }
 
 #note table {

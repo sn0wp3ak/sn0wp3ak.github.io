@@ -1,0 +1,158 @@
+I"�
+<table align="center" border="0" width="70%">
+	<tbody>
+		<!-- 标题 -->
+		<tr>
+			<td>
+				<p align="center">
+					<font size="7" color="#000000">
+						<b>Apache</b>
+					</font>
+				</p>
+				<hr />
+			</td>
+		</tr>
+		<!-- 笔记列表 -->
+		<!-- 统计 -->
+		<tr>
+			<td align="center">
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+					
+						<p>Count: 2 notes</p>
+					
+				
+			
+				
+			
+				
+			
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table width="70%" align="center" border="0">
+					<tbody>
+						<tr>
+							<td width="25%" align="left">
+							</td>
+							<td width="50%" align="left">
+								<ul>
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+											
+												<li>
+												2020 Nov 01
+												<a href="/linux/2020/11/01/Apache%E6%9C%8D%E5%8A%A1%E7%9A%84%E9%85%8D%E7%BD%AE.html">
+												Apache服务的配置
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Nov 01
+												<a href="/linux/2020/11/01/Apache%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%AE%89%E8%A3%85.html">
+												Apache服务的安装
+												</a>
+												</li><br />
+											
+										
+									
+										
+									
+										
+									
+								</ul>
+							</td>
+							<td width="25%" align="left">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<!-- 站内跳转 -->
+		<tr>
+			<td>
+				<center>
+				<p>&nbsp;</p>
+				<table width="80%" align="center" cellspacing="5" cellpadding="5">
+					<tbody>
+						<tr>
+							<td width="50%" align="center">
+								<a href="/">
+									<img src="/assets/home.png" />
+									<br />
+									Go Home
+								</a>
+							</td>
+							<td width="50%" align="center">
+								<a href="/tag">
+									<img src="/assets/tag.png" />
+									<br />
+									Ch Tag
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<hr />
+				<font size="3" color="#000000">powered by jekyll</font>
+				</center>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+:ET
