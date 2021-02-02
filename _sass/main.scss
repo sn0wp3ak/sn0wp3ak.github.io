@@ -9,6 +9,9 @@ $preblue: #597bc5;
 $precyan: #71b9f8;
 $preyellow: #d8ad4c;
 
+$green: #008000;
+
+
 body {
   padding: 0;
   margin: 0;
@@ -46,7 +49,7 @@ blockquote {
 }
 
 code.highlighter-rouge {
-  color: $pregreen;
+  color: $green;
   border-left: 4px solid $backgroundColor;
   border-right: 4px solid $backgroundColor;
 }
