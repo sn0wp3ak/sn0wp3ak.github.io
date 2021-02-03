@@ -1,8 +1,4 @@
----
-layout: default
-title: AboutMe
----
-<table align="center" border="0" width="70%">
+I"3<table align="center" border="0" width="70%">
 	<tbody>
 		<!-- 标题 -->
 		<tr>
@@ -12,7 +8,7 @@ title: AboutMe
 						<b>Introduction</b>
 					</font>
 				</p>
-				<hr>
+				<hr />
 			</td>
 		</tr>
 		<!-- 简介 -->
@@ -24,16 +20,8 @@ title: AboutMe
 						<tr>
 							<td width="25%">
 							</td>
-							<td width="50%" align="center">	
-								<img src="/assets/avatar.png" align="center" width="100" height="100">
-							</td>
-							<td width="25%">
-							</td>
-						</tr>
-						<tr>
-							<td width="25%">
-							</td>
 							<td width="50%" align="left" valign="middle">
+								<img src="/assets/avatar.png" align="center" width="100" height="100" />
 								<font size="4">
 								<ul>
 									<li><b>作者</b>: sn0wp3ak</li>
@@ -62,18 +50,19 @@ title: AboutMe
 							<tr>
 								<td width="100%" align="center">
 									<a href="/">
-										<img src="/assets/home.png">
-										<br>
+										<img src="/assets/home.png" />
+										<br />
 										Go Home
 									</a>
 								</td>
 							</tr>
 						</tbody>
 					</table>
-					<hr>
+					<hr />
 					<font size="3" color="#000000">powered by jekyll</font>
 				</center>
 			</td>
 		</tr>
 	</tbody>
 </table>
+:ET
