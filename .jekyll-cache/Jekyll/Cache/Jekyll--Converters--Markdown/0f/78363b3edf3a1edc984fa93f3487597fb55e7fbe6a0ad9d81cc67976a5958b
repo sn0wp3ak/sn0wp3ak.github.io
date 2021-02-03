@@ -1,0 +1,156 @@
+I"{<!-- 声明分类变量 -->
+
+<table align="center" border="0" width="70%">
+	<tbody>
+		<!-- 标题 -->
+		<tr>
+			<td>
+				<p align="center">
+					<font size="7" color="#000000">
+						<b>Database</b>
+					</font>
+				</p>
+				<hr />
+			</td>
+		</tr>
+		<!-- 笔记列表 -->
+		<!-- 统计 -->
+		<tr>
+			<td align="center">
+				
+					
+						
+							<p>Count: 1 note</p>
+						
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table width="70%" align="center" border="0">
+					<tbody>
+						<tr>
+							<td width="25%" align="left">
+							</td>
+							<td width="50%" align="left">
+								<ul>
+									
+										
+											
+												<li>
+												2019 Dec 14
+												<a href="/database/2019/12/14/MyISAM%E5%92%8CInnoDB%E7%9A%84%E5%8C%BA%E5%88%AB.html">
+												MyISAM和InnoDB的区别
+												</a>
+												</li><br />
+											
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+								</ul>
+							</td>
+							<td width="25%" align="left">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<!-- 站内跳转 -->
+		<tr>
+			<td>
+				<center>
+				<p>&nbsp;</p>
+				<table width="80%" align="center" cellspacing="5" cellpadding="5">
+					<tbody>
+						<tr>
+							<td width="50%" align="center">
+								<a href="/">
+									<img src="/assets/home.png" />
+									<br />
+									Go Home
+								</a>
+							</td>
+							<td width="50%" align="center">
+								<a href="/category">
+									<img src="/assets/cate.png" />
+									<br />
+									Ch Cate
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<hr />
+				<font size="3" color="#000000">powered by jekyll</font>
+				</center>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+:ET

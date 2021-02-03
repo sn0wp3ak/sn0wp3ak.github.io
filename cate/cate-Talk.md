@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Concept
+title: Talk
 ---
 <!-- 声明分类变量 -->
-{% assign cate = "Concept" %}
+{% assign cate = "Talk" %}
 {% include cate.html %}
 
