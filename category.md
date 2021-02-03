@@ -89,6 +89,11 @@ title: Category
 							</a>
 						</td>
 						<td width="20%" align="center">
+							<a href="/cate/cate-Virtualization">
+								<img src="/assets/virtualization.png">
+								<br>
+								Virtualization
+							</a>
 						</td>
 						
 					</tr>

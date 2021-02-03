@@ -1,0 +1,334 @@
+I"�<!-- 声明分类变量 -->
+
+<table align="center" border="0" width="70%">
+	<tbody>
+		<!-- 标题 -->
+		<tr>
+			<td>
+				<p align="center">
+					<font size="7" color="#000000">
+						<b>Linux</b>
+					</font>
+				</p>
+				<hr />
+			</td>
+		</tr>
+		<!-- 笔记列表 -->
+		<!-- 统计 -->
+		<tr>
+			<td align="center">
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+						
+							<p>Count: 27 notes</p>
+						
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table width="70%" align="center" border="0">
+					<tbody>
+						<tr>
+							<td width="25%" align="left">
+							</td>
+							<td width="50%" align="left">
+								<ul>
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+											
+												<li>
+												2020 Dec 27
+												<a href="/linux/2020/12/27/Linux%E6%96%87%E4%BB%B6%E7%9A%84%E9%9A%90%E8%97%8F%E5%B1%9E%E6%80%A7.html">
+												Linux文件的隐藏属性
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Dec 26
+												<a href="/linux/2020/12/26/dwm%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE.html">
+												dwm安装和配置
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Dec 06
+												<a href="/linux/2020/12/06/Linux%E7%BB%84%E7%AE%A1%E7%90%86.html">
+												Linux组管理
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Dec 02
+												<a href="/linux/2020/12/02/Linux%E7%9A%84%E7%94%A8%E6%88%B7%E5%92%8C%E7%BB%84.html">
+												Linux的用户和组
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Dec 02
+												<a href="/linux/2020/12/02/Linux%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86.html">
+												Linux用户管理
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Dec 01
+												<a href="/linux/2020/12/01/Linux%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90.html">
+												Linux文件权限
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Nov 22
+												<a href="/linux/2020/11/22/X-Window-System.html">
+												X Window System
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Nov 10
+												<a href="/linux/2020/11/10/ArchLinux%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95.html">
+												ArchLinux安装记录
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Nov 03
+												<a href="/linux/2020/11/03/iptables%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.html">
+												iptables基本操作
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Nov 02
+												<a href="/linux/2020/11/02/iptables%E9%98%B2%E7%81%AB%E5%A2%99%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7.html">
+												iptables防火墙管理工具
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Nov 01
+												<a href="/linux/2020/11/01/SELinux%E5%AE%89%E5%85%A8%E5%AD%90%E7%B3%BB%E7%BB%9F.html">
+												SELinux安全子系统
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Nov 01
+												<a href="/linux/2020/11/01/Apache%E6%9C%8D%E5%8A%A1%E7%9A%84%E9%85%8D%E7%BD%AE.html">
+												Apache服务的配置
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Nov 01
+												<a href="/linux/2020/11/01/Apache%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%AE%89%E8%A3%85.html">
+												Apache服务的安装
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Oct 19
+												<a href="/linux/2020/10/19/ACL%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E5%88%97%E8%A1%A8.html">
+												ACL文件访问控制列表
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Oct 13
+												<a href="/linux/2020/10/13/%E9%83%A8%E7%BD%B2LVM.html">
+												部署LVM
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Oct 13
+												<a href="/linux/2020/10/13/LVM%E9%80%BB%E8%BE%91%E5%8D%B7%E7%AE%A1%E7%90%86%E5%99%A8.html">
+												LVM逻辑卷管理器
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Oct 12
+												<a href="/linux/2020/10/12/RAID%E5%A4%87%E4%BB%BD%E7%9B%98.html">
+												RAID备份盘
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Oct 11
+												<a href="/linux/2020/10/11/%E9%83%A8%E7%BD%B2RAID.html">
+												部署RAID
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Oct 10
+												<a href="/linux/2020/10/10/RAID%E7%A3%81%E7%9B%98%E9%98%B5%E5%88%97.html">
+												RAID磁盘阵列
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Oct 05
+												<a href="/linux/2020/10/05/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B8%B8%E7%94%A8%E7%AC%A6%E5%8F%B7.html">
+												Linux命令行常用符号
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Sep 27
+												<a href="/linux/2020/09/27/Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E5%8E%8B%E7%BC%A9%E5%92%8C%E6%89%93%E5%8C%85.html">
+												Linux系统中的压缩和打包
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Sep 23
+												<a href="/linux/2020/09/23/Linux%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90+%E6%89%80%E6%9C%89%E8%80%85+%E6%89%80%E5%B1%9E%E7%BB%84%E6%93%8D%E4%BD%9C.html">
+												Linux文件权限+所有者+所属组操作
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Sep 19
+												<a href="/linux/2020/09/19/su%E5%92%8Csudo.html">
+												su和sudo
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Sep 15
+												<a href="/linux/2020/09/15/Linux%E4%B8%AD%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%88%86%E7%B1%BB.html">
+												Linux中软件的分类
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Sep 14
+												<a href="/linux/2020/09/14/Linux%E5%9F%BA%E7%A1%801.html">
+												Linux基础 -- 1
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Sep 13
+												<a href="/linux/2020/09/13/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%88%86%E7%B1%BB.html">
+												文件系统分类
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Sep 01
+												<a href="/linux/2020/09/01/%E6%8C%82%E8%BD%BD.html">
+												挂载
+												</a>
+												</li><br />
+											
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+								</ul>
+							</td>
+							<td width="25%" align="left">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<!-- 站内跳转 -->
+		<tr>
+			<td>
+				<center>
+				<p>&nbsp;</p>
+				<table width="80%" align="center" cellspacing="5" cellpadding="5">
+					<tbody>
+						<tr>
+							<td width="50%" align="center">
+								<a href="/">
+									<img src="/assets/home.png" />
+									<br />
+									Go Home
+								</a>
+							</td>
+							<td width="50%" align="center">
+								<a href="/category">
+									<img src="/assets/cate.png" />
+									<br />
+									Ch Cate
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<hr />
+				<font size="3" color="#000000">powered by jekyll</font>
+				</center>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+:ET

@@ -3,6 +3,8 @@ layout: post
 title: MyISAM和InnoDB的区别
 date: 2019-12-14
 categories:
+- Database
+tags:
 - MySQL
 ---
 MyISAM: 基于ISAM;<br>
