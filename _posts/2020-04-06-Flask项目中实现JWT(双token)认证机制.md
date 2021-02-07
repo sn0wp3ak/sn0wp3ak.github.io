@@ -14,7 +14,7 @@ tags:
 当业务token过期时,必须携带刷新token通过put接口来实现token的刷新,新的业务token还是存活2小时,这期间刷新token一直不变,直到14天后刷新token过期,重新开始新一轮的循环;<br>
 在调用生成token的接口时,利用一个布尔型标识need_refresh_token来判断是否生成刷新token,保证有效期内只会生成新的业务token而刷新token则一直保持不变<br>
 ## 准备工作
-用Pycharm的朋友可以在你项目的Sources Root 目录下面的utils目录(如果有,没有可以新建)新建一个middleware.py文件用来存放各种中间件代码<br>
+用Pycharm的可以在你项目的Sources Root 目录下面的utils目录(如果有,没有可以新建)新建一个middleware.py文件用来存放各种中间件代码<br>
 * Sources Root 目录, 用来搜包的目录, 可以解决Pycharm层面的代码导包类报红提示
 * 具体操作:右击文件夹-->Mark Directory As-->Sources Root
 

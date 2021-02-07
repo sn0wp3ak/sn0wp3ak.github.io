@@ -1,0 +1,89 @@
+---
+layout: default
+title: archive
+---
+<!-- 页头 -->
+<div id="header">
+        sn0wp3ak.github.io &nbsp; <span>{{ page.title }}</span>
+</div>
+<!-- 菜单 -->
+<div id="menu">
+        <a href="/index">
+                home
+        </a>
+        &nbsp;
+        <a href="/archive">
+                <b>archive</b>
+        </a>
+        &nbsp;
+        <a href="/category">
+                category
+        </a>
+        &nbsp;
+        <a href="/tag">
+                tag
+        </a>
+        &nbsp;
+        <a href="/word">
+                word
+        </a>
+        &nbsp;
+        <a href="/map">
+                map
+        </a>
+</div>
+<!-- 内容 -->
+<div id="content">
+        <!-- 侧边栏 -->
+        <div id="nav">
+                <li>
+                <a href="/archive">
+                        <b>total</b>
+                </a>
+		<a>
+			2021
+		</a>
+		<a>
+			2020
+		</a>
+		<a>
+			2019
+		</a>
+                </li>
+        </div>
+        <!-- 主体 -->
+        <div id="main">
+		Total Count: {{ site.posts | size }} notes
+  {% if site.posts[0] %}
+
+    {% capture currentyear %}{{ 'now' | date: "%Y" }}{% endcapture %}
+    {% capture firstpostyear %}{{ site.posts[0].date | date: '%Y' }}{% endcapture %}
+    {% if currentyear == firstpostyear %}
+    	<h2>{{ currentyear }}</h2>
+    {% else %}  
+        <h2>{{ firstpostyear }}</h2>
+    {% endif %}
+    
+    {%for post in site.posts %}
+      {% unless post.next %}
+        <ul>
+      {% else %}
+        {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+        {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+        {% if year != nyear %}
+          </ul>
+          <h2>{{ post.date | date: '%Y' }}</h2>
+          <ul>
+        {% endif %}
+      {% endunless %}
+        <li class="file"><time>{{ post.date | date:"%b %d" }} - </time>
+          <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
+            {{ post.title }}
+          </a>
+        </li>
+    {% endfor %}
+    </ul>
+
+  {% endif %}
+  	</div>
+</div>

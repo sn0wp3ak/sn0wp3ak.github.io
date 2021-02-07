@@ -1,0 +1,54 @@
+---
+layout: default
+title: word
+---
+<!-- 页头 -->
+<div id="header">
+        sn0wp3ak.github.io &nbsp; <span>{{ page.title }}</span>
+</div>
+<!-- 菜单 -->
+<div id="menu">
+        <a href="/index">
+                home
+        </a>
+        &nbsp;
+        <a href="/archive">
+                archive
+        </a>
+        &nbsp;
+        <a href="/category">
+		category
+        </a>
+        &nbsp;
+        <a href="/tag">
+		tag
+        </a>
+        &nbsp;
+        <a href="/word">
+		<b>word</b>
+        </a>
+        &nbsp;
+        <a href="/map">
+                map
+        </a>
+</div>
+<!-- 内容 -->
+<div id="content">
+        <!-- 侧边栏 -->
+        <div id="nav">
+		{% for category in site.categories %}
+			{% if category[0] == "Word" %}
+				{% for post in category[1] %}
+                			<li>
+                			<a>
+						{{ post.title }}
+                			</a>
+                			</li>
+				{% endfor %}
+			{% endif %}
+		{% endfor %}
+        </div>
+        <!-- 主体 -->
+        <div id="main">
+  	</div>
+</div>

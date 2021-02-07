@@ -1,11 +1,11 @@
-I"E<h2 id="核心思想">核心思想</h2>
+I"E<h2 id="核心思想">核心思想</h2>
 <p>解决<strong>单一</strong>token的安全问题,设置2个token;<br />
 一个对接业务,有需求就带着业务token去认证然后操作相关功能,有效期较短,2小时;<br />
 另一个token专门用来刷新业务token,简称刷新token,具有较长的过期时间,14天;<br />
 当业务token过期时,必须携带刷新token通过put接口来实现token的刷新,新的业务token还是存活2小时,这期间刷新token一直不变,直到14天后刷新token过期,重新开始新一轮的循环;<br />
 在调用生成token的接口时,利用一个布尔型标识need_refresh_token来判断是否生成刷新token,保证有效期内只会生成新的业务token而刷新token则一直保持不变<br /></p>
 <h2 id="准备工作">准备工作</h2>
-<p>用Pycharm的朋友可以在你项目的Sources Root 目录下面的utils目录(如果有,没有可以新建)新建一个middleware.py文件用来存放各种中间件代码<br /></p>
+<p>用Pycharm的可以在你项目的Sources Root 目录下面的utils目录(如果有,没有可以新建)新建一个middleware.py文件用来存放各种中间件代码<br /></p>
 <ul>
   <li>Sources Root 目录, 用来搜包的目录, 可以解决Pycharm层面的代码导包类报红提示</li>
   <li>具体操作:右击文件夹–&gt;Mark Directory As–&gt;Sources Root</li>
