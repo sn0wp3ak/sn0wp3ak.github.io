@@ -1,0 +1,219 @@
+I"�<!-- 声明分类变量 -->
+
+<table align="center" border="0" width="70%">
+	<tbody>
+		<!-- 标题 -->
+		<tr>
+			<td>
+				<p align="center">
+					<font size="7" color="#000000">
+						<b>Python</b>
+					</font>
+				</p>
+				<hr />
+			</td>
+		</tr>
+		<!-- 笔记列表 -->
+		<!-- 统计 -->
+		<tr>
+			<td align="center">
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+						
+							<p>Count: 10 notes</p>
+						
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table width="70%" align="center" border="0">
+					<tbody>
+						<tr>
+							<td width="25%" align="left">
+							</td>
+							<td width="50%" align="left">
+								<ul>
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+											
+												<li>
+												2020 Oct 18
+												<a href="/python/2020/10/18/Python%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.html">
+												Python虚拟环境
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Oct 17
+												<a href="/python/2020/10/17/Python%E5%AE%B9%E5%99%A8%E7%AF%87-6-%E5%AE%B9%E5%99%A8%E7%9A%84%E5%85%AC%E5%85%B1%E6%96%B9%E6%B3%95.html">
+												Python容器篇 6 -- 容器的公共方法
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Oct 16
+												<a href="/python/2020/10/16/Python%E5%AE%B9%E5%99%A8%E7%AF%87-5-%E9%9B%86%E5%90%88.html">
+												Python容器篇 5 -- 集合
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Oct 16
+												<a href="/python/2020/10/16/Python%E5%AE%B9%E5%99%A8%E7%AF%87-4-%E5%AD%97%E5%85%B8.html">
+												Python容器篇 4 -- 字典
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Oct 16
+												<a href="/python/2020/10/16/Python%E5%AE%B9%E5%99%A8%E7%AF%87-3-%E5%85%83%E7%BB%84.html">
+												Python容器篇 3 -- 元组
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Oct 15
+												<a href="/python/2020/10/15/Python%E8%BF%90%E7%AE%97%E7%AC%A6.html">
+												Python运算符
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Oct 15
+												<a href="/python/2020/10/15/Python%E5%AE%B9%E5%99%A8%E7%AF%87-2-%E5%88%97%E8%A1%A8.html">
+												Python容器篇 2 -- 列表
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Oct 15
+												<a href="/python/2020/10/15/Python%E5%AE%B9%E5%99%A8%E7%AF%87-1-%E5%AD%97%E7%AC%A6%E4%B8%B2.html">
+												Python容器篇 1 -- 字符串
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Oct 15
+												<a href="/python/2020/10/15/Python%E4%B8%AD%E7%9A%84%E5%85%B3%E9%94%AE%E5%AD%97.html">
+												Python中的关键字
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Oct 09
+												<a href="/python/2020/10/09/Python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%97%AE%E7%AD%94%E6%94%B6%E9%9B%86.html">
+												Python面向对象问答收集
+												</a>
+												</li><br />
+											
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+								</ul>
+							</td>
+							<td width="25%" align="left">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<!-- 站内跳转 -->
+		<tr>
+			<td>
+				<center>
+				<p>&nbsp;</p>
+				<table width="80%" align="center" cellspacing="5" cellpadding="5">
+					<tbody>
+						<tr>
+							<td width="50%" align="center">
+								<a href="/">
+									<img src="/assets/home.png" />
+									<br />
+									Go Home
+								</a>
+							</td>
+							<td width="50%" align="center">
+								<a href="/category">
+									<img src="/assets/cate.png" />
+									<br />
+									Ch Cate
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<hr />
+				<font size="3" color="#000000">powered by jekyll</font>
+				</center>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+:ET

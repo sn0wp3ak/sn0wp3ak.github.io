@@ -1,6 +1,6 @@
 ---
 layout: word
-title: Software Word
+title: software
 date: 2020-12-14
 categories:
 - Word

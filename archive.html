@@ -38,7 +38,9 @@ title: archive
         <div id="nav">
                 <li>
                 <a href="/archive">
+			<font color="71b9f8">
                         <b>total</b>
+			</font>
                 </a>
 		<a>
 			2021
@@ -53,7 +55,7 @@ title: archive
         </div>
         <!-- 主体 -->
         <div id="main">
-		Total Count: {{ site.posts | size }} notes
+		total count: {{ site.posts | size }} notes
   {% if site.posts[0] %}
 
     {% capture currentyear %}{{ 'now' | date: "%Y" }}{% endcapture %}

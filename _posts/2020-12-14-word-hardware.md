@@ -1,6 +1,6 @@
 ---
 layout: word
-title: Hardware Word
+title: hardware 
 date: 2020-12-14
 categories:
 - Word

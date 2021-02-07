@@ -1,6 +1,6 @@
 ---
 layout: word
-title: Linux Word
+title: linux
 date: 2020-12-02
 categories:
 - Word

@@ -1,0 +1,163 @@
+I"y	<!-- 声明分类变量 -->
+
+<table align="center" border="0" width="70%">
+	<tbody>
+		<!-- 标题 -->
+		<tr>
+			<td>
+				<p align="center">
+					<font size="7" color="#000000">
+						<b>Talk</b>
+					</font>
+				</p>
+				<hr />
+			</td>
+		</tr>
+		<!-- 笔记列表 -->
+		<!-- 统计 -->
+		<tr>
+			<td align="center">
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+						
+							<p>Count: 2 notes</p>
+						
+					
+				
+					
+				
+					
+				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table width="70%" align="center" border="0">
+					<tbody>
+						<tr>
+							<td width="25%" align="left">
+							</td>
+							<td width="50%" align="left">
+								<ul>
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+											
+												<li>
+												2021 Feb 03
+												<a href="/talk/2021/02/03/%E6%88%91%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%88%97%E8%A1%A8.html">
+												我的软件列表
+												</a>
+												</li><br />
+											
+												<li>
+												2020 Dec 17
+												<a href="/talk/2020/12/17/%E7%89%A9%E7%90%86%E5%88%86%E5%89%B2%E5%92%8C%E9%80%BB%E8%BE%91%E5%88%86%E5%89%B2.html">
+												物理分割和逻辑分割
+												</a>
+												</li><br />
+											
+										
+									
+										
+									
+										
+									
+								</ul>
+							</td>
+							<td width="25%" align="left">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<!-- 站内跳转 -->
+		<tr>
+			<td>
+				<center>
+				<p>&nbsp;</p>
+				<table width="80%" align="center" cellspacing="5" cellpadding="5">
+					<tbody>
+						<tr>
+							<td width="50%" align="center">
+								<a href="/">
+									<img src="/assets/home.png" />
+									<br />
+									Go Home
+								</a>
+							</td>
+							<td width="50%" align="center">
+								<a href="/category">
+									<img src="/assets/cate.png" />
+									<br />
+									Ch Cate
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<hr />
+				<font size="3" color="#000000">powered by jekyll</font>
+				</center>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+:ET

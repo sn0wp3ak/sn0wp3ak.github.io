@@ -1,6 +1,6 @@
 ---
 layout: word
-title: Network Word
+title: network 
 date: 2020-12-14
 categories:
 - Word
