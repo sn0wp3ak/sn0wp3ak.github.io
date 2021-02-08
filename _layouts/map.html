@@ -4,7 +4,7 @@ title: map
 ---
 <!-- 页头 -->
 <div id="header">
-        sn0wp3ak.github.io &nbsp; <span>{{ page.title }}</span>
+        sn0wp3ak.github.io &nbsp; <span>map</span>
 </div>
 <!-- 菜单 -->
 <div id="menu">
@@ -38,42 +38,35 @@ title: map
         <div id="nav">
 		<li>
 		<a href="/map">
-			<font color="#71b9f8">
-				<b>all</b>
+			<font>
+				all
 			</font>
 		</a>
 		</li>
 		{% for category in site.categories %}
 			{% if category[0] == "map" %}
 				{% for post in category[1] %}
+					{% if post.title == page.title %}
                 			<li>
-						<a href="{{post.url | prepend: site.baseurl | replace: '//', '/'}}">
+						<a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}">
+							<font color="#71b9f8">
+								<b>{{ post.title }}</b>
+							</font>
+                			</a>
+                			</li>
+					{% else %}
+                			<li>
+						<a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}">
 						{{ post.title }}
                 			</a>
                 			</li>
+					{% endif %}
 				{% endfor %}
 			{% endif %}
 		{% endfor %}
         </div>
         <!-- 主体 -->
         <div id="main">
-		map count:
-		{% for category in site.categories %}
-			{% if category[0] == "map" %}
-				{{ category[1] | size }}
-			{% endif %}
-		{% endfor %}
-		<br>
-		<ul>
-		{% for category in site.categories %}
-			{% if category[0] == "map" %}
-				{% for post in category[1] %}
-                			<li>
-						{{ post.title }}
-                			</li>
-				{% endfor %}
-			{% endif %}
-		{% endfor %}
-		</ul>
+		{{ content }}
   	</div>
 </div>

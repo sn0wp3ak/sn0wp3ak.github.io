@@ -1,62 +1,72 @@
 ---
 layout: default
+title: word
 ---
-<table align="center" border="0" width="70%">
-	<tbody>
-		<!-- 标题 -->
-		<tr>
-			<td >
-				<p align="center">
-					<font size="5" color="#000000">
-						<b>{{ page.title }}</b>
-					</font>
-				</p>
-				<hr>
-			</td>
-		</tr>
-		<!-- 笔记内容 -->
-		<tr>
-			<td>
-			<table width="80%" align="center" cellpadding="5" cellspacing="5">
-				<tbody>
-					<tr>
-						<td width="100%" align="left">
-							{{ content }}
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			</td>
-		</tr>
-		<!-- 站内跳转 -->
-		<tr>
-			<td>
-				<center>
-					<p>&nbsp;</p>
-					<table width="80%" align="center" cellpadding="5" cellspacing="5">
-						<tbody>
-							<tr>
-								<td width="50%" align="center">
-									<a href="/">
-										<img src="/assets/home.png">
-										<br>
-										Go Home
-									</a>
-								</td>
-								<td width="50%" align="center">
-									<a href="/word">
-										<img src="/assets/word.png">
-										<br>
-										Word
-									</a>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					<hr>
-					<font size="3" color="#000000">powered by jekyll</font>
-				</center>
-			</td>
-		</tr>
-	</tbody>
-</table>
+<!-- 页头 -->
+<div id="header">
+        sn0wp3ak.github.io &nbsp; <span>word</span>
+</div>
+<!-- 菜单 -->
+<div id="menu">
+        <a href="/index">
+                home
+        </a>
+        &nbsp;
+        <a href="/archive">
+                archive
+        </a>
+        &nbsp;
+        <a href="/category">
+		category
+        </a>
+        &nbsp;
+        <a href="/tag">
+		tag
+        </a>
+        &nbsp;
+        <a href="/word">
+		<b>word</b>
+        </a>
+        &nbsp;
+        <a href="/map">
+                map
+        </a>
+</div>
+<!-- 内容 -->
+<div id="content">
+        <!-- 侧边栏 -->
+        <div id="nav">
+		<li>
+		<a href="/word">
+			<font>
+			all
+			</font>
+		</a>
+		</li>
+		{% for category in site.categories %}
+			{% if category[0] == "Word" %}
+				{% for post in category[1] %}
+					{% if post.title == page.title %}
+                			<li>
+						<a href="{{post.url | prepend: site.baseurl | replace: '//', '/'}}">
+							<font color="#71b9f8">
+							<b>{{ post.title }}</b>
+							</font>
+                			</a>
+                			</li>
+					{% else %}
+                			<li>
+						<a href="{{post.url | prepend: site.baseurl | replace: '//', '/'}}">
+						{{ post.title }}
+                			</a>
+                			</li>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+		{% endfor %}
+        </div>
+        <!-- 主体 -->
+        <div id="main">
+		{{ content }}
+  	</div>
+</div>

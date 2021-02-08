@@ -1,0 +1,13 @@
+<h2>{{ include.param }}</h2>
+<ul>
+ {%for post in site.posts %}
+       {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+       {% if year == include.param %}
+       <li class="file"><time>{{ post.date | date:"%b %d" }} - </time>
+         <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
+           {{ post.title }}
+         </a>
+       </li>
+       {% endif %}
+   {% endfor %}
+</ul>

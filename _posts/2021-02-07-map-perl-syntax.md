@@ -1,4 +1,5 @@
 ---
+layout: map
 title: perl syntax
 date: 2021-02-07
 categories:

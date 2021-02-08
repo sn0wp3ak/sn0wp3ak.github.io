@@ -38,18 +38,23 @@ title: archive
         <div id="nav">
                 <li>
                 <a href="/archive">
-			<font color="71b9f8">
-                        <b>total</b>
+			<font>
+                       	    total
 			</font>
                 </a>
 		</li>
     		{% capture currentyear %}{{ 'now' | date: "%Y" }}{% endcapture %}
     		{% capture firstpostyear %}{{ site.posts[0].date | date: '%Y' }}{% endcapture %}
     		{% if currentyear == firstpostyear %}
-			{% assign var_year = currentyear %}
-			<li><a href="/archive_sub/currentyear">{{ currentyear }}</a></li>
+			<li>
+			<a href="/archive_sub/currentyear">
+				<font color="#71b9f8">
+					<b>{{ currentyear }}</b>
+				</font>
+			</a>
+			</li>
     		{% else %}  
-			<li><a href="/archive_sub">{{ firstpostyear }}</a></li>
+			<li><a>{{ firstpostyear }}</a></li>
     		{% endif %}
     		{%for post in site.posts %}
       			{% unless post.next %}
@@ -57,13 +62,13 @@ title: archive
         			{% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
         			{% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
         			{% if year != nyear %}
-				<li><a href="/archive_sub/{{ post.date | date: '%Y' }}">{{ post.date | date: '%Y' }}</a></li>
+				<li><a href="/archive_sub/{{post.date | date: '%Y'}}">{{ post.date | date: '%Y' }}</a></li>
         			{% endif %}
       			{% endunless %}
     		{% endfor %}
         </div>
         <!-- 主体 -->
         <div id="main">
-		{% include archive_list_all.html %}
+		{% include archive_list.html param=currentyear %}
   	</div>
 </div>

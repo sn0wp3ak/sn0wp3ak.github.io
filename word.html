@@ -38,8 +38,8 @@ title: word
         <div id="nav">
 		<li>
 		<a href="/word">
-			<font color="71b9f8">
-			<b>all</b>
+			<font color="#71b9f8">
+				<b>all</b>
 			</font>
 		</a>
 		</li>
@@ -47,7 +47,7 @@ title: word
 			{% if category[0] == "Word" %}
 				{% for post in category[1] %}
                 			<li>
-                			<a>
+						<a href="{{post.url | prepend: site.baseurl | replace: '//', '/'}}">
 						{{ post.title }}
                 			</a>
                 			</li>
