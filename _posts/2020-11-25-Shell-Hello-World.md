@@ -3,7 +3,7 @@ layout: post
 title: Shell Hello World
 date: 2020-11-25
 categories:
-- Shell
+- shell
 ---
 
 `SHELL`: 命令/程序设计语言;<br>

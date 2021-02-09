@@ -3,7 +3,7 @@ layout: word
 title: linux
 date: 2020-12-02
 categories:
-- Word
+- word
 ---
 
 * FHS

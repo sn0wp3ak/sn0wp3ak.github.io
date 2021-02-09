@@ -3,9 +3,9 @@ layout: post
 title: ArchLinux安装记录
 date: 2020-11-10
 categories:
-- Linux
+- linux
 tags:
-- ArchLinux 
+- archlinux 
 ---
 
 # 准备工作

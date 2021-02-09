@@ -3,7 +3,7 @@ layout: post
 title: Openstack概述
 date: 2020-12-20
 categories:
-- Cloud
+- cloud
 ---
 
 Openstack是什么? <br>

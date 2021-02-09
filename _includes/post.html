@@ -1,0 +1,73 @@
+<!-- 页头 -->
+<div id="header">
+	sn0wp3ak.github.io &nbsp; <span>{{ page.title }}</span>
+</div>
+<!-- 菜单 -->
+<div id="menu">
+        <a href="/index">
+                home
+        </a>
+        &nbsp;
+        <a href="/archive">
+                archive
+        </a>
+        &nbsp;
+        <a href="/category">
+		category
+        </a>
+        &nbsp;
+        <a href="/tag">
+                tag
+        </a>
+        &nbsp;
+        <a href="/word">
+                word
+        </a>
+        &nbsp;
+        <a href="/map">
+                map
+        </a>
+</div>
+<!-- 内容 -->
+<div id="content">
+        <!-- 侧边栏 -->
+        <div id="nav">
+		{% if page.categories[0] %}
+                <li>
+		分类:<br>
+		<a href="/category_sub/{{ page.categories[0] }}">
+			<b>{{ page.categories[0] }}</b>
+                </a>
+                </li>
+		{% endif %}
+		{% if page.tags[0] %}
+                <li>
+		标签:<br>
+		<a href="/tag_sub/{{ page.tags[0] }}">
+			<b>{{ page.tags[0] }}</b>
+                </a>
+                </li>
+		{% endif %}
+		{% capture currentyear %}{{ 'now' | date: '%Y' }}{% endcapture %}
+		{% capture posttime %}{{ page.date | date: '%Y' }}{% endcapture %}
+		{% if currentyear == posttime %}
+                <li>
+		日期:<br>
+		<a href="/archive_sub/currentyear">
+			<b>{{ page.date | date: '%Y-%m-%d'}}</b>
+                </a>
+                </li>
+		{% else %}
+                <li>
+		日期:<br>
+		<a href="/archive_sub/{{ page.date | date: '%Y' }}">
+			<b>{{ page.date | date: '%Y-%m-%d'}}</b>
+                </a>
+                </li>
+		{% endif %}
+        </div>
+        <!-- 主体 -->
+        <div id="main">
+		{{ content }}
+  	</div>
+</div>

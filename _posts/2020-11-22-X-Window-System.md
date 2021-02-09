@@ -3,7 +3,7 @@ layout: post
 title: X Window System
 date: 2020-11-22
 categories:
-- Linux
+- linux
 ---
 
 X Window System 又称 X 或者 X11<br>

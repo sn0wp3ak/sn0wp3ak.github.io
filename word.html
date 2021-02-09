@@ -44,7 +44,7 @@ title: word
 		</a>
 		</li>
 		{% for category in site.categories %}
-			{% if category[0] == "Word" %}
+			{% if category[0] == "word" %}
 				{% for post in category[1] %}
                 			<li>
 						<a href="{{post.url | prepend: site.baseurl | replace: '//', '/'}}">
@@ -59,14 +59,14 @@ title: word
         <div id="main">
 		word count:
 		{% for category in site.categories %}
-			{% if category[0] == "Word" %}
+			{% if category[0] == "word" %}
 				{{ category[1] | size }}
 			{% endif %}
 		{% endfor %}
 		<br>
 		<ul>
 		{% for category in site.categories %}
-			{% if category[0] == "Word" %}
+			{% if category[0] == "word" %}
 				{% for post in category[1] %}
                 			<li>
 						{{ post.title }}

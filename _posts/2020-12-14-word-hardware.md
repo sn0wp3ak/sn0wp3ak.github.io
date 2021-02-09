@@ -3,7 +3,7 @@ layout: word
 title: hardware 
 date: 2020-12-14
 categories:
-- Word
+- word
 ---
 ## 处理器
 * CPU

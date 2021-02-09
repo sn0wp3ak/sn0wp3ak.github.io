@@ -3,7 +3,7 @@ layout: word
 title: software
 date: 2020-12-14
 categories:
-- Word
+- word
 ---
 
 ## 自由软件

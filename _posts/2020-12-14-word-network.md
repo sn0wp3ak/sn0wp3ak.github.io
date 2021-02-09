@@ -3,7 +3,7 @@ layout: word
 title: network 
 date: 2020-12-14
 categories:
-- Word
+- word
 ---
 
 ## 网络设备

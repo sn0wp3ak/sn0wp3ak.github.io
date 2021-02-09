@@ -1,0 +1,62 @@
+<!-- 页头 -->
+<div id="header">
+        sn0wp3ak.github.io &nbsp; <span>{{ page.title }}</span>
+</div>
+<!-- 菜单 -->
+<div id="menu">
+        <a href="/index">
+                home
+        </a>
+        &nbsp;
+        <a href="/archive">
+                archive
+        </a>
+        &nbsp;
+        <a href="/category">
+		category
+        </a>
+        &nbsp;
+        <a href="/tag">
+		<b>tag</b>
+        </a>
+        &nbsp;
+        <a href="/word">
+                word
+        </a>
+        &nbsp;
+        <a href="/map">
+                map
+        </a>
+</div>
+<!-- 内容 -->
+<div id="content">
+        <!-- 侧边栏 -->
+        <div id="nav">
+                <li>
+                <a href="/tag">
+                        all
+                </a>
+                </li>
+		{% for tag in site.tags %}
+			{% if tag[0] == ta %}
+			<li>
+			<a href="/tag_sub/{{tag[0]}}">
+				<font color="#71b9f8">
+					<b>{{ tag[0] }}</b>
+				</font>
+			</a>
+			</li>
+			{% else %}
+			<li>
+			<a href="/tag_sub/{{tag[0]}}">
+				{{ tag[0] }}
+			</a>
+			</li>
+			{% endif %}
+		{% endfor %}
+        </div>
+        <!-- 主体 -->
+        <div id="main">
+		{% include tag_list.html param=ta %}
+  	</div>
+</div>

@@ -1,7 +1,14 @@
 ---
-layout: default
 title: word
 ---
+<!DOCTYPE html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>@word</title>
+  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}    ">
+</head>
+
 <!-- 页头 -->
 <div id="header">
         sn0wp3ak.github.io &nbsp; <span>word</span>
@@ -44,7 +51,7 @@ title: word
 		</a>
 		</li>
 		{% for category in site.categories %}
-			{% if category[0] == "Word" %}
+			{% if category[0] == "word" %}
 				{% for post in category[1] %}
 					{% if post.title == page.title %}
                 			<li>

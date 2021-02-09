@@ -3,9 +3,9 @@ layout: post
 title: MyISAM和InnoDB的区别
 date: 2019-12-14
 categories:
-- Database
+- database
 tags:
-- MySQL
+- mysql
 ---
 MyISAM: 基于ISAM;<br>
 ISAM--Indexed Sequential Access Method 有索引的顺序访问方法<br>

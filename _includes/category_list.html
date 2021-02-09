@@ -1,0 +1,16 @@
+{% for category in site.categories %}
+	{% if category[0] == include.param %}
+        <h2>{{ category[0] }}</h2>
+        <ul>
+                {% for post in category[1] %}
+                        <li>
+			{{post.date | date:"%Y %b %d"}}  -
+			<a href="{{post.url | prepend: site.baseurl | replace: '//', '/'}}">
+				{{post.title}}
+                        </a>
+                        </li>
+                {% endfor %}
+        </ul>
+	{% endif %}
+{% endfor %}
+

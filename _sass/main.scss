@@ -115,6 +115,7 @@ pre {
   border-bottom: 20px solid $prebg;
   font-size: 16px;
   padding: 10px;
+  overflow: auto;
 }
 
 blockquote {
@@ -134,21 +135,22 @@ code.highlighter-rouge {
   font-size: 1.3em;
 }
 
-#note table {
+#main table {
   width: 100%;
-  margin: 0 0 0 0;
+  margin: 1px 1px 1px 1px;
   background: $prebg;
+  color: #cccccc;
 }
 
-#note th {
+#main th {
   text-align: left;
-  border: 2px solid $prefg;
+  border: 2px solid #000;
   padding: 5px 10px;
 }
 
-#note td {
+#main td {
   padding: 5px 10px;
-  border: 2px solid $prefg;
+  border: 2px solid #000;
 }
 
 .highlight {
