@@ -6,4 +6,4 @@ categories:
 - map
 ---
 
-<img src="/assets/post_image/map-python3-syntax.png"><br>
+<img src="/assets/post_image/map-python3-syntax.png" height="120%" width="120%"><br>

@@ -1,0 +1,60 @@
+I"H<p><strong>远程管理类型</strong></p>
+
+<blockquote>
+  <ul>
+    <li>windows远程管理有2种类型:
+      <ul>
+        <li><strong>1.远程桌面(图形界面)</strong></li>
+        <li><strong>2.telnet(命令行)</strong></li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<p><strong>远程桌面</strong></p>
+
+<blockquote>
+  <ul>
+    <li>拓扑图:</li>
+  </ul>
+
+  <p>![image][base64str]</p>
+
+  <ul>
+    <li>远程桌面要求:
+      <ul>
+        <li>1.客户机和服务器在同一个网段,  能ping通</li>
+        <li>2.服务器开启允许远程桌面</li>
+        <li>3.客户机运行<code class="language-plaintext highlighter-rouge">mstsc</code> 远程桌面连接, 输入服务器的IP地址</li>
+        <li>4.登录用户需要在<strong>远程桌面操作组</strong>里(Remote Desktop Users)</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<p><strong>telnet(命令行)</strong></p>
+
+<blockquote>
+  <ul>
+    <li>服务器运行 <code class="language-plaintext highlighter-rouge">services.msc</code></li>
+    <li>找到<code class="language-plaintext highlighter-rouge">Telnet</code> 自动–&gt;应用–&gt;启动</li>
+    <li>客户机打开cmd, 输入<code class="language-plaintext highlighter-rouge">telnet 目标IP地址</code>回车</li>
+    <li>密码信息y/n都行, 一般选n</li>
+    <li><code class="language-plaintext highlighter-rouge">login:</code>用户名</li>
+    <li><code class="language-plaintext highlighter-rouge">password</code>: 密码</li>
+    <li>如果连不上, 则需要把该用户添加到<strong>Telnet组</strong>(TelnetClients)</li>
+  </ul>
+</blockquote>
+
+<p><strong>查看本机开放的所有端口</strong></p>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">netstat -an</code></p>
+
+  <ul>
+    <li>telnet: 23</li>
+    <li>远程桌面协议RDP: 3389</li>
+  </ul>
+</blockquote>
+
+:ET

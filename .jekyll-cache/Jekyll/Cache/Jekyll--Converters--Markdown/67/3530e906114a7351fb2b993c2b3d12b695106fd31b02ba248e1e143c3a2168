@@ -1,0 +1,105 @@
+I"<p><strong>IP数据包</strong></p>
+
+<p><img src="/assets/post_image/ippkg.jpg" /></p>
+
+<ul>
+  <li>
+    <p><strong>版本(Version):</strong> 4bit   IPv4 – 4 –&gt; 0100  /   IPv6 – 6 –&gt; 0110</p>
+  </li>
+  <li>
+    <p><strong>首部长度(header length):</strong> 4bit   用来表示IP头的长度(20字节~60字节)</p>
+
+    <ul>
+      <li>4bit   可表示10进制的 0~15</li>
+      <li>此处规定, 每一个位10进制位又能表示 4个字节(32bit)的长度大小</li>
+      <li>例:  首部长度为 5   也就是二进制的0101  那么表示IP头的长度为 5 * 4Bytes = 20 Bytes</li>
+      <li>例:  首部长度为 15 也就是二进制的1111  那么表示IP头的长度为15 * 4Bytes = 60 Bytes</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>优先级和服务类型(Differentiated Service Field):</strong> 8bit</p>
+
+    <ul>
+      <li>前3bit表示优先级(COS)  中间4bit表示服务类型(TOS)  最后1bit未使用补0占位</li>
+      <li>服务类型TOS的4个bit位分别表示: <code class="language-plaintext highlighter-rouge">最小时延</code>、<code class="language-plaintext highlighter-rouge">最大吞吐量</code>、<code class="language-plaintext highlighter-rouge">最高可靠性</code>和<code class="language-plaintext highlighter-rouge">最小费用</code></li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>总长度(Total Length):</strong> 16bit  表示整个IP包的总长度(IP包头+4层包头+5层应用数据)   单位: 字节</p>
+
+    <ul>
+      <li>16个bit位 最多表示十进制 2^16=65536 - 1 所以IP包的最大长度 65535个字节</li>
+      <li>已知帧的载荷MTU 最大1500字节</li>
+      <li>假设IP包头20字节TCP包头20字节  那么TCP包最大传输长度MSS = 1500 - 20 - 20 = 1460字节</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>标识(Identification):</strong> 16bit 唯一地标识主机发送的每一份数据报。</p>
+
+    <ul>
+      <li>由主机生成具有唯一性</li>
+      <li>通常每发送一份报文它的值就会加1</li>
+      <li>分片时，会复制到每一个片中。</li>
+      <li>重组分片包的时候会观察该值，把该值相同的分片收集到一起重组</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>标志(Flag):</strong> 3bit</p>
+
+    <ul>
+      <li>第一个bit位保留, 补0占位</li>
+      <li>第二个bit位(不分片位), 如果是0 表示分片了, 是1 则表示没有分片</li>
+      <li>第三个bit位(更多片位), 表示是否还有更多分片, 除了最后一个分片为0之外, 前面其余分片都是1</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>片偏移(Fragment Offset):</strong> 13bit 每一个分片的数据字段偏移原始数据报开始处的位置。</p>
+
+    <ul>
+      <li>1500 - 20 = 1480</li>
+      <li>以8个字节为偏移单位  1480 / 8 = 185</li>
+      <li>第一片的offset字段为0，第二片的offset字段就应该为1480, 后面的offset都是1480的倍数</li>
+      <li>传输层的首部只会出现在第一个分片中(1460 + 20 )</li>
+      <li>分片时，除最后一个分片外，其他每一片的数据部分必须是8字节的整数倍</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>生存时间(TTL-Time to Live):</strong> 8bit  单位<strong>不是</strong>秒   不是时间而是次数</p>
+
+    <ul>
+      <li>表示该IP数据包<strong>可以经过的路由器的最大数量</strong></li>
+      <li>每经过一台路由器该字段的值减1</li>
+      <li>如果该字段的值减到了0还没有送达目的地，那么该IP数据包将被丢弃</li>
+      <li>最初设计这个字段是为了防止IP报文在网络中循环无限传输，占用带宽等问题</li>
+      <li>TTL值小于100的一般是Linux系列的操作系统</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>协议号(Protocol):</strong> 8bit   识别上层(4层)协议</p>
+
+    <ul>
+      <li>8bit = 4bit * 2  =  2个16进制数</li>
+      <li>0x01表示ICMP协议     # 同层但视为上层</li>
+      <li>0x06表示TCP协议</li>
+      <li>0x11表示UDP协议</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>首部校验和(Header Checksum):</strong> 16bit   只对IP首部(包头)计算校验和</p>
+
+    <ul>
+      <li>计算方法：首先把首部中的该字段全部置0，然后对首部中的每个16bit进行反码求和，得到的值就是该字段的值，填入后。将该数据包发给接收端后，接收端将进行相同的操作，对每个16bit进行反码求和（此时首部校验和字段为非0字段），所以计算后的值若为全1表示正确，否则表示收到的数据包不正确，动作为丢弃。</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>可选项(Option):</strong></p>
+
+    <ul>
+      <li><strong>一般不使用</strong></li>
+      <li>长度0~40个字节</li>
+      <li>单位: 32bit(4字节),  不够时以0补充</li>
+    </ul>
+  </li>
+</ul>
+
+:ET

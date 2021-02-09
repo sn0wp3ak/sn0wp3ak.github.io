@@ -1,0 +1,172 @@
+I"�<p><strong>DNS</strong></p>
+
+<blockquote>
+  <p>Domain Name Service 域名服务</p>
+
+  <p>作用: 为客户机提供<strong>域名解析服务</strong></p>
+</blockquote>
+
+<p><strong>域名组成</strong></p>
+
+<blockquote>
+  <ul>
+    <li>
+      <p><strong>1.域名组成概述</strong></p>
+
+      <ul>
+        <li>形如”www.sina.com.cn”是一个域名, 从严格意义上说, “sina.com.cn”才能叫做域名(全球唯一), 而”www”是主机名</li>
+        <li>一般我们看到的”主机名.域名”称为<strong>完全限定域名(FQDN)</strong>, 一个域名之下可以有多个主机, 域名是全球唯一的, 所以”主机名.域名”肯定也是全球唯一的</li>
+        <li>一般情况下, 主机名会根据主机的功能而命名, 买下域名后, 前面的主机名就可以随意创建了</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>2.域名组成</strong></p>
+
+      <ul>
+        <li>树形结构</li>
+      </ul>
+
+      <p><img src="/assets/post_image/domain.png" /></p>
+
+      <ul>
+        <li>
+          <p>根域  <code class="language-plaintext highlighter-rouge">.</code></p>
+        </li>
+        <li>
+          <p>顶级域</p>
+
+          <ul>
+            <li>国家地区顶级域 <code class="language-plaintext highlighter-rouge">cn jp uk hk</code></li>
+            <li>商业顶级域
+              <ul>
+                <li><code class="language-plaintext highlighter-rouge">com</code> 商业机构</li>
+                <li><code class="language-plaintext highlighter-rouge">gov</code> 政府机构</li>
+                <li><code class="language-plaintext highlighter-rouge">mil</code> 军事机构</li>
+                <li><code class="language-plaintext highlighter-rouge">edu</code> 教育机构</li>
+                <li><code class="language-plaintext highlighter-rouge">org</code> 民间组织架构</li>
+                <li><code class="language-plaintext highlighter-rouge">net</code> 互联网</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<p><strong>监听端口</strong></p>
+
+<blockquote>
+  <ul>
+    <li>TCP/UDP 53</li>
+  </ul>
+</blockquote>
+
+<p><strong>DNS解析种类</strong></p>
+
+<blockquote>
+  <ul>
+    <li>
+      <p><strong>按照查询方式分类</strong></p>
+
+      <ul>
+        <li>1.递归查询: 客户机与本地DNS服务器之间</li>
+        <li>2.迭代查询: 本地DNS服务器与根或其他DNS服务器的解析过程</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>DNS解析过程</strong></p>
+
+      <p><img src="/assets/post_image/dns.png" /></p>
+    </li>
+    <li>
+      <p><strong>按照查询内容分类</strong></p>
+
+      <ul>
+        <li>1.正向解析: 已知域名, 解析IP地址( 域名–&gt;IP )</li>
+        <li>2.反向解析: 已知IP地址, 解析域名( IP–&gt;域名 )</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<p><strong>DNS服务器搭建过程</strong></p>
+
+<blockquote>
+  <ol>
+    <li>要求网卡IP是<strong>静态IP地址</strong></li>
+    <li>安装DNS服务器插件(就是安装并开启TCP及UDP协议的53端口)</li>
+    <li>创建区域文件(负责一个域名后缀的解析, 比如: baidu.com为域名后缀, 一台DNS服务器内可以存放多个区域文件)</li>
+    <li>新建A记录</li>
+  </ol>
+</blockquote>
+
+<p><strong>DNS客户机如何解析</strong></p>
+
+<blockquote>
+  <ol>
+    <li>指向DNS自动解析</li>
+    <li>手工解析域名 <code class="language-plaintext highlighter-rouge">nslookup 域名</code></li>
+  </ol>
+</blockquote>
+
+<p><strong>清除DNS缓存</strong></p>
+
+<blockquote>
+  <ul>
+    <li>客户机:
+      <ul>
+        <li>查看本地DNS缓存 <code class="language-plaintext highlighter-rouge">ipconfig /displaydns</code></li>
+        <li>清除本地DNS缓存  <code class="language-plaintext highlighter-rouge">ipconfig /flushdns</code></li>
+      </ul>
+    </li>
+    <li>服务器: <code class="language-plaintext highlighter-rouge">DNS管理工具--&gt;查看--&gt;高级, 右键清理缓存 </code></li>
+  </ul>
+</blockquote>
+
+<p><strong>DNS请求顺序</strong></p>
+
+<blockquote>
+  <ul>
+    <li>客户机处理DNS请求顺序: <code class="language-plaintext highlighter-rouge">DNS缓存--&gt;本地hosts文件--&gt;本地DNS服务器</code></li>
+    <li>服务器处理DNS请求顺序: <code class="language-plaintext highlighter-rouge">DNS高速缓存--&gt;本地区域解析文件--&gt;DNS转发器--&gt;根</code></li>
+  </ul>
+</blockquote>
+
+<p><strong>DNS服务器分类</strong></p>
+
+<blockquote>
+  <ul>
+    <li>主要域名服务器</li>
+    <li>辅助域名服务器</li>
+    <li>根域名服务器</li>
+    <li>高速缓存服务器</li>
+  </ul>
+</blockquote>
+
+<p><strong>域名解析记录类型</strong></p>
+
+<blockquote>
+  <p>A记录 <code class="language-plaintext highlighter-rouge">主机(A)</code> : 正向解析记录</p>
+
+  <p>PTR记录：反向解析记录</p>
+
+  <p>CNAME记录: 给已存在的主机A记录起别名</p>
+
+  <p>MX: 邮件交换记录</p>
+
+  <p>SOA: 起始权威服务器</p>
+
+  <p>NS: 名称服务器</p>
+
+</blockquote>
+
+<p><strong>反向DNS</strong></p>
+
+<blockquote>
+  <p>根据IP找NAME</p>
+
+  <p>nslookup手工解析时, 会根据反向解析记录, 进行反向解析显示DNS服务器的名称(需要正向记录建立指针, 再设置反向记录)</p>
+</blockquote>
+
+:ET
