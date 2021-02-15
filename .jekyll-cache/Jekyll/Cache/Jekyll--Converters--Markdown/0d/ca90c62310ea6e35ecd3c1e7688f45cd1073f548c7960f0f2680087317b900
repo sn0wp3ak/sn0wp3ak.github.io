@@ -1,0 +1,18 @@
+I"�<p>KVM</p>
+<ul>
+  <li>Kernel-based Virtual Machine</li>
+  <li>已归入RedHat旗下</li>
+</ul>
+
+<p>Xen</p>
+<ul>
+  <li>已归入Citrix(思杰)旗下</li>
+</ul>
+
+<p>QEMU</p>
+<ul>
+  <li>Quick EMUlator</li>
+  <li>和KVM等一起使用</li>
+</ul>
+
+:ET

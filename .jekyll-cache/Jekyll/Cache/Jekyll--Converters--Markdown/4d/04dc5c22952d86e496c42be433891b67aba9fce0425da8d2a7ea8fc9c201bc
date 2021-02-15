@@ -1,0 +1,31 @@
+I"�<p>BIOS</p>
+<ul>
+  <li>Basic Input Output System</li>
+  <li>基本输入输出系统</li>
+</ul>
+
+<p>MBR</p>
+<ul>
+  <li>Master Boot Record</li>
+  <li>主引导记录</li>
+</ul>
+
+<p>UEFI</p>
+<ul>
+  <li>Unified Extensible Firmware Interface</li>
+  <li>统一可扩展固件接口</li>
+  <li>替代了传统的BIOS</li>
+</ul>
+
+<p>GPT</p>
+<ul>
+  <li>GUID Partition Table</li>
+  <li>GUID分区表
+    <ul>
+      <li>GUID: globally unique identifier</li>
+    </ul>
+  </li>
+  <li>UEFI的一部分</li>
+</ul>
+
+:ET

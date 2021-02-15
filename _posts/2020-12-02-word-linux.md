@@ -37,14 +37,6 @@ categories:
 	* Access Control List
 	* 访问控制列表
 
-## 操作系统
-* MBR
-	* Master Boot Record
-	* 主引导记录
-* BIOS
-	* Basic Input Output System
-	* 基本输入输出系统
-
 ## 网络与安全
 * SELinux
 	* Security Enhanced Linux

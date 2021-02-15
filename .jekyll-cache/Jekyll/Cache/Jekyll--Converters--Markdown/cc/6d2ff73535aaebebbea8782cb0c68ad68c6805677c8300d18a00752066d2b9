@@ -1,0 +1,93 @@
+I"<p>DM&gt;</p>
+<ul>
+  <li>lightdm</li>
+</ul>
+
+<p>WM</p>
+<ul>
+  <li>OpenBox</li>
+  <li>dwm</li>
+</ul>
+
+<p>Term</p>
+<ul>
+  <li>xterm</li>
+  <li>gnome-terminal</li>
+  <li>ST</li>
+</ul>
+
+<p>MusicPlayer</p>
+<ul>
+  <li>NetEase Cloud Music</li>
+  <li>Cmus – use in terminal</li>
+</ul>
+
+<p>MindMap</p>
+<ul>
+  <li>VYM</li>
+</ul>
+
+<p>Editor</p>
+<ul>
+  <li>Vim</li>
+  <li>NeoVim</li>
+  <li>Emacs</li>
+  <li>Nano</li>
+</ul>
+
+<p>Graphic</p>
+<ul>
+  <li>GIMP</li>
+  <li>Pinta</li>
+  <li>Inkscape</li>
+  <li>Gpick</li>
+  <li>nomacs</li>
+</ul>
+
+<p>Read</p>
+<ul>
+  <li>Calibre</li>
+  <li>Okular</li>
+</ul>
+
+<p>Sound</p>
+<ul>
+  <li>Alsamixer</li>
+</ul>
+
+<p>Office</p>
+<ul>
+  <li>LibreOffice</li>
+  <li>WPSOffice</li>
+</ul>
+
+<p>Video</p>
+<ul>
+  <li>VLC</li>
+</ul>
+
+<p>FileManager</p>
+<ul>
+  <li>PCManfm</li>
+</ul>
+
+<p>Browser</p>
+<ul>
+  <li>FireFox</li>
+  <li>Google-Chrome</li>
+  <li>Chromium</li>
+  <li>w3m(term)</li>
+</ul>
+
+<p>Input</p>
+<ul>
+  <li>fcitx</li>
+</ul>
+
+<p>Calendar</p>
+<ul>
+  <li>cal – command</li>
+  <li>calcurse</li>
+</ul>
+
+:ET
