@@ -1,0 +1,55 @@
+I"T<p>赋值运算符: =<br />
+算数运算符: + - * / // % ** ()<br />
+复合赋值运算符: += -= *= /= //= **= %=<br />
+比较运算符: == != &gt; &lt; &gt;= &lt;=<br />
+逻辑运算符: and or not<br /></p>
+
+<p>注: <code class="language-plaintext highlighter-rouge">** 指数运算 // 整除 % 取模</code><br /></p>
+
+<ul>
+  <li>算数运算符的运算优先级: () 高于 ** 高于 * / // % 高于 + -</li>
+  <li>默认情况下, <code class="language-plaintext highlighter-rouge">/除法</code>的结果都是浮点型, 想要整型结果注意使用<code class="language-plaintext highlighter-rouge">//整除</code></li>
+  <li>所有运算符合的优先级: <code class="language-plaintext highlighter-rouge">算数 &gt; 比较 &gt; 逻辑 &gt; 赋值</code></li>
+  <li>多个变量赋多个值: var1, var2, var3 = 1, 2, 3</li>
+  <li>多个变量赋一个值: var1 = var2 = var3 = 0</li>
+  <li>复合赋值运算符的运算顺序: <code class="language-plaintext highlighter-rouge">先算符合运算符右边的表达式</code>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">a</span> <span class="o">+=</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span>
+<span class="c1"># 先算 3 + 4 == 7
+# 再算 a += 7 
+</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">7</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">17</span>
+</code></pre></div>    </div>
+  </li>
+  <li>逻辑表达式两边加上()可以避免歧义, 增强代码可读性</li>
+  <li>数字之间的逻辑运算
+    <ul>
+      <li>and “且” : 只要一个为0(假) 则结果为 0(假), 否则为<code class="language-plaintext highlighter-rouge">最后一个</code>非0数字
+        <ul>
+          <li>1假则假
+            <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span> <span class="mi">0</span> <span class="ow">and</span> <span class="mi">1</span> <span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">0</span>
+<span class="k">print</span><span class="p">(</span> <span class="mi">2</span> <span class="ow">and</span> <span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">3</span>
+</code></pre></div>            </div>
+          </li>
+        </ul>
+      </li>
+      <li>or “或” : 只有所有数字全都是0, 结果才是0, 否则为<code class="language-plaintext highlighter-rouge">第一个</code>非0数字
+        <ul>
+          <li>1真则真
+            <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span> <span class="mi">0</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">0</span>
+<span class="k">print</span><span class="p">(</span> <span class="mi">0</span> <span class="ow">or</span> <span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span>
+<span class="k">print</span><span class="p">(</span> <span class="mi">2</span> <span class="ow">or</span> <span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">2</span>
+</code></pre></div>            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+:ET

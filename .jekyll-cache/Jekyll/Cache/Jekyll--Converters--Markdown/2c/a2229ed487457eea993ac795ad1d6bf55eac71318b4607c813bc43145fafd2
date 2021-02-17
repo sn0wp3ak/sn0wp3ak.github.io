@@ -1,0 +1,15 @@
+I"{<h3 id="注释">注释</h3>
+<p>单行</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># comment
+</span></code></pre></div></div>
+<p>多行</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'''
+comment1
+'''
+
+"""
+comment2
+"""
+</code></pre></div></div>
+
+:ET

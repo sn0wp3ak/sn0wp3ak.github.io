@@ -1,0 +1,45 @@
+I"�<h3 id="注释">注释</h3>
+<p>单行</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># comment
+</span></code></pre></div></div>
+<p>多行</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'''
+comment1
+'''
+
+"""
+comment2
+"""
+</code></pre></div></div>
+<p>多行注释中最常使用双引号多行注释<br /></p>
+
+<h3 id="变量命名">变量命名</h3>
+
+<p>大驼峰 <code class="language-plaintext highlighter-rouge">VarName</code><br />
+小驼峰 <code class="language-plaintext highlighter-rouge">varName</code><br />
+下划线 <code class="language-plaintext highlighter-rouge">var_name</code><br /></p>
+
+<h3 id="数据类型">数据类型</h3>
+<ul>
+  <li>数值型 number
+    <ul>
+      <li>整型 int</li>
+      <li>浮点型 float</li>
+    </ul>
+  </li>
+  <li>布尔型 boolean
+    <ul>
+      <li>真 True</li>
+      <li>假 False</li>
+    </ul>
+  </li>
+  <li>字符串 str</li>
+  <li>列表 list</li>
+  <li>元组 tuple</li>
+  <li>集合 set</li>
+  <li>字典 dict</li>
+</ul>
+
+<p>检查数据类型的函数: type()<br /></p>
+
+:ET

@@ -1,0 +1,14 @@
+I"~<p>赋值运算符: =<br />
+算数运算符: + - * / // % ** ()<br />
+复合赋值运算符: += -= *= /= //= **= %=<br />
+比较运算符: == != &gt; &lt; &gt;= &lt;=<br />
+逻辑运算符: and or not<br /></p>
+
+<p>注: <code class="language-plaintext highlighter-rouge">** 指数运算 // 整除 % 取模</code><br /></p>
+
+<ul>
+  <li>算数运算符的运算优先级: () 高于 ** 高于 * / // % 高于 + -</li>
+  <li>默认情况下, <code class="language-plaintext highlighter-rouge">/除法</code>的结果都是浮点型, 想要整型结果注意使用<code class="language-plaintext highlighter-rouge">//整除</code></li>
+</ul>
+
+:ET

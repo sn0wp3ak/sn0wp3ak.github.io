@@ -1,0 +1,102 @@
+I".<p>判断: if语句<br />
+循环: while语句/for语句<br /></p>
+
+<p>else语句分为:<br /></p>
+<ul>
+  <li>if判断中的else</li>
+  <li>while/for循环中的else</li>
+</ul>
+
+<p>Tip: <code class="language-plaintext highlighter-rouge">循环中的else语句是在循环没有被break关键词终止的情况下自然跳出循环时才会被执行</code></p>
+
+<hr />
+
+<h3 id="if语法">if语法</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">条件1</span><span class="p">:</span>
+	<span class="n">条件1成立时执行的语句</span><span class="p">...</span>
+<span class="k">elif</span> <span class="n">条件2</span><span class="p">:</span>
+	<span class="n">条件2成立时执行的语句</span><span class="p">...</span>
+<span class="k">else</span><span class="p">:</span>
+	<span class="n">所有条件都不成立时执行的语句</span><span class="p">...</span>
+</code></pre></div></div>
+<p>注意:</p>
+<ul>
+  <li>如果条件1已经成立, 则永远不会再去判断条件2是否成立</li>
+  <li>也就是说如果存在平行的多个条件判断, 需要注意先后顺序</li>
+  <li>python是严格区分缩进的编程语言, if语句和任何其他语法一样需要注意缩进</li>
+</ul>
+
+<p><strong>if 条件语句的简写</strong><br /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">18</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">65</span> <span class="p">)</span>
+<span class="c1"># 简写
+</span><span class="mi">18</span> <span class="o">&lt;</span> <span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">65</span>
+</code></pre></div></div>
+<p>至于是否影响代码的可读性就不一定了, 自行判断是否需要简写<br /></p>
+
+<p><strong>三目运算符</strong><br />
+也称作<code class="language-plaintext highlighter-rouge">三元运算符/三元表达式</code><br /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 三元运算表达式
+</span><span class="n">num</span> <span class="o">=</span> <span class="n">a</span> <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">b</span>
+<span class="c1"># 换成if语句
+</span><span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+	<span class="n">num</span> <span class="o">=</span> <span class="n">a</span>
+<span class="k">else</span><span class="p">:</span>
+	<span class="n">num</span> <span class="o">=</span> <span class="n">b</span>
+</code></pre></div></div>
+<p>三目运算符的本质还是一种简写语法, 要不要用还是要看情况<br /></p>
+
+<hr />
+
+<h3 id="while语法">while语法</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span> <span class="n">条件</span><span class="p">:</span>
+	<span class="n">条件成立时</span><span class="p">,</span> <span class="n">循环执行的语句</span><span class="p">...</span>
+<span class="k">else</span><span class="p">:</span>
+	<span class="n">条件不成立后</span><span class="p">,</span> <span class="n">正常跳出循环时执行的语句</span><span class="p">...</span>
+</code></pre></div></div>
+
+<p><strong><code class="language-plaintext highlighter-rouge">while True</code></strong><br />
+一种构造死循环的方法<br />
+死循环一般用在并不明确知道循环次数的场景<br />
+使用 while 循环, 但是不加入<code class="language-plaintext highlighter-rouge">步长/计数器</code>的情况下, 也会构造出死循环<br /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"死循环"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">死循环</span>
+<span class="n">死循环</span>
+<span class="n">死循环</span>
+<span class="p">...</span>
+
+<span class="c1"># 正常有限次循环
+</span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+	<span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">0</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+
+<span class="c1"># 不加步长导致的死循环
+</span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">0</span>
+<span class="mi">0</span>
+<span class="mi">0</span>
+<span class="mi">0</span>
+<span class="p">...</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="for语法">for语法</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+
+<hr />
+<h3 id="终止循环">终止循环</h3>
+<p>终止循环的2个关键词: break/continue<br /></p>
+<ul>
+  <li>break: 当代码执行到break就立即跳出当前循环</li>
+  <li>continue: 当代码执行到continue, 跳过本次的循环, 继续下一次的循环</li>
+</ul>
+
+<p>注意: continue是根据某个条件过滤掉某一次的循环结果, 而break则是根据某个条件来停止整体循环</p>
+:ET

@@ -1,0 +1,39 @@
+I"�
+<p>判断: if语句<br />
+循环: while语句/for语句<br /></p>
+
+<h3 id="if语法">if语法</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">条件1</span><span class="p">:</span>
+	<span class="n">条件1成立时执行的语句</span><span class="p">...</span>
+<span class="k">elif</span> <span class="n">条件2</span><span class="p">:</span>
+	<span class="n">条件2成立时执行的语句</span><span class="p">...</span>
+<span class="k">else</span><span class="p">:</span>
+	<span class="n">所有条件都不成立时执行的语句</span><span class="p">...</span>
+</code></pre></div></div>
+<p>注意:</p>
+<ul>
+  <li>如果条件1已经成立, 则永远不会再去判断条件2是否成立</li>
+  <li>也就是说如果存在平行的多个条件判断, 需要注意先后顺序</li>
+  <li>python是严格区分缩进的编程语言, if语句和任何其他语法一样需要注意缩进</li>
+</ul>
+
+<p><strong>if 条件语句的简写</strong><br /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">18</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">65</span> <span class="p">)</span>
+<span class="c1"># 简写
+</span><span class="mi">18</span> <span class="o">&lt;</span> <span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">65</span>
+</code></pre></div></div>
+<p>至于是否影响代码的可读性就不一定了, 自行判断是否需要简写<br /></p>
+
+<p><strong>三目运算符</strong><br />
+也称作<code class="language-plaintext highlighter-rouge">三元运算符/三元表达式</code><br /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 三元运算表达式
+</span><span class="n">num</span> <span class="o">=</span> <span class="n">a</span> <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">b</span>
+<span class="c1"># 换成if语句
+</span><span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+	<span class="n">num</span> <span class="o">=</span> <span class="n">a</span>
+<span class="k">else</span><span class="p">:</span>
+	<span class="n">num</span> <span class="o">=</span> <span class="n">b</span>
+</code></pre></div></div>
+<p>三目运算符的本质还是一种简写语法, 要不要用还是要看情况<br /></p>
+
+:ET
