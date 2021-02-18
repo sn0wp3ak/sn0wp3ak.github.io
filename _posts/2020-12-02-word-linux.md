@@ -36,6 +36,10 @@ categories:
 * ACL
 	* Access Control List
 	* 访问控制列表
+* ARL
+	* Access Rights List
+	* 访问权限列表
+
 
 ## 网络与安全
 * SELinux

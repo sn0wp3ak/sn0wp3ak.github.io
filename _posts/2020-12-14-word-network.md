@@ -106,3 +106,12 @@ categories:
 * IMAP4
 	* Internet Message Access Protocol 4
 	* 网络消息访问协议版本4
+
+## 组织机构
+* IDC
+	* Internet Data Center
+	* 网络数据中心
+* CDN
+	* Content Delivery Network
+	* 内容分发网络
+

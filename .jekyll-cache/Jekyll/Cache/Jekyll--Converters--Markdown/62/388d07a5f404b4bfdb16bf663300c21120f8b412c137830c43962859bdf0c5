@@ -1,0 +1,44 @@
+I"�<h2 id="自由软件">自由软件</h2>
+<ul>
+  <li>GNU
+    <ul>
+      <li>GNU is Not Unix</li>
+    </ul>
+  </li>
+  <li>FSF
+    <ul>
+      <li>Free Software Foundation</li>
+      <li>自由软件基金会</li>
+    </ul>
+  </li>
+  <li>GPL
+    <ul>
+      <li>GNU General Public License</li>
+      <li>GNU通用公共证书</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="资源">资源</h2>
+<ul>
+  <li>URI
+    <ul>
+      <li>Uniform Resource Indentifier</li>
+      <li>统一资源标识符</li>
+    </ul>
+  </li>
+  <li>URL
+    <ul>
+      <li>Uniform Resource Locator</li>
+      <li>统一资源定位符</li>
+    </ul>
+  </li>
+  <li>URN
+    <ul>
+      <li>Uniform Resource Name</li>
+      <li>统一资源名称</li>
+    </ul>
+  </li>
+</ul>
+
+:ET
