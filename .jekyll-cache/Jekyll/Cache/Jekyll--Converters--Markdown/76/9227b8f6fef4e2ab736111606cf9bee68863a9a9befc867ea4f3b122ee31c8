@@ -1,0 +1,13 @@
+I"c<p>SSH是一种以安全方式提供远程登录的协议, 目前远程管理Linux的首选方式<br />
+在ssh之前, 常用ftp和telnet来进行远程管理;<br />
+但是它们都是以明文传输敏感信息, 因此基于安全性考虑, 使用ssh更佳<br /></p>
+
+<p>sshd是基于SSH协议开发的一款远程管理<code class="language-plaintext highlighter-rouge">服务</code>程序<br />
+一般用SSH协议远程管理Linux, 都需要部署sshd服务<br /></p>
+
+<p>sshd服务的2种安全验证方式:<br /></p>
+<ul>
+  <li>口令: 用户名+密码</li>
+  <li>密钥: 公私钥(参考github)</li>
+</ul>
+:ET

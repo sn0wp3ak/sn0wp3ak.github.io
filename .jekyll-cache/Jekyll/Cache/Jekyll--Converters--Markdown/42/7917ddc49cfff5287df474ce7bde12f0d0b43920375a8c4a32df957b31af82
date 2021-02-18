@@ -1,0 +1,187 @@
+I"�<p>SSH是一种以安全方式提供远程登录的协议, 目前远程管理Linux的首选方式<br />
+在ssh之前, 常用ftp和telnet来进行远程管理;<br />
+但是它们都是以明文传输敏感信息, 因此基于安全性考虑, 使用ssh更佳<br /></p>
+
+<p>sshd是基于SSH协议开发的一款远程管理<code class="language-plaintext highlighter-rouge">服务</code>程序<br />
+一般用SSH协议远程管理Linux, 都需要部署sshd服务<br /></p>
+
+<p>sshd服务的2种安全验证方式:<br /></p>
+<ul>
+  <li>口令: 用户名+密码</li>
+  <li>密钥: 公私钥(参考github)</li>
+</ul>
+
+<p>使用<code class="language-plaintext highlighter-rouge">密钥+口令</code>的验证方式则最为安全<br /></p>
+
+<p>sshd服务的配置信息文件: <code class="language-plaintext highlighter-rouge">/etc/ssh/sshd_config</code><br /></p>
+
+<p>配置文件中的参数和作用:<br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">参数</th>
+      <th style="text-align: left">作用</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Port 22</td>
+      <td style="text-align: left">默认服务端口</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ListenAddress 0.0.0.0</td>
+      <td style="text-align: left">监听的IP地址</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Protocol 2</td>
+      <td style="text-align: left">ssh协议版本号</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PermitRootLogin yes</td>
+      <td style="text-align: left">是否允许以root管理员身份登录</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">StrictModes yes</td>
+      <td style="text-align: left">私钥改变时直接拒绝</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MaxAuthTries 6</td>
+      <td style="text-align: left">最大密码尝试次数</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MaxSession 10</td>
+      <td style="text-align: left">最大终端数</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PasswordAuthentication yes</td>
+      <td style="text-align: left">是否允许密码验证</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PermitEmptyPasswords no</td>
+      <td style="text-align: left">是否允许空密码登录</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HostKey /etc/ssh/ssh_host_key</td>
+      <td style="text-align: left">ssh v1 DES私钥存放位置</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HostKey /etc/ssh/ssh_host_rsa_key</td>
+      <td style="text-align: left">ssh v2 RSA私钥存放位置</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HostKey /etc/ssh/ssh_host_dsa_key</td>
+      <td style="text-align: left">ssh v2 DSA私钥存放位置</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>禁止以管理员身份远程登录可以大大降低服务器风险: <code class="language-plaintext highlighter-rouge">PermitRootLogin no</code><br /></p>
+
+<p>ssh远程链接的格式: <code class="language-plaintext highlighter-rouge">ssh [参数] 用户@主机IP地址</code><br /></p>
+
+<p>修改配置文件后重新加载sshd服务: <code class="language-plaintext highlighter-rouge">systemctl restart sshd</code><br />
+设置开机自启动sshd服务: <code class="language-plaintext highlighter-rouge">systemctl enable sshd</code><br /></p>
+
+<p><strong>ssh密钥对的生成方式:</strong><br /></p>
+<ul>
+  <li>ssh-keygen
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa): 指定存储路径
+Created directory '/root/.ssh'.
+Enter passphrase (empty for no passphrase): 设置密钥的密码
+Enter same passphrase again: 再次确认密码 
+Your identification has been saved in /root/.ssh/id_rsa
+Your public key has been saved in /root/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:iJehuEsfocBgE5r/YBq+6QI1fihMR3VO+RkF9Mz0k6Q root@ArchLinux
+The key's randomart image is:
++---[RSA 3072]----+
+| .  .. ooooo .   |
+|....  +. .= + .  |
+|+o.   ... oE +   |
+|+o+o o + o    .  |
+|=+*o+ + S        |
+|+*o=.o           |
+|oo+.o            |
+|..oo .           |
+|o+. .            |
++----[SHA256]-----+
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><strong>把公钥上传到目标主机:</strong><br />
+<code class="language-plaintext highlighter-rouge">ssh-copy-id 目标IP地址</code><br /></p>
+
+<p>设置sshd验证方式仅为密钥, 拒绝传统口令登录:<br /></p>
+<ul>
+  <li>修改配置文件参数: <code class="language-plaintext highlighter-rouge">PasswordAuthentication no</code></li>
+</ul>
+
+<h3 id="远程传输命令scp">远程传输命令scp</h3>
+
+<p>scp是基于SSH协议在网络中进行安全传输的命令<br />
+上传格式为: <code class="language-plaintext highlighter-rouge">scp [参数] 本地文件路径 远程用户@远程IP地址:远程主机存放路径</code><br /></p>
+
+<p>scp常用参数:<br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">参数</th>
+      <th style="text-align: left">作用</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">-v</td>
+      <td style="text-align: left">显示详细的连接进度</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-P</td>
+      <td style="text-align: left">指定远程主机ssh服务的端口号</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-r</td>
+      <td style="text-align: left">传输目录文件</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-6</td>
+      <td style="text-align: left">使用IPv6协议</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>注意:<br /></p>
+<ul>
+  <li>本地文件位置要用绝对路径</li>
+  <li>传输目录中的所有文件用-r递归操作</li>
+  <li>目标地址也建议使用绝对路径</li>
+</ul>
+
+<p>下载格式为: <code class="language-plaintext highlighter-rouge">scp [参数] 远程用户@远程IP地址:远程文件地址 本地目录</code><br /></p>
+
+<h3 id="不间断会话服务screen">不间断会话服务screen</h3>
+<p>使用sshd服务时, 会话有中断风险, 导致重复做功<br />
+screen是一个多窗口远程控制的服务, 解决网络异常中断并同时控制多个远程窗口<br />
+screen可以在多个远程窗口中自由地切换, 可实现功能:<br /></p>
+<ul>
+  <li>会话恢复</li>
+  <li>多窗口</li>
+  <li>会话共享</li>
+</ul>
+
+<p>创建一个会话窗口: <code class="language-plaintext highlighter-rouge">screen -S 会话名称</code><br />
+让某个窗口离线: <code class="language-plaintext highlighter-rouge">screen -d 会话名称</code><br />
+恢复指定会话窗口: <code class="language-plaintext highlighter-rouge">screen -r 会话名称</code><br />
+恢复所有会话窗口: <code class="language-plaintext highlighter-rouge">screen -x</code><br />
+显示当前已存在的所有会话: <code class="language-plaintext highlighter-rouge">screen -ls</code><br />
+删除目前无法使用的会话窗口: <code class="language-plaintext highlighter-rouge">screen -wipe</code><br /></p>
+
+<p>工作中的会话状态: Attached<br />
+离线的会话状态: Detached<br /></p>
+
+<p>退出会话: <code class="language-plaintext highlighter-rouge">exit</code><br /></p>
+
+:ET

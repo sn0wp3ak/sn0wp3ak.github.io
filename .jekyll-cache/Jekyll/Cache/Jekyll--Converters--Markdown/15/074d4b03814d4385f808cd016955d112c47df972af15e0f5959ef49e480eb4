@@ -1,0 +1,20 @@
+I"�<p>在Linux操作系统中配置网络的方法有很多种<br /></p>
+
+<h3 id="使用nmtui命令配置网络">使用nmtui命令配置网络</h3>
+<p>nmtui - Text User Interface for controlling NetworkManager<br />
+nmtui是一个TUI工具, 也就是文本用户界面, 通过固定格式的文本来交互式的实现相关配置<br /></p>
+<ol>
+  <li>选择 Edit a connection</li>
+  <li>找到网卡 选择 Edit</li>
+  <li>把IPv4的配置方式换成Manual(手动)</li>
+  <li>选择Show 显示配置框</li>
+  <li>输入静态IP地址和mask 网关地址 DNS等等</li>
+  <li>选择OK保存配置</li>
+  <li>Quit退出</li>
+</ol>
+
+<p>确保网卡为激活状态: <code class="language-plaintext highlighter-rouge">vim /etc/sysconfig/network-scripts/ifcfg-网卡设备名</code><br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+:ET
