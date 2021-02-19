@@ -1,0 +1,28 @@
+I"�<p>SMB</p>
+<ul>
+  <li>Server Messages Block</li>
+  <li>服务器消息块</li>
+</ul>
+
+<p>基于SMB协议开发了SMBServer后更名为Samba<br /></p>
+<blockquote>
+  <p>yum install samba<br /></p>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">Samba服务的目的主要是解决Linux和Windows之间的文件共享问题</code>, 当然在Linux和Linux之间也可以使用<br /></p>
+
+<p>Samba服务的主配置文件: <code class="language-plaintext highlighter-rouge">/etc/samba/smb.conf</code><br />
+同样的如果我们需要一个比较清爽的配置文件, 可以备份以后重写原来的配置文件<br />
+反选过滤掉以”#”和”;”开头的注释行内容, 以及用”^$”反选过滤掉空白行<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mv /etc/samba/smb.conf /etc/samba/smb.conf.bak
+cat /etc/samba/smb.conf.bak | grep -v "#" | grep -v ";" | grep 
+-v "^$" &gt; /etc/samba/smb.conf
+</code></pre></div></div>
+
+<h3 id="linux与linux之间通过samba服务实现文件共享">Linux与Linux之间通过Samba服务实现文件共享</h3>
+<p>需要在客户端安装支持共享服务的软件包<br /></p>
+<blockquote>
+  <p>yum install cifs-utils</p>
+</blockquote>
+
+:ET

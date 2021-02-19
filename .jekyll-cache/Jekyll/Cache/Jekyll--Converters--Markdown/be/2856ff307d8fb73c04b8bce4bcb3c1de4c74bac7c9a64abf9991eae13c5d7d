@@ -1,0 +1,19 @@
+I"<<p>SMB</p>
+<ul>
+  <li>Server Messages Block</li>
+  <li>服务器消息块</li>
+</ul>
+
+<p>基于SMB协议开发了SMBServer后更名为Samba<br /></p>
+<blockquote>
+  <p>yum install samba<br /></p>
+</blockquote>
+
+<p>Samba服务的主配置文件: <code class="language-plaintext highlighter-rouge">/etc/samba/smb.conf</code><br />
+同样的如果我们需要一个比较清爽的配置文件, 可以备份以后重写原来的配置文件<br />
+反选过滤掉以”#”和”;”开头的注释行内容, 以及用”^$”反选过滤掉空白行<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mv /etc/samba/smb.conf /etc/samba/smb.conf.bak
+cat /etc/samba/smb.conf.bak | grep -v "#" | grep -v ";" | grep -v "^$" &gt; /etc/samba/smb.conf
+</code></pre></div></div>
+
+:ET

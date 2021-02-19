@@ -1,0 +1,88 @@
+I"�<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">参数</th>
+      <th style="text-align: left">作用</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">listen=[YES/NO]</td>
+      <td style="text-align: left">是否以独立运行的方式监听服务</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listen_address=IP地址</td>
+      <td style="text-align: left">设置要监听的IP地址</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listen_port=21</td>
+      <td style="text-align: left">设置FTP服务的监听端口</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">download_enable=[YES/NO]</td>
+      <td style="text-align: left">是否允许下载文件</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">userlist_enable=[YES/NO] <br /> userlist_deny=[YES/NO]</td>
+      <td style="text-align: left">设置用户列表为允许还是禁止操作</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">max_clients=0</td>
+      <td style="text-align: left">最大客户连接数, 0为不做限制</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">max_per_ip=0</td>
+      <td style="text-align: left">同一个IP地址的最大连接数, 0为不做限制</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">anonymous_enable=[YES/NO]</td>
+      <td style="text-align: left">是否允许匿名用户登录</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">anon_upload_enable=[YES/NO]</td>
+      <td style="text-align: left">是否允许匿名用户上传文件</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">anon_umask=022</td>
+      <td style="text-align: left">匿名用户上传文件的umask值</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">anon_root=/var/ftp</td>
+      <td style="text-align: left">匿名用户的FTP根目录</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">anon_mkdir_write_enable=[YES/NO]</td>
+      <td style="text-align: left">是否允许匿名用户创建目录</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">anon_other_write_enable=[YES/NO]</td>
+      <td style="text-align: left">是否开放匿名用户的其他写入权限, 如重命名和删除等权限</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">anon_max_rate=0</td>
+      <td style="text-align: left">匿名用户的最大传输速率, 字节/秒, 0为不做限制</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">local_enable=[YES/NO]</td>
+      <td style="text-align: left">是否允许本地用户登录</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">local_umask=022</td>
+      <td style="text-align: left">本地用户上传文件的umask值</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">local_root=/var/ftp</td>
+      <td style="text-align: left">本地用户的FTP根目录</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">chroot_local_user=[YES/NO]</td>
+      <td style="text-align: left">是否将用户权限范围限制在FTP根目录, 以确保安全</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">local_max_rate=0</td>
+      <td style="text-align: left">本地用户的最大传输速率, 字节/秒, 0为不做限制</td>
+    </tr>
+  </tbody>
+</table>
+
+:ET

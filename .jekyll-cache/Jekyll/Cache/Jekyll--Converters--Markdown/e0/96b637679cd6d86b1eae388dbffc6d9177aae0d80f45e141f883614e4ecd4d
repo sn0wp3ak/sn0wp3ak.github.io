@@ -1,0 +1,12 @@
+I"�<p>SMB</p>
+<ul>
+  <li>Server Messages Block</li>
+  <li>服务器消息块</li>
+</ul>
+
+<p>基于SMB协议开发了SMBServer后更名为Samba<br /></p>
+<blockquote>
+  <p>yum install samba<br /></p>
+</blockquote>
+
+:ET

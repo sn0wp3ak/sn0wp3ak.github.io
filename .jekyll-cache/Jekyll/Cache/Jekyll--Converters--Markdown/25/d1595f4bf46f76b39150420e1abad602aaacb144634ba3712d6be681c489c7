@@ -1,0 +1,14 @@
+I"N<p>SMB</p>
+<ul>
+  <li>Server Messages Block</li>
+  <li>服务器消息块</li>
+</ul>
+
+<p>基于SMB协议开发了SMBServer后更名为Samba<br /></p>
+<blockquote>
+  <p>yum install samba<br /></p>
+</blockquote>
+
+<p>Samba服务的主配置文件: <code class="language-plaintext highlighter-rouge">/etc/samba/smb.conf</code><br /></p>
+
+:ET

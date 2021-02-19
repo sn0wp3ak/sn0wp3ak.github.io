@@ -1,0 +1,276 @@
+I"�0<p>FTP - File Transfer Protocol 文件传输协议<br /></p>
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">yum install vsftpd</code><br />
+<code class="language-plaintext highlighter-rouge">yum install ftp</code><br /></p>
+</blockquote>
+
+<p>TFTP - Trivial FTP 简易文件传输协议<br /></p>
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">yum install tftp tftp-server</code><br /></p>
+</blockquote>
+
+<ul>
+  <li>基于UDP</li>
+  <li>简易, 开销小, 但是不如FTP可靠</li>
+  <li>适合传输比较小的琐碎文件</li>
+</ul>
+
+<p>vsftpd - very secure ftp daemon 非常安全的FTP守护进程<br /></p>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">vsftpd</code>是一个FTP服务程序<br />
+<code class="language-plaintext highlighter-rouge">ftp</code>是一个客户端ftp管理工具<br />
+<code class="language-plaintext highlighter-rouge">xinetd</code>是一个TFTP服务程序<br /></p>
+</blockquote>
+
+<p>FTP服务占用的端口 20 和 21<br /></p>
+<ul>
+  <li>port:20 用来传输数据(up/down)</li>
+  <li>port:21 用来传递FTP命令和参数(C-&gt;S)</li>
+</ul>
+
+<p>iptables防火墙会默认禁用FTP协议的端口号, 在配置vsftpd服务之前需要清空防火墙策略并保存<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iptables -F
+service iptables save
+</code></pre></div></div>
+<p>vsftpd服务的主配置文件: <code class="language-plaintext highlighter-rouge">/etc/vsftpd/vsftpd.conf</code><br />
+想要得到一个比较清爽的配置文件, 以方便管理服务;<br />
+先备份配置文件, 在利用grep命令的反选参数以覆盖的方式重定向写入原配置文件<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mv /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf_bak
+grep -v "#" /etc/vsftpd/vsftpd.conf_bak &gt; /etc/vsftpd/vsftpd.conf
+</code></pre></div></div>
+
+<p>vsftpd登录服务器的3种认证模式:<br /></p>
+<ul>
+  <li>匿名开放模式</li>
+  <li>本地用户模式</li>
+  <li>虚拟用户模式(推荐)</li>
+</ul>
+
+<p>安全性: 匿名开放 &lt; 本地用户 &lt; 虚拟用户<br /></p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">匿名开放模式</code></strong><br />
+任何人都可以不用密码登录FTP服务器<br />
+最不安全的认证模式<br />
+vsftpd默认启动了匿名开放模式<br />
+可以向匿名用户开放的权限参数和作用:<br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">参数</th>
+      <th style="text-align: left">作用</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">anonymous_enable=YES</td>
+      <td style="text-align: left">允许匿名访问</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">anon_umask=022</td>
+      <td style="text-align: left">匿名用户上传文件的umask值</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">anon_upload_enable=YES</td>
+      <td style="text-align: left">允许匿名用户上传文件</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">anon_mkdir_write_enable=YES</td>
+      <td style="text-align: left">允许匿名用户创建目录</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">anon_other_write_enable=YES</td>
+      <td style="text-align: left">允许匿名用户修改目录名称或删除目录</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>在主配置文件中加入以上参数, 保存退出<br />
+重启vsftpd服务并加入开机启动项<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart vsftpd
+systemctl enable vsftpd
+</code></pre></div></div>
+<p>匿名开放模式下的账户统一是: anonymous ; 密码为空<br /></p>
+
+<p>在清空防火墙策略并配置完vsftpd参数后, 匿名用户创建目录时提示权限拒绝, 是什么原因呢?<br /></p>
+
+<p>其实vsftpd服务在匿名开放模式下默认访问服务器的<code class="language-plaintext highlighter-rouge">/var/ftp</code>目录, 而该目录只有root用户才具备写入的权限, 需要我们把该目录的owner改成ftp这个系统用户<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chown -Rf ftp /var/ftp
+</code></pre></div></div>
+<p>修改完目录所有者后, 发现还是会报错, 但是提示变更为操作失败<br />
+这是由于SELinux中的策略规则导致的<br />
+查看与ftp相关的策略:<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>getsebool -a | grep ftp
+</code></pre></div></div>
+<p>需要更改的条目:<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ftpd_full_access --&gt; off
+</code></pre></div></div>
+<p>把off改成on<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>setsebool -P ftpd_full_access=on
+</code></pre></div></div>
+<p>加上<code class="language-plaintext highlighter-rouge">-P</code>参数可以让修改过的策略永久生效<br /></p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">本地用户模式</code></strong><br />
+比匿名开发模式更安全, 但是需要服务器中的用户名和密码, 从而增加了本地用户密码的泄漏风险<br /></p>
+
+<p>本地用户模式常用的参数和作用:<br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">参数</th>
+      <th style="text-align: left">作用</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">anonymous=NO</td>
+      <td style="text-align: left">禁止匿名登录</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">local_enable=YES</td>
+      <td style="text-align: left">允许本地用户登录</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">write_enable=YES</td>
+      <td style="text-align: left">写权限</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">local_umask=022</td>
+      <td style="text-align: left">本地用户模式创建文件的umask值</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">userlist_enable=YES</td>
+      <td style="text-align: left">启用”禁止登录的用户名单” ftpusers和user_list</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">userlist_deny=YES</td>
+      <td style="text-align: left">启用用户作业名单文件功能</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>配置完毕后依旧需要重启vsftpd服务并加入开机启动项<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart vsftpd
+systemctl enable vsftpd
+</code></pre></div></div>
+<p>此时直接登录root进入ftp服务器会被拒绝, 因为root用户和大部分系统用户都在禁止登录的名单中<br />
+名单路径: <code class="language-plaintext highlighter-rouge">/etc/vsftpd/user_list</code>和<code class="language-plaintext highlighter-rouge">/etc/vsftpd/ftpusers</code><br />
+如果确信root用户登录没有风险, 可以把这两个文件中的root字段删除<br />
+同样的SELinux还是会阻碍操作, 我们需要开放策略:<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>setsebool -P ftpd_full_access=on
+</code></pre></div></div>
+<p><strong><code class="language-plaintext highlighter-rouge">虚拟用户模式</code></strong><br /></p>
+
+<p>为FTP服务单独建立用户数据库文件, 虚拟出一个需要口令验证的用户信息, 并不真正存在与服务器系统中, 而是专门供FTP远程登录使用, 从而把风险降到最低<br /></p>
+
+<ol>
+  <li>首先创建一个用于FTP认证的数据库文件, 该文件中奇数行为用户名, 偶数行为密码
+    <ul>
+      <li>这个文件是一个明文文件, 需要我们通过hash算法转换成数据库文件</li>
+      <li>操作完毕后删除原始明文文件防止泄漏
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 写入用户名和密码
+vim vuser.list
+# 转换
+db_load -T -t hash -f vuser.list vuser.db
+file vuser.db
+chmod 600 vuser.db
+# 删除原始文件
+rm -f vuser.list
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>创建vsftpd服务用于存放文件的根目录以及通过虚拟用户映射的本地用户
+    <ul>
+      <li>存储文件的根目录: 虚拟用户登录服务器后默认访问的目录</li>
+      <li>因为正常来说Linux系统中操作文件时都会需要本地用户的权限, 而虚拟用户并不在系统中, 所以需要一个本地用户来帮他创建文件
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 创建虚拟用户virtual  家目录设置成/var/ftproot 不允许本地登录服务器
+useradd -d /var/ftproot -s /sbin/nologin virtual
+# 设置FTP根目录的权限
+chmod -Rf 755 /var/ftproot
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>建立用于支持虚拟用户的PAM文件
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim /etc/pam.d/vsftpd.vu
+# 文件内容
+auth	required	pam_userdb.so	db=/etc/vsftpd/vuser
+account	required	pam_userdb.so	db-/etc/vsftpd/vuser
+</code></pre></div>    </div>
+  </li>
+  <li>在vsftpd服务的主配置文件中将PAM认证文件的名称修改成vsftpd.vu
+    <ul>
+      <li>相关参数: <code class="language-plaintext highlighter-rouge">pam_service_name=vsftpd</code>
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pam_service_name=vsftpd.vu
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>虚拟用户登录常用参数和作用:</p>
+      </li>
+      <li>
+        <table>
+          <thead>
+            <tr>
+              <th style="text-align: left">参数</th>
+              <th style="text-align: left">作用</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: left">anonymous_enable=NO</td>
+              <td style="text-align: left">禁止匿名登录</td>
+            </tr>
+            <tr>
+              <td style="text-align: left">local_enable=YES</td>
+              <td style="text-align: left">允许本地用户模式</td>
+            </tr>
+            <tr>
+              <td style="text-align: left">guest_enable=YES</td>
+              <td style="text-align: left">开启虚拟用户模式</td>
+            </tr>
+            <tr>
+              <td style="text-align: left">guest_username=virtual</td>
+              <td style="text-align: left">指定虚拟用户的用户名</td>
+            </tr>
+            <tr>
+              <td style="text-align: left">pam_service_name=vsftpd.vu</td>
+              <td style="text-align: left">指定PAM文件</td>
+            </tr>
+            <tr>
+              <td style="text-align: left">allow_writeable_chroot=YES</td>
+              <td style="text-align: left">允许对禁锢的FTP根目录进行写入操作, 且不拒绝用户的登录请求</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </li>
+  <li>为多个虚拟用户设置不同的权限
+    <ul>
+      <li>在/etc/vsftp下新建一个目录, 在其中分别创建每个用户的配置参数文件</li>
+      <li>在vsftpd服务的主配置文件中使用<code class="language-plaintext highlighter-rouge">user_config_dir</code>这个参数来指定这个目录
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> mkdir /etc/vsftpd/vusers_dir
+ cd /etc/vsftpd/vusers_dir
+ vim user_a
+ vim user_b
+</code></pre></div>        </div>
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> user_config_dir=/etc/vsftpd/vusers_dir
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>设置SELinux策略
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>setsebool -P ftpd_full_access=on
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<hr />
+
+<p>TFTP UDP协议 端口号69<br />
+通过xinetd服务程序来进行管理<br /></p>
+
+:ET
