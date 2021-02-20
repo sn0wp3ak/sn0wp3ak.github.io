@@ -1,0 +1,26 @@
+I"�<p>[global]<br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">参数</th>
+      <th style="text-align: left">作用</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">workgroup=MYGROUP</td>
+      <td style="text-align: left">工作组名称</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">server string = Samba Server Version %v</td>
+      <td style="text-align: left">服务器介绍信息, 参数%v为显示SMB版本号</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">log file = /var/log/samba/log.%m</td>
+      <td style="text-align: left">定义日志文件的存放位置和名称, 参数%m为来访的主机名</td>
+    </tr>
+  </tbody>
+</table>
+
+:ET

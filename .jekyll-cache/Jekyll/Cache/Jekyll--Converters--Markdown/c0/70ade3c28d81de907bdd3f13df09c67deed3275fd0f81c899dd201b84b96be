@@ -1,0 +1,67 @@
+I"�
+<p>三种类型的DNS服务器:<br /></p>
+<ul>
+  <li>主服务器: 特定区域之内唯一, 维护域名和IP地址之间的对应关系</li>
+  <li>从服务器: 从主服务器获取域名IP对应关系并进行维护, 防止主服务器故障</li>
+  <li>缓存服务器: 向其他服务器查询domain和ip的对应关系, 把经常访问的对应关系缓存下来, 提高重复查询的效率</li>
+</ul>
+
+<p>根域名服务器 13台 其中10台都在美国 英国 日本 瑞典 各有1台<br /></p>
+
+<p>全球范围内使用最广泛, 最安全可靠高效的DNS服务程序 - BIND<br /></p>
+
+<p>BIND</p>
+<ul>
+  <li>Berkeley Internet Name Domain</li>
+  <li>伯克利因特网名称域</li>
+</ul>
+
+<blockquote>
+  <p>yum install bind-chroot</p>
+</blockquote>
+
+<p>除了安装bind服务, 还建议安装chroot牢笼机制扩展包<br /></p>
+
+<p>bind服务的重要文件:<br /></p>
+<ol>
+  <li>主配置文件
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">/etc/named.conf</code></li>
+      <li>用来定义bind服务程序的运行</li>
+    </ul>
+  </li>
+  <li>区域配置文件
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">/etc/named.rfc1912.zones</code></li>
+      <li>保存域名和IP地址的对应关系的所在位置</li>
+      <li>类似与书籍目录, 通过该文件定位到保存对应关系的真实文件的路径</li>
+    </ul>
+  </li>
+  <li>数据配置文件目录
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">/var/named</code></li>
+      <li>保存域名和IP地址真实对应关系的数据配置文件</li>
+    </ul>
+  </li>
+</ol>
+
+<p>在linux操作系统中bind服务的名称为named<br />
+<strong><code class="language-plaintext highlighter-rouge">主配置文件要做的修改</code></strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim /etc/named.conf
+</code></pre></div></div>
+<p>line 11 and 17</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+11 listen-on port 53 { any; };
+...
+17 allow-query { any; };
+...
+</code></pre></div></div>
+<p>让服务器上的所有IP地址都可以提供DNS域名解析服务<br />
+允许所有人对本地服务器发送DNS查询请求<br /></p>
+
+<h3 id="区域配置文件的参数"><code class="language-plaintext highlighter-rouge">区域配置文件的参数</code></h3>
+<p>正向解析参数/反向解析参数<br /></p>
+
+<p>使用<code class="language-plaintext highlighter-rouge">named-checkconf</code>和<code class="language-plaintext highlighter-rouge">named-checkzone</code>命令可以分别检查主配置文件和区域配置文件中的语法或者参数错误<br /></p>
+
+:ET

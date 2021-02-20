@@ -1,0 +1,239 @@
+I"8(<p>SMB</p>
+<ul>
+  <li>Server Messages Block</li>
+  <li>服务器消息块</li>
+</ul>
+
+<p>基于SMB协议开发了SMBServer后更名为Samba<br /></p>
+<blockquote>
+  <p>yum install samba<br /></p>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">Samba服务的目的主要是解决Linux和Windows之间的文件共享问题</code>, 当然在Linux和Linux之间也可以使用<br /></p>
+
+<p>Samba服务的主配置文件: <code class="language-plaintext highlighter-rouge">/etc/samba/smb.conf</code><br />
+同样的如果我们需要一个比较清爽的配置文件, 可以备份以后重写原来的配置文件<br />
+反选过滤掉以”#”和”;”开头的注释行内容, 以及用”^$”反选过滤掉空白行<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mv /etc/samba/smb.conf /etc/samba/smb.conf.bak
+cat /etc/samba/smb.conf.bak | grep -v "#" | grep -v ";" | grep 
+-v "^$" &gt; /etc/samba/smb.conf
+</code></pre></div></div>
+<h3 id="配置共享">配置共享</h3>
+<p>Samba服务也有全局配置和局部配置<br />
+创建共享资源的方法: 修改配置文件参数+重启服务<br /></p>
+
+<p>设置Samba服务的常用参数:<br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">参数</th>
+      <th style="text-align: left">作用</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">[data_dir]</td>
+      <td style="text-align: left">共享名称</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comment = Do not arbitrarily modify the database file</td>
+      <td style="text-align: left">注释警告</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">path = /home/data_dir</td>
+      <td style="text-align: left">共享目录的路径</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">public = no</td>
+      <td style="text-align: left">关闭”所有人可见”</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">writable = yes</td>
+      <td style="text-align: left">允许写入</td>
+    </tr>
+  </tbody>
+</table>
+
+<ol>
+  <li>创建用于访问共享资源的账户信息
+    <ul>
+      <li>RHEL 7 中Samba默认采用用户口令认证这种认证模式</li>
+      <li>只有建立用户信息数据库以后才能使用这种认证模式</li>
+      <li>Samba服务的数据库要求<code class="language-plaintext highlighter-rouge">用户必须是在系统中实际存在的</code></li>
+      <li>pdbedit用于管理Samba账户信息数据库, 格式: <code class="language-plaintext highlighter-rouge">pdbedit [参数] 账户</code><br />
+        <ul>
+          <li>第一次把账户信息写入Samba数据库时, 需要使用<code class="language-plaintext highlighter-rouge">-a</code>参数</li>
+          <li>pdbedit命令常用参数列表:
+            <ul>
+              <li>
+                <table>
+                  <thead>
+                    <tr>
+                      <th style="text-align: left">参数</th>
+                      <th style="text-align: left">作用</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="text-align: left">-a 用户名</td>
+                      <td style="text-align: left">创建Samba账户</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left">-x 用户名</td>
+                      <td style="text-align: left">删除Samba账户</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left">-L</td>
+                      <td style="text-align: left">列出账户列表</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left">-Lv</td>
+                      <td style="text-align: left">列出账户信息的详细列表</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pdbedit -a -u sn0wp3ak
+</code></pre></div>    </div>
+  </li>
+  <li>创建用于资源共享的文件目录
+    <ul>
+      <li>共享目录的所有者和所属组变更</li>
+      <li>修改SELinux相关限制
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir /home/data_dir
+chown -Rf sn0wp3ak:sn0wp3ak /home/data_dir
+semanage fcontext -a -t samba_share_t /home/data_dir
+restorecon -Rv /home/data_dir
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>设置SELinux服务与策略
+    <ul>
+      <li>允许通过Samba服务访问普通用户家目录
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>getsebool -a | grep samba
+samba_enable_home_dirs --&gt; off
+</code></pre></div>        </div>
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>setsebool -P samba_enable_home_dirs --&gt; on
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>在Samba服务主配置文件中写入共享信息
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">vim /etc/samba/smb.conf</code><br />
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[data_dir]
+comment = Do not arbitrarily modify the database file
+path = /home/data_dir
+public = no
+writable = yes
+</code></pre></div>        </div>
+      </li>
+      <li>[homes]和[prints]参数块的内容, 如果不需要可以手动删除</li>
+    </ul>
+  </li>
+  <li>重启Samba服务, 清空iptables防火墙策略
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart samba
+systemctl enable samba
+iptables -F
+service iptables save
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="从windows客户机访问linux服务器部署的samba服务">从Windows客户机访问Linux服务器部署的Samba服务</h3>
+<p>运行 --&gt; <code class="language-plaintext highlighter-rouge">\\服务器IP地址</code> --&gt; 在登录界面输入Samba数据库中存在的用户名和密码<br /></p>
+
+<hr />
+
+<h3 id="linux与linux之间通过samba服务实现文件共享">Linux与Linux之间通过Samba服务实现文件共享</h3>
+<p>需要在客户端安装支持共享服务的软件包<br /></p>
+<blockquote>
+  <p>yum install cifs-utils</p>
+</blockquote>
+
+<ol>
+  <li>在客户端这边按照Samba服务的用户名, 密码, 共享域的顺序将相关信息写入到一个认证文件中<br />
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim auth.smb
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>username=sn0wp3ak
+password=samba
+domain=MYGROUP
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 仅root用户能够读写
+chmod 600 auth.smb
+</code></pre></div>    </div>
+  </li>
+  <li>在客户端创建一个用于挂载Samba服务共享资源的目录, 并写入/etc/fstab
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir /data_dir
+vim /etc/fstab
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//服务器IP地址/data_dir /data_dir cifs credentials=/root/auth.smb 0 0
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mount -a
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<hr />
+
+<h3 id="网络文件系统">网络文件系统</h3>
+<p>NFS</p>
+<ul>
+  <li>Network File System
+    <blockquote>
+      <p>yum install nfs-utils</p>
+    </blockquote>
+  </li>
+</ul>
+
+<p>NFS仅用于Linux和Linux之间的文件共享<br /></p>
+
+<ol>
+  <li>清空服务器上的iptables防火墙策略
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iptables -F
+service iptables save
+</code></pre></div>    </div>
+  </li>
+  <li>在NFS服务器上建立文件共享用的目录, 并设置足够权限
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir /nfsfile
+chmod -Rf 777 /nfsfile
+</code></pre></div>    </div>
+  </li>
+  <li>修改NFS服务的配置文件
+    <ul>
+      <li>NFS服务配置文件: <code class="language-plaintext highlighter-rouge">/etc/exports</code></li>
+      <li>配置文件默认为空
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim /etc/exports
+</code></pre></div>        </div>
+      </li>
+      <li>NFS配置文件常用参数:</li>
+    </ul>
+    <ul>
+      <li>|参数|作用|
+| :-             | :-                                                     |
+| ro             | 只读                                                   |
+| rw             | 读写                                                   |
+| root_squash    | 当NFS客户端以root用户访问时, 映射成NFS服务的匿名用户   |
+| no_root_squash | 当NFS客户端以root用户访问时, 映射成NFS服务的root用户   |
+| all_squash     | NFS客户端无论以什么用户访问, 都映射成NFS服务的匿名用户 |
+| sync           | 同时将数据写入到内存与硬盘中                           |
+| async          | 优先将数据写入内存, 然后再写入硬盘                     |
+    * 配置文件中, NFS客户端地址和权限之间不能加空格
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim /etc/exports
+</code></pre></div>        </div>
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/nfsfile 192.168.0.*(rw,sync,root_squash)
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+:ET

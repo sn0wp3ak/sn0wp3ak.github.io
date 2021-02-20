@@ -1,0 +1,102 @@
+I"�<p>[global]<br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">参数</th>
+      <th style="text-align: left">作用</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">workgroup=MYGROUP</td>
+      <td style="text-align: left">工作组名称</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">server string = Samba Server Version %v</td>
+      <td style="text-align: left">服务器介绍信息, 参数%v为显示SMB版本号</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">log file = /var/log/samba/log.%m</td>
+      <td style="text-align: left">定义日志文件的存放位置和名称, 参数%m为来访的主机名</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">max log size = 50</td>
+      <td style="text-align: left">日志文件最大容量50KB</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">security = user</td>
+      <td style="text-align: left">安全验证的方式 4种</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">share: 来访主机无需验证口令</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">user: 需要验证口令</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">server: 用一个独立的远程主机来作口令的验证</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">domain: 域控制器身份验证</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">passdb backend = tdbsam</td>
+      <td style="text-align: left">用户后台的类型 3种</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">smbpasswd: 使用smbpasswd命令为系统用户设置Samba服务的密码</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">tdbsam: 创建数据库文件, 并使用pdbedit命令建立Samba服务的用户</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">ldapsam: 基于LDAP服务进行账户验证</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">load printers = yes</td>
+      <td style="text-align: left">设置在Samba服务启动时是否共享打印机服务</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cups options = raw</td>
+      <td style="text-align: left">打印机选项</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>[homes]<br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">参数</th>
+      <th style="text-align: left">作用</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">comment = Home Directories</td>
+      <td style="text-align: left">描述信息</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">browseable = no</td>
+      <td style="text-align: left">共享信息是否在”网上邻居”可见</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">writable = yes</td>
+      <td style="text-align: left">是否可以执行写入操作</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>[printers]<br />
+打印机的共享参数<br /></p>
+
+:ET
