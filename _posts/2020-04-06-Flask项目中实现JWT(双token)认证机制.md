@@ -4,8 +4,6 @@ title: Flask项目中实现JWT(双token)认证机制
 date: 2020-04-06
 categories:
 - flask
-tags:
-- jwt
 ---
 ## 核心思想
 解决**单一**token的安全问题,设置2个token;<br>
