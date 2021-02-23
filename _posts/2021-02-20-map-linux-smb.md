@@ -5,4 +5,4 @@ date: 2021-02-20
 categories:
 - map
 ---
-<img src="/assets/post_image/linux_smb.png"><br>
+<img align="center" src="/assets/post_image/linux_smb.png"><br>
