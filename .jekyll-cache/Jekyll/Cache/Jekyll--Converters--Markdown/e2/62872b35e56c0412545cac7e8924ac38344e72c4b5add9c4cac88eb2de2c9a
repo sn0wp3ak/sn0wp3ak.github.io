@@ -1,0 +1,64 @@
+I"f<p>生成器是一边循环一边计算的机制, 可以节省很大的内存空间<br />
+创建一个生成器generator的方法:<br /></p>
+<ol>
+  <li>把列表推导式的 [ ] 改成( )就变成了一个生成器<br /></li>
+  <li>函数中使用 yield 可以定义一个生成器函数<br /></li>
+</ol>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">next()</code>方法用于获取生成器的下一个返回值</li>
+  <li>调用next()计算到最后一个元素，没有更多的元素时，会抛出StopIteration的错误</li>
+  <li>我们创建了一个generator后，基本上永远不会调用next()，而是通过for循环来迭代它，并且不需要关心StopIteration的错误</li>
+  <li>generator函数和普通函数的执行流程不一样。
+    <ul>
+      <li>普通函数是顺序执行，遇到return语句或者最后一行函数语句就返回。</li>
+      <li>而变成generator的函数，在每次调用next()的时候执行，遇到yield语句返回，再次执行时从上次返回的yield语句处继续执行。</li>
+    </ul>
+  </li>
+  <li>使用for循环调用generator时，发现拿不到generator的return语句的返回值。如果想要拿到返回值，必须使用while循环配合try except 捕获StopIteration错误，返回值包含在StopIteration的value中</li>
+</ul>
+
+<p>定义fib(斐波那契数列)生成器函数</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="nb">max</span><span class="p">):</span>
+    <span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="nb">max</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">b</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="s">'done'</span>
+</code></pre></div></div>
+<p>for循环遍历</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">fib</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+<span class="p">...</span>     <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="mi">1</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">5</span>
+<span class="mi">8</span>  <span class="c1"># 没有返回 'done'
+</span></code></pre></div></div>
+<p>while循环遍历 + 捕获异常StopIteration</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">g</span> <span class="o">=</span> <span class="n">fib</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+<span class="p">...</span>     <span class="k">try</span><span class="p">:</span>
+<span class="p">...</span>         <span class="n">x</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="p">...</span>         <span class="k">print</span><span class="p">(</span><span class="s">'g:'</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">...</span>     <span class="k">except</span> <span class="nb">StopIteration</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="p">...</span>         <span class="k">print</span><span class="p">(</span><span class="s">'Generator return value:'</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">value</span><span class="p">)</span>
+<span class="p">...</span>         <span class="k">break</span>
+<span class="p">...</span>
+<span class="n">g</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">g</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">g</span><span class="p">:</span> <span class="mi">2</span>
+<span class="n">g</span><span class="p">:</span> <span class="mi">3</span>
+<span class="n">g</span><span class="p">:</span> <span class="mi">5</span>
+<span class="n">g</span><span class="p">:</span> <span class="mi">8</span>
+<span class="n">Generator</span> <span class="k">return</span> <span class="n">value</span><span class="p">:</span> <span class="n">done</span>
+</code></pre></div></div>
+<p>区分普通函数和generator函数:<br /></p>
+<ul>
+  <li>普通函数调用直接返回结果</li>
+  <li>生成器函数返回generator对象</li>
+</ul>
+:ET

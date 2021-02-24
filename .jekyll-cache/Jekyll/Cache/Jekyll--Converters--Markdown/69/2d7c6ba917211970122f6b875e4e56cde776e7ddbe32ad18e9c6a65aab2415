@@ -1,0 +1,13 @@
+I"�<ol>
+  <li>JDK (Java开发工具包) <br />
+ Java Development Kit<br />
+ 官网下载<br />
+ windows: <br />
+ 1.新建变量JAVA_HOME<code class="language-plaintext highlighter-rouge">C:\Program Files \Java\jdk1.8.0_191</code><br />
+ 2.新建变量CLASSPATH<code class="language-plaintext highlighter-rouge">.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar; </code><br />
+ 3.在环境变量Path中添加<code class="language-plaintext highlighter-rouge">%JAVA_HOME%\bin;</code><br />
+ <code class="language-plaintext highlighter-rouge">%JAVA_HOME%\jre\bin;</code><br />
+ 测试环境变量是否配置成功: <code class="language-plaintext highlighter-rouge">javac -version</code><br /></li>
+</ol>
+
+:ET

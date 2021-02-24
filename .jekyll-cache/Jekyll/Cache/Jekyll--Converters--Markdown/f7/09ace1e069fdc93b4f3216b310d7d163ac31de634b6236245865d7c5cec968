@@ -1,0 +1,65 @@
+I"�<p>&lt;java&gt; 检测字符串两个是否相等 – 字符串的equals方法<br /></p>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">字符串A</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">字符串B</span><span class="o">)</span>
+<span class="c1">// 字符串既可以是字面量也可以是变量</span>
+</code></pre></div></div>
+
+<p>如果不区分大小写的比较, 使用字符串的equalsIgnoreCase方法<br /></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">字符串A</span><span class="o">.</span><span class="na">equalsIgnoreCase</span><span class="o">(</span><span class="n">字符串B</span><span class="o">)</span>
+</code></pre></div></div>
+<p>注意: 不要使用 == 来比较字符串是否相等, == 只能比较字符串是否在同一个位置(引用地址), 如果两个相同内容的字符串放在不同位置, 那比较的结果恒为false<br /></p>
+
+<p>&lt;java&gt; 检查空字符串<br /></p>
+
+<hr />
+
+<p>空字符串 “” 长度0 内容空</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>  <span class="c1">// 长度是否为0</span>
+<span class="n">或者</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">""</span><span class="o">))</span>  <span class="c1">// 是否和""相等</span>
+</code></pre></div></div>
+
+<p>&lt;java&gt; 检查Null串</p>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">(</span><span class="n">str</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span>
+</code></pre></div></div>
+
+<p>&lt;java&gt; 检查既不为空也不为Null</p>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 先判断Null 后判断空</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">str</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">str</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span>
+</code></pre></div></div>
+
+<p>&lt;java&gt; 成员变量和局部变量</p>
+
+<hr />
+
+<ol>
+  <li>定义的位置不同:<br />
+ 成员变量定义在类内部方法外部,
+ 局部变量定义在方法内部</li>
+  <li>作用范围不同:<br />
+ 局部变量作用于方法, 成员变量整个类中都能使用</li>
+  <li>默认值不同:<br />
+ 成员变量有默认值, 而局部变量没有默认值,必须初始化才能使用<br /></li>
+  <li>内存中的位置不同:<br />
+ 局部变量位于<strong>栈</strong>内存, 成员变量位于<strong>堆</strong>内存<br /></li>
+  <li>生命周期不同:<br />局部变量进栈而生, 出栈而死; 成员变量跟随<strong>对象</strong>创建和消亡<br /></li>
+</ol>
+
+<p>成员变量和局部变量重名, 根据就近原则, 优先使用局部变量<br />
+访问本类的成员变量, 使用this. 这样就可以区分同名的成员变量和局部变量了<br />
+谁调用的方法, 谁就是this<br /></p>
+
+<p>&lt;java&gt; 只有java.lang下的内容不需要导包</p>
+
+<hr />
+
+:ET

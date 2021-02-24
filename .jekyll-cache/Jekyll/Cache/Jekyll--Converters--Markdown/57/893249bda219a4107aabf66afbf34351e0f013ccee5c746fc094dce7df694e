@@ -1,0 +1,18 @@
+I"b<p>1-导包</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Scanner</span>
+</code></pre></div></div>
+
+<p>2-实例化</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>  <span class="c1">// System.in代表键盘输入 </span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>3-使用</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 对象名.成员方法名()</span>
+<span class="c1">// 数字型</span>
+<span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+<span class="c1">// 字符串型</span>
+<span class="nc">String</span> <span class="n">str</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+</code></pre></div></div>
+
+:ET

@@ -1,0 +1,37 @@
+I"~<p>1-所有成员变量都要使用private声明成私有<br />
+2-为每一个成员变量编写setter和getter方法(Boolean类型的getter换成isXxx)<br />
+3-定义一个无参数的构造方法<br />
+4-定义一个全参数的构造方法<br /></p>
+
+<ul>
+  <li>Java标准类又称JavaBean</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Standard</span> <span class="o">{</span>
+    <span class="c1">// 把成员变量都声明成私有的</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">var1</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">var2</span><span class="o">;</span>
+    <span class="c1">// 无参数的构造函数</span>
+    <span class="kd">public</span> <span class="nf">Standard</span><span class="o">()</span> <span class="o">{}</span>
+    <span class="c1">// 全参数的构造函数</span>
+    <span class="kd">public</span> <span class="nf">Standard</span><span class="o">(</span><span class="nc">String</span> <span class="n">var1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">var2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">var1</span> <span class="o">=</span> <span class="n">var1</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">var2</span> <span class="o">=</span> <span class="n">var2</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="c1">// 为所有成员变量都编写setter和getter方法</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getVar1</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">var1</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getVar2</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">var2</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setVar1</span><span class="o">(</span><span class="nc">String</span> <span class="n">var1</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">var1</span> <span class="o">=</span> <span class="n">var1</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setVar2</span><span class="o">(</span><span class="kt">int</span> <span class="n">var2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">var2</span> <span class="o">=</span> <span class="n">var2</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+:ET

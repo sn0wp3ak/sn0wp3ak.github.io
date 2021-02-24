@@ -1,0 +1,100 @@
+I"#<p>迭代器Iterator != 可迭代对象Iterable</p>
+
+<ol>
+  <li>首先什么是可迭代对象?<br />
+可以直接用于for循环的对象, 就叫做可迭代对象Iterable!<br />
+包括:<br />
+一类是集合数据类型，如<code class="language-plaintext highlighter-rouge">list、tuple、dict、set、str</code>等；<br />
+另一类是<code class="language-plaintext highlighter-rouge">generator</code>，包括<code class="language-plaintext highlighter-rouge">生成器</code>和带yield的<code class="language-plaintext highlighter-rouge">generator function</code>。<br /></li>
+  <li>如何判断一个对象是不是可迭代对象?<br />
+可以使用<code class="language-plaintext highlighter-rouge">isinstance()</code><br />
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterable</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">([],</span> <span class="n">Iterable</span><span class="p">)</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">({},</span> <span class="n">Iterable</span><span class="p">)</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="s">'abc'</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">)</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">((</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)),</span> <span class="n">Iterable</span><span class="p">)</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">)</span>
+<span class="bp">False</span>
+</code></pre></div>    </div>
+  </li>
+  <li>那什么又是迭代器呢?<br />
+可以被next()函数调用并不断返回下一个值的对象称为迭代器Iterator<br /></li>
+  <li>那么怎么判断对象是否是迭代器呢?<br />
+还是可以使用<code class="language-plaintext highlighter-rouge">isinstance()</code><br />
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterator</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">((</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)),</span> <span class="n">Iterator</span><span class="p">)</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">([],</span> <span class="n">Iterator</span><span class="p">)</span>
+<span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">({},</span> <span class="n">Iterator</span><span class="p">)</span>
+<span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="s">'abc'</span><span class="p">,</span> <span class="n">Iterator</span><span class="p">)</span>
+<span class="bp">False</span>
+</code></pre></div>    </div>
+    <p>所有的生成器generator都是迭代器Iterator对象<br />
+<code class="language-plaintext highlighter-rouge">list、dict、str</code>等虽然是可迭代对象Iterable，但却并不是迭代器Iterator。<br /></p>
+  </li>
+  <li>那么怎么让 list、dict、str等可迭代对象变成迭代器呢?<br />
+可以使用<code class="language-plaintext highlighter-rouge">iter()</code>函数<br />
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">iter</span><span class="p">([]),</span> <span class="n">Iterator</span><span class="p">)</span>  <span class="c1"># iter()
+</span><span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="s">'abc'</span><span class="p">),</span> <span class="n">Iterator</span><span class="p">)</span>
+<span class="bp">True</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>为啥list、dict、str 等就不是迭代器呢?<br />
+因为Python的Iterator对象表示的是一个数据流, 可以把这个数据流看做是一个有序序列，<br />
+但我们却不能提前知道序列的长度，只能不断通过<code class="language-plaintext highlighter-rouge">next()</code>函数实现按需计算下一个数据，<br />
+所以Iterator的计算是惰性的，只有在需要返回下一个数据时它才会计算。<br />
+迭代器Iterator甚至可以表示一个无限大的数据流，例如全体自然数。而使用list是永远不可能存储全体自然数的。<br />
+Python的for循环本质上就是迭代器通过<code class="language-plaintext highlighter-rouge">while True</code>不断调用<code class="language-plaintext highlighter-rouge">next()</code>函数实现的<br /></p>
+  </li>
+  <li>用类创建一个面向对象的迭代器<br />
+需要在类中实现两个方法 <code class="language-plaintext highlighter-rouge">__iter__()</code> 与 <code class="language-plaintext highlighter-rouge">__next__()</code><br />
+<code class="language-plaintext highlighter-rouge">StopIteration</code>异常用于标识迭代的完成，防止出现无限循环的情况，在 <code class="language-plaintext highlighter-rouge">__next__()</code> 方法中我们可以设置在完成指定循环次数后触发<code class="language-plaintext highlighter-rouge">StopIteration</code>异常来结束迭代。<br />
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MyNumbers</span><span class="p">:</span> 
+ <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+     <span class="bp">self</span><span class="p">.</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> 
+     <span class="k">return</span> <span class="bp">self</span>
+ <span class="k">def</span> <span class="nf">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+     <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">:</span>
+         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">a</span> 
+         <span class="bp">self</span><span class="p">.</span><span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span> 
+         <span class="k">return</span> <span class="n">x</span> 
+     <span class="k">else</span><span class="p">:</span> <span class="k">raise</span> <span class="nb">StopIteration</span> 
+ <span class="n">myclass</span> <span class="o">=</span> <span class="n">MyNumbers</span><span class="p">()</span>
+ <span class="n">myiter</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">myclass</span><span class="p">)</span> 
+ <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">myiter</span><span class="p">:</span> 
+ <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div>    </div>
+    <p>结果</p>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
+<span class="mi">5</span>
+<span class="mi">6</span>
+<span class="mi">7</span>
+<span class="mi">8</span>
+<span class="mi">9</span>
+<span class="mi">10</span>
+<span class="mi">11</span>
+<span class="mi">12</span>
+<span class="mi">13</span>
+<span class="mi">14</span>
+<span class="mi">15</span>
+<span class="mi">16</span>
+<span class="mi">17</span>
+<span class="mi">18</span>
+<span class="mi">19</span>
+<span class="mi">20</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+:ET

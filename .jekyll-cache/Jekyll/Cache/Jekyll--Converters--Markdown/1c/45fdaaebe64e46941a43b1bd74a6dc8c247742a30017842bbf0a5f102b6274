@@ -1,0 +1,103 @@
+I"�<p>特点:<br /></p>
+<ul>
+  <li>只能存同类型数据</li>
+  <li>长度不可改变</li>
+</ul>
+
+<p>初始化:</p>
+<ul>
+  <li>动态初始化 – 长度 (int)
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">数据类型</span><span class="o">[]</span> <span class="n">数组名</span> <span class="o">=</span> <span class="k">new</span> <span class="n">数据类型</span><span class="o">[</span><span class="n">数组长度</span><span class="o">];</span>
+  <span class="n">type</span><span class="o">[]</span> <span class="n">name</span> <span class="o">=</span> <span class="k">new</span> <span class="n">type</span><span class="o">[</span><span class="n">size</span><span class="o">];</span>
+</code></pre></div>    </div>
+    <p>两步式:</p>
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">type</span><span class="o">[]</span> <span class="n">name</span><span class="o">;</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="k">new</span> <span class="n">type</span><span class="o">[</span><span class="n">size</span><span class="o">];</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>静态初始化 – 内容<br /></p>
+
+    <ul>
+      <li>静态初始化不会指明长度, 但是会根据初始化时的元素个数隐式的设置长度<br /></li>
+      <li>标准格式
+        <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">数据类型</span><span class="o">[]</span> <span class="n">数组名</span> <span class="o">=</span> <span class="k">new</span> <span class="n">数据类型</span><span class="o">[]</span> <span class="o">{</span><span class="n">元素1</span><span class="o">,</span> <span class="n">元素2</span><span class="o">,</span> <span class="o">...};</span>
+  <span class="n">type</span><span class="o">[]</span> <span class="n">name</span> <span class="o">=</span> <span class="k">new</span> <span class="n">type</span><span class="o">[]</span> <span class="o">{</span><span class="n">item1</span><span class="o">,</span> <span class="n">item2</span><span class="o">,</span> <span class="o">...};</span>
+</code></pre></div>        </div>
+        <p>两步式:</p>
+        <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">type</span><span class="o">[]</span> <span class="n">name</span><span class="o">;</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="k">new</span> <span class="n">type</span><span class="o">[]</span> <span class="o">{</span><span class="n">item1</span><span class="o">,</span> <span class="n">item2</span><span class="o">,</span> <span class="o">...}</span>
+</code></pre></div>        </div>
+      </li>
+      <li>省略格式
+        <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">数据类型</span><span class="o">[]</span> <span class="n">数组名</span> <span class="o">=</span> <span class="o">{</span><span class="n">元素1</span><span class="o">,</span> <span class="n">元素2</span><span class="o">,</span> <span class="o">...}</span>
+  <span class="n">type</span><span class="o">[]</span> <span class="n">name</span> <span class="o">=</span> <span class="o">{</span><span class="n">item1</span><span class="o">,</span> <span class="n">item2</span><span class="o">,</span> <span class="o">...}</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>注意: 静态省略模式初始化<code class="language-plaintext highlighter-rouge">不能</code>拆分成两步完成!<br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">System.out.println(array);</code>直接打印数组名称, 得到的是数组的内存地址的hash值<br /></p>
+
+<p>数组索引 <code class="language-plaintext highlighter-rouge">array[下标]</code><br /></p>
+
+<p>动态初始化数组时, 其中的元素会填充默认值<br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>数据类型</th>
+      <th>默认值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>整数</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>浮点数</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>字符</td>
+      <td>‘\u0000’</td>
+    </tr>
+    <tr>
+      <td>布尔</td>
+      <td>fasle</td>
+    </tr>
+    <tr>
+      <td>引用</td>
+      <td>null</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>静态初始化也是先填充的默认值, 只不过{ }中的元素不需要手动赋值了<br /></p>
+
+<p>数组必须初始化: 不new出来, 也至少要给个null值<br /></p>
+
+<p>空指针异常: 赋值为null的数组, 是无法访问数组元素的;<br /></p>
+
+<p>数组长度: 数组名.length<br />
+数组长度不能变, 指的是内存中的数组, 而不是引用它的变量, 引用它的变量再赋值其他的数组后, 它代表的数组长度自然不同<br /></p>
+
+<p>遍历数组: for循环, 终止条件length<br /></p>
+
+<p>反转数组: 对称位置的元素做交换. 交换时需要temp中间量<br /></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">;</span> <span class="n">left</span><span class="o">++,</span> <span class="n">right</span><span class="o">--)</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">array</span><span class="o">[</span><span class="n">left</span><span class="o">];</span>
+			<span class="n">array</span><span class="o">[</span><span class="n">left</span><span class="o">]</span> <span class="o">=</span> <span class="n">array</span><span class="o">[</span><span class="n">right</span><span class="o">];</span>
+			<span class="n">array</span><span class="o">[</span><span class="n">right</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+		<span class="o">}</span>
+</code></pre></div></div>
+
+<p>数组可以作为参数, 传入方法中, 传入的是内存地址的值<br /></p>
+
+<p>方法的返回值也可以是一个数组: 一般来说方法只能renturn一个返回值, 但是如果需要返回多条结果时, 就可以使用数组返回<br /></p>
+
+:ET

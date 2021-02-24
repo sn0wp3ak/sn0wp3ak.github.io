@@ -1,0 +1,64 @@
+I"�<p>生成器是一边循环一边计算的机制 , 可以节省很大的内存空间
+创建一个生成器generator的方法:</p>
+<ol>
+  <li>把列表推导式的 [ ] 改成( )就变成了一个生成器</li>
+  <li>函数中使用 yield 可以定义一个生成器函数
+next()方法用于获取生成器的下一个返回值
+调用next()计算到最后一个元素，没有更多的元素时，会抛出StopIteration的错误
+我们创建了一个generator后，基本上永远不会调用next()，而是通过for循环来迭代它，并且不需要关心StopIteration的错误。
+generator函数和普通函数的执行流程不一样。普通函数是顺序执行，遇到return语句或者最后一行函数语句就返回。
+而变成generator的函数，在每次调用next()的时候执行，遇到yield语句返回，再次执行时从上次返回的yield语句处继续执行。
+使用for循环调用generator时，发现拿不到generator的return语句的返回值。如果想要拿到返回值，必须使用while循环配合try except 捕获StopIteration错误，返回值包含在StopIteration的value中
+定义fib(斐波那契数列)生成器函数
+def fib(max):
+ n, a, b = 0, 0, 1
+ while n &lt; max:
+     yield b
+     a, b = b, a + b
+     n = n + 1
+ return ‘done’</li>
+</ol>
+
+<p>for循环遍历</p>
+<blockquote>
+  <p>for n in fib(6):
+…     print(n)
+…
+1
+1
+2
+3
+5
+8  # 没有返回 ‘done’</p>
+</blockquote>
+
+<p>while循环遍历 + 捕获异常StopIteration</p>
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>g = fib(6)
+while True:
+…     try:
+…         x = next(g)
+…         print(‘g:’, x)
+…     except StopIteration as e:
+…         print(‘Generator return value:’, e.value)
+…         break
+…
+g: 1
+g: 1
+g: 2
+g: 3
+g: 5
+g: 8
+Generator return value: done</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<p>区分普通函数和generator函数:<br /></p>
+<ul>
+  <li>普通函数调用直接返回结果</li>
+  <li>生成器函数返回generator对象</li>
+</ul>
+:ET
