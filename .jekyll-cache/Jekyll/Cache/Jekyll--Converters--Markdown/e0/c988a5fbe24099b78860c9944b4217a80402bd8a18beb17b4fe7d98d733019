@@ -1,0 +1,49 @@
+I"S	<p>计划任务分类:</p>
+<ul>
+  <li>一次性</li>
+  <li>长期性</li>
+</ul>
+
+<h3 id="一次性计划">一次性计划</h3>
+<p>使用的命令: <code class="language-plaintext highlighter-rouge">at</code><br />
+格式：</p>
+<ul>
+  <li>交互式
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">at 时间</code> 进入交互界面</li>
+      <li>输入需要执行的任务指令</li>
+      <li><code class="language-plaintext highlighter-rouge">Ctrl+D</code>退出输入界面</li>
+    </ul>
+  </li>
+  <li>非交互式
+    <ul>
+      <li>使用管道符号把任务指令输入到at命令中</li>
+      <li><code class="language-plaintext highlighter-rouge">任务 | at 时间</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p>查看计划列表: <code class="language-plaintext highlighter-rouge">at -l</code><br />
+删除某条计划: <code class="language-plaintext highlighter-rouge">atrm 序号</code><br /></p>
+
+<h3 id="长期性计划">长期性计划</h3>
+<p>需要周期性执行的任务<br />
+使用的服务: <code class="language-plaintext highlighter-rouge">crond</code><br />
+创建计划: <code class="language-plaintext highlighter-rouge">crontab -e</code><br />
+删除计划: <code class="language-plaintext highlighter-rouge">crontab -r</code><br />
+查看计划: <code class="language-plaintext highlighter-rouge">crontab -l</code><br />
+操作别的用户的计划: <code class="language-plaintext highlighter-rouge">crontab -u</code> (root限定)<br /></p>
+
+<p>crond参数格式: <code class="language-plaintext highlighter-rouge">分钟 小时 日 月 星期 命令</code><br />
+不想设置的参数需要使用<code class="language-plaintext highlighter-rouge">*</code>来占位<br />
+离散的时间可以使用<code class="language-plaintext highlighter-rouge">,</code>来分隔<br />
+连续的时间可以使用<code class="language-plaintext highlighter-rouge">-</code>来连接<br />
+执行任务的时间间隔用<code class="language-plaintext highlighter-rouge">/分钟</code>表示<br /></p>
+
+<p>注意事项: <br /></p>
+<ul>
+  <li>分钟这个字段必须要有数值, 不能是<code class="language-plaintext highlighter-rouge">*</code>或者空白</li>
+  <li><code class="language-plaintext highlighter-rouge">日</code>和<code class="language-plaintext highlighter-rouge">星期</code>不能同时设置, 会发生冲突</li>
+</ul>
+
+:ET

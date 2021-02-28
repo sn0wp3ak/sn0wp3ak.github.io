@@ -1,0 +1,175 @@
+I"�<p>常见的电子邮件协议:</p>
+<ul>
+  <li>SMTP
+    <ul>
+      <li>发送和中转发出</li>
+      <li>TCP-25</li>
+    </ul>
+  </li>
+  <li>POP3
+    <ul>
+      <li>存储到本地</li>
+      <li>TCP-110</li>
+    </ul>
+  </li>
+  <li>IMAP4
+    <ul>
+      <li>在本地访问</li>
+      <li>TCP-143</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>MUA</strong></p>
+<ul>
+  <li>Mail User Agent</li>
+  <li>邮件用户代理</li>
+  <li>用户收发邮件的服务器</li>
+</ul>
+
+<p><strong>MDA</strong></p>
+<ul>
+  <li>Mail Delivery Agent</li>
+  <li>邮件投递代理</li>
+  <li>保存邮件的邮局服务器</li>
+</ul>
+
+<p><strong>MTA</strong></p>
+<ul>
+  <li>Mail Transfer Agent</li>
+  <li>邮件传输代理</li>
+  <li>转发处理不同电子邮件服务供应商之间的邮件</li>
+</ul>
+
+<p>电子邮件传输过程</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MUA --SMTP--&gt; MTA --SMTP--&gt; MTA --POP3/IMAP4--&gt; MUA
+</code></pre></div></div>
+
+<p>企业中部署邮件服务的注意点:</p>
+<ol>
+  <li>反垃圾和反病毒</li>
+  <li>邮件加密</li>
+  <li>内容审核</li>
+  <li>防范DDoS(分布式拒绝服务)攻击</li>
+</ol>
+
+<h3 id="部署基础的电子邮件系统">部署基础的电子邮件系统</h3>
+
+<p>Postfix服务程序</p>
+<ul>
+  <li>基于SMTP协议</li>
+  <li>负责发件</li>
+</ul>
+
+<p>Dovecot服务程序</p>
+<ul>
+  <li>基于POP3协议</li>
+  <li>负责发件</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RHEL5/6 -- Sendmail服务程序
+RHEL7   -- Postfix服务程序
+</code></pre></div></div>
+
+<p>电子邮件地址 “用户名@主机地址(域名)” 如果主机地址是IP地址, 那么会和SSH搞混<br />
+所以一般都用域名作为主机地址, 那么电子邮件服务器如果能提供DNS服务器就可以更好的检验电子邮件系统的配置效果<br /></p>
+
+<p>先搞定bind服务, 参考Linux中的域名解析<br /></p>
+
+<ol>
+  <li>修改邮件服务器的hostname
+    <ul>
+      <li>保证服务器的主机名和发信域名一致
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim /etc/hostname
+</code></pre></div>        </div>
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mail.centos7.com
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>清空iptables防火墙策略, 并保持策略状态
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iptables -F
+service iptables save
+</code></pre></div>    </div>
+  </li>
+  <li>为电子邮件系统提供DNS服务
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim /etc/named.conf
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>11 listen-on port 53 { any; };
+17 allow-query { any; };
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart named
+systemctl enable named
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="配置postfix服务程序">配置Postfix服务程序</h3>
+
+<ol>
+  <li>安装Postfix服务程序, 禁用iptables防火墙
+    <blockquote>
+      <p>yum install postfix</p>
+    </blockquote>
+  </li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systenctl disable iptables
+</code></pre></div></div>
+<ol>
+  <li>配置Postfix
+    <ul>
+      <li>主配置文件: <code class="language-plaintext highlighter-rouge">/etc/postfix/main.cf</code></li>
+      <li>
+        <table>
+          <thead>
+            <tr>
+              <th style="text-align: left">重要参数<br /></th>
+              <th style="text-align: left">参数</th>
+              <th>作用</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: left"> </td>
+              <td style="text-align: left">myhostname</td>
+              <td>邮局系统的主机名</td>
+            </tr>
+            <tr>
+              <td style="text-align: left"> </td>
+              <td style="text-align: left">mydomain</td>
+              <td>邮局系统的域名</td>
+            </tr>
+            <tr>
+              <td style="text-align: left"> </td>
+              <td style="text-align: left">myorigin</td>
+              <td>从本机发出邮件的域名名称</td>
+            </tr>
+            <tr>
+              <td style="text-align: left"> </td>
+              <td style="text-align: left">inet_interfaces</td>
+              <td>监听的网卡接口</td>
+            </tr>
+            <tr>
+              <td style="text-align: left"> </td>
+              <td style="text-align: left">mydestination</td>
+              <td>可接收邮件的主机名或域名</td>
+            </tr>
+            <tr>
+              <td style="text-align: left"> </td>
+              <td style="text-align: left">mynetworks</td>
+              <td>设置可以转发哪些主机的邮件</td>
+            </tr>
+            <tr>
+              <td style="text-align: left"> </td>
+              <td style="text-align: left">relay_domains</td>
+              <td>设置可以转发哪些网域的邮件</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+:ET

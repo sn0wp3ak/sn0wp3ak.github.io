@@ -1,0 +1,44 @@
+I"<p>常见的电子邮件协议:</p>
+<ul>
+  <li>SMTP
+    <ul>
+      <li>发送和中转发出</li>
+      <li>TCP-25</li>
+    </ul>
+  </li>
+  <li>POP3
+    <ul>
+      <li>存储到本地</li>
+      <li>TCP-110</li>
+    </ul>
+  </li>
+  <li>IMAP4
+    <ul>
+      <li>在本地访问</li>
+      <li>TCP-143</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>MUA</strong></p>
+<ul>
+  <li>Mail User Agent</li>
+  <li>邮件用户代理</li>
+  <li>用户收发邮件的服务器</li>
+</ul>
+
+<p><strong>MDA</strong></p>
+<ul>
+  <li>Mail Delivery Agent</li>
+  <li>邮件投递代理</li>
+  <li>保存邮件的邮局服务器</li>
+</ul>
+
+<p><strong>MTA</strong></p>
+<ul>
+  <li>Mail Transfer Agent</li>
+  <li>邮件传输代理</li>
+  <li>转发处理不同电子邮件服务供应商之间的邮件</li>
+</ul>
+
+:ET
