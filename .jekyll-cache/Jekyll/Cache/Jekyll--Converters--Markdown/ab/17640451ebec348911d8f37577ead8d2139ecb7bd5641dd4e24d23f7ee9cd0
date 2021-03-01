@@ -1,0 +1,14 @@
+I"�<p>一个完整路由的4个部分:<br /></p>
+<ol>
+  <li>路由地址</li>
+  <li>视图函数(类)</li>
+  <li>路由变量</li>
+  <li>路由命名</li>
+</ol>
+
+<ul>
+  <li>视图函数必须设置1个参数, 通常以request命名, 代表当前用户的请求对象</li>
+  <li>视图函数执行完毕, 必须return结果, 否则报告异常</li>
+  <li>settings中<code class="language-plaintext highlighter-rouge">ROOT_URLCONF</code>的值是主路由, 生成整个项目的路由列表</li>
+</ul>
+:ET

@@ -1,0 +1,25 @@
+I" <h2 id="静态资源">静态资源</h2>
+<p>属性:<br /></p>
+<ol>
+  <li>STATIC_URL</li>
+  <li>STATICFILES_DIRS</li>
+  <li>STATIC_ROOT(生产环境,DEBUG = FALSE)</li>
+</ol>
+
+<p>settings.py配置文件中的<br />
+<code class="language-plaintext highlighter-rouge">STATIC_URL='/static/'</code><br /></p>
+
+<p>代表静态资源的路由地址<br />
+默认情况下/static/的路由地址指向的是子应用目录下的static目录,而不是工程根目录下的static目录<br />
+如果想要把多个目录下的静态文件都能通过/static/的路由访问,需要在settings中添加配置:<br /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">STATICFILES_DIRS</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s">'xxx/.../...'</span><span class="p">),</span> <span class="p">...]</span>
+</code></pre></div></div>
+<p>注意 STATICFILES_DIRS 的属性是列表<br />
+部署阶段的静态资源:<br />
+在服务器上部署项目,需要在settings中添加配置:<br /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">STATIC_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s">'Allstatic'</span><span class="p">)</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">DEBUG = TRUE</code> 开发模式,自动提供静态文件代理服务,无需使用 STATIC_ROOT<br />
+<code class="language-plaintext highlighter-rouge">DEBUG = FALSE</code> 生产模式,需要设置,而且需要用django命令collectstaic收集静态资源, 保存在Allstatic文件夹中<br /></p>
+
+:ET

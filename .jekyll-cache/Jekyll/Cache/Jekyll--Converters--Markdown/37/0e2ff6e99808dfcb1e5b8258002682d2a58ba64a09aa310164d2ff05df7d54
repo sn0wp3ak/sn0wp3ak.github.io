@@ -1,0 +1,84 @@
+I"F<h2 id="连接mysql数据库">连接MySQL数据库</h2>
+<p>两种连接方式:</p>
+<ol>
+  <li>mysqlclient</li>
+  <li>pymysql</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pip</span> <span class="n">install</span> <span class="n">mysqlclient</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">pymysql</span>
+</code></pre></div></div>
+
+<p>在settings中配置数据库连接信息</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'default'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">'ENGINE'</span><span class="p">:</span> <span class="s">'django.db.backends.mysql'</span><span class="p">,</span>
+        <span class="s">'NAME'</span><span class="p">:</span> <span class="s">'django_db'</span><span class="p">,</span>  <span class="c1"># (自己mysql中创建的数据库名称)
+</span>        <span class="s">'USER'</span><span class="p">:</span> <span class="s">'root'</span><span class="p">,</span>
+        <span class="s">'PASSWORD'</span><span class="p">:</span> <span class="s">'mysql'</span><span class="p">,</span>
+        <span class="s">'HOST'</span><span class="p">:</span> <span class="s">'127.0.0.1'</span><span class="p">,</span>
+        <span class="s">'PORT'</span><span class="p">:</span> <span class="s">'3306'</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>将迁移文件生成数据表,迁移后会在数据库中生成对应的表格</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python manage.py migrate
+</code></pre></div></div>
+
+<p>Django提供的4种数据库引擎</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'django.db.backends.postgresql'
+'django.db.backends.mysql'
+'django.db.backends.sqlite3'
+'django.db.backends.oracle'
+</code></pre></div></div>
+
+<p>使用pymysql要在项目根目录下的init.py文件中设置连接模块</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pymysql</span>
+<span class="n">pymysql</span><span class="p">.</span><span class="n">install_as_MySQldb</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>版本问题解决方法:<br />
+在Python36\Lib\site-packages\django\db\backends\mysql<br />
+(Pycharm中External Libraries)<br />
+目录下的 base.py 文件中，将以下3行内容注释掉:<br /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">version</span> <span class="o">=</span> <span class="n">Database</span><span class="p">.</span><span class="n">version_info</span>
+<span class="k">if</span> <span class="n">version</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">13</span><span class="p">):</span>
+    <span class="k">raise</span> <span class="n">ImproperlyConfigured</span><span class="p">(</span><span class="s">'mysqlclient 1.3.13 or newer is required; you have %s.'</span> <span class="o">%</span> <span class="n">Database</span><span class="p">.</span><span class="n">__version__</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>配置多个数据库<br />
+settings的DATABASES属性,字典中的多个key对应多个字典型的value<br /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># 第一个数据库
+</span>    <span class="s">'default'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">'ENGINE'</span><span class="p">:</span> <span class="s">'xxx'</span><span class="p">,</span>
+        <span class="s">'NAME'</span><span class="p">:</span> <span class="s">'xxx'</span><span class="p">,</span>
+        <span class="s">'USER'</span><span class="p">:</span> <span class="s">'xxx'</span><span class="p">,</span>
+        <span class="s">'PASSWORD'</span><span class="p">:</span> <span class="s">'xxx'</span><span class="p">,</span>
+        <span class="s">'HOST'</span><span class="p">:</span> <span class="s">'xxx'</span><span class="p">,</span>
+        <span class="s">'PORT'</span><span class="p">:</span> <span class="s">'xxx'</span>
+    <span class="p">},</span>
+    <span class="c1"># 第二个数据库
+</span>    <span class="s">'MySqlite3'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">'ENGINE'</span><span class="p">:</span> <span class="s">'xxx'</span><span class="p">,</span>
+        <span class="s">'NAME'</span><span class="p">:</span> <span class="s">'xxx'</span><span class="p">,</span>
+        <span class="s">'USER'</span><span class="p">:</span> <span class="s">'xxx'</span><span class="p">,</span>
+        <span class="s">'PASSWORD'</span><span class="p">:</span> <span class="s">'xxx'</span><span class="p">,</span>
+        <span class="s">'HOST'</span><span class="p">:</span> <span class="s">'xxx'</span><span class="p">,</span>
+        <span class="s">'PORT'</span><span class="p">:</span> <span class="s">'xxx'</span>
+    <span class="p">},</span>
+    <span class="c1"># 第三个数据库
+</span>    <span class="s">'MyOracle'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">'ENGINE'</span><span class="p">:</span> <span class="s">'xxx'</span><span class="p">,</span>
+        <span class="s">'NAME'</span><span class="p">:</span> <span class="s">'xxx'</span><span class="p">,</span>
+        <span class="s">'USER'</span><span class="p">:</span> <span class="s">'xxx'</span><span class="p">,</span>
+        <span class="s">'PASSWORD'</span><span class="p">:</span> <span class="s">'xxx'</span><span class="p">,</span>
+        <span class="s">'HOST'</span><span class="p">:</span> <span class="s">'xxx'</span><span class="p">,</span>
+        <span class="s">'PORT'</span><span class="p">:</span> <span class="s">'xxx'</span>
+    <span class="p">},</span>    
+<span class="p">}</span>
+</code></pre></div></div>
+
+:ET

@@ -1,0 +1,29 @@
+I"�<h2 id="媒体资源">媒体资源</h2>
+
+<p>属性:</p>
+<ol>
+  <li>MEDIA_URL</li>
+  <li>MEDIA_ROOT</li>
+</ol>
+
+<p>在settings中配置媒体资源路由</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="s">'/media/'</span>
+</code></pre></div></div>
+
+<p>配置media文件夹的完整路径信息</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s">'media'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>还需要在工程总路由urls.py中添加媒体资源路由</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 导包
+</span><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">re_path</span>
+<span class="kn">from</span> <span class="nn">django.views.static</span> <span class="kn">import</span> <span class="n">serve</span>
+<span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
+<span class="c1"># 插入media的路由
+</span>
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span><span class="n">re_path</span><span class="p">(</span><span class="s">'media/(?P&lt;path&gt;.*)'</span><span class="p">,</span><span class="n">serve</span><span class="p">,</span>
+                      <span class="p">{</span><span class="s">'document_root'</span><span class="p">:</span> <span class="n">settings</span><span class="p">.</span><span class="n">MEDIA_ROOT</span><span class="p">},</span> <span class="n">name</span><span class="o">=</span><span class="s">'meida'</span><span class="p">),</span>
+              <span class="p">]</span>
+
+</code></pre></div></div>
+:ET

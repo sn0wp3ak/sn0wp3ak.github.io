@@ -1,0 +1,139 @@
+I"�<ul>
+  <li>模型类被定义在”应用/models.py”文件中。</li>
+  <li>模型类必须继承自Model类，位于包django.db.models中
+<code class="language-plaintext highlighter-rouge">属性=models.字段类型(选项)</code><br /></li>
+</ul>
+
+<h3 id="字段类型">字段类型</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">类型</th>
+      <th style="text-align: left">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">AutoField</td>
+      <td style="text-align: left">自动增长的IntegerField，通常不用指定，不指定时Django会自动创建属性名为id的自动增长属性</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">BooleanField</td>
+      <td style="text-align: left">布尔字段，值为True或False</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">NullBooleanField</td>
+      <td style="text-align: left">支持Null、True、False三种值</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CharField</td>
+      <td style="text-align: left">字符串，参数max_length表示最大字符个数</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TextField</td>
+      <td style="text-align: left">大文本字段，一般超过4000个字符时使用</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">IntegerField</td>
+      <td style="text-align: left">整数</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DecimalField</td>
+      <td style="text-align: left">十进制浮点数,参数max_digits表示总位数,参数decimal_places表示小数位数</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FloatField</td>
+      <td style="text-align: left">浮点数</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DateField</td>
+      <td style="text-align: left">日期,参数auto_now表示每次保存对象时,自动设置该字段为当前时间,用于”最后一次修改”的时间戳，它总是使用当前日期，默认为False； 参数auto_now_add表示当对象第一次被创建时自动设置当前时间，用于创建的时间戳，它总是使用当前日期，默认为False; 参数auto_now_add和auto_now是相互排斥的，组合将会发生错误</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TimeField</td>
+      <td style="text-align: left">时间，参数同DateField</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DateTimeField</td>
+      <td style="text-align: left">日期时间，参数同DateField</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FileField</td>
+      <td style="text-align: left">上传文件字段</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ImageField</td>
+      <td style="text-align: left">继承于FileField，对上传的内容进行校验，确保是有效的图片</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="选项">选项</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">选项</th>
+      <th style="text-align: left">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">null</td>
+      <td style="text-align: left">如果为True，表示允许为空，默认值是False</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">blank</td>
+      <td style="text-align: left">如果为True，则该字段允许为空白，默认值是False</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">db_column</td>
+      <td style="text-align: left">字段的名称，如果未指定，则使用属性的名称</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">db_index</td>
+      <td style="text-align: left">若值为True, 则在表中会为此字段创建索引，默认值是False</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">default</td>
+      <td style="text-align: left">默认</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">primary_key</td>
+      <td style="text-align: left">若为True，则该字段会成为模型的主键字段，默认值是False，一般作为AutoField的选项使用</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">unique</td>
+      <td style="text-align: left">如果为True, 这个字段在表中必须有唯一值，默认值是False</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">related_name</td>
+      <td style="text-align: left">在关联查询中,代替单一对象查找多对象 对象名小写_set(book.heroinfo_set.all() 的写法</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">auto_now_add</td>
+      <td style="text-align: left">只在数据添加的时候,记录时间</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">auto_now</td>
+      <td style="text-align: left">数据添加和更新的时候,记录时间</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>null是数据库范畴的概念，blank是表单验证范畴的</li>
+</ul>
+
+<h3 id="外键">外键</h3>
+<ul>
+  <li>设置外键时，需要通过on_delete选项指明主表删除数据时，对于外键引用表数据如何处理</li>
+  <li>CASCADE 级联，删除主表数据时连通一起删除外键表中数据</li>
+  <li>PROTECT 保护，通过抛出ProtectedError异常，来阻止删除主表中被外键应用的数据</li>
+  <li>SET_NULL 设置为NULL，仅在该字段null=True允许为null时可用</li>
+  <li>SET_DEFAULT 设置为默认值，仅在该字段设置了默认值时可用</li>
+  <li>SET() 设置为特定值或者调用特定方法</li>
+  <li>DO_NOTHING 不做任何操作，如果数据库前置指明级联性，此选项会抛出IntegrityError异常</li>
+</ul>
+:ET

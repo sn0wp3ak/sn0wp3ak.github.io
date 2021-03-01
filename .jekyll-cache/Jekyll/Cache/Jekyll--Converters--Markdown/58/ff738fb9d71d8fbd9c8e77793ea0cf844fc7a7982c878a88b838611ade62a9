@@ -1,0 +1,25 @@
+I"<ul>
+  <li>模型类被定义在”应用/models.py”文件中。</li>
+  <li>模型类必须继承自Model类，位于包django.db.models中
+<code class="language-plaintext highlighter-rouge">属性=models.字段类型(选项)</code><br /></li>
+</ul>
+
+<h3 id="字段类型">字段类型</h3>
+
+<p>类型|说明
+:-|:-
+AutoField|自动增长的IntegerField，通常不用指定，不指定时Django会自动创建属性名为id的自动增长属性
+BooleanField|布尔字段，值为True或False
+NullBooleanField|支持Null、True、False三种值CharField字符串，参数max_length表示最大字符个数TextField大文本字段，一般超过4000个字符时使用IntegerField整数DecimalField十进制浮点数， 参数max_digits表示总位数， 参数decimal_places表示小数位数FloatField浮点数DateField日期， 参数auto_now表示每次保存对象时，自动设置该字段为当前时间，用于”最后一次修改”的时间戳，它总是使用当前日期，默认为False； 参数auto_now_add表示当对象第一次被创建时自动设置当前时间，用于创建的时间戳，它总是使用当前日期，默认为False; 参数auto_now_add和auto_now是相互排斥的，组合将会发生错误TimeField时间，参数同DateFieldDateTimeField日期时间，参数同DateFieldFileField上传文件字段ImageField继承于FileField，对上传的内容进行校验，确保是有效的图片
+选项
+选项说明null如果为True，表示允许为空，默认值是Falseblank如果为True，则该字段允许为空白，默认值是Falsedb_column字段的名称，如果未指定，则使用属性的名称db_index若值为True, 则在表中会为此字段创建索引，默认值是Falsedefault默认primary_key若为True，则该字段会成为模型的主键字段，默认值是False，一般作为AutoField的选项使用unique如果为True, 这个字段在表中必须有唯一值，默认值是Falserelated_name在关联查询中,代替单一对象查找多对象 对象名小写_set(book.heroinfo_set.all() 的写法auto_now_add只在数据添加的时候,记录时间auto_now数据添加和更新的时候,记录时间
+null是数据库范畴的概念，blank是表单验证范畴的
+外键
+设置外键时，需要通过on_delete选项指明主表删除数据时，对于外键引用表数据如何处理
+CASCADE 级联，删除主表数据时连通一起删除外键表中数据
+PROTECT 保护，通过抛出ProtectedError异常，来阻止删除主表中被外键应用的数据
+SET_NULL 设置为NULL，仅在该字段null=True允许为null时可用
+SET_DEFAULT 设置为默认值，仅在该字段设置了默认值时可用
+SET() 设置为特定值或者调用特定方法
+DO_NOTHING 不做任何操作，如果数据库前置指明级联性，此选项会抛出IntegrityError异常</p>
+:ET
