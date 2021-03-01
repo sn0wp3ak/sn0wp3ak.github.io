@@ -1,0 +1,28 @@
+I"Z
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">SHOW</span> <span class="n">DATABASES</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="o">|</span> <span class="k">Database</span>           <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="o">|</span> <span class="n">information_schema</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">mysql</span>              <span class="o">|</span>
+<span class="o">|</span> <span class="n">performance_schema</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">sakila</span>             <span class="o">|</span>
+<span class="o">|</span> <span class="n">sys</span>                <span class="o">|</span>
+<span class="o">|</span> <span class="n">world</span>              <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+</code></pre></div></div>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">information_schema</code><br />
+主要存储了系统中的一些数据库对象信息，比如用户表信息、列信息、权限信息、字符集信息和分区信息等。</li>
+  <li><code class="language-plaintext highlighter-rouge">mysql</code><br />
+MySQL 的核心数据库，类似于 SQL Server 中的 master 表，主要负责存储数据库用户、用户访问权限等 MySQL 自己需要使用的控制和管理信息。常用的比如在 mysql 数据库的 user 表中修改 root 用户密码。</li>
+  <li><code class="language-plaintext highlighter-rouge">performance_schema</code><br />
+主要用于收集数据库服务器性能参数。</li>
+  <li><code class="language-plaintext highlighter-rouge">sakila</code><br />
+MySQL 提供的样例数据库，该数据库共有 16 张表，这些数据表都是比较常见的，在设计数据库时，可以参照这些样例数据表来快速完成所需的数据表。</li>
+  <li><code class="language-plaintext highlighter-rouge">sys</code><br />
+MySQL 5.7 安装完成后会多一个 sys 数据库。sys 数据库主要提供了一些视图，数据都来自于 performation_schema，主要是让开发者和使用者更方便地查看性能问题。</li>
+  <li><code class="language-plaintext highlighter-rouge">world</code><br />
+world 数据库是 MySQL 自动创建的数据库，该数据库中只包括 3 张数据表，分别保存城市，国家和国家使用的语言等内容。</li>
+</ul>
+:ET

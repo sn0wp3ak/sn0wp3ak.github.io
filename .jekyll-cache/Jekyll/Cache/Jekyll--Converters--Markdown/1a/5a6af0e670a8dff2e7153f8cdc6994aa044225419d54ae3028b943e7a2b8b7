@@ -1,0 +1,55 @@
+I"�<p>查看系统当前日期和时间</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">NOW</span><span class="p">();</span>
+</code></pre></div></div>
+<p>终止语句</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">;</span> <span class="err">或者</span> <span class="err">\</span><span class="k">g</span> 
+<span class="err">\</span><span class="k">G</span> <span class="err">终止语句</span><span class="p">,</span> <span class="err">并且以竖直方式显示结果</span><span class="p">,</span> <span class="err">每行显示一个值</span>
+</code></pre></div></div>
+<p>换行继续输入</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">回车键</span>
+</code></pre></div></div>
+<p>中断输入放弃执行</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">\</span><span class="k">c</span>
+</code></pre></div></div>
+<p>一行中输入多条语句</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">中间用</span> <span class="p">;</span> <span class="err">分隔即可</span>
+</code></pre></div></div>
+<p>输入重定向</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mysql</span> <span class="o">&lt;</span> <span class="n">file_name</span><span class="p">.</span><span class="k">sql</span>
+</code></pre></div></div>
+<p>建库</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="err">库名</span><span class="p">;</span>
+</code></pre></div></div>
+<p>选择库</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">USE</span> <span class="err">库名</span><span class="p">;</span>
+<span class="err">也可以在建立连接时就选择</span> <span class="n">mysql</span> <span class="err">库名</span> <span class="p">(</span><span class="err">推荐使用</span><span class="p">)</span>
+</code></pre></div></div>
+<p>查看当前库</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DATABASE</span><span class="p">();</span>
+</code></pre></div></div>
+<p>建表</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="err">表名</span><span class="p">(</span>
+    <span class="err">列名</span> <span class="err">数据类型</span> <span class="err">属性</span><span class="p">,</span>
+    <span class="err">列名</span> <span class="err">数据类型</span> <span class="err">属性</span><span class="p">,</span>
+    <span class="p">...</span>
+<span class="p">);</span>
+
+<span class="err">属性</span><span class="p">:</span>
+    <span class="n">AUTO_INCREMENT</span> <span class="err">自增</span>
+    <span class="k">NOT</span> <span class="k">NULL</span>  <span class="err">非空</span><span class="p">,</span> <span class="err">必须有数据</span>
+<span class="err">子句</span><span class="p">:</span>
+    <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">()</span> <span class="err">指定主键列</span><span class="p">,</span> <span class="err">创建索引</span>
+</code></pre></div></div>
+<p>查看表结构</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DESCRIBE</span> <span class="err">表名</span><span class="p">;</span>
+<span class="k">DESC</span> <span class="err">表名</span><span class="p">;</span>
+<span class="k">EXPLAIN</span> <span class="err">表名</span><span class="p">;</span>
+<span class="k">SHOW</span> <span class="n">COLUMNS</span> <span class="k">FROM</span> <span class="err">表名</span><span class="p">;</span>
+<span class="k">SHOW</span> <span class="n">FIELDS</span> <span class="k">FROM</span> <span class="err">表名</span><span class="p">;</span>
+</code></pre></div></div>
+<p>查看表指定列的信息</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SHOW</span> <span class="n">COLUMNS</span> <span class="k">FROM</span> <span class="err">表名</span> <span class="k">LIKE</span> <span class="s1">'%部分列名'</span><span class="p">;</span>
+<span class="k">DESCRIBE</span> <span class="err">表名</span> <span class="s1">'%部分列名'</span>
+</code></pre></div></div>
+
+:ET

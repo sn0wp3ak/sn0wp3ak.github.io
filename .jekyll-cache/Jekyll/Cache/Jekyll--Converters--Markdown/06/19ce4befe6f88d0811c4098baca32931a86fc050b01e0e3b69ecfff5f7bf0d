@@ -1,0 +1,31 @@
+I"<h3 id="日志的5大级别">日志的5大级别</h3>
+<p><code class="language-plaintext highlighter-rouge">从低到高</code></p>
+
+<ul>
+  <li>debug
+    <ul>
+      <li>详细的信息，通常只出现在诊断问题上</li>
+    </ul>
+  </li>
+  <li>info
+    <ul>
+      <li>确认一切按预期运行</li>
+    </ul>
+  </li>
+  <li>warning
+    <ul>
+      <li>一个迹象表明，一些意想不到事情发生了或表明一些问题在不久将来列如（磁盘空间低），这个软件还能按预期工作</li>
+    </ul>
+  </li>
+  <li>error
+    <ul>
+      <li>更严重的问题，软件没能执行一些功能</li>
+    </ul>
+  </li>
+  <li>critical
+    <ul>
+      <li>一个严重的错误，这表明程序本身可能无法继续运行</li>
+    </ul>
+  </li>
+</ul>
+:ET

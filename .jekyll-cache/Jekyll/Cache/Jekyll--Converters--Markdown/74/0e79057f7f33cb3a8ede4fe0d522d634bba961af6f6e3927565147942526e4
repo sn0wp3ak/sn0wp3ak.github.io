@@ -1,0 +1,25 @@
+I"I<h2 id="主要两种方法">主要两种方法</h2>
+<ol>
+  <li>type
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">type</span><span class="p">(</span><span class="n">对象</span><span class="p">)</span> <span class="o">--</span> <span class="n">返回对象的类型</span>
+</code></pre></div>    </div>
+    <p>判断是否是基本数据类型</p>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">type</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span> <span class="p">;</span> <span class="nb">type</span><span class="p">(</span><span class="s">"laowang"</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span> <span class="p">...</span>
+</code></pre></div>    </div>
+    <p>判断是否是函数 – 用type模块中定义的常量</p>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">type</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span><span class="o">==</span><span class="n">types</span><span class="p">.</span><span class="n">FunctionType</span>
+<span class="nb">type</span><span class="p">(</span><span class="nb">abs</span><span class="p">)</span><span class="o">==</span><span class="n">types</span><span class="p">.</span><span class="n">BuiltinFunctionType</span>
+<span class="nb">type</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">)</span><span class="o">==</span><span class="n">types</span><span class="p">.</span><span class="n">LambdaType</span>
+<span class="nb">type</span><span class="p">((</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span><span class="o">==</span><span class="n">types</span><span class="p">.</span><span class="n">GeneratorType</span>
+</code></pre></div>    </div>
+  </li>
+  <li>isinstance
+对象是否是某种类型
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">isinstance</span><span class="p">(</span><span class="n">对象</span><span class="p">,</span> <span class="n">类型</span><span class="p">)</span> <span class="n">返回bool值</span>
+</code></pre></div>    </div>
+    <p>判断一个变量是否是某些类型中的一种</p>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">isinstance</span><span class="p">(</span><span class="n">对象</span><span class="p">,</span> <span class="p">(</span><span class="n">类型1</span><span class="p">,</span> <span class="n">类型2</span><span class="p">,</span> <span class="p">...))</span> <span class="n">返回bool值</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+:ET
