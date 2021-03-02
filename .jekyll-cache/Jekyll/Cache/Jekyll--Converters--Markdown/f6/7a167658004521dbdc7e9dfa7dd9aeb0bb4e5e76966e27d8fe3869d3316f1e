@@ -1,0 +1,25 @@
+I"�<p>Link --&gt; ln<br /></p>
+<ul>
+  <li>对源文件创建一个链接文件, 让用户直接使用/修改链接文件而不是操作源文件</li>
+  <li>分类:
+    <ul>
+      <li>软链接/符号链接 <code class="language-plaintext highlighter-rouge">ln -s 源文件 链接文件</code></li>
+      <li>硬链接 <code class="language-plaintext highlighter-rouge">ln 源文件 链接文件</code></li>
+    </ul>
+  </li>
+  <li>使用<code class="language-plaintext highlighter-rouge">ls -l</code>查看文件信息, 软链接的文件类型是<code class="language-plaintext highlighter-rouge">l</code>, 而硬链接就和普通文件一样是<code class="language-plaintext highlighter-rouge">-</code></li>
+  <li>软链接本身只会保存源文件的路径和文件名</li>
+  <li>目录的硬链接数: 能够到达该目录的路径个数</li>
+  <li>文件硬链接的本质: 硬链接和源文件是同一份文件数据, 只不过名字不同</li>
+  <li>文件数据在文件系统中有一个唯一的编号: inode</li>
+  <li>删除文件名相当于是删除文件的硬链接, 那么多创建硬链接也就自然可以防止文件数据被删除</li>
+  <li>删除原始文件后
+    <ul>
+      <li>软链接: 直接失效</li>
+      <li>硬链接: 还能继续使用</li>
+    </ul>
+  </li>
+  <li>软链接可以对目录和文件使用, 而硬链接则只能对文件创建</li>
+  <li>在创建软链接时, 建议使用绝对路径</li>
+</ul>
+:ET

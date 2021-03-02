@@ -1,0 +1,13 @@
+I"�<p>Link --&gt; ln<br /></p>
+<ul>
+  <li>对源文件创建一个链接文件, 让用户直接使用/修改链接文件而不是操作源文件</li>
+  <li>分类:
+    <ul>
+      <li>软链接/符号链接 <code class="language-plaintext highlighter-rouge">ln -s 源文件 链接文件</code></li>
+      <li>硬链接 <code class="language-plaintext highlighter-rouge">ln 源文件 链接文件</code></li>
+    </ul>
+  </li>
+  <li>使用<code class="language-plaintext highlighter-rouge">ls -l</code>查看文件信息, 软链接的文件类型是<code class="language-plaintext highlighter-rouge">l</code>, 而硬链接就和普通文件一样是<code class="language-plaintext highlighter-rouge">-</code></li>
+  <li></li>
+</ul>
+:ET
