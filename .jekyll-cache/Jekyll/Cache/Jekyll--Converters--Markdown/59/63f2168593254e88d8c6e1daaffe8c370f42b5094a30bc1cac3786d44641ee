@@ -1,0 +1,38 @@
+I"�<p><img src="/assets/post_image/Moby-logo.png" height="50" weight="50" /><br /></p>
+
+<p>启动容器<br />
+启动容器有2种方式:</p>
+<ul>
+  <li>基于镜像新建容器</li>
+  <li>重启stopped状态的容器</li>
+</ul>
+<hr />
+
+<p>新建并启动<br />
+命令: <code class="language-plaintext highlighter-rouge">docker run</code><br />
+选项:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">-t</code> 让Docker分配一个伪终端绑定到容器的标准输入</li>
+  <li><code class="language-plaintext highlighter-rouge">-i</code>让容器的标准输入保持打开(交互模式)</li>
+</ul>
+
+<p>使用 docker run 创建容器时, Docker在后台运行的标准操作:<br /></p>
+<ul>
+  <li>检查本地有没有指定镜像, 没有就从公共仓库下载</li>
+  <li>利用镜像创建并启动一个容器</li>
+  <li>分配一个文件系统, 在只读的镜像层外面挂载一层可读写层</li>
+  <li>从宿主主机配置的网络接口中桥接一个虚拟接口到容器中去</li>
+  <li>从地址池配置一个ip地址给容器</li>
+  <li>执行用户指定的应用程序</li>
+  <li>执行完毕后容器被终止</li>
+</ul>
+
+<p>重启已终止的容器
+命令: <code class="language-plaintext highlighter-rouge">docker container start</code><br /></p>
+<hr />
+
+<p>守护态运行<br />
+后台运行 <code class="language-plaintext highlighter-rouge">-d</code>参数<br />
+命令: <code class="language-plaintext highlighter-rouge">docker run -d</code><br /></p>
+
+:ET

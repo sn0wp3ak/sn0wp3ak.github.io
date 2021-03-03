@@ -1,0 +1,69 @@
+I"�<p><img src="/assets/post_image/Moby-logo.png" height="50" weight="50" /><br />
+仓库repository -- 集中存放镜像的地方<br /></p>
+
+<p>注册服务器Registry -- 管理仓库的具体服务器<br /></p>
+
+<p>一台服务器上可以有许多个仓库, 而每个仓库下面又可以有许多个镜像<br /></p>
+
+<p>也就是说仓库可以理解为是具体的项目或目录<br /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker.io/ubuntu  
+docker.io是注册服务器
+ubuntu是仓库名
+</code></pre></div></div>
+<hr />
+
+<h2 id="docker-hub">Docker Hub</h2>
+<p>一个官方维护的公共仓库<br /></p>
+<h3 id="注册">注册</h3>
+<p><a href="https://hub.docker.com"> https://hub.docker.com </a> 可以注册帐号<br /></p>
+<h3 id="登录">登录</h3>
+<p><code class="language-plaintext highlighter-rouge">docker login</code>命令, 通过交互式输入用户名和密码进行命令行登录Docker Hub<br />
+<code class="language-plaintext highlighter-rouge">docker logout</code>命令退出登录<br /></p>
+<h3 id="拉取镜像">拉取镜像</h3>
+<p><code class="language-plaintext highlighter-rouge">docker search</code>命令查找官方仓库中的镜像<br />
+<code class="language-plaintext highlighter-rouge">docker pull</code>命令下载到本地<br />
+镜像根据是否是官方提供的分为2类:<br /></p>
+<ol>
+  <li>基础镜像/根镜像: 由Docker公司创建, 验证, 支持, 提供</li>
+  <li>由某个Docker Hub用户创建并维护, 一般会有 username/ 作为前缀</li>
+</ol>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">docker search</code> 可以使用参数过滤, 举例:<code class="language-plaintext highlighter-rouge">--filter=stars=N</code>显示收藏数为N以上的镜像</li>
+</ul>
+
+<h3 id="推送镜像">推送镜像</h3>
+<p><code class="language-plaintext highlighter-rouge">docker push</code>命令<br /></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 假设Docker Hub 用户名为username</span>
+docker tag ubuntu:16.04 username/ubuntu:16.04
+docker image <span class="nb">ls</span>
+<span class="o">&gt;&gt;&gt;</span> REPOSITORY           TAG
+<span class="o">&gt;&gt;&gt;</span> username/ubuntu      16.04
+docker push username/ubuntu:16.04
+docker search username
+<span class="o">&gt;&gt;&gt;</span> NAME                DESCRIPTION
+<span class="o">&gt;&gt;&gt;</span> username/ubuntu
+</code></pre></div></div>
+
+<h3 id="自动构建">自动构建</h3>
+<p>Automated Builds<br />
+这个功能对于经常需要升级的镜像内程序十分方便<br />
+自动构建允许用户通过 Docker Hub 指定跟踪一个目标网站比如GitHub上的项目, 一旦项目发生新的提交commit或者创建了新的标签tag, Docker Hub会自动构建镜像并推送到Docker Hub中去<br /></p>
+
+<p>配置自动构建的步骤:</p>
+<ul>
+  <li>登录Docker Hub</li>
+  <li>在Docker Hub点击右上角头像, 在帐号设置中关联目标网站</li>
+  <li>在Docker Hub中新建或者选择已有的仓库, 在Builds选项卡中选择<code class="language-plaintext highlighter-rouge">Configure Automated Builds</code></li>
+  <li>选择一个目标网站中的项目(需要有Dockerfile)和分支branch</li>
+  <li>指定Dockerfile的位置, 并保存</li>
+</ul>
+
+<p>完成后, 可以在Docker Hub的仓库页面 <code class="language-plaintext highlighter-rouge">Timeline</code>选项卡中查看每次构建的状态<br /></p>
+<hr />
+
+<h3 id="私有仓库">私有仓库</h3>
+<p><code class="language-plaintext highlighter-rouge">docker-registry</code>是官方提供的用于构建私有镜像仓库的工具<br /></p>
+
+:ET

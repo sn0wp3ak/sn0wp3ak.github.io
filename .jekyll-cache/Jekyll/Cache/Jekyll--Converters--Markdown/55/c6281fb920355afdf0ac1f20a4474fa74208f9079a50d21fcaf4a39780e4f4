@@ -1,0 +1,90 @@
+I"�<p><img src="/assets/post_image/Moby-logo.png" height="50" weight="50" /><br /></p>
+
+<h3 id="启动容器">启动容器</h3>
+<p>启动容器有2种方式:</p>
+<ul>
+  <li>基于镜像新建容器</li>
+  <li>重启stopped状态的容器</li>
+</ul>
+<hr />
+
+<h3 id="新建并启动">新建并启动</h3>
+<p>命令: <code class="language-plaintext highlighter-rouge">docker run</code><br />
+选项:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">-t</code> 让Docker分配一个伪终端绑定到容器的标准输入</li>
+  <li><code class="language-plaintext highlighter-rouge">-i</code>让容器的标准输入保持打开(交互模式)</li>
+</ul>
+
+<p>使用 docker run 创建容器时, Docker在后台运行的标准操作:<br /></p>
+<ul>
+  <li>检查本地有没有指定镜像, 没有就从公共仓库下载</li>
+  <li>利用镜像创建并启动一个容器</li>
+  <li>分配一个文件系统, 在只读的镜像层外面挂载一层可读写层</li>
+  <li>从宿主主机配置的网络接口中桥接一个虚拟接口到容器中去</li>
+  <li>从地址池配置一个ip地址给容器</li>
+  <li>执行用户指定的应用程序</li>
+  <li>执行完毕后容器被终止</li>
+</ul>
+
+<h3 id="重启已终止的容器">重启已终止的容器</h3>
+<p>命令: <code class="language-plaintext highlighter-rouge">docker container start</code><br /></p>
+<hr />
+
+<h3 id="守护态运行">守护态运行</h3>
+<p>后台运行 <code class="language-plaintext highlighter-rouge">-d</code>参数<br />
+命令: <code class="language-plaintext highlighter-rouge">docker run -d</code><br />
+使用守护态运行容器, 容器不会把输出的结果打印在宿主机, 此时可以用<code class="language-plaintext highlighter-rouge">docker logs</code>命令查看<br />
+至于容器是否能够长时间运行, 和守护态无关, 而和<code class="language-plaintext highlighter-rouge">docker run</code>的命令参数有关<br />
+在使用-d参数守护态启动后, 后返回一个唯一的容器ID<br />
+通过<code class="language-plaintext highlighter-rouge">docker container ls</code>命令也可以查到容器信息 <code class="language-plaintext highlighter-rouge">CONTAINER ID</code><br /></p>
+<hr />
+
+<h3 id="终止">终止</h3>
+<p>命令: <code class="language-plaintext highlighter-rouge">docker container stop</code><br />
+注意: 当容器中的应用终结时, 容器本身也会自动终止<br />
+已终止的容器可以使用 <code class="language-plaintext highlighter-rouge">docker container ls -a</code>命令查到<br />
+终止状态的容器重新启动的命令: <code class="language-plaintext highlighter-rouge">docker container start</code><br />
+运行状态的容器重新启动的命令: <code class="language-plaintext highlighter-rouge">docker container restart</code><br /></p>
+<hr />
+
+<h3 id="进入容器中">进入容器中</h3>
+<p>命令:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">docker attach</code></li>
+  <li><code class="language-plaintext highlighter-rouge">docker exec</code></li>
+</ul>
+
+<p>使用<code class="language-plaintext highlighter-rouge">attach</code>进入容器时, 如果标准输入中输入<code class="language-plaintext highlighter-rouge">exit</code>, 那么容器会停止<br />
+而使用<code class="language-plaintext highlighter-rouge">exec</code>进入则不会停止<br />
+所以更推荐使用<code class="language-plaintext highlighter-rouge">docker exec</code>命令进入容器<br /></p>
+
+<p>docker exec 后面可以有多个参数<br />
+<code class="language-plaintext highlighter-rouge">-i</code>参数, 进入交互<br />
+<code class="language-plaintext highlighter-rouge">-t</code>参数, 分配伪终端<br />
+<code class="language-plaintext highlighter-rouge">-i -t</code>配合使用就会出现命令行提示符<br />
+更多参数<code class="language-plaintext highlighter-rouge">docker exec --help</code>查看<br /></p>
+<hr />
+
+<h3 id="导入导出">导入导出</h3>
+<p>导出容器<br />
+命令: <code class="language-plaintext highlighter-rouge">docker export</code><br />
+导出容器快照到本地文件</p>
+
+<p>导入容器快照<br />
+命令: <code class="language-plaintext highlighter-rouge">docker import</code></p>
+
+<p>两种导入的区别</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">docker load</code>导入镜像存储文件到本地镜像库</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">docker import</code>导入一个容器快照到本地镜像</p>
+  </li>
+  <li>快照文件会丢弃所有的历史记录和元数据信息, 而镜像存储文件则保存完整记录, 但是体积自然也就较大<br /></li>
+  <li>容器快照在导入时可以重新指定标签等元数据信息</li>
+</ul>
+<hr />
+
+<h3 id="删除">删除</h3>
+
+:ET

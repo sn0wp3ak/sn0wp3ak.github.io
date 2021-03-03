@@ -1,0 +1,36 @@
+I"<p><img src="/assets/post_image/Moby-logo.png" height="50" weight="50" /><br />
+仓库repository -- 集中存放镜像的地方<br /></p>
+
+<p>注册服务器Registry -- 管理仓库的具体服务器<br /></p>
+
+<p>一台服务器上可以有许多个仓库, 而每个仓库下面又可以有许多个镜像<br /></p>
+
+<p>也就是说仓库可以理解为是具体的项目或目录<br /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker.io/ubuntu  
+docker.io是注册服务器
+ubuntu是仓库名
+</code></pre></div></div>
+<hr />
+
+<h2 id="docker-hub">Docker Hub</h2>
+<p>一个官方维护的公共仓库<br /></p>
+<h3 id="注册">注册</h3>
+<p><a href="https://hub.docker.com"> https://hub.docker.com </a> 可以注册帐号<br /></p>
+<h3 id="登录">登录</h3>
+<p><code class="language-plaintext highlighter-rouge">docker login</code>命令, 通过交互式输入用户名和密码进行命令行登录Docker Hub<br />
+<code class="language-plaintext highlighter-rouge">docker logout</code>命令退出登录<br /></p>
+<h3 id="拉取镜像">拉取镜像</h3>
+<p><code class="language-plaintext highlighter-rouge">docker search</code>命令查找官方仓库中的镜像<br />
+<code class="language-plaintext highlighter-rouge">docker pull</code>命令下载到本地<br />
+镜像根据是否是官方提供的分为2类:<br /></p>
+<ol>
+  <li>基础镜像/根镜像: 由Docker公司创建, 验证, 支持, 提供</li>
+  <li>由某个Docker Hub用户创建并维护, 一般会有 username/ 作为前缀</li>
+</ol>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">docker search</code> 可以使用参数过滤, 举例:<code class="language-plaintext highlighter-rouge">--filter=stars=N</code>显示收藏数为N以上的镜像</li>
+</ul>
+
+:ET
