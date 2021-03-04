@@ -1,0 +1,40 @@
+I"~<p>CentOS需要安装EPEL三方源<br /></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum <span class="nt">-y</span> <span class="nb">install </span>redis
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl start redis
+</code></pre></div></div>
+
+<p>启动redis:</p>
+<ul>
+  <li>服务器: <code class="language-plaintext highlighter-rouge">redis-server</code>
+    <ul>
+      <li>以配置文件启动: <code class="language-plaintext highlighter-rouge">redis-server /etc/redis/redis.conf</code></li>
+    </ul>
+  </li>
+  <li>客户端: <code class="language-plaintext highlighter-rouge">redis-cli</code>
+    <ul>
+      <li>指定IP地址和端口号访问: <code class="language-plaintext highlighter-rouge">redis-cli -h IP地址 -p 端口号</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p>查看启动情况:</p>
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>ps aux</td>
+          <td>grep redis</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>ss -antpl</li>
+</ul>
+
+<p>客户端登入后, 输入<code class="language-plaintext highlighter-rouge">ping</code>, 如果反显出<code class="language-plaintext highlighter-rouge">pong</code>说明连接成功<br /></p>
+
+<p>默认情况下会使用0号数据库, select [0-15]可以切换<br /></p>
+
+:ET

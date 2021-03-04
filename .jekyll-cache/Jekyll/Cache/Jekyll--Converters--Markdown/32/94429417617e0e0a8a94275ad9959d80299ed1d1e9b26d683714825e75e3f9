@@ -1,0 +1,10 @@
+I"<p>集合(Set)是无序的, 其中的元素是不能重复的<br /></p>
+
+<ul>
+  <li>增
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sadd key mem0 mem1 mem2
+</code></pre></div>    </div>
+  </li>
+  <li></li>
+</ul>
+:ET

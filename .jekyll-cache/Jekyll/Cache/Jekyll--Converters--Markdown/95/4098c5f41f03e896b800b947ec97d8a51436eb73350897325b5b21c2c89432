@@ -1,0 +1,17 @@
+I";<h3 id="0-查看cpu信息">0-查看CPU信息</h3>
+<blockquote>
+  <ol>
+    <li>lscpu<br /></li>
+    <li>cat /proc/cpuinfo<br /></li>
+  </ol>
+</blockquote>
+
+<h3 id="1-查看内存信息">1-查看内存信息</h3>
+<blockquote>
+  <ol>
+    <li>free<br /></li>
+    <li>cat /proc/meminfo<br /></li>
+  </ol>
+</blockquote>
+
+:ET

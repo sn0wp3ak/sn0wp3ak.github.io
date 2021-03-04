@@ -1,0 +1,37 @@
+I"�<p>哈希(Hash)是字段和值的映射表, 类似于字典, 适合存储对象型的数据<br /></p>
+
+<ul>
+  <li>增/改
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hset key attr value
+# 批量新增
+hmset key attr0 value0 attr1 value1 attr2 value2 ...
+</code></pre></div>    </div>
+  </li>
+  <li>删除整个哈希键值对
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>del key
+</code></pre></div>    </div>
+  </li>
+  <li>删除hash中指定的属性和值
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hdel key attr
+</code></pre></div>    </div>
+  </li>
+  <li>查
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hget key attr
+hmget key attr0 attr1 attr2 ...
+</code></pre></div>    </div>
+  </li>
+  <li>查key的所有value
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hvals key
+</code></pre></div>    </div>
+  </li>
+  <li>查key的所有attr
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hkeys key
+</code></pre></div>    </div>
+  </li>
+  <li>查key的所有attr+value
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hgetall key
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+:ET

@@ -1,0 +1,87 @@
+I"<p>Redis是Key-Value型数据库, 每条数据都是一个键值对<br /></p>
+
+<p>Key的类型都是固定的: 字符串类型<br /></p>
+<ul>
+  <li>注意: Key不能重复</li>
+</ul>
+
+<p>而Value的类型则有5种<br />
+数据的基本操作依然是: CRUD<br /></p>
+
+<h3 id="最基础的类型-string">最基础的类型: String</h3>
+<ul>
+  <li>增
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set key value
+# 批量新增
+mset key0 value0 key1 value1 key2 value2 ...
+</code></pre></div>    </div>
+  </li>
+  <li>删
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>del key
+# 删除多个
+del key0 key1 key2
+</code></pre></div>    </div>
+  </li>
+  <li>改
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set key value
+</code></pre></div>    </div>
+  </li>
+  <li>查
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get key
+# 批量查询
+mget key0 key
+</code></pre></div>    </div>
+  </li>
+  <li>追加
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>append key value
+</code></pre></div>    </div>
+  </li>
+  <li>递增
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># +1
+incr key
+# +n
+incrby key n
+</code></pre></div>    </div>
+  </li>
+  <li>递减
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># -1
+decr key
+# -m
+decrby key m
+</code></pre></div>    </div>
+  </li>
+  <li>新增并设置过期时间
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>setex key time value
+set key value ex time
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="对于key的通用操作不论是不是string类型">对于key的通用操作(不论是不是string类型)</h3>
+<ul>
+  <li>设置已存在key的过期时间
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>expire key time
+</code></pre></div>    </div>
+  </li>
+  <li>查看过期时间
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ttl key
+</code></pre></div>    </div>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">-1</code> 代表未设置过期时间</li>
+      <li><code class="language-plaintext highlighter-rouge">-2</code> 代表已经过期了</li>
+    </ul>
+  </li>
+  <li>查看所有key
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>keys *
+</code></pre></div>    </div>
+  </li>
+  <li>key是否存在
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exists key
+</code></pre></div>    </div>
+    <ul>
+      <li>返回值<code class="language-plaintext highlighter-rouge">[0\/1]</code></li>
+    </ul>
+  </li>
+</ul>
+
+:ET

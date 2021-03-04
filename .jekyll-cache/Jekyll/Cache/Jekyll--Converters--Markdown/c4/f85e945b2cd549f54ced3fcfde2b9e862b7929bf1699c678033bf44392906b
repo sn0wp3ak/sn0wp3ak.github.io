@@ -1,0 +1,41 @@
+I"�<p>有序集合也是不允许出现重复的元素, 但是会有权值的概念, 而权值正是排序的依据<br />
+有序集合用于需要排名的场景<br /></p>
+
+<p>权值score是一个双精度浮点值类型的<br /></p>
+
+<p>权值是可以重复的<br /></p>
+
+<p>有序集合中的元素通过权值<code class="language-plaintext highlighter-rouge">由小到大</code>排序<br /></p>
+
+<ul>
+  <li>增
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zadd key score0 mem0 score1 mem1 score2 mem2 ...
+</code></pre></div>    </div>
+  </li>
+  <li>删除元素
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zrem key mem
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 以权重值范围进行删除
+zremrangebyscore key start stop
+</code></pre></div>    </div>
+  </li>
+  <li>有序集合长度
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zcard key
+</code></pre></div>    </div>
+  </li>
+  <li>查
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 以权重值范围进行查询
+zrange key start stop
+</code></pre></div>    </div>
+  </li>
+  <li>获取元素的权重值
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zscore key mem
+</code></pre></div>    </div>
+  </li>
+  <li>返回元素的索引
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zrank key mem
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+:ET

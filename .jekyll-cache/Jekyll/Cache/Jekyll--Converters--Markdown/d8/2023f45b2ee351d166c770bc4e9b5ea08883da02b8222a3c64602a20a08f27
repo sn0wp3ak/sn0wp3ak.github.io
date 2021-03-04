@@ -1,0 +1,51 @@
+I"�<p>Redis是Key-Value型数据库, 每条数据都是一个键值对<br /></p>
+
+<p>Key的类型都是固定的: 字符串类型<br /></p>
+<ul>
+  <li>注意: Key不能重复</li>
+</ul>
+
+<p>而Value的类型则有5种<br />
+数据的基本操作依然是: CRUD<br /></p>
+
+<h3 id="最基础的类型-string">最基础的类型: String</h3>
+<ul>
+  <li>增
+    <pre><code class="language-redis">set key value
+# 批量新增
+mset key0 value0 key1 value1 key2 value2 ...
+</code></pre>
+  </li>
+  <li>删
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>del key
+# 删除多个
+del key0 key1 key2
+</code></pre></div>    </div>
+  </li>
+  <li>改
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set key value
+</code></pre></div>    </div>
+  </li>
+  <li>查
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get key
+# 批量查询
+mget key0 key
+</code></pre></div>    </div>
+  </li>
+  <li>追加
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>append key value
+</code></pre></div>    </div>
+  </li>
+  <li>递增
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># +1
+incr key
+# +n
+incrby key n
+</code></pre></div>    </div>
+  </li>
+  <li>递减
+```</li>
+</ul>
+
+<p>```</p>
+:ET

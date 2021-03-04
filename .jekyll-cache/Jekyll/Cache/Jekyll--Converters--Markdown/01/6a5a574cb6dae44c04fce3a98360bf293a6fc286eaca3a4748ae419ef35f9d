@@ -1,0 +1,44 @@
+I"B<p>Redis - Remote Dictionary Server<br />
+Redis: Key-Value类型的内存数据库<br /></p>
+
+<p>缺点:</p>
+<ul>
+  <li>Redis的容量受到物理内存的限制, 一般只用于较少数据量的高性能存储</li>
+</ul>
+
+<p>优点:</p>
+<ul>
+  <li>高性能, 是目前最快的Key-Value类型的数据库</li>
+  <li>可以持久化数据</li>
+  <li>数据类型丰富(5类)</li>
+  <li>单个Value值更大</li>
+  <li>支持分布式集群</li>
+  <li>支持主从备份</li>
+</ul>
+
+<p>数据类型:</p>
+<ul>
+  <li>string</li>
+  <li>list</li>
+  <li>hash</li>
+  <li>set</li>
+  <li>zset</li>
+</ul>
+
+<p>配置文件: <code class="language-plaintext highlighter-rouge">/etc/redis/redis.conf</code><br />
+核心配置项:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">bind xxx.xxx.xxx.xxx</code> 用于绑定IP地址</li>
+  <li><code class="language-plaintext highlighter-rouge">port 6379</code> Redis的端口号</li>
+  <li><code class="language-plaintext highlighter-rouge">daemonize yes</code> 以守护进程开启服务</li>
+  <li><code class="language-plaintext highlighter-rouge">database 16</code> Redis 16个数据库 编号0-15</li>
+  <li><code class="language-plaintext highlighter-rouge">select [0-15]</code> 切换选择数据库</li>
+  <li><code class="language-plaintext highlighter-rouge">slaveof</code> 主从复制</li>
+  <li><code class="language-plaintext highlighter-rouge">dbfilename dump.rdb</code> 数据文件</li>
+  <li><code class="language-plaintext highlighter-rouge">dir /var/lib/redis</code> 数据文件的存放路径</li>
+  <li><code class="language-plaintext highlighter-rouge">logfile</code> 日志文件</li>
+  <li><code class="language-plaintext highlighter-rouge">pidfile</code> 进程ID文件</li>
+  <li><code class="language-plaintext highlighter-rouge">slave-read-only</code> 从端只读</li>
+</ul>
+
+:ET

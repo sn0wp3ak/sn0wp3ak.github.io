@@ -1,0 +1,30 @@
+I"e<p>集合(Set)是无序的, 其中的元素是不能重复的<br /></p>
+
+<ul>
+  <li>增/追加
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sadd key mem0 mem1 mem2
+</code></pre></div>    </div>
+  </li>
+  <li>删
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>srem key mem
+</code></pre></div>    </div>
+  </li>
+  <li>查
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>smembers key
+</code></pre></div>    </div>
+  </li>
+  <li>交集
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sinter key0 key1
+</code></pre></div>    </div>
+  </li>
+  <li>并集
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sunion key0 key1
+</code></pre></div>    </div>
+  </li>
+  <li>差集
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sdiff key0 key1
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+:ET

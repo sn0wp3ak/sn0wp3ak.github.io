@@ -1,0 +1,64 @@
+I"%
+<h3 id="列表list">列表(List)</h3>
+<p>队列的顺序 FILO 先进后出<br />
+<code class="language-plaintext highlighter-rouge">列表的顺序 FIFO 先进先出</code><br />
+列表是一个双向可读写通道<br />
+左边是头部, 右边是尾部<br />
+第一个元素下标为0, 以此类推, 支持负数下标, -1表示最末尾元素<br />
+类表中value值可以重复<br /></p>
+
+<ul>
+  <li>新增或追加
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lpush key value0 value1 value2
+rpush key value0 value1 value2
+</code></pre></div>    </div>
+    <ul>
+      <li>lpush 从左边压入,  最早添加的最先查处来</li>
+      <li>rpush 从右边压入,  最晚添加的最先查处来</li>
+    </ul>
+  </li>
+  <li>删除列表中的元素
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lrem key count value
+</code></pre></div>    </div>
+    <ul>
+      <li>把列表中前count次出现的值为value的元素删除</li>
+      <li>count&gt;0时从列表头部开始, count&lt;0时从列表尾部开始</li>
+      <li>count=0时, 删除列表中所有值为value的元素</li>
+    </ul>
+  </li>
+  <li>删除一整个列表
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>del key
+</code></pre></div>    </div>
+  </li>
+  <li>改
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 根据下标index修改
+lset key index value
+</code></pre></div>    </div>
+  </li>
+  <li>查
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lrange key start stop
+</code></pre></div>    </div>
+  </li>
+  <li>列表长度
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>llen key
+</code></pre></div>    </div>
+  </li>
+  <li>弹出
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 弹出最左边的元素
+lpop key
+# 弹出最右边的元素
+rpop key
+</code></pre></div>    </div>
+  </li>
+  <li>插入
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>linsert key [before|after] foo bar
+</code></pre></div>    </div>
+  </li>
+  <li>截取
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 截取会删除掉其他元素
+ltrim key start stop
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+:ET
