@@ -1,0 +1,20 @@
+I"<h3 id="闭包">闭包</h3>
+<p><code class="language-plaintext highlighter-rouge">定义</code>: 在函数嵌套的前提下, 内部函数使用了外部函数的变量, 而外部函数则return了内部函数, 在这种情况下, 这个内部函数就称为闭包<br /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"outer"</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">func_in</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+    	<span class="c1"># 使用了外部函数的变量a
+</span>        <span class="k">print</span><span class="p">(</span><span class="s">"inner %d"</span> <span class="o">%</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">,))</span>
+    <span class="c1"># 把内部函数返回
+</span>    <span class="k">return</span> <span class="n">func_in</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">闭包的作用</code>: 可以保存外部函数的变量, 不会随着外部函数调用结束而销毁<br /></p>
+
+<p>注意: 由于闭包引用了外部函数的变量, 所以这个变量会因为没有被及时销毁而占用消耗空间<br />
+怎么在闭包的内部修改从外部函数那里引用来的变量呢？<br />
+使用<code class="language-plaintext highlighter-rouge">nonlocal</code>关键字声明即可, 用法类似于全局变量<code class="language-plaintext highlighter-rouge">global</code>声明<br /></p>
+
+<h3 id="装饰器">装饰器</h3>
+
+:ET

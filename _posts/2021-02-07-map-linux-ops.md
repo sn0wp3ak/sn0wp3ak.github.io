@@ -6,5 +6,5 @@ categories:
 - map
 ---
 
-<img align="center" src="/assets/post_image/linux_ops.png"><br>
+<img align="center" src="/assets/post_image/linux_ops.png" width="160%" height="160%"><br>
 

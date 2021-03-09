@@ -1,0 +1,207 @@
+I"�7<h3 id="闭包">闭包</h3>
+<p><code class="language-plaintext highlighter-rouge">定义</code>: 在函数嵌套的前提下, 内部函数使用了外部函数的变量, 而外部函数则return了内部函数, 在这种情况下, 这个内部函数就称为闭包<br /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"outer"</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">func_in</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+    	<span class="c1"># 使用了外部函数的变量a
+</span>        <span class="k">print</span><span class="p">(</span><span class="s">"inner %d"</span> <span class="o">%</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">,))</span>
+    <span class="c1"># 把内部函数返回
+</span>    <span class="k">return</span> <span class="n">func_in</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">闭包的作用</code>: 可以保存外部函数的变量, 不会随着外部函数调用结束而销毁<br /></p>
+
+<p>注意: 由于闭包引用了外部函数的变量, 所以这个变量会因为没有被及时销毁而占用消耗空间<br /></p>
+
+<p>怎么在闭包的内部<code class="language-plaintext highlighter-rouge">修改</code>从外部函数那里引用来的变量呢？<br />
+使用<code class="language-plaintext highlighter-rouge">nonlocal</code>关键字声明即可, 用法类似于全局变量<code class="language-plaintext highlighter-rouge">global</code>声明<br /></p>
+
+<h3 id="装饰器">装饰器</h3>
+<p><code class="language-plaintext highlighter-rouge">定义</code>: 给已有函数增加额外功能的函数, 其本质就是一个<code class="language-plaintext highlighter-rouge">闭包</code>函数<br /></p>
+
+<p>特点:</p>
+<ol>
+  <li>不会修改已有函数的源代码</li>
+  <li>不会修改已有函数的调用方式</li>
+  <li>给已有函数增加额外的功能</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">fn</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"inner"</span><span class="p">)</span>
+	<span class="n">fn</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">inner</span>
+
+<span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"func"</span><span class="p">)</span>
+
+<span class="c1"># 手动装饰函数
+</span><span class="n">func</span> <span class="o">=</span> <span class="n">check</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+
+<span class="c1"># 调用装饰后的函数
+</span><span class="n">func</span><span class="p">()</span>
+</code></pre></div></div>
+<p>执行结果</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">inner</span>
+<span class="n">func</span>
+</code></pre></div></div>
+
+<ul>
+  <li>装饰器函数只有一个参数, 且必须是函数类型</li>
+  <li>装饰器不允许修改原来的函数, 仅增加额外功能</li>
+</ul>
+
+<p>装饰器的语法糖:<br /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">check</span>
+<span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"func"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>其实语法糖就是一种简写, 本质还是手动装饰的那行代码<br /></p>
+
+<p>装饰器的执行时间:</p>
+<ul>
+  <li>在加载模块时立即执行</li>
+</ul>
+
+<h3 id="通用装饰器">通用装饰器</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">fn</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">pass</span>
+	<span class="c1"># 扩展功能
+</span>	<span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="n">inner</span>
+    
+    
+<span class="k">def</span> <span class="nf">fn</span><span class="p">():</span>
+    <span class="k">pass</span>
+    
+    
+<span class="n">fn</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>原函数fn的参数可有可无, 不定长<br /></p>
+
+<h3 id="多个装饰器">多个装饰器</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">check_far</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">inner</span>
+    
+    
+<span class="k">def</span> <span class="nf">check_near</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">inner</span>
+    
+    
+<span class="o">@</span><span class="n">check_far</span>
+<span class="o">@</span><span class="n">check_near</span>
+<span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"hello"</span><span class="p">)</span>
+
+<span class="c1"># 调用
+</span><span class="n">func</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>装饰器装饰原函数的顺序: 离原函数最近的最先装饰, 从内到外<br /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 近的先装饰
+</span><span class="n">func</span> <span class="o">=</span> <span class="n">check_near</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="c1"># 远的后装饰
+</span><span class="n">func</span> <span class="o">=</span> <span class="n">check_far</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">func</span> <span class="o">=</span> <span class="n">check_far</span><span class="p">(</span><span class="n">check_near</span><span class="p">(</span><span class="n">func</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>注意:</p>
+<ul>
+  <li>在函数执行时, 由于远端的装饰器最后装饰, 所以其中外部函数的代码会最先执行</li>
+  <li>也就是说装饰器装饰的顺序和装饰器中外部函数的代码执行的顺序是相反的</li>
+  <li>先装饰近, 后装饰远; 先执行远, 后执行近</li>
+</ul>
+
+<h3 id="带有参数的装饰器--工厂函数">带有参数的装饰器 – 工厂函数</h3>
+<p>产生原因: 装饰器只能装饰一个函数类型的参数, 但是又想要使用更多的参数, 于是就产生了带有参数的装饰器<br /></p>
+
+<p>其实本质就是在装饰器的外边又嵌套了一个函数, 然最外面的这个函数接收参数, 并return装饰器函数, 相当于其实返回后, 还是用的装饰器函数, 但是参数已经传进去了<br /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">factory</span><span class="p">(</span><span class="n">param1</span><span class="p">,</span> <span class="n">param2</span><span class="p">,</span> <span class="p">...):</span>
+    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">fn</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+	    <span class="k">pass</span>
+	    <span class="c1"># 扩展功能
+</span>	    <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+	    <span class="k">return</span> <span class="n">result</span>
+	<span class="k">return</span> <span class="n">inner</span>
+    <span class="k">return</span> <span class="n">decorator</span>
+
+
+<span class="o">@</span><span class="n">factory</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="p">...)</span>
+<span class="k">def</span> <span class="nf">fn</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+
+<span class="n">fn</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="类装饰器">类装饰器</h3>
+<p>通过定义一个类Class来装饰函数<br /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">cls</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fn</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">fn</span> <span class="o">=</span> <span class="n">fn</span>
+	
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># 扩展功能
+</span>	<span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">result</span>
+
+
+<span class="o">@</span><span class="n">cls</span>
+<span class="k">def</span> <span class="nf">fn</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+
+<span class="n">fn</span><span class="p">()</span>
+</code></pre></div></div>
+
+<ul>
+  <li>@decorator等价于<code class="language-plaintext highlighter-rouge">func = decorator(func)</code>
+    <ul>
+      <li>换成类: <code class="language-plaintext highlighter-rouge">instance = cls(param)</code></li>
+      <li>需要提供一个<code class="language-plaintext highlighter-rouge">__init__</code>方法来增加一个fn参数</li>
+    </ul>
+  </li>
+  <li>想使类的实例对象能够调用, 增加<code class="language-plaintext highlighter-rouge">__call__</code>方法, 使对象能够像函数那样用()调用</li>
+  <li>在<code class="language-plaintext highlighter-rouge">__call__</code>方法中完成装饰</li>
+</ul>
+
+<h3 id="property属性">property属性</h3>
+<p>作用: 把一个方法当作一个属性进行使用<br /></p>
+
+<p>定义property属性的2种方式:</p>
+<ol>
+  <li>装饰器</li>
+  <li>类属性</li>
+</ol>
+
+<p>装饰器方式:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">@property</code></li>
+  <li><code class="language-plaintext highlighter-rouge">@方法名.setter</code>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">cls</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+      <span class="bp">self</span><span class="p">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">x</span>
+
+  <span class="o">@</span><span class="nb">property</span>
+  <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">_x</span>
+
+  <span class="o">@</span><span class="n">x</span><span class="p">.</span><span class="n">setter</span>
+  <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_x</span><span class="p">)</span>
+      <span class="bp">self</span><span class="p">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">new_x</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+:ET

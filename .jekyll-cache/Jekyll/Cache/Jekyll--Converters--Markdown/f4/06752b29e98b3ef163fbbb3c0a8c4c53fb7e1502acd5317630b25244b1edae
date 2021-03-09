@@ -1,0 +1,11 @@
+I"�<p>定义: 一个类, 只要实现了<code class="language-plaintext highlighter-rouge">__enter__()</code>方法和<code class="language-plaintext highlighter-rouge">__exit__()</code>方法, 那么通过该类创建的对象, 就称为上下文管理器<br /></p>
+
+<p>上下文管理器可以使用<code class="language-plaintext highlighter-rouge">with</code>语句, 使用<code class="language-plaintext highlighter-rouge">open()</code>创建的文件对象就是一个上下文管理器对象<br /></p>
+
+<blockquote>
+  <p>with – 自动资源管理<br />
+__enter__()方法为with提供资源<br />
+__exit__()方法为with关闭资源</p>
+</blockquote>
+
+:ET

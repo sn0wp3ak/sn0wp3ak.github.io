@@ -1,0 +1,71 @@
+I" 
+<p>Git是目前世界上最先进的分布式版本控制系统(没有之一)<br />
+Git的作用: <code class="language-plaintext highlighter-rouge">源代码管理</code><br />
+为什么需要进行源代码管理:</p>
+<ol>
+  <li>方便多人协同开发</li>
+  <li>方便版本控制</li>
+</ol>
+
+<p>用Git管理源代码的特点:</p>
+<ol>
+  <li>分布式管理: 服务器和客户端都具有版本控制的能力, 都可以进行源代码的提交, 合并等操作</li>
+  <li>Git会在项目的根目录下面创建一个<code class="language-plaintext highlighter-rouge">.git</code>隐藏目录, 作为本地的代码仓库</li>
+</ol>
+
+<p><img src="/assets/post_image/git0.png" /><br />
+<img src="/assets/post_image/git1.png" /><br /></p>
+
+<ul>
+  <li>在仓库区中记录的各个版本是可以查看并回退的</li>
+  <li>在暂存区的版本一旦提交就再也没有了</li>
+</ul>
+
+<h3 id="标签">标签</h3>
+<p>tag<br />
+作用:</p>
+<ol>
+  <li>记录版本</li>
+  <li>备份版本代码</li>
+</ol>
+
+<p>本地打标签: <code class="language-plaintext highlighter-rouge">git tag -a 标签名 -m '标签描述'</code><br />
+推送标签到远程仓库: <code class="language-plaintext highlighter-rouge">git push origin 标签名</code><br />
+删除本地标签: <code class="language-plaintext highlighter-rouge">git tag -d 标签名</code><br />
+删除远程仓库标签: <code class="language-plaintext highlighter-rouge">git push origin --delete tag 标签名</code><br /></p>
+
+<h3 id="分支">分支</h3>
+<p>branch<br />
+作用场景:</p>
+<ol>
+  <li>区分环境:
+    <ul>
+      <li>开发测试环境</li>
+      <li>上线生产环境</li>
+    </ul>
+  </li>
+  <li>研究新的/不确定的功能</li>
+  <li>解决重大BUG</li>
+</ol>
+
+<p>特点: 一般项目中的分支至少会包括master和dev这两个分支<br />
+master用于发布代码, dev用于提交开发测试代码<br /></p>
+
+<p>开发完成要发布时, 将dev分支合并到master分支<br /></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 查看目前所在分支</span>
+git branch
+<span class="c"># 切换到目标分支</span>
+git checkout <span class="nt">-b</span> 分支名
+<span class="c"># 将目标分支推送到远程仓库</span>
+git push <span class="nt">-u</span> origin 分支名
+
+<span class="c"># 仓库管理员把目标分支合并到master</span>
+git checkout <span class="nt">-b</span> master
+git branch
+<span class="c"># 合并</span>
+git merge
+<span class="c"># 推送</span>
+git push
+</code></pre></div></div>
+
+:ET

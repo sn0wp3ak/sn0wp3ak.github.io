@@ -1,8 +1,0 @@
-I"
-<h3 id="列表list">列表(List)</h3>
-<p>队列的顺序 FILO 先进后出<br />
-<code class="language-plaintext highlighter-rouge">列表的顺序 FIFO 先进先出</code><br />
-列表是一个双向可读写通道<br />
-左边是头部, 右边是尾部<br /></p>
-
-:ET

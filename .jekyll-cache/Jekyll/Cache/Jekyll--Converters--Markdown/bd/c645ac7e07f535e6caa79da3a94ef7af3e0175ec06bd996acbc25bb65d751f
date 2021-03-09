@@ -1,0 +1,22 @@
+I"E<p>copy.copy – 浅拷贝: 只拷贝顶层结构<br />
+copy.deepcopy – 深拷贝: 拷贝对象的全部层次结构<br /></p>
+
+<h3 id="浅拷贝">浅拷贝</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tmp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">tmp</span><span class="p">]</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="n">copy</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span>
+<span class="c1"># 更改元素
+</span><span class="n">a1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">111</span>
+<span class="n">a1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">555</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">)</span>
+<span class="c1"># a2中的列表[4, 5]中的元素发生了改变
+</span><span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="mi">111</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">555</span><span class="p">]]</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">555</span><span class="p">]]</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a1</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="n">a2</span><span class="p">))</span>
+</code></pre></div></div>
+<ul>
+  <li>a2使用浅拷贝拷贝了a1的1, 2, 3和对象tmp的地址;<br /></li>
+  <li>所以当a1中的1改为111时, a2并没有受到影响, 因为元素1属于顶层结构;<br /></li>
+  <li>但是tmp对象的底层结构元素5, 就会受到a1中改变的影响, 因为tmp指向的那个内存地址是一样的, 所以5改为555自然也就会反映到a2<br /></li>
+</ul>
+
+:ET
