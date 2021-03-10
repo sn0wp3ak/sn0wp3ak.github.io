@@ -1,0 +1,102 @@
+I"�<p>Regular Expression<br />
+正则表达式一般用来: 匹配符合某些复杂规则的字符串<br /></p>
+
+<p>优点: 通用性强, 适用于多种编程语言<br />
+缺点: 精通成本高<br /></p>
+
+<p>Python中的正则模块:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">re</span>
+</code></pre></div></div>
+
+<p>匹配操作:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s">" "</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s">" "</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+</code></pre></div></div>
+<ul>
+  <li>match从头开始匹配, 发现不一致的部分就报错</li>
+  <li>search也是从头开始匹配, 发现不一致的部分, 继续向后尝试匹配</li>
+</ul>
+
+<p>提取操作:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">info</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">group</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="匹配单个字符">匹配单个字符</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.    匹配1个任意字符, 默认不匹配\n, re.S可以匹配\n
+[]   匹配[]中列举的多个中的1个任意字符
+\d   匹配1个任意数字
+\D   匹配1个任意非数字
+\s   匹配1个空白字符, 空格tab等
+\S   匹配1个非空白字符
+\w   匹配1个普通字符, a-zA-Z0-9_汉字
+\W   匹配1个特殊字符, 除字母,数字,汉字和下划线之外的字符
+[0-9][a-z][A-Z]  匹配范围内的1个任意字符
+[^]  禁止匹配该范围内的任意字符
+</code></pre></div></div>
+
+<h3 id="匹配多个字符">匹配多个字符</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*    匹配前一个字符出现0次或无数次
++    匹配前一个字符出现1次或无数次
+?    匹配前一个字符出现0次或1次
+{m}  匹配前一个字符出现m次
+{m,n} 匹配前一个字符出现m~n次
+</code></pre></div></div>
+
+<h3 id="匹配开头和结尾">匹配开头和结尾</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>^    匹配以字符串开头
+$    匹配以字符串结尾
+</code></pre></div></div>
+
+<h3 id="匹配分组">匹配分组</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>|    匹配左右任意1个字符串, 可连续使用
+(abc) 将括号中字符作为一个匿名分组
+\num 引用匿名分组匹配到的字符串
+</code></pre></div></div>
+<ul>
+  <li>匿名分组的0号默认代表整体匹配结果, 而用户创建的()匿名分组从1开始</li>
+  <li>匿名分组的缺点
+    <ul>
+      <li>一旦分组的编号发生变化, 分组引用和获取代码全部受影响</li>
+      <li>可维护性, 可扩展性不好</li>
+    </ul>
+  </li>
+  <li>命名分组: 给每个分组起一个名字, 全部都通过名字使用, 名字发生改变不会影响到其他分组
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">(?p&lt;name&gt;)</code> 给分组起名</li>
+      <li><code class="language-plaintext highlighter-rouge">(?p=name&gt;)</code> 引用名字为name的分组匹配到的字符串</li>
+    </ul>
+  </li>
+  <li>分组的获取:
+    <ul>
+      <li>匿名分组的获取: <code class="language-plaintext highlighter-rouge">result.group(1,2,3...)</code></li>
+      <li>命名分组的获取: <code class="language-plaintext highlighter-rouge">result.group("name1","name2",...)</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="匹配路径">匹配路径</h3>
+<p>正则中需要双倍于数据中的\, 而r”“这种表示就不需要双反斜杠<br /></p>
+
+<h3 id="贪婪和懒惰模式">贪婪和懒惰模式</h3>
+<p>贪婪(默认)模式: 尽可能多的匹配<br />
+懒惰模式: 尽可能少的匹配<br /></p>
+
+<p>因为默认是贪婪模式, 想使用懒惰模式需要在量词后面加个<code class="language-plaintext highlighter-rouge">?</code><br /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">re</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s">"^(\d+)(\d+)$"</span><span class="p">,</span> <span class="s">"0123456789"</span><span class="p">)</span>
+<span class="c1"># 默认贪婪模式, 先匹配的匹配了大部分
+</span><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="s">'012345678'</span><span class="p">,</span> <span class="s">'9'</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s">"^(\d+?)(\d+)$"</span><span class="p">,</span> <span class="s">"0123456789"</span><span class="p">)</span>
+<span class="c1"># 用懒惰模式, 先匹配的只匹配了一个字符
+</span><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="s">'0'</span><span class="p">,</span> <span class="s">'123456789'</span><span class="p">)</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s">"^(\d+?)(\d{1})$"</span><span class="p">,</span> <span class="s">"0123456789"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="s">'012345678'</span><span class="p">,</span> <span class="s">'9'</span><span class="p">)</span>
+</code></pre></div></div>
+<ul>
+  <li>虽然后匹配的只能匹配一个字符, 但是懒惰模式还是完成了整个字符串的匹配工作</li>
+  <li>也就是说, 无论贪婪还是懒惰, 最终都必须把整体结果匹配出来</li>
+</ul>
+
+:ET

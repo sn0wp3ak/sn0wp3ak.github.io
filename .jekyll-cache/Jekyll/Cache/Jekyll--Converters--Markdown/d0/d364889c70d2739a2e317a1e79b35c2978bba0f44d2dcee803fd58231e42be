@@ -1,0 +1,37 @@
+I"<p>快速生成列表或字典<br /></p>
+
+<h3 id="列表推导式">列表推导式</h3>
+<p>每循环一次加一个数据, 数据可以和i有关系, 也可以没有关系<br /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">li</span> <span class="o">=</span> <span class="p">[</span> <span class="n">xxx</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">可迭代对象</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>举例:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 和i没关系
+</span><span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="c1"># 和i有关系
+</span><span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>带if判断的列表推导式:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="n">xxx</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">可迭代对象</span> <span class="k">if</span> <span class="n">xxx</span><span class="p">]</span>
+</code></pre></div></div>
+<ul>
+  <li>元素依旧是可以和i有关系, 也可以没有关系</li>
+  <li>if判断不能带else</li>
+</ul>
+
+<p>内层循环嵌套:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="n">xxx</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">可迭代对象</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">可迭代对象</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h3 id="字典推导式">字典推导式</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dic</span> <span class="o">=</span> <span class="p">[</span><span class="n">xxx</span> <span class="p">:</span> <span class="n">xxx</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">可迭代对象</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">可迭代对象</span><span class="p">]</span>
+</code></pre></div></div>
+<p>字典推导式的存在意义并不大<br /></p>
+
+<p>为什么没有元组推导式？<br />
+因为(i for i in 可迭代对象)这样的属于是生成器<br /></p>
+
+:ET

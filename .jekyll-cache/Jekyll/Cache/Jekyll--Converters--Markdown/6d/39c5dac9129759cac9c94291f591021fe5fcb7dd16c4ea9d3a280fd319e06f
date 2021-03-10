@@ -1,0 +1,115 @@
+I"5<p>函数: 一段功能代码的封装(函数就是代码的封装)<br /></p>
+
+<p>好处: 复用, 减少代码的冗余<br /></p>
+
+<p>定义函数:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">函数名</span><span class="p">(</span><span class="n">形参</span><span class="p">):</span>
+    <span class="n">函数体</span>
+</code></pre></div></div>
+
+<ul>
+  <li>定义函数时, 并不会执行函数中的代码</li>
+  <li>函数名需要符合标识符命名规则</li>
+</ul>
+
+<p>调用函数:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">函数名</span><span class="p">(</span><span class="n">实参</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>函数调用的时候才会执行函数体中的代码</li>
+  <li>函数必须先定义后调用, 被调用的函数必须在上文中定义过</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">错误</code>示例:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">agv1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="c1"># 先调用
+</span>    <span class="k">return</span> <span class="n">sum1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<span class="k">print</span><span class="p">(</span><span class="n">agv1</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="c1"># 后定义
+</span><span class="k">def</span> <span class="nf">sum1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</code></pre></div></div>
+
+<h3 id="文档说明">文档说明</h3>
+<ul>
+  <li>必须写在函数的第一行</li>
+  <li>一般用多行注释包裹<code class="language-plaintext highlighter-rouge">"""文档说明"""</code></li>
+</ul>
+
+<h3 id="参数">参数</h3>
+<p>想要函数更通用或者想在函数调用的时候给函数传递数据值<br /></p>
+<ul>
+  <li>形式参数 parameter
+    <ul>
+      <li>给实际参数占位置用的, 定义函数时()中的就是形式参数</li>
+      <li>作用域: 函数的内部</li>
+      <li>缺省参数: 放在普通参数的后边, 当没有传入缺省参数对应的参数时, 给一个默认的参数值</li>
+      <li>不定长参数:
+        <ul>
+          <li>不定长-位置形参(元组形参): <code class="language-plaintext highlighter-rouge">*args</code></li>
+          <li>不定长-关键字形参(字典形参): <code class="language-plaintext highlighter-rouge">**kwargs</code></li>
+        </ul>
+      </li>
+      <li>再混合使用形式参数时, 定义形参的顺序:
+        <ol>
+          <li>普通形参</li>
+          <li>不定长元组 *args</li>
+          <li>缺省形参</li>
+          <li>不定长字典 **kwargs</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li>实际参数 argument
+    <ul>
+      <li>函数调用时()中的参数</li>
+      <li>传参方式:
+        <ul>
+          <li>位置传参: 普通传参, 按顺序获取</li>
+          <li>关键字传参: 指定数据值传给哪个形参, 形参必须要存在才能使用</li>
+          <li>混合使用:
+            <ol>
+              <li>关键字传参要放在位置传参的后边</li>
+              <li>不能对一个形参传递多个数据值</li>
+            </ol>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="局部和全局变量">局部和全局变量</h3>
+<ul>
+  <li>局部变量
+    <ul>
+      <li>定义在函数的内部:
+        <ul>
+          <li>局部变量不能在函数的外部使用</li>
+          <li>可以在不同函数的内部定义名字相同的局部变量</li>
+        </ul>
+      </li>
+      <li>作用域: 函数内部</li>
+      <li>生命周期: 从函数内部定义开始, 到函数结束为止</li>
+    </ul>
+  </li>
+  <li>全局变量
+    <ul>
+      <li>定义在函数外部的变量</li>
+      <li>函数内部不能直接修改全局变量</li>
+      <li>在函数内部使用<code class="language-plaintext highlighter-rouge">global</code>声明后, 就可以使用全局变量了</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="返回值">返回值</h3>
+
+<ul>
+  <li>函数默认的返回值: <code class="language-plaintext highlighter-rouge">None</code></li>
+  <li>如果需要返回具体的数据, 需要使用<code class="language-plaintext highlighter-rouge">return</code></li>
+  <li>函数内部定义的局部变量或函数的执行结果需要在外部使用时, 需要返回出来</li>
+  <li>return会结束函数的执行</li>
+  <li>return只能在函数中使用</li>
+</ul>
+:ET

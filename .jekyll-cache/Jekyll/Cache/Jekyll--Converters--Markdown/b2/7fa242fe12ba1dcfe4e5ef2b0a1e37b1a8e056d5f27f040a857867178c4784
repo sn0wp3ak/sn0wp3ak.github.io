@@ -1,0 +1,36 @@
+I"�<p>Python中一个模块其实就是一个<code class="language-plaintext highlighter-rouge">.py</code>文件<br /></p>
+
+<ul>
+  <li>想使用模块中的内容, 需要先导入模块</li>
+  <li>模块名也必须符合Python标识符命名规则</li>
+  <li>自定义的模块名不能和系统中已有的模块名重复
+    <ul>
+      <li>因为模块导入会先从当前目录找, 找不到再去系统目录找</li>
+      <li>如果定义了和系统模块同名的模块, 那么想使用系统功能时, 就会一直定位到自定义的模块</li>
+      <li>先读取自定义的模块, 想用系统模块的方法就用不了了, 除非给自定义模块再改名</li>
+    </ul>
+  </li>
+  <li>模块中的<code class="language-plaintext highlighter-rouge">__all__ = []</code>可以控制<code class="language-plaintext highlighter-rouge">from 模块 import *</code>的导入行为
+    <ul>
+      <li>控制导入行为后, 只会导入列表中有的功能</li>
+      <li>列表中都是字符串</li>
+    </ul>
+  </li>
+  <li>查看模块的查找路径:
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="p">.</span><span class="n">path</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="模块的导入">模块的导入</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">模块名</span>
+</code></pre></div></div>
+<p>导入后可使用:</p>
+<ul>
+  <li>模块名.变量名</li>
+  <li>模块名.类()</li>
+  <li>模块名.函数()</li>
+</ul>
+
+:ET

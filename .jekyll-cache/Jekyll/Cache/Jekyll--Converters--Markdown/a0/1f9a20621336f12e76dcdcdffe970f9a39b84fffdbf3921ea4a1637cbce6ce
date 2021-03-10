@@ -1,0 +1,61 @@
+I"�
+<p>异常: 程序中的错误, 代码遇到异常后会终止运行<br /></p>
+
+<ul>
+  <li>捕获异常
+    <ul>
+      <li>可以捕获所有异常, 但是不能区分发生的是什么错误
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
+  <span class="n">可能发生错误的代码</span>
+<span class="k">except</span><span class="p">:</span>
+  <span class="n">代码发生异常时</span><span class="p">,</span> <span class="n">会执行的代码</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>捕获单个异常
+    <ul>
+      <li>只能捕获指定类型的异常
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
+  <span class="n">可能出错的代码</span>
+<span class="k">except</span> <span class="n">异常类型</span><span class="p">:</span>
+  <span class="n">代码指定类型异常</span><span class="p">,</span> <span class="n">执行的代码</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>捕获多个异常
+    <ul>
+      <li>发生其中一种异常就会执行
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
+  <span class="n">可能出错的代码</span>
+<span class="k">except</span> <span class="p">(</span><span class="n">异常1</span><span class="p">,</span> <span class="n">异常2</span><span class="p">,</span> <span class="p">...):</span>
+  <span class="n">代码异常时</span><span class="p">,</span> <span class="n">执行的代码</span>
+</code></pre></div>        </div>
+      </li>
+      <li>发生异常只会执行其中之一
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
+ <span class="n">可能出错的代码</span>
+<span class="k">except</span> <span class="n">异常1</span><span class="p">:</span>
+ <span class="n">代码发生异常1时</span><span class="p">,</span> <span class="n">执行的代码</span>
+<span class="k">except</span> <span class="n">异常2</span><span class="p">:</span>
+ <span class="n">代码发生异常2时</span><span class="p">,</span> <span class="n">执行的代码</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>捕获所有异常
+```python
+try:
+  可能会出错的代码
+except Exception as e:
+  代码异常, 会执行的代码</li>
+</ul>
+
+<p>try: 
+    可能会出错的代码
+except BaseException as e:
+    代码异常, 会执行的代码
+```</p>
+
+:ET

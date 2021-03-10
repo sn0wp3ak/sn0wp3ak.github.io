@@ -1,0 +1,43 @@
+I"1
+<p>Regular Expression<br />
+正则表达式一般用来: 匹配符合某些复杂规则的字符串<br /></p>
+
+<p>优点: 通用性强, 适用于多种编程语言<br />
+缺点: 精通成本高<br /></p>
+
+<p>Python中的正则模块:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">re</span>
+</code></pre></div></div>
+
+<p>匹配操作:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s">" "</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s">" "</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+</code></pre></div></div>
+<ul>
+  <li>match从头开始匹配, 发现不一致的部分就报错</li>
+  <li>search也是从头开始匹配, 发现不一致的部分, 继续向后尝试匹配</li>
+</ul>
+
+<p>提取操作:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">info</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">group</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="匹配单个字符">匹配单个字符</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.    匹配1个任意字符, 默认不匹配\n, re.S可以匹配\n
+[]   匹配[]中列举的多个中的1个任意字符
+\d   匹配1个任意数字
+\D   匹配1个任意非数字
+\s   匹配1个空白字符, 空格tab等
+\S   匹配1个非空白字符
+\w   匹配1个普通字符, a-zA-Z0-9_汉字
+\W   匹配1个特殊字符, 除字母,数字,汉字和下划线之外的字符
+[0-9][a-z][A-Z]  匹配范围内的1个任意字符
+[^]  禁止匹配该范围内的任意字符
+</code></pre></div></div>
+
+<h3 id="匹配多个字符">匹配多个字符</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\* 匹配前一个字符出现0次或无数次
+
+</code></pre></div></div>
+:ET

@@ -1,0 +1,50 @@
+I"�<p>函数不一定都是用def关键词定义的<br />
+比如匿名函数lambda<br /></p>
+
+<p>匿名函数的定义:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">lambda</span> <span class="n">形参</span><span class="p">:</span> <span class="n">表达式</span>
+</code></pre></div></div>
+
+<p>匿名函数的两种调用方法:</p>
+<ol>
+  <li>函数名 = lambda 形参: 表达式
+    <ul>
+      <li>调用: 函数名(实参)</li>
+    </ul>
+  </li>
+  <li>(lambda 形参:表达式)(实参)</li>
+</ol>
+
+<p>将4种类型的函数改写成lambda函数:</p>
+<ol>
+  <li>无参数, 无返回值
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">函数名</span><span class="p">():</span>
+ <span class="k">print</span><span class="p">(</span><span class="s">"hello world"</span><span class="p">)</span>
+</code></pre></div>    </div>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">lambda</span> <span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s">"hello world"</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>无参数, 有返回值
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">函数名</span><span class="p">():</span>
+ <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
+</code></pre></div>    </div>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">lambda</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
+</code></pre></div>    </div>
+  </li>
+  <li>有参数, 无返回值
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">函数名</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+ <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</code></pre></div>    </div>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</code></pre></div>    </div>
+  </li>
+  <li>有参数, 有返回值
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">函数名</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+ <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</code></pre></div>    </div>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+:ET

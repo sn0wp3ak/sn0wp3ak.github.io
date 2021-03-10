@@ -1,0 +1,23 @@
+I"�<p>自己调用自己<br /></p>
+
+<p>例子: 阶乘 n! = n(n-1)(n-2)…1<br /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">num</span> <span class="o">*</span> <span class="n">func</span><span class="p">(</span><span class="n">num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span>
+</code></pre></div></div>
+
+<p>递归函数的2个特点:</p>
+<ol>
+  <li>递归是直接或者间接的调用自己</li>
+  <li>递归函数必须要有终止条件, 避免出现无意义的无限递归, 消耗资源</li>
+</ol>
+
+<p>注意:</p>
+<ol>
+  <li>递归函数并不一定需要定义参数, 也可以使用全局变量</li>
+  <li>递归函数是否有返回值需要根据实际需要设置, 不是必须有返回值</li>
+</ol>
+
+:ET

@@ -1,0 +1,13 @@
+I"�<p>文件操作的步骤:</p>
+<ol>
+  <li>打开文件</li>
+  <li>读写文件</li>
+  <li>关闭文件</li>
+</ol>
+
+<h3 id="打开文件">打开文件</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s">''</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+</code></pre></div></div>
+<p>mode = [‘r’, ‘w’, ‘a’] 读,覆盖写和追加写<br /></p>
+
+:ET

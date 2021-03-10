@@ -1,0 +1,81 @@
+I"�<p>函数不一定都是用def关键词定义的<br />
+比如匿名函数lambda<br /></p>
+
+<p>匿名函数的定义:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">lambda</span> <span class="n">形参</span><span class="p">:</span> <span class="n">表达式</span>
+</code></pre></div></div>
+
+<p>匿名函数的两种调用方法:</p>
+<ol>
+  <li>函数名 = lambda 形参: 表达式
+    <ul>
+      <li>调用: 函数名(实参)</li>
+    </ul>
+  </li>
+  <li>(lambda 形参:表达式)(实参)</li>
+</ol>
+
+<p>将4种类型的函数改写成lambda函数:</p>
+<ol>
+  <li>无参数, 无返回值
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">函数名</span><span class="p">():</span>
+ <span class="k">print</span><span class="p">(</span><span class="s">"hello world"</span><span class="p">)</span>
+</code></pre></div>    </div>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">lambda</span> <span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s">"hello world"</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>无参数, 有返回值
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">函数名</span><span class="p">():</span>
+ <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
+</code></pre></div>    </div>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">lambda</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
+</code></pre></div>    </div>
+  </li>
+  <li>有参数, 无返回值
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">函数名</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+ <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</code></pre></div>    </div>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</code></pre></div>    </div>
+  </li>
+  <li>有参数, 有返回值
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">函数名</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+ <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</code></pre></div>    </div>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>注意:</p>
+<ol>
+  <li>匿名函数不能有循环和复杂的判断</li>
+  <li>lambda函数只能出现一个冒号<code class="language-plaintext highlighter-rouge">:</code>, 所以带有<code class="language-plaintext highlighter-rouge">:</code>的复杂表达式不能写入匿名函数</li>
+  <li>匿名函数不需要写return, 匿名函数会将代码执行的结果自动返回</li>
+</ol>
+
+<p>应用场景:</p>
+<ul>
+  <li>需要一次性使用一个简单的函数时</li>
+</ul>
+
+<p>例子1: 想要对列表中的字典按照key排序<br /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_list</span> <span class="o">=</span> <span class="p">[{</span><span class="s">'name'</span><span class="p">:</span><span class="s">'d'</span><span class="p">,</span> <span class="s">'age'</span><span class="p">:</span><span class="mi">19</span><span class="p">},</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span><span class="s">'b'</span><span class="p">,</span> <span class="s">'age'</span><span class="p">:</span><span class="mi">16</span><span class="p">},</span> 
+<span class="p">{</span><span class="s">'name'</span><span class="p">:</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'age'</span><span class="p">:</span><span class="mi">16</span><span class="p">},</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span><span class="s">'c'</span><span class="p">,</span> <span class="s">'age'</span><span class="p">:</span><span class="mi">20</span><span class="p">}]</span>
+<span class="c1"># 想按照'name'排序abcd
+</span><span class="n">my_list</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s">'name'</span><span class="p">])</span>
+</code></pre></div></div>
+<p>排序后结果</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_list</span> <span class="o">=</span> <span class="p">[{</span><span class="s">'name'</span><span class="p">:</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'age'</span><span class="p">:</span><span class="mi">16</span><span class="p">},</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span><span class="s">'b'</span><span class="p">,</span> <span class="s">'age'</span><span class="p">:</span><span class="mi">16</span><span class="p">},</span> 
+<span class="p">{</span><span class="s">'name'</span><span class="p">:</span><span class="s">'c'</span><span class="p">,</span> <span class="s">'age'</span><span class="p">:</span><span class="mi">20</span><span class="p">},</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span><span class="s">'d'</span><span class="p">,</span> <span class="s">'age'</span><span class="p">:</span><span class="mi">19</span><span class="p">},]</span>
+</code></pre></div></div>
+
+<p>例子2: 按绝对值大小排序<br /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="c1"># .sort()方法
+</span><span class="n">my_list</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span><span class="mi">0</span> <span class="k">else</span> <span class="o">-</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># sorted()函数
+</span><span class="nb">sorted</span><span class="p">(</span><span class="n">my_list</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</code></pre></div></div>
+
+:ET
