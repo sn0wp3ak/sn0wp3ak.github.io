@@ -1,0 +1,31 @@
+I"�<p>继承: 减少了代码的冗余<br />
+子类继承父类之后, 就可以使用父类的属性和方法了<br /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">子类</span><span class="p">(</span><span class="n">父类</span><span class="p">):</span>
+    <span class="k">pass</span>
+</code></pre></div></div>
+
+<p>子类也叫做<code class="language-plaintext highlighter-rouge">派生类</code>, 父类也叫做<code class="language-plaintext highlighter-rouge">基类</code><br /></p>
+
+<h3 id="继承的分类">继承的分类</h3>
+
+<ol>
+  <li>单继承: 一个子类只继承一个父类</li>
+  <li>多层继承: <code class="language-plaintext highlighter-rouge">Dog --&gt; Animal --&gt; object</code>
+    <ul>
+      <li>多层继承中, 孙子类可以使用爷爷类的属性和方法</li>
+      <li>方法在调用的过程中, 先查找当前类, 没找到, 在继续沿着继承链往上找, 如果一直到object类了还没找到, 那么程序报错</li>
+      <li>怎么查看继承链: <code class="language-plaintext highlighter-rouge">类名.__mro__</code></li>
+    </ul>
+  </li>
+  <li>多继承: 一个子类继承多个父类
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+ <span class="k">pass</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="重写">重写</h3>
+<p>子类定义了一个父类中的同名方法<br /></p>
+
+:ET

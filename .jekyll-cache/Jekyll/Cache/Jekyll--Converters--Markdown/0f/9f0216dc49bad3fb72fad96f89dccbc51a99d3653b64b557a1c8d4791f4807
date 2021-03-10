@@ -1,0 +1,10 @@
+I"P<p>在Python的类中, 方法名如果以2个下划线开头, 并且以2个下划线结尾, 那么这个方法就能成为魔法方法<br /></p>
+
+<p>魔法方法的特点:</p>
+<ul>
+  <li>在满足条件时会自动调用</li>
+</ul>
+
+<h3 id="__init__方法"><code class="language-plaintext highlighter-rouge">__init__</code>方法</h3>
+
+:ET

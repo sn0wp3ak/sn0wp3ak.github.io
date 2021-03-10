@@ -1,0 +1,71 @@
+I"z<p>多态: 传入不同的对象, 产生不同的结果就叫多态<br /></p>
+
+<p>多态的条件:</p>
+<ol>
+  <li>子类继承父类, 且有同名方法</li>
+  <li>子类重写父类的同名方法</li>
+  <li>定义一个公共方法, 将不同类的对象传进去, 使用参数(对象), 调用同名方法</li>
+</ol>
+
+<p>多态的好处: 便于扩展代码的功能<br /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c1"># 公共方法
+</span>    <span class="k">def</span> <span class="nf">play_with_dog</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dog</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"man play with dog"</span><span class="p">)</span>
+	<span class="n">dog</span><span class="p">.</span><span class="n">play</span><span class="p">()</span>
+	
+
+<span class="k">class</span> <span class="nc">Dog</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+   <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+       <span class="bp">self</span><span class="p">.</span><span class="nb">type</span> <span class="o">=</span> <span class="s">"dog"</span>
+   <span class="c1"># 父类中的同名方法
+</span>   <span class="k">def</span> <span class="nf">play</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+       <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="nb">type</span><span class="si">}</span><span class="s"> sleeping"</span><span class="p">)</span>
+       
+   
+<span class="k">class</span> <span class="nc">Pug</span><span class="p">(</span><span class="n">Dog</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="nb">type</span> <span class="o">=</span> <span class="s">"pug"</span>
+    <span class="c1"># 子类中的同名方法
+</span>    <span class="k">def</span> <span class="nf">play</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+       <span class="c1"># 重写
+</span>       <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="nb">type</span><span class="si">}</span><span class="s"> running"</span><span class="p">)</span>
+       
+
+<span class="c1"># 鸭子类型
+# 并没有继承自Dog
+</span><span class="k">class</span> <span class="nc">Cat</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="nb">type</span> <span class="o">=</span> <span class="s">"cat"</span>
+    <span class="c1"># 恰好同名的方法
+</span>    <span class="k">def</span> <span class="nf">play</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="nb">type</span><span class="si">}</span><span class="s"> sitting"</span><span class="p">)</span>
+	
+</code></pre></div></div>
+<p>验证多态的效果</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 定义Person类的对象
+</span><span class="n">tom</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
+<span class="c1"># 定义Dog类的对象
+</span><span class="n">dd</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
+<span class="c1"># 调用公共方法
+</span><span class="n">tom</span><span class="p">.</span><span class="n">play_with_dog</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">man</span> <span class="n">play</span> <span class="k">with</span> <span class="n">dog</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">dog</span> <span class="n">sleeping</span>
+<span class="c1"># 定义Pug类的对象
+</span><span class="n">ee</span> <span class="o">=</span> <span class="n">Pug</span><span class="p">()</span>
+<span class="c1"># 调用公共方法
+</span><span class="n">tom</span><span class="p">.</span><span class="n">play_with_dog</span><span class="p">(</span><span class="n">ee</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">man</span> <span class="n">play</span> <span class="k">with</span> <span class="n">dog</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pug</span> <span class="n">running</span>
+</code></pre></div></div>
+<p>鸭子类型虽然没有继承自父类, 但是也可以达到多态的效果</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 定义Cat类的对象
+</span><span class="n">ff</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">()</span>
+<span class="c1"># 调用公共方法
+</span><span class="n">tom</span><span class="p">.</span><span class="n">play_with_dog</span><span class="p">(</span><span class="n">ff</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">man</span> <span class="n">play</span> <span class="k">with</span> <span class="n">dog</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">cat</span> <span class="n">sitting</span>
+</code></pre></div></div>
+
+:ET
