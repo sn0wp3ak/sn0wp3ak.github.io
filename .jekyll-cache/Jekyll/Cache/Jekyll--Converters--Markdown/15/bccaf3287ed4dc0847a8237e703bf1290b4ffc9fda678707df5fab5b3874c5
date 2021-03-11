@@ -1,0 +1,85 @@
+I"<p>增<code class="language-plaintext highlighter-rouge">INSERT</code> 删<code class="language-plaintext highlighter-rouge">DELETE</code> 改<code class="language-plaintext highlighter-rouge">UPDATE</code> 查<code class="language-plaintext highlighter-rouge">SELECT</code><br /></p>
+
+<h3 id="查询">查询</h3>
+<ol>
+  <li>查询所有列的数据(即全部数据)
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">表</span>
+</code></pre></div>    </div>
+  </li>
+  <li>查询指定的列
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="err">列</span><span class="mi">1</span><span class="p">,</span> <span class="err">列</span><span class="mi">3</span><span class="p">,</span> <span class="err">列</span><span class="mi">5</span><span class="p">,</span> <span class="p">...</span> <span class="k">FROM</span> <span class="err">表</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="添加">添加</h3>
+<p>主键用<code class="language-plaintext highlighter-rouge">0/null/default</code>来占位<code class="language-plaintext highlighter-rouge">(id,...) VALUES(0,...)</code><br /></p>
+<ol>
+  <li>全列插入
+    <ul>
+      <li>每次插入的数据和表结构中的字段数量完全一样
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="err">表</span><span class="p">(</span><span class="err">字段</span><span class="mi">1</span><span class="p">,</span> <span class="p">...,</span> <span class="err">字段</span><span class="n">n</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="err">数据</span><span class="mi">1</span><span class="p">,</span> <span class="p">...,</span> <span class="err">数据</span><span class="n">n</span><span class="p">),(</span><span class="err">数据</span><span class="mi">1</span><span class="p">,</span> <span class="p">...,</span> <span class="err">数据</span><span class="n">n</span><span class="p">)</span>
+</code></pre></div>        </div>
+      </li>
+      <li>全列插入可以省略字段元组
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="err">表</span> <span class="k">VALUES</span><span class="p">(</span><span class="err">数据</span><span class="mi">1</span><span class="p">,</span> <span class="p">...,</span> <span class="err">数据</span><span class="n">n</span><span class="p">),(</span><span class="err">数据</span><span class="mi">1</span><span class="p">,</span> <span class="p">...,</span> <span class="err">数据</span><span class="n">n</span><span class="p">)</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>部分列插入
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="err">表</span><span class="p">(</span><span class="err">字段</span><span class="mi">1</span><span class="p">,</span> <span class="err">字段</span><span class="mi">2</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="err">数据</span><span class="mi">1</span><span class="p">,</span> <span class="err">数据</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="err">数据</span><span class="mi">1</span><span class="p">,</span> <span class="err">数据</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="修改">修改</h3>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">UPDATE</span> <span class="err">表</span> <span class="k">SET</span> <span class="err">列</span><span class="mi">1</span><span class="o">=</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span> <span class="err">列</span><span class="mi">2</span><span class="o">=</span><span class="err">值</span><span class="mi">2</span><span class="p">,</span> <span class="p">...</span> <span class="k">WHERE</span> <span class="err">条件语句</span>
+</code></pre></div></div>
+
+<h3 id="删除">删除</h3>
+<ol>
+  <li>物理删除
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DELETE</span> <span class="k">FROM</span> <span class="err">表</span> <span class="k">WHERE</span> <span class="err">条件语句</span>
+</code></pre></div>    </div>
+  </li>
+  <li>逻辑删除
+    <ul>
+      <li>增加一个标记字段, bit类型(0/1), 把数据过滤掉
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="err">表</span> <span class="k">ADD</span> <span class="n">is_delete</span> <span class="nb">bit</span> <span class="k">default</span> <span class="mi">0</span><span class="p">;</span>
+</code></pre></div>        </div>
+      </li>
+      <li>is_delete字段默认为0, 设置为1时代表记录被逻辑删除
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">UPDATE</span> <span class="err">表</span> <span class="k">SET</span> <span class="n">is_delete</span><span class="o">=</span><span class="mi">1</span> <span class="k">WHERE</span> <span class="err">条件语句</span>
+</code></pre></div>        </div>
+      </li>
+      <li>查看逻辑删除后的效果
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">表</span> <span class="k">WHERE</span> <span class="n">is_delete</span><span class="o">=</span><span class="mi">0</span>
+</code></pre></div>        </div>
+      </li>
+      <li>撤销逻辑删除
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">UPDATE</span> <span class="err">表</span> <span class="k">SET</span> <span class="n">is_delete</span><span class="o">=</span><span class="mi">0</span> <span class="k">WHERE</span> <span class="err">条件语句</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="as-关键字">AS 关键字</h3>
+<p>作用: 给SQL语句中的字段或者表名起别名<br />
+特点:</p>
+<ol>
+  <li>只能在一句SQL语句中起作用, 作用域: 当前SQL语句</li>
+  <li>起别名之后就不能在使用原来的名字了, 只能使用别名</li>
+  <li>只对SQL语句其作用, 不会影响数据库里真实的数据名称</li>
+</ol>
+
+<p>形式: <code class="language-plaintext highlighter-rouge">原名 AS 别名</code><br />
+给表起别名之后, SQL中字段应使用: <code class="language-plaintext highlighter-rouge">别名.字段</code><br /></p>
+
+<h3 id="distinct-关键字">DISTINCT 关键字</h3>
+<p>作用: 去除查询结果集中的重复行(记录)<br /></p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">表</span>
+</code></pre></div></div>
+
+:ET

@@ -1,0 +1,47 @@
+I"!<p>SQL - Structured Query Language 结构化查询语言<br /></p>
+
+<p>作用: 操作关系型数据库管理系统(RDBMS)<br /></p>
+
+<p>SQL是RDBMS客户端和服务器之间通信的桥梁<br /></p>
+
+<h3 id="sql的主要分类">SQL的主要分类</h3>
+<ul>
+  <li>DQL
+    <ul>
+      <li>数据查询语言</li>
+      <li>查询操作</li>
+      <li>如: SELECT</li>
+    </ul>
+  </li>
+  <li>DML
+    <ul>
+      <li>数据操作语言</li>
+      <li>增删改操作</li>
+      <li>如: INSERT, UPDATE, DELETE</li>
+    </ul>
+  </li>
+  <li>TPL
+    <ul>
+      <li>事务处理语言</li>
+      <li>如: BEGIN TRANSACTION, COMMIT, ROLLBACK</li>
+    </ul>
+  </li>
+  <li>DCL
+    <ul>
+      <li>数据控制语言</li>
+      <li>授权与权限</li>
+      <li>如: GRANT, REVOKE</li>
+    </ul>
+  </li>
+  <li>DDl
+    <ul>
+      <li>数据定义语言</li>
+      <li>表, 数据库的管理</li>
+      <li>如: CREATE, DROP</li>
+    </ul>
+  </li>
+</ul>
+
+<p>SQL语言本身并不区分大小写, 但是操作的对象(表, 字段等)是会区分大小写的<br /></p>
+
+:ET

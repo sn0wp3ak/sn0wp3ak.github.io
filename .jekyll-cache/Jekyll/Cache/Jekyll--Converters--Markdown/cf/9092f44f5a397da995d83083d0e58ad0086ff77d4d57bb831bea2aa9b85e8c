@@ -1,0 +1,33 @@
+I"<p>MySQL是一个关系型数据库管理系统(RDBMS), 在Web应用方面很强<br />
+MySQL是由瑞典MySQL AB公司开发的, 已经被Oracle收购<br /></p>
+
+<ul>
+  <li>查看MySQL服务: <code class="language-plaintext highlighter-rouge">ps aux | grep mysql</code>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">-a</code> 所有用户</li>
+      <li><code class="language-plaintext highlighter-rouge">-u</code> 指定用户</li>
+      <li><code class="language-plaintext highlighter-rouge">-x</code> 所有执行程序</li>
+    </ul>
+  </li>
+  <li>查看MySQL的服务状态: <code class="language-plaintext highlighter-rouge">sudo service mysql status</code></li>
+  <li>停止MySQL服务: <code class="language-plaintext highlighter-rouge">sudo service mysql stop</code></li>
+  <li>启动MySQL服务: <code class="language-plaintext highlighter-rouge">sudo service mysql start</code></li>
+  <li>重启MySQL服务: <code class="language-plaintext highlighter-rouge">sudo service mysql restart</code></li>
+</ul>
+
+<p>MySQL的配置文件路径: <code class="language-plaintext highlighter-rouge">/etc/mysql/mysql.conf.d/mysqld.cnf</code><br />
+主要配置信息:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">port 端口号</code> 默认3306</li>
+  <li><code class="language-plaintext highlighter-rouge">bind - 地址</code> 服务器绑定的IP地址 默认127.0.0.1 留空则可以远程登录</li>
+  <li><code class="language-plaintext highlighter-rouge">datadir</code> 数据库保存路径 默认/var/lib/mysql</li>
+  <li><code class="language-plaintext highlighter-rouge">log_error</code> 错误日志 默认/var/log/mysql/error.log</li>
+</ul>
+
+<p>MySQL客户端是通过Socket方式与服务器进行通讯的<br /></p>
+
+<p>MySQL命令的使用帮助: <code class="language-plaintext highlighter-rouge">mysql --help</code><br /></p>
+
+<p>客户端的使用: <code class="language-plaintext highlighter-rouge">mysql -uroot -p密码</code> 密码建议不写留空, 在提示之后隐式输入<br /></p>
+
+:ET

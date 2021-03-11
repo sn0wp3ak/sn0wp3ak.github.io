@@ -1,0 +1,27 @@
+I"<ul>
+  <li>
+    <p>查看当前数据库的所有表: <code class="language-plaintext highlighter-rouge">SHOW TABLES</code><br /></p>
+  </li>
+  <li>创建表:
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="err">表名</span><span class="p">(</span>
+  <span class="err">字段</span><span class="mi">1</span>  <span class="err">数据类型</span><span class="mi">1</span>  <span class="err">约束条件</span><span class="mi">1</span><span class="p">,</span>
+  <span class="err">字段</span><span class="mi">2</span>  <span class="err">数据类型</span><span class="mi">2</span>  <span class="err">约束条件</span><span class="mi">2</span><span class="p">,</span>
+  <span class="p">...</span>
+  <span class="err">字段</span><span class="n">n</span>  <span class="err">数据类型</span><span class="n">n</span>  <span class="err">约束条件</span><span class="n">n</span>
+<span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>查看表格结构的描述信息: <code class="language-plaintext highlighter-rouge">DESC 表名</code></li>
+  <li>查看建表SQL语句: <code class="language-plaintext highlighter-rouge">SHOW CREATE TABLE 表名</code></li>
+  <li>删除表结构(连数据一起删除): <code class="language-plaintext highlighter-rouge">DROP TABLE 表名</code></li>
+  <li>修改表
+    <ul>
+      <li>添加字段 <code class="language-plaintext highlighter-rouge">ALTER TABLE 表名 ADD 字段 类型 约束</code></li>
+      <li>修改类型和约束 <code class="language-plaintext highlighter-rouge">ALTER TABLE 表名 MODIFY 字段 新类型 新约束</code></li>
+      <li>修改字段名,类型和约束 <code class="language-plaintext highlighter-rouge">ALTER TABLE 表名 CHANGE 旧字段 新字段 新类型 新约束</code></li>
+      <li>删除字段 <code class="language-plaintext highlighter-rouge">ALTER TABLE 表名 DROP 字段</code></li>
+    </ul>
+  </li>
+</ul>
+
+:ET

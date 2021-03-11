@@ -1,0 +1,47 @@
+I"�<p>连接查询: 需要的数据来自于有关联的多个表拼接<br /></p>
+
+<p>分类:</p>
+<ul>
+  <li>内连接</li>
+  <li>左连接</li>
+  <li>右连接</li>
+  <li>全连接</li>
+  <li>自连接</li>
+</ul>
+
+<p>语法:</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">左表</span> <span class="k">JOIN</span> <span class="err">右表</span> <span class="k">ON</span> <span class="err">条件</span>
+</code></pre></div></div>
+<p>CROSS JOIN 是两个表交叉连接 - 笛卡尔积<br /></p>
+
+<ol>
+  <li>内连接 INNER JOIN 可以简写成 JOIN
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">左表</span> <span class="k">INNER</span> <span class="k">JOIN</span> <span class="err">右表</span> <span class="k">ON</span> <span class="err">左表</span><span class="p">.</span><span class="err">字段</span> <span class="err">运算符</span> <span class="err">右表</span><span class="p">.</span><span class="err">字段</span><span class="p">;</span>
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> _______ _______
+/      /1\      \
+| A    111    B |
+\______\1/______/
+</code></pre></div>    </div>
+    <p>A表相关联部分 + B表相关联部分<br /></p>
+  </li>
+  <li>左连接<br />
+在内连接的基础上, 添加来自左表的外部数据, 右表的位置以NULL填充;
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">左表</span> <span class="k">LEFT</span> <span class="k">JOIN</span> <span class="err">右表</span> <span class="k">ON</span> <span class="err">左表</span><span class="p">.</span><span class="err">字段</span> <span class="err">运算符</span> <span class="err">右表</span><span class="p">.</span><span class="err">字段</span><span class="p">;</span>
+</code></pre></div>    </div>
+    <p>A表无关联部分 + A表相关联部分 + B表相关联部分<br /></p>
+  </li>
+  <li>右连接<br />
+在内连接的基础上, 添加来自右表的外部数据, 左表的位置以NULL填充;
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">左表</span> <span class="k">RIGHT</span> <span class="k">JOIN</span> <span class="err">右表</span> <span class="k">ON</span> <span class="err">左表</span><span class="p">.</span><span class="err">字段</span> <span class="err">运算符</span> <span class="err">右表</span><span class="p">.</span><span class="err">字段</span><span class="p">;</span>
+</code></pre></div>    </div>
+    <p>A表相关联部分 + B表相关联部分 + B表无关联部分<br /></p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> _______ _______
+/      /1\111111\
+| A    1111111 B |
+\______\1/111111/
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+:ET

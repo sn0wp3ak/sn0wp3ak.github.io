@@ -1,0 +1,13 @@
+I"X<h3 id="聚合函数">聚合函数</h3>
+<p>通常用于对表中的数据进行统计和计算, 一般会结合分组<code class="language-plaintext highlighter-rouge">GROUP BY</code>使用, 统计计算分组数据<br /></p>
+<ul>
+  <li>count 求总行数
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">#</span> <span class="err">单列</span><span class="p">,</span> <span class="err">不包含</span><span class="k">NULL</span>
+<span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="err">列</span><span class="p">)</span> <span class="k">FROM</span> <span class="err">表</span><span class="p">;</span>
+<span class="o">#</span> <span class="err">全表</span><span class="p">,</span> <span class="err">包含</span><span class="k">NULL</span>
+<span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">FROM</span> <span class="err">表</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+:ET

@@ -1,0 +1,45 @@
+I"^
+<p>枚举enum类型在比较时可以不使用元素而只使用索引(从1开始)<br />
+索引的顺序可用<code class="language-plaintext highlighter-rouge">SHOW CREATE TABLE 表</code>来查看<br /></p>
+
+<ol>
+  <li>比较运算符 <code class="language-plaintext highlighter-rouge">= &gt; &lt; &gt;= &lt;= != &lt;&gt;</code>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">！=</code>和<code class="language-plaintext highlighter-rouge">&lt;&gt;</code>都代表不等于</li>
+      <li>不能使用连续书写的条件, 如: <code class="language-plaintext highlighter-rouge">17&lt;=age&lt;=25</code></li>
+    </ul>
+  </li>
+  <li>逻辑运算符 <code class="language-plaintext highlighter-rouge">and or not</code></li>
+  <li>模糊查询(类似LinuxShell中的通配符)
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">%</code>匹配任意数量的任意字符</li>
+      <li><code class="language-plaintext highlighter-rouge">_</code>匹配1个任意字符</li>
+    </ul>
+  </li>
+  <li>范围查询
+    <ul>
+      <li>连续范围(相当与数学中的左闭右闭区间)
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">字段</span> <span class="k">BETWEEN</span> <span class="err">下界</span> <span class="k">AND</span> <span class="err">上界</span>
+</code></pre></div>        </div>
+      </li>
+      <li>离散范围
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">字段</span> <span class="k">IN</span> <span class="p">(</span><span class="n">value1</span><span class="p">,</span> <span class="n">value2</span><span class="p">,</span> <span class="p">...)</span>
+</code></pre></div>        </div>
+      </li>
+      <li>取反
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">NOT</span> <span class="k">IN</span>
+<span class="k">NOT</span> <span class="k">BETWEEN</span> <span class="k">AND</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>空判断
+    <ul>
+      <li>判空 <code class="language-plaintext highlighter-rouge">IS NULL</code> 而不能用<code class="language-plaintext highlighter-rouge">=NULL</code></li>
+      <li>判非空 <code class="language-plaintext highlighter-rouge">IS NOT NULL</code> 而不能用<code class="language-plaintext highlighter-rouge">!=NULL</code></li>
+      <li>NULL并不是空字符串<code class="language-plaintext highlighter-rouge">""</code>, 而是什么都没有</li>
+    </ul>
+  </li>
+</ol>
+
+:ET

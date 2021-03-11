@@ -1,0 +1,12 @@
+I"<p>查看当前数据库的所有表: <code class="language-plaintext highlighter-rouge">SHOW TABLES</code><br /></p>
+
+<p>创建表:</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="err">表名</span><span class="p">(</span>
+    <span class="err">字段</span><span class="mi">1</span>  <span class="err">数据类型</span><span class="mi">1</span>  <span class="err">约束条件</span><span class="mi">1</span><span class="p">,</span>
+    <span class="err">字段</span><span class="mi">2</span>  <span class="err">数据类型</span><span class="mi">2</span>  <span class="err">约束条件</span><span class="mi">2</span><span class="p">,</span>
+    <span class="p">...</span>
+    <span class="err">字段</span><span class="n">n</span>  <span class="err">数据类型</span><span class="n">n</span>  <span class="err">约束条件</span><span class="n">n</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+:ET

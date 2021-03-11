@@ -1,0 +1,26 @@
+I"�<h3 id="排序">排序</h3>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">表</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="err">列</span><span class="mi">1</span> <span class="k">ASC</span> <span class="err">列</span><span class="mi">2</span> <span class="k">DESC</span>
+</code></pre></div></div>
+<ul>
+  <li>ASC 升序排列</li>
+  <li>DESC 降序排列</li>
+</ul>
+
+<p>默认情况下是按照ASC升序排列的<br />
+多个字段排序, 先按列1排序, 当列1字段的值相同时, 再把含有相同值的记录按列2排序<br /></p>
+
+<h3 id="分页查询">分页查询</h3>
+<pre><code class="language-SQL">SELECT * FROM 表 LIMIT 开始行索引 查询的条数
+</code></pre>
+<ul>
+  <li>
+    <p>分页的行号从0开始, 不写开始行索引则默认是0</p>
+  </li>
+  <li>
+    <p>获取第N页数据</p>
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">表</span> <span class="k">LIMIT</span> <span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">M</span><span class="p">,</span> <span class="n">M</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+:ET

@@ -1,0 +1,65 @@
+I"�<p>SQL - Structured Query Language 结构化查询语言<br /></p>
+
+<p>作用: 操作关系型数据库管理系统(RDBMS)<br /></p>
+
+<p>SQL是RDBMS客户端和服务器之间通信的桥梁<br /></p>
+
+<h3 id="sql的主要分类">SQL的主要分类</h3>
+<ul>
+  <li>DQL
+    <ul>
+      <li>数据查询语言</li>
+      <li>查询操作</li>
+      <li>如: SELECT</li>
+    </ul>
+  </li>
+  <li>DML
+    <ul>
+      <li>数据操作语言</li>
+      <li>增删改操作</li>
+      <li>如: INSERT, UPDATE, DELETE</li>
+    </ul>
+  </li>
+  <li>TPL
+    <ul>
+      <li>事务处理语言</li>
+      <li>如: BEGIN TRANSACTION, COMMIT, ROLLBACK</li>
+    </ul>
+  </li>
+  <li>DCL
+    <ul>
+      <li>数据控制语言</li>
+      <li>授权与权限</li>
+      <li>如: GRANT, REVOKE</li>
+    </ul>
+  </li>
+  <li>DDl
+    <ul>
+      <li>数据定义语言</li>
+      <li>表, 数据库的管理</li>
+      <li>如: CREATE, DROP</li>
+    </ul>
+  </li>
+</ul>
+
+<p>SQL语言本身并不区分大小写, 但是操作的对象(表, 字段等)是会区分大小写的<br /></p>
+
+<h3 id="sql关键字书写顺序和运行顺序">SQL关键字书写顺序和运行顺序</h3>
+<ul>
+  <li>书写顺序按行排列</li>
+  <li>运行顺序写在()中</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="k">SELECT</span> <span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="k">DISTINCT</span> <span class="err">字段</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="k">FROM</span> <span class="err">左表</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="err">连接类型</span> <span class="k">JOIN</span> <span class="err">右表</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="k">ON</span> <span class="err">连接条件</span>
+<span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="k">WHERE</span> <span class="err">查询条件</span>
+<span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="k">GROUP</span> <span class="k">BY</span> <span class="err">字段</span>
+<span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="k">WITH</span> <span class="k">ROLLUP</span>
+<span class="p">(</span><span class="mi">7</span><span class="p">)</span><span class="k">HAVING</span> <span class="err">组查询条件</span>
+<span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="err">字段</span>
+<span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="k">LIMIT</span> <span class="err">分页起始</span><span class="p">,</span><span class="err">每页显示条数</span>
+</code></pre></div></div>
+
+:ET

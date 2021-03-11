@@ -1,0 +1,77 @@
+I"�<h3 id="聚合函数">聚合函数</h3>
+<p>通常用于对表中的数据进行统计和计算, 一般会结合分组<code class="language-plaintext highlighter-rouge">GROUP BY</code>使用, 统计计算分组数据<br /></p>
+<ul>
+  <li>count 求总行数
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">#</span> <span class="err">单列</span><span class="p">,</span> <span class="err">不包含</span><span class="k">NULL</span>
+<span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="err">列</span><span class="p">)</span> <span class="k">FROM</span> <span class="err">表</span><span class="p">;</span>
+<span class="o">#</span> <span class="err">全表</span><span class="p">,</span> <span class="err">包含</span><span class="k">NULL</span>
+<span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">FROM</span> <span class="err">表</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>max 求指定列的最大值
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">MAX</span><span class="p">(</span><span class="err">列</span><span class="p">)</span> <span class="k">FROM</span> <span class="err">表</span> <span class="k">WHERE</span> <span class="err">条件</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>min 求指定列的最小值
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">MIN</span><span class="p">(</span><span class="err">列</span><span class="p">)</span> <span class="k">FROM</span> <span class="err">表</span> <span class="k">WHERE</span> <span class="err">条件</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>sum 求指定列的和
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">SUM</span><span class="p">(</span><span class="err">列</span><span class="p">)</span> <span class="k">FROM</span> <span class="err">表</span> <span class="k">WHERE</span> <span class="err">条件</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>avg 求指定列的平均值
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">AVG</span><span class="p">(</span><span class="err">列</span><span class="p">)</span> <span class="k">FROM</span> <span class="err">表</span> <span class="k">WHERE</span> <span class="err">条件</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>聚合函数默认会忽略掉字段为NULL的记录, 必须使用<code class="language-plaintext highlighter-rouge">IFNULL</code>函数来对NULL值做替换处理<br /></p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="err">聚合函数</span><span class="p">(</span><span class="n">IFNULL</span><span class="p">(</span><span class="err">列</span><span class="p">,</span> <span class="err">替换值</span><span class="p">))</span> <span class="k">FROM</span> <span class="err">表</span> <span class="k">WHERE</span> <span class="err">条件</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="分组查询">分组查询</h3>
+<p>按需要将数据以一个或者多个字段进行分别的统计计算<br /></p>
+<ul>
+  <li>基本语法
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">GROUP</span> <span class="k">BY</span> <span class="err">列</span> <span class="k">HAVING</span> <span class="err">条件</span> <span class="k">WITH</span> <span class="k">ROLLUP</span>
+</code></pre></div>    </div>
+    <p>HAVING: 过滤分组后的数据<br />
+WITH ROLLUP: 在所有的记录后加一条记录, 显示汇总的统计结果<br /></p>
+  </li>
+  <li>GROUP BY 单个或者多个字段分组
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="err">字段</span> <span class="k">FROM</span> <span class="err">表</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="err">字段</span><span class="p">;</span>
+</code></pre></div>    </div>
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="err">字段</span><span class="mi">1</span><span class="p">,</span> <span class="err">字段</span><span class="mi">2</span> <span class="k">FROM</span> <span class="err">表</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="err">字段</span><span class="mi">1</span><span class="p">,</span> <span class="err">字段</span><span class="mi">2</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>GROUP BY + GROUP_CONCAT()
+假设需要按gender这个字段分组数据<br />
+gender这个字段就会对应多个维度<br />
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---------------
+name  | gender
+---------------
+tom   | male
+---------------
+jimmy | male
+---------------
+mike  | male
+---------------
+lisa  | female
+---------------
+</code></pre></div>    </div>
+    <p>不能直接SELECT name, 这时候就要用GROUP_CONCAT()了<br />
+GROUP_CONCAT(组内字段): 统计每个分组中指定字段的信息集合, 结果用逗号分隔<br /></p>
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">gender</span><span class="p">,</span> <span class="n">GROUP_CONCAT</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">students</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">gender</span><span class="p">;</span>
+</code></pre></div>    </div>
+    <p>结果</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-------------------------
+male   | tom, jimmy, mike
+-------------------------
+female | lisa
+-------------------------
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+:ET
