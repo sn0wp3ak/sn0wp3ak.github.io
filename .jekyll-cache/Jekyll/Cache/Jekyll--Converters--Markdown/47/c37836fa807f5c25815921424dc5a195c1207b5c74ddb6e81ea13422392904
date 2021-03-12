@@ -1,0 +1,60 @@
+I"�<h3 id="pymysql的使用">PyMySQL的使用</h3>
+<p>导包:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pymysql</span>
+</code></pre></div></div>
+
+<p>使用流程:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1.建立连接
+2.通过连接获取游标
+3.使用游标执行SQL语句
+4.查询结果
+5.关闭游标关闭连接
+</code></pre></div></div>
+
+<ol>
+  <li>建立连接(创建连接对象)
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">con</span> <span class="o">=</span> <span class="n">pymysql</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">"MySQL服务器IP地址"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="s">"端口号"</span><span class="p">,</span> 
+<span class="n">user</span><span class="o">=</span><span class="s">"用户名"</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s">"密码"</span><span class="p">,</span> <span class="n">database</span><span class="o">=</span><span class="s">"使用的数据库"</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>获取游标对象
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cursor</span> <span class="o">=</span> <span class="n">con</span><span class="p">.</span><span class="n">cursor</span><span class="p">()</span>
+</code></pre></div>    </div>
+  </li>
+  <li>游标执行SQL
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sql</span> <span class="o">=</span> <span class="s">"SELECT * FROM 表;"</span>
+<span class="n">cursor</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>  <span class="c1"># 返回值是被SQL影响的行数
+</span></code></pre></div>    </div>
+  </li>
+  <li>查询结果
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="n">cursor</span><span class="p">.</span><span class="n">fetchall</span><span class="p">()</span>  <span class="c1"># 一次性获取所有, 空数据返回()
+</span><span class="n">data</span> <span class="o">=</span> <span class="n">cursor</span><span class="p">.</span><span class="n">fetchone</span><span class="p">()</span>  <span class="c1"># 一次性获取一行, 空数据返回None
+</span></code></pre></div>    </div>
+  </li>
+  <li>关闭游标和连接
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cursor</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">con</span><span class="p">.</span><span class="n">colse</span><span class="p">()</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>提交修改: <code class="language-plaintext highlighter-rouge">con.commit()</code><br />
+回滚数据: <code class="language-plaintext highlighter-rouge">con.rollback()</code><br /></p>
+
+<h3 id="防止sql注入">防止SQL注入</h3>
+<p>用户提交有恶意的数据与SQL语句进行字符串方式的拼接, 影响了SQL语句的语义, 最终导致数据泄露<br /></p>
+
+<p>产生原因: SQL语句中参数用”%s”占位后, 格式化输出%后面拼接的字符串带有注释的效果, 比如<code class="language-plaintext highlighter-rouge">#</code><br /></p>
+
+<p>解决方法:</p>
+<ol>
+  <li>占位符不加引号, 只是用%s进行占位</li>
+  <li>构造参数列表</li>
+</ol>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">cursor</span><span class="p">.</span><span class="k">execute</span><span class="p">(</span><span class="nv">" ... %s"</span><span class="p">,</span> <span class="p">[</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="p">...])</span>
+</code></pre></div></div>
+
+<p>所以说在构造execute方法的SQL语句时, 不要使用带引号的%s进行占位<br /></p>
+
+:ET

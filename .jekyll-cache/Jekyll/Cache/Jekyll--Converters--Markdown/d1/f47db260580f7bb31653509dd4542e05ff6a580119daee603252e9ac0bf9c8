@@ -1,0 +1,17 @@
+I"<p>单行注释: <code class="language-plaintext highlighter-rouge">#</code><br /></p>
+
+<p>多行注释:</p>
+<ol>
+  <li>把注释定义成函数</li>
+  <li>注释文档
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:<span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh">
+注释...
+注释...
+注释...
+</span><span class="no">EOF
+</span></code></pre></div>    </div>
+    <p>EOF也可以替换为其他字符, 只不过约定俗成<br /></p>
+  </li>
+</ol>
+
+:ET

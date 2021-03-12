@@ -1,0 +1,63 @@
+I" <p>字符串变量: 单引号, 双引号 或者 不用引号;<br /></p>
+<h2 id="单引号">单引号</h2>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">str</span><span class="o">=</span><span class="s1">'hello world'</span>
+</code></pre></div></div>
+<p>特点:<br /></p>
+<ol>
+  <li>单引号中的任何字符都会原封不动的输出, 也就是说 <code class="language-plaintext highlighter-rouge">$</code> 就是 $ 而不能引用变量的值;<br /></li>
+  <li>单引号字符串中不能再出现单独的一个单引号, 但是可以成对出现;<br /></li>
+</ol>
+
+<h2 id="双引号">双引号</h2>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">name</span><span class="o">=</span><span class="s1">'sp'</span>
+<span class="nv">str</span><span class="o">=</span><span class="s2">"Hello, </span><span class="nv">$name</span><span class="s2">, </span><span class="se">\"</span><span class="nv">$name</span><span class="se">\"</span><span class="s2">! </span><span class="se">\n</span><span class="s2">"</span>
+<span class="nb">echo</span> <span class="nt">-e</span> <span class="nv">$str</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hello, sp, "sp"!
+</code></pre></div></div>
+<p>特点:</p>
+<ol>
+  <li>双引号中间可以有变量, 会自动引用变量</li>
+  <li>双引号里可以出现转义字符</li>
+</ol>
+
+<h2 id="字符串拼接">字符串拼接</h2>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">name</span><span class="o">=</span><span class="s2">"sp"</span>
+<span class="c"># 双引号拼接</span>
+<span class="nv">str</span><span class="o">=</span><span class="s2">"hello,"</span><span class="nv">$name</span><span class="s2">" !"</span>
+<span class="nv">str_1</span><span class="o">=</span><span class="s2">"hello, </span><span class="k">${</span><span class="nv">name</span><span class="k">}</span><span class="s2"> !"</span>
+<span class="nb">echo</span> <span class="nv">$str</span> <span class="nv">$str_1</span>
+<span class="c"># 单引号拼接</span>
+<span class="nv">str_2</span><span class="o">=</span><span class="s1">'hello,'</span><span class="nv">$name</span><span class="s1">' !'</span>
+<span class="nv">str_3</span><span class="o">=</span><span class="s1">'hello, ${name} !'</span>
+<span class="nb">echo</span> <span class="nv">$str_2</span> <span class="nv">$str_3</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hello, sp !  hello, sp !
+hello, sp !  hello, ${name} !
+</code></pre></div></div>
+
+<h2 id="字符串长度">字符串长度</h2>
+<p>在引用的字符串变量前面加<code class="language-plaintext highlighter-rouge">#</code></p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">str</span><span class="o">=</span><span class="s2">"abcd"</span>
+<span class="nb">echo</span> <span class="k">${#</span><span class="nv">str</span><span class="k">}</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4
+</code></pre></div></div>
+
+<h2 id="截取字符串">截取字符串</h2>
+<p>字符串索引从0开始, 截取语法: <code class="language-plaintext highlighter-rouge">$str:开始下标:结束下标</code></p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">str</span><span class="o">=</span><span class="s2">"hello world"</span>
+<span class="nb">echo</span> <span class="k">${</span><span class="nv">str</span>:1:4<span class="k">}</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ello
+</code></pre></div></div>
+
+<h2 id="查找子字符串">查找子字符串</h2>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">str</span><span class="o">=</span><span class="s2">"hello world"</span>
+<span class="nb">echo</span> <span class="sb">`</span><span class="nb">expr </span>index <span class="s2">"</span><span class="nv">$str</span><span class="s2">"</span> wo<span class="sb">`</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4
+</code></pre></div></div>
+
+:ET

@@ -1,0 +1,34 @@
+I"g<p>bash支持1维数组, 不支持多维度数组, 对于数组的大小没有限制<br /></p>
+
+<p>数组下标从0开始, 下表可以是整数或者算数表达式, 但是下标的算术值必须大于等于0<br /></p>
+
+<h2 id="定义数组">定义数组</h2>
+<p>括号代表数组, 数组中的元素使用空格分隔的:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>数组<span class="o">=(</span>元素0 元素1 元素2 ...<span class="o">)</span>
+</code></pre></div></div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>数组<span class="o">=(</span>
+元素0
+元素1
+元素2
+...
+<span class="o">)</span>
+</code></pre></div></div>
+
+<p>定义元素:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>数组[index]<span class="o">=</span>value
+</code></pre></div></div>
+
+<h2 id="读取数组">读取数组</h2>
+<p>读取元素: <code class="language-plaintext highlighter-rouge">${数组名[下标]}</code><br />
+读取整个数组: <code class="language-plaintext highlighter-rouge">${数组名[@]}</code><br /></p>
+
+<h2 id="获取数组长度">获取数组长度</h2>
+<p>与字符串长度的方法相同</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># *和@效果相同</span>
+<span class="nv">len</span><span class="o">=</span><span class="k">${#</span><span class="p">数组[@]</span><span class="k">}</span>
+<span class="nv">len</span><span class="o">=</span><span class="k">${#</span><span class="p">数组[*]</span><span class="k">}</span>
+<span class="c"># 获取元素长度</span>
+<span class="nv">len</span><span class="o">=</span><span class="k">${#</span><span class="p">数组[下标]</span><span class="k">}</span>
+</code></pre></div></div>
+
+:ET

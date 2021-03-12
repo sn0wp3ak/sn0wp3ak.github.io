@@ -1,0 +1,48 @@
+I"x<p>运算符分类:</p>
+<ol>
+  <li>算数运算符</li>
+  <li>关系运算符</li>
+  <li>布尔运算符</li>
+  <li>字符串运算符</li>
+  <li>文件测试运算符</li>
+</ol>
+
+<p>原生bash并不支持简单数学运算, 但是可以通过其他命令来实现, 如: awk和expr<br /></p>
+
+<p>expr是一个表达式计算工具, 使用它可以完成表达式的求值<br /></p>
+
+<p>注意: expr计算表达式的两端是<code class="language-plaintext highlighter-rouge">反引号</code>而非单引号<br /></p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">val</span><span class="o">=</span><span class="sb">`</span><span class="nb">expr </span>1 + 2<span class="sb">`</span>
+<span class="nb">echo</span> <span class="s2">"1 + 2 = </span><span class="nv">$val</span><span class="s2">"</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1 + 2 = 3
+</code></pre></div></div>
+
+<p>注意:</p>
+<ol>
+  <li>表达式和运算符之间必须要有空格</li>
+  <li>完整的表达式要被反引号包含</li>
+</ol>
+
+<h3 id="算数运算符">算数运算符</h3>
+<p>假设变量a为1, 变量b为2<br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">运算符</th>
+      <th style="text-align: left">说明</th>
+      <th style="text-align: left">用例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">+</td>
+      <td style="text-align: left">加法</td>
+      <td style="text-align: left">`expr $a + $b` 结果: 3</td>
+    </tr>
+  </tbody>
+</table>
+
+:ET

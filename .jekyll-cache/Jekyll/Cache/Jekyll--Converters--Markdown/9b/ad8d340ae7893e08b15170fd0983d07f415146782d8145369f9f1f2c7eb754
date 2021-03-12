@@ -1,0 +1,4 @@
+I"L<p>在执行Shell脚本时, 向脚本传递参数;<br />
+脚本内部获取参数的格式: <code class="language-plaintext highlighter-rouge">$数字</code>, <code class="language-plaintext highlighter-rouge">$1</code>为第一个参数, <code class="language-plaintext highlighter-rouge">$2</code>为第二个参数…<br /></p>
+
+:ET
