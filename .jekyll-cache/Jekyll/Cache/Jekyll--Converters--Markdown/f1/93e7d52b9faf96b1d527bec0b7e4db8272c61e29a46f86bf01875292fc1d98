@@ -1,0 +1,58 @@
+I"�
+<p>Shell脚本中test命令用于检查条件是否成立, 可以进行数值, 字符, 文件3个方面的测试<br /></p>
+
+<h3 id="数值测试">数值测试</h3>
+
+<blockquote>
+  <p>-eq 等于<br />
+-ne 不等于<br />
+-gt 大于<br />
+-lt 小于<br />
+-ge 大于等于<br />
+-le 小于等于<br /></p>
+</blockquote>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>num1 <span class="o">=</span> 100
+num2 <span class="o">=</span> 200
+<span class="k">if </span><span class="nb">test</span> <span class="nv">$[</span>num1] <span class="nt">-eq</span> <span class="nv">$[</span>num2]
+<span class="k">then
+    </span><span class="nb">echo</span> <span class="s1">'两个数相等'</span>
+<span class="k">else
+    </span><span class="nb">echo</span> <span class="s1">'两个数不相等'</span>
+<span class="k">fi</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>两个数不相等
+</code></pre></div></div>
+<p>方括号<code class="language-plaintext highlighter-rouge">[]</code>中的表达式执行基本的算数运算<br /></p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="nv">a</span><span class="o">=</span>10
+<span class="nv">b</span><span class="o">=</span>20
+
+<span class="nv">res</span><span class="o">=</span><span class="nv">$[</span>a+b]
+<span class="nb">echo</span> <span class="s2">"res的值为: </span><span class="nv">$res</span><span class="s2">"</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>res的值为: 30
+</code></pre></div></div>
+
+<h3 id="字符串测试">字符串测试</h3>
+
+<blockquote>
+  <p>=  等于<br />
+!= 不等于<br />
+-z 长度是否为0<br />
+-n 长度是否不为0<br /></p>
+</blockquote>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">str1</span><span class="o">=</span><span class="s2">"hello"</span>
+<span class="nv">str2</span><span class="o">=</span><span class="s2">"aloha"</span>
+<span class="k">if </span><span class="nb">test</span> <span class="nv">$str1</span> <span class="o">=</span> <span class="nv">$str2</span>
+<span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"2个字符串相等"</span>
+<span class="k">else
+    </span><span class="nb">echo</span> <span class="s2">"2个字符串不相等"</span>
+<span class="k">fi</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2个字符串不相等
+</code></pre></div></div>
+
+:ET

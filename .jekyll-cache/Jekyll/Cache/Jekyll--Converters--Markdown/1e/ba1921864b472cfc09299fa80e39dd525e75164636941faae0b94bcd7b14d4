@@ -1,0 +1,128 @@
+I"�<p>除echo之外另一输出命令printf<br />
+printf类似与C语言中的printf函数<br />
+由于printf是POSIX标准定义的, 所以在可移植性上比echo强<br />
+printf使用引用文本或空格分隔的参数, 还可以格式化输出<br />
+printf默认不会像echo那样自动添加换行符, 需要手动添加<code class="language-plaintext highlighter-rouge">\n</code><br /></p>
+
+<p>语法:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">printf </span>format-string <span class="o">[</span>arg1, arg2, ...]
+</code></pre></div></div>
+
+<ul>
+  <li>format-string 为格式化占位符</li>
+</ul>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="nb">printf</span> <span class="s2">"%-10s %-8s %-4s</span><span class="se">\n</span><span class="s2">"</span> 姓名 性别 体重KG
+<span class="nb">printf</span> <span class="s2">"%-10s %-8s %-4.2f</span><span class="se">\n</span><span class="s2">"</span> 张三 男 65.157
+<span class="nb">printf</span> <span class="s2">"%-10s %-8s %-4.2f</span><span class="se">\n</span><span class="s2">"</span> 李四 女 49.3087
+<span class="nb">printf</span> <span class="s2">"%-10s %-8s %-4.2f</span><span class="se">\n</span><span class="s2">"</span> 王五 男 80.50
+</code></pre></div></div>
+<p>结果</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>姓名     性别    体重KG
+张三     男      65.16
+李四     女      49.31
+王五     男      80.50
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">格式化占位符</th>
+      <th style="text-align: left">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">%s</td>
+      <td style="text-align: left">字符串</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">%d</td>
+      <td style="text-align: left">整型</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">%c</td>
+      <td style="text-align: left">字符</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">%f</td>
+      <td style="text-align: left">浮点数</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">%-10s</td>
+      <td style="text-align: left">宽度为10个字符的字符串, -表示左对齐, 通常右对齐</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">%-4.2f</td>
+      <td style="text-align: left">宽度为4个字符的浮点数, 小数点后保留2位</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>对于格式化输出表达式, 单引号和双引号效果相同</li>
+  <li>不加引号也可以</li>
+  <li>只定义了一个占位符, 但是传入了多个参数, 那么会重复使用这个占位符</li>
+  <li>只有占位符, 不传入参数, %s用NULL代替显示为空, %d用0代替</li>
+</ul>
+
+<h3 id="printf的转义序列">printf的转义序列</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">转义</th>
+      <th style="text-align: left">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">\a</td>
+      <td style="text-align: left">警告字符, ASCII的BEL字符</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">\b</td>
+      <td style="text-align: left">退格</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">\c</td>
+      <td style="text-align: left">不显示换行</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">\f</td>
+      <td style="text-align: left">换页</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">\n</td>
+      <td style="text-align: left">换行</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">\r</td>
+      <td style="text-align: left">回车</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">\t</td>
+      <td style="text-align: left">水平制表符</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">\v</td>
+      <td style="text-align: left">垂直制表符</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">\\</td>
+      <td style="text-align: left">反斜杠</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">\ddd</td>
+      <td style="text-align: left">1到3位的8进制字符, 只在格式化字符串中生效</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">\0ddd</td>
+      <td style="text-align: left">1到3为的8进制字符</td>
+    </tr>
+  </tbody>
+</table>
+
+:ET
