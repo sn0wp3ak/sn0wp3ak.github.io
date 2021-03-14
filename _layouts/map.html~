@@ -1,18 +1,17 @@
 ---
-layout: default
-title: word
+title: map
 ---
 <!DOCTYPE html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
-  <title>@word</title>
-  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}    ">
+  <title>@map</title>
+  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}        ">
 </head>
 
 <!-- 页头 -->
 <div id="header">
-        sn0wp3ak.github.io &nbsp; <span>word</span>
+        sn0wp3ak.github.io &nbsp; <span>map</span>
 </div>
 <!-- 菜单 -->
 <div id="menu">
@@ -33,11 +32,11 @@ title: word
         </a>
         &nbsp;
         <a href="/word">
-		<b>word</b>
+		word
         </a>
         &nbsp;
         <a href="/map">
-                map
+		<b>map</b>
         </a>
 </div>
 <!-- 内容 -->
@@ -45,26 +44,26 @@ title: word
         <!-- 侧边栏 -->
         <div id="nav">
 		<li>
-		<a href="/word">
+		<a href="/map">
 			<font>
-			all
+				all
 			</font>
 		</a>
 		</li>
 		{% for category in site.categories %}
-			{% if category[0] == "word" %}
+			{% if category[0] == "map" %}
 				{% for post in category[1] %}
 					{% if post.title == page.title %}
                 			<li>
-						<a href="{{post.url | prepend: site.baseurl | replace: '//', '/'}}">
+						<a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}">
 							<font color="#71b9f8">
-							<b>{{ post.title }}</b>
+								<b>{{ post.title }}</b>
 							</font>
                 			</a>
                 			</li>
 					{% else %}
                 			<li>
-						<a href="{{post.url | prepend: site.baseurl | replace: '//', '/'}}">
+						<a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'}}">
 						{{ post.title }}
                 			</a>
                 			</li>
