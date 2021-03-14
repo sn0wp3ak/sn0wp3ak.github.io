@@ -1,0 +1,14 @@
+I"5<p>和其他编程语言一样, Shell作为脚本编程语言, 也可以在当前文件中导入其他文件, 如此一来用封装的思想将常用的公共代码独立出来<br /></p>
+
+<p>语法:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 中间有空格</span>
+<span class="nb">.</span> filename
+<span class="c"># 另一种方式</span>
+<span class="nb">source </span>filename
+</code></pre></div></div>
+
+<ul>
+  <li>被包含进来的文件, 不需要有可执行的权限</li>
+</ul>
+
+:ET
