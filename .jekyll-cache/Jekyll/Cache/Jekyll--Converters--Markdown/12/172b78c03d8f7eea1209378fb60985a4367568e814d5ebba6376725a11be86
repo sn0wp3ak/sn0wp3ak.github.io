@@ -1,0 +1,85 @@
+I"�<p><img src="/assets/post_image/tcp0.jpg" height="70%" width="70%" /></p>
+
+<ul>
+  <li>
+    <p>序号seq: 占4个字节, 用来标记数据段的顺序; TCP把连接中发送的所有数据字节都编上一个号, 第一个字节的编号由本地随机产生, 给字节编上序号之后, 给每个报文段指派一个序号seq, seq就是报文段中第一个字节的数据编号</p>
+  </li>
+  <li>确认号ack: 占4个字节, 期待接收到对方<code class="language-plaintext highlighter-rouge">下一个报文段</code>的第一个字节的序号, 当前报文的最后一个字节的编号+1即是确认号</li>
+  <li>确认标志-ACK: 占1个比特, 仅当ACK=1时确认号字段ack才算有效; ACK=0则确认号字段无效</li>
+  <li>同步标志-SYN: 占1个比特, 建立连接时用于同步序号; 当SYN=1, ACK=0时表示这是一个请求报文；在同意连接后, 响应报文中使用SYN=1, ACK=1; 因此SYN=1表示这是一个连接请求或连接接收报文, SYN这个标志位<code class="language-plaintext highlighter-rouge">只有在TCP建立连接</code>的时候才会被置为1, 在握手完成后SYN回归0</li>
+  <li>终止标志-FIN: 用来释放一个连接</li>
+</ul>
+
+<p><img src="/assets/post_image/tcp1.jpg" height="70%" width="70%" /></p>
+
+<ol>
+  <li>第一次握手:</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A --[SYN=1][ACK=0]--&gt; B
+</code></pre></div></div>
+
+<p>SYN=1的报文段<code class="language-plaintext highlighter-rouge">不能</code>携带数据, 但是会消耗掉一个序号x, 客户端A进入<code class="language-plaintext highlighter-rouge">同步已发送</code>状态</p>
+
+<ol>
+  <li>第二次握手:</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A &lt;--[SYN=1][ACK=1][seq=y][ack=x+1]-- B
+</code></pre></div></div>
+
+<p>服务器B接收到A的请求之后, 同意建立连接, 并向A发送确认的报文段；<br /></p>
+
+<p>因为SYN=1说明, 这个报文段还是不带数据, ack=x+1说明期待接收来自A的报文段序号时x+1;<br /></p>
+
+<p>并且这个请求确认报文段本身还携带了一个seq=y的序号, 发出这个报文后, 服务器进入<code class="language-plaintext highlighter-rouge">同步收到</code>状态</p>
+
+<ol>
+  <li>第三次握手:</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A --[ACK=1][seq=x+1][ack=y+1][数据]--&gt; B
+</code></pre></div></div>
+
+<p>A收到B的确认后, 向B给出确认报文ACK=1, seq=x+1表示携带了B想要的序号从x+1开始的数据, 同时发送一个确认号ack=y+1, 此时A进入<code class="language-plaintext highlighter-rouge">已建立连接</code>的状态, 当B收到这条确认报文之后, 也进入<code class="language-plaintext highlighter-rouge">已建立连接</code>的状态<br /></p>
+
+<hr />
+
+<h3 id="为什么需要三次握手-为什么不是两次握手-最后一次确认的意义何在">为什么需要三次握手? 为什么不是两次握手, 最后一次确认的意义何在?</h3>
+
+<p>那我们就假设一下只做两次握手的情况:<br /></p>
+
+<ol>
+  <li>正常情况:</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A --请求1--&gt; 丢失
+     | 超时, 重新发送
+A --请求2--&gt; B
+A &lt;--确认-- B
+  [已建立连接...]
+     | 数据传输完毕
+  释放连接
+</code></pre></div></div>
+
+<p>正常情况下, 客户端A发送了2次请求, 第一个丢失了, 第二个送达了, 没有任何问题发生<br /></p>
+
+<ol>
+  <li>异常情况:</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A --请求1--&gt; 滞留 ------
+     |                |
+     | 超时, 重新发送   |
+A --请求2--&gt; B         |
+A &lt;--确认2-- B          |
+  [已建立连接...]       |
+     | 数据传输完毕     |
+  释放连接              |
+A &lt;--确认1-- B ---------
+  [B单方面进入连接状态...]
+A 不理会B的确认报文, 不会给B传输数据, 而B则一直等待...
+</code></pre></div></div>
+
+<p>B在收到滞留的报文后, 向A出确认报文, 并进入连接状态deng</p>
+:ET

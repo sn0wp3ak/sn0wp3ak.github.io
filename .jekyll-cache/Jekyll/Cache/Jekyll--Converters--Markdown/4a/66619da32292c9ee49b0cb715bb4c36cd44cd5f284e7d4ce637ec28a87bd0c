@@ -1,0 +1,10 @@
+I"�<p><img src="/assets/post_image/tcp0.jpg" height="70%" width="70%" /></p>
+
+<ul>
+  <li>
+    <p>序号seq: 占4个字节, 用来标记数据段的顺序; TCP把连接中发送的所有数据字节都编上一个号, 第一个字节的编号由本地随机产生, 给字节编上序号之后, 给每个报文段指派一个序号seq, seq就是报文段中第一个字节的数据编号</p>
+  </li>
+  <li>确认号ack: 占4个字节, 期待接收到对方<code class="language-plaintext highlighter-rouge">下一个报文段</code>的第一个字节的序号, 当前报文的最后一个字节的编号+1即是确认号</li>
+  <li>确认标志-ACK: 占1个比特, 仅当ACK=1时确认号字段ack才算有效; A</li>
+</ul>
+:ET
