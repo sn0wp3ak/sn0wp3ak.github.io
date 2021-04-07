@@ -1,0 +1,47 @@
+I"O<p>虚拟机操作系统: CentOS7<br /></p>
+
+<p>三台主机, 其中一台是操作机<br /></p>
+
+<p>HOST-0 主机名: <code class="language-plaintext highlighter-rouge">centos7</code>; IP地址: <code class="language-plaintext highlighter-rouge">10.0.0.1</code><br /></p>
+
+<p>HOST-1 主机名: <code class="language-plaintext highlighter-rouge">centos7-clone1</code>; IP地址: <code class="language-plaintext highlighter-rouge">10.0.0.2</code><br /></p>
+
+<p>HOST-3 主机名: <code class="language-plaintext highlighter-rouge">centos7-clone2</code>; IP地址: <code class="language-plaintext highlighter-rouge">10.0.0.3</code><br /></p>
+
+<p>实验主机的网络连接方式: 仅主机模式<br /></p>
+
+<h3 id="安装">安装</h3>
+
+<ul>
+  <li>YUM</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum <span class="nt">-y</span> <span class="nb">install </span>epel-release
+yum <span class="nt">-y</span> <span class="nb">install </span>ansible
+</code></pre></div></div>
+
+<h3 id="配置ssh密钥">配置SSH密钥</h3>
+
+<p>在操作机HOST-0中<br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-keygen <span class="nt">-t</span> rsa <span class="nt">-P</span> <span class="s2">""</span>
+</code></pre></div></div>
+
+<p>把公钥复制到需要被管理的主机中</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-copy-id <span class="nt">-i</span> /root/.ssh/id_rsa.pub root@10.0.0.2
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-copy-id <span class="nt">-i</span> /root/.ssh/id_rsa.pub root@10.0.0.3
+</code></pre></div></div>
+
+<p>在操作机的 <code class="language-plaintext highlighter-rouge">/etc/ansible/hosts</code> 配置文件中添加需要被管理的主机清单<br /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim /etc/ansible/hosts
+
+[websrvs]
+10.0.0.2
+10.0.0.3
+</code></pre></div></div>
+
+:ET

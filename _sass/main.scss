@@ -1,5 +1,5 @@
-$bg: #292929;
-$fg: #e8e8e9;
+$bg: #ffffff;
+$fg: #000000;
 $bodyFont: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 
 $prebg: #151515;
@@ -14,15 +14,15 @@ $prered: #cf6a4c;
 $green: #008000;
 
 #header {
-  background: $bg;
-  color: $fg;
+  background: #eee;
+  color: #1177aa;
   font-size: 1.50em;
   clear: both;
   padding: 0.7ex 0.7ex 0.7ex 1em;
 }
 
 #header span {
-  color: #808080;
+  color: #555555;
 }
 
 #menu {
@@ -36,19 +36,25 @@ $green: #008000;
 }
 
 #menu a {
-  color: $fg;
+  color: $bg;
   padding: 0.5ex 1ex;
+  text-decoration: none;
 }
 
 #menu a:hover {
   background: #069;
 }
 
+#menu span {
+  float: right;
+  color: $bg;
+}
+
 #nav {
   float: left;
   margin: 0 1px 0 0;
   padding: 1em 0;
-  border-right: 1px dotted $fg;
+  border-right: 1px dotted #ccc;
   width: 200px;
   color: $fg;
   background: $bg;
@@ -72,11 +78,7 @@ $green: #008000;
 }
 
 #nav a:hover {
-  background: #404040;
-}
-
-#nav a:visited {
-  font-weight: bold;
+  background: #ddd;
 }
 
 #main {
@@ -188,16 +190,16 @@ code.highlighter-rouge {
   }
 }
 
-a {
-  color: $preblue;
+#nav a {
+  color: #005386;
   text-decoration: none;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
                0 0   5px rgba(181, 232, 83, 0.1),
 	       0 0  10px rgba(181, 232, 83, 0.1);
 }
 
-a:hover {
-  color: $precyan;
+#nav b {
+  color: #005386;
 }
 
 h1, h2, h3, h4, h5, h6 {
