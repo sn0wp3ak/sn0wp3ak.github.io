@@ -8,12 +8,13 @@ tags:
 - archlinux 
 ---
 
-# 准备工作
+### 准备工作
 
 >1. 烧录一个启动U盘<br/>
 >2. 把BIOS调成UEFI启动
 
-# 正式安装
+### 正式安装
+
 1. 检查启动模式<br/>
 	`ls /sys/firmware/efi/efivars`<br/>
 	如果没有efi目录则说明U盘系统不是用UEFI启动的<br/>
@@ -32,6 +33,7 @@ tags:
 
 	**建议把联网步骤写入shell脚本，添加到开机启动配置中**<br/>
 4. 更新系统时间
+	
 	- `timedatectl set-ntp true`
 5. 分区(重点)
 	- 先看下存储设备列表 `fdisk -l`
@@ -41,6 +43,7 @@ tags:
 	- 格式化swap分区 `mkswap /dev/...p3`
 	- 格式化根和家分区 `mkfs.ext4 /dev/...p2` 和 `mkfs.ext4 /dev/sda1`
 6. 激活swap分区 
+	
 	- `swapon /dev/...p3`
 7. 挂载各分区
 	- 先把根分区挂载到U盘系统的/mnt目录下 `mount /dev/...p2 /mnt`
@@ -53,6 +56,7 @@ tags:
 	- 安装内核和驱动 `pacstrap /mnt base linux linux-firmware`
 	- `genfstab -U /mnt >> /mnt/etc/fstab`
 10. 进入安装好的系统
+	
 	- `arch-chroot /mnt` 进入挂载点所在的系统环境
 11. 时区设置
 	- `ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime`
@@ -64,6 +68,7 @@ tags:
 	- 生产本地化 `locale-gen`
 	- 设置语言 `vim /mnt/etc/locale.conf` `LANG = en_US.UTF-8`
 13. 修改hostname
+	
 	- `vim /mnt/etc/hostname` 写入计算机名
 14. 修改hosts
 	- `vim /mnt/etc/hosts`
@@ -71,6 +76,7 @@ tags:
 	- \:\:1		localhost
 	- 127.0.0.1	hostname.localdomain hostname
 15. 修改root密码
+	
 	- 进入挂载系统环境 `passwd 密码`
 16. 配置grub
 	- 安装grub `pacman -S grub efibootmgr intel-ucode os-prober`
@@ -82,7 +88,7 @@ tags:
 <br/>
 **至此archlinux已经安装完毕， reboot通过grub界面进入系统**<br/>
 
-# 安装完成后需要做的事
+### 安装完成后需要做的事
 
 1. 设置字体
 	- `setfont`

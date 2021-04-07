@@ -1,0 +1,185 @@
+I""<h3 id="准备工作">准备工作</h3>
+
+<blockquote>
+  <ol>
+    <li>烧录一个启动U盘<br /></li>
+    <li>把BIOS调成UEFI启动</li>
+  </ol>
+</blockquote>
+
+<h3 id="正式安装">正式安装</h3>
+
+<ol>
+  <li>检查启动模式<br />
+ <code class="language-plaintext highlighter-rouge">ls /sys/firmware/efi/efivars</code><br />
+ 如果没有efi目录则说明U盘系统不是用UEFI启动的<br />
+ 现在的笔记本只要不是太次的都用UEFI启动了</li>
+  <li>修改终端字体<br />
+ 默认的终端字体太小, 需要改一下字体方便安装;<br />
+ 推荐设置字体 <code class="language-plaintext highlighter-rouge">setfont /usr/share/kbd/consolefonts/LatGrkCyr-12x22.psfu.gz</code></li>
+  <li>联网
+    <ul>
+      <li>看下网络设备(网卡) <code class="language-plaintext highlighter-rouge">ip link</code></li>
+      <li>启动(up)网卡 <code class="language-plaintext highlighter-rouge">ip link set 网卡名 up</code></li>
+      <li>我一般用无线网， 扫描一下附近的wifi <code class="language-plaintext highlighter-rouge">iwlist 无线网卡名 scan | grep ESSID</code></li>
+      <li>生成wifi配置文件 <code class="language-plaintext highlighter-rouge">wpa_passphrase wifi名 密码 &gt; internet.conf</code></li>
+      <li>连接无线网 <code class="language-plaintext highlighter-rouge">wpa_supplicant -c internet.conf -i 无线网卡名 &amp;</code></li>
+      <li>动态分配IP地址 <code class="language-plaintext highlighter-rouge">dhcpcd &amp;</code></li>
+      <li>测试联通性 <code class="language-plaintext highlighter-rouge">ping baidu.com</code><br /></li>
+    </ul>
+
+    <p><strong>建议把联网步骤写入shell脚本，添加到开机启动配置中</strong><br /></p>
+  </li>
+  <li>
+    <p>更新系统时间</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">timedatectl set-ntp true</code></li>
+    </ul>
+  </li>
+  <li>分区(重点)
+    <ul>
+      <li>先看下存储设备列表 <code class="language-plaintext highlighter-rouge">fdisk -l</code></li>
+      <li>根据提示分区，UEFI启动官方要求要分一个启动分区!!!</li>
+      <li>我的常用分区，固态512M给/boot分区，16G给swap(内存16G)，剩下全给根目录/; 机械就默认一个分区用来给/home</li>
+      <li>格式化分区 /boot 格式化成Fat32 <code class="language-plaintext highlighter-rouge">mkfs.fat -F32 /dev/...p1</code></li>
+      <li>格式化swap分区 <code class="language-plaintext highlighter-rouge">mkswap /dev/...p3</code></li>
+      <li>格式化根和家分区 <code class="language-plaintext highlighter-rouge">mkfs.ext4 /dev/...p2</code> 和 <code class="language-plaintext highlighter-rouge">mkfs.ext4 /dev/sda1</code></li>
+    </ul>
+  </li>
+  <li>
+    <p>激活swap分区</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">swapon /dev/...p3</code></li>
+    </ul>
+  </li>
+  <li>挂载各分区
+    <ul>
+      <li>先把根分区挂载到U盘系统的/mnt目录下 <code class="language-plaintext highlighter-rouge">mount /dev/...p2 /mnt</code></li>
+      <li>在/mnt目录下创建boot和home目录 <code class="language-plaintext highlighter-rouge">mkdir /mnt/boot</code> 和 <code class="language-plaintext highlighter-rouge">mkdir /mnt/home</code></li>
+      <li>分别吧挂载home和boot分区 <code class="language-plaintext highlighter-rouge">mount /dev/...p1 /mnt/boot</code> 和 <code class="language-plaintext highlighter-rouge">mount /dev/sda1 /mnt/home</code></li>
+    </ul>
+  </li>
+  <li>确定国内软件源在列表最上边
+    <ul>
+      <li>拉取软件时添加颜色信息，<code class="language-plaintext highlighter-rouge">vim /etc/pacman.conf</code></li>
+      <li>修改镜像源的顺序 <code class="language-plaintext highlighter-rouge">vim /etc/pacman.d/mirrorlist</code></li>
+    </ul>
+  </li>
+  <li>基础安装
+    <ul>
+      <li>安装内核和驱动 <code class="language-plaintext highlighter-rouge">pacstrap /mnt base linux linux-firmware</code></li>
+      <li><code class="language-plaintext highlighter-rouge">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</code></li>
+    </ul>
+  </li>
+  <li>
+    <p>进入安装好的系统</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">arch-chroot /mnt</code> 进入挂载点所在的系统环境</li>
+    </ul>
+  </li>
+  <li>时区设置
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code></li>
+      <li>同步系统时间 <code class="language-plaintext highlighter-rouge">hwclock --systohc</code></li>
+    </ul>
+  </li>
+  <li>本地化
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">exit</code> 先退出挂载点的系统环境</li>
+      <li><code class="language-plaintext highlighter-rouge">vim /mnt/etc/locale.gen</code> 开启对应注释(en_US.UTF-8)</li>
+      <li>再次进入挂载点的系统环境 <code class="language-plaintext highlighter-rouge">arch-chroot /mnt</code></li>
+      <li>生产本地化 <code class="language-plaintext highlighter-rouge">locale-gen</code></li>
+      <li>设置语言 <code class="language-plaintext highlighter-rouge">vim /mnt/etc/locale.conf</code> <code class="language-plaintext highlighter-rouge">LANG = en_US.UTF-8</code></li>
+    </ul>
+  </li>
+  <li>
+    <p>修改hostname</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">vim /mnt/etc/hostname</code> 写入计算机名</li>
+    </ul>
+  </li>
+  <li>修改hosts
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">vim /mnt/etc/hosts</code></li>
+      <li>127.0.0.1	localhost</li>
+      <li>::1		localhost</li>
+      <li>127.0.0.1	hostname.localdomain hostname</li>
+    </ul>
+  </li>
+  <li>
+    <p>修改root密码</p>
+
+    <ul>
+      <li>进入挂载系统环境 <code class="language-plaintext highlighter-rouge">passwd 密码</code></li>
+    </ul>
+  </li>
+  <li>配置grub
+    <ul>
+      <li>安装grub <code class="language-plaintext highlighter-rouge">pacman -S grub efibootmgr intel-ucode os-prober</code></li>
+      <li><code class="language-plaintext highlighter-rouge">mkdir /boot/grub</code> <code class="language-plaintext highlighter-rouge">grub-mkconfig /boot/grub/grub.cfg</code></li>
+      <li><code class="language-plaintext highlighter-rouge">grub -install --target=x86_64-efi --efi-directory=/boot</code></li>
+    </ul>
+  </li>
+  <li>安装一些软件
+    <ul>
+      <li>提前安装一些进入系统后必备的软件</li>
+      <li><code class="language-plaintext highlighter-rouge">pacman -S vim wpa_supplicant dhcpcd</code>
+<br />
+<strong>至此archlinux已经安装完毕， reboot通过grub界面进入系统</strong><br /></li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="安装完成后需要做的事">安装完成后需要做的事</h3>
+
+<ol>
+  <li>设置字体
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">setfont</code></li>
+    </ul>
+  </li>
+  <li>联网</li>
+  <li>更新一下
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">pacman -Syyu</code></li>
+    </ul>
+  </li>
+  <li>安装一些基础命令(重要)
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">pacman -S base-devel</code></li>
+    </ul>
+  </li>
+  <li>安装手册
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">pacman -S man</code></li>
+    </ul>
+  </li>
+  <li>添加普通用户
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">useradd -G wheel -m 用户名</code> 添加到wheel组</li>
+      <li><code class="language-plaintext highlighter-rouge">ln -s /usr/bin/vim /usr/bin/vi</code></li>
+      <li>编辑 <code class="language-plaintext highlighter-rouge">visudo</code> 打开wheel组的注释</li>
+    </ul>
+  </li>
+  <li>安装图像界面(重要)
+    <ul>
+      <li>先安装X服务 <code class="language-plaintext highlighter-rouge">sudo pacman -S xorg xorg-server</code></li>
+      <li>选择一个喜欢的桌面环境安装</li>
+      <li>安装登录管理器 <code class="language-plaintext highlighter-rouge">sudo pacman -S lightdm lightdm-gtk-greeter</code></li>
+      <li>开机启动登录管理器 <code class="language-plaintext highlighter-rouge">systemctl enable lightdm</code></li>
+    </ul>
+  </li>
+  <li>推荐安装
+    <ul>
+      <li>AUR 推荐yay 从github拉取 <code class="language-plaintext highlighter-rouge">makepkg -si</code></li>
+      <li>谷歌Chrome浏览器, <code class="language-plaintext highlighter-rouge">yay -S google-chrome</code></li>
+      <li>挂载NTFS格式的设备 <code class="language-plaintext highlighter-rouge">pacman -S ntfs-3g</code></li>
+    </ul>
+  </li>
+</ol>
+
+:ET

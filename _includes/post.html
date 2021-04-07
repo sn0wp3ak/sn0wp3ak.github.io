@@ -39,7 +39,7 @@
                 <li>
 		分类:<br>
 		<a href="/category_sub/{{ page.categories[0] }}">
-			<b>{{ page.categories[0] }}</b>
+			{{ page.categories[0] }}
                 </a>
                 </li>
 		{% endif %}
@@ -47,7 +47,7 @@
                 <li>
 		标签:<br>
 		<a href="/tag_sub/{{ page.tags[0] }}">
-			<b>{{ page.tags[0] }}</b>
+			{{ page.tags[0] }}
                 </a>
                 </li>
 		{% endif %}
@@ -57,14 +57,14 @@
                 <li>
 		日期:<br>
 		<a href="/archive_sub/currentyear">
-			<b>{{ page.date | date: '%Y-%m-%d'}}</b>
+			{{ page.date | date: '%Y-%m-%d'}}
                 </a>
                 </li>
 		{% else %}
                 <li>
 		日期:<br>
 		<a href="/archive_sub/{{ page.date | date: '%Y' }}">
-			<b>{{ page.date | date: '%Y-%m-%d'}}</b>
+			{{ page.date | date: '%Y-%m-%d'}}
                 </a>
                 </li>
 		{% endif %}
