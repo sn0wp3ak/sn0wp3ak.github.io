@@ -11,6 +11,12 @@ $preyellow: #d8ad4c;
 $pregrey: #abb0b6;
 $prered: #cf6a4c;
 
+$prekeyword: #ff7733;
+$preoperator: #e7c547;
+$prestring: #86b300;
+$prefunction: #f29718;
+$prespecial: #e6b673;
+
 $green: #008000;
 
 #header {
@@ -162,27 +168,27 @@ code.highlighter-rouge {
 .highlight {
 
   .k {
-    color: $preblue;
+    color: $prekeyword;
   }
 
   .ow {
-    color: $preblue;
+    color: $prespecial;
   }
 
   .kn {
-    color: $precyan;
+    color: $prespecial;
   }
 
   .nf {
-    color: $preyellow;
+    color: $prefunction;
   }
 
   .bp {
-    color: $preyellow;
+    color: $prekeyword;
   }
 
   .s {
-    color: $pregreen;
+    color: $prestring;
   }
   
   .c, .c1, .cd, .cm, .cs {
@@ -190,7 +196,7 @@ code.highlighter-rouge {
   }
 
   .mi {
-    color: $prered;
+    color: #a390e3;
   }
 }
 
