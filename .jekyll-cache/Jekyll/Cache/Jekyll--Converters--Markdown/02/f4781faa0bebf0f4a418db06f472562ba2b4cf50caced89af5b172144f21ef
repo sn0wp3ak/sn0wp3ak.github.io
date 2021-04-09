@@ -1,0 +1,104 @@
+I":<p>HTML – Hyper Text Mark-up Language<br />
+超文本标记语言<br />
+标记就是标签:<br /></p>
+<blockquote>
+  <p>双标签 <code class="language-plaintext highlighter-rouge">&lt;标签名 属性="值"&gt;内容&lt;/标签名&gt;</code><br />
+单标签 <code class="language-plaintext highlighter-rouge">&lt;标签名 属性="值"&gt;</code><br /></p>
+</blockquote>
+
+<p>HTML是网页开发语言<br /></p>
+
+<p>HTML的基本结构:<br /></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>  文档声明 指定页面使用的html版本
+<span class="nt">&lt;html&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>  定义文档头部
+		<span class="nt">&lt;title&gt;</span>网页的标签<span class="nt">&lt;/title&gt;</span>  设置标题, 编码格式
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+		网页显示内容
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<hr />
+
+<p>常用的HTML标签:<br /></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&lt;!-- --&gt;</code>  注释标签</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;h1&gt;</code>一级标题<code class="language-plaintext highlighter-rouge">&lt;/h1&gt;</code>  标题标签</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;h6&gt;</code>六级标题<code class="language-plaintext highlighter-rouge">&lt;/h6&gt;</code>  标题标签</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;div&gt;</code>一个区块<code class="language-plaintext highlighter-rouge">&lt;/div&gt;</code>  区块标签</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;p&gt;</code>一个段落<code class="language-plaintext highlighter-rouge">&lt;/p&gt;</code>  段落标签</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;br&gt;</code>  换行标签</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;img src="路径" alt="缺省"&gt;</code>  图片标签
+    <ul>
+      <li>src属性是图片资源的路径</li>
+      <li>alt属性是当图片不存在时显示的文字</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;a href=""&gt;</code>文本超链接<code class="language-plaintext highlighter-rouge">&lt;/a&gt;</code>   链接标签
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">&lt;a href=""&gt;</code><code class="language-plaintext highlighter-rouge">&lt;img src=""&gt;</code><code class="language-plaintext highlighter-rouge">&lt;/a&gt;</code> 图片超链接</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong><code class="language-plaintext highlighter-rouge">标签虽然不区分大小写, 但是建议使用小写</code></strong><br />
+<strong><code class="language-plaintext highlighter-rouge">资源路径一般使用相对路径, 绝对路径在其他主机上打开会出现文件找不到的情况</code></strong><br /></p>
+
+<p>资源路径一般有3种:</p>
+<ul>
+  <li>相对</li>
+  <li>绝对</li>
+  <li>URL 互联网绝对地址</li>
+</ul>
+<hr />
+
+<h4 id="列表标签-list">列表标签 LIST</h4>
+<p>无序列表 ul – unordered list<br />
+有序列表 ol – ordered list<br />
+li 列表项目<br /></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ul&gt;</span>
+	<span class="nt">&lt;li&gt;&lt;/li&gt;</span>
+	<span class="nt">&lt;li&gt;&lt;/li&gt;</span>
+	<span class="nt">&lt;li&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+
+<span class="nt">&lt;ol&gt;</span>
+	<span class="nt">&lt;li&gt;&lt;/li&gt;</span>
+	<span class="nt">&lt;li&gt;&lt;/li&gt;</span>
+	<span class="nt">&lt;li&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;/ol&gt;</span>
+</code></pre></div></div>
+
+<p>效果:<br /></p>
+<ul>
+  <li>无序项目1</li>
+  <li>无序项目2</li>
+  <li>无序项目3</li>
+</ul>
+
+<ol>
+  <li>有序项目1</li>
+  <li>有序项目2</li>
+  <li>有序项目3</li>
+</ol>
+
+<hr />
+
+<h4 id="表格标签-table">表格标签 TABLE</h4>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;table&gt;</span>
+	<span class="nt">&lt;tr&gt;</span>
+		<span class="nt">&lt;th&gt;</span>姓名<span class="nt">&lt;/th&gt;</span>
+		<span class="nt">&lt;th&gt;</span>年龄<span class="nt">&lt;/th&gt;</span>
+	<span class="nt">&lt;/tr&gt;</span>
+	<span class="nt">&lt;tr&gt;</span>
+		<span class="nt">&lt;td&gt;</span>张三<span class="nt">&lt;/td&gt;</span>
+		<span class="nt">&lt;td&gt;</span>18<span class="nt">&lt;/td&gt;</span>
+	<span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+</code></pre></div></div>
+
+:ET

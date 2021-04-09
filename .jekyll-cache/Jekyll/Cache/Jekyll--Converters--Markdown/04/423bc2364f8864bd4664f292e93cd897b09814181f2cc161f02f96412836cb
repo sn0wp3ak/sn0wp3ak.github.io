@@ -1,0 +1,143 @@
+I"=<p>HTTP – Hyper Text Transfer Protocol<br /></p>
+
+<p>超文本传输协议<br /></p>
+
+<p>超文本: 图片, 音乐, 视频, 超链接…<br /></p>
+
+<p>蒂姆·伯纳斯·李<br /></p>
+
+<p>传输HTTP协议格式的数据是基于TCP传输协议的, 发送数据之前需要先建立连接<br /></p>
+
+<p>HTTP是明文传输. HTTPS是基于HTTP的安全通信方式(密钥交互, 加密, 解密)<br /></p>
+<hr />
+
+<p>URL – Uniform Resource Locator<br /></p>
+
+<p>统一资源定位符 – 网络资源地址 – 网址<br /></p>
+
+<p>URL的形式:<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://news.163.com/18/1122/hello.html?page=1&amp;count=10#collections.abc
+</code></pre></div></div>
+<ul>
+  <li>https 协议</li>
+  <li>news.163.com 域名</li>
+  <li>/18/1122/hello.html 资源路径</li>
+  <li>?page=1&amp;count=10 查询参数</li>
+  <li>#collections.abc 锚点</li>
+</ul>
+
+<p>锚点: 并不是给服务器用的, 是浏览器自己留着显示网页时定位用的<br /></p>
+<hr />
+
+<p>Chrome浏览器开发者工具<br /></p>
+<ul>
+  <li>元素 Element : 查看或者修改HTML标签</li>
+  <li>控制台 Console : 执行JS代码</li>
+  <li>源代码 Sources : 查看静态资源文件, 断点调试JS代码</li>
+  <li>网络 Network : 查看HTTP协议的通信过程</li>
+</ul>
+
+<p>网络Network里的每一项记录都是 [请求+响应] 的一次过程<br /></p>
+<hr />
+
+<p>Headers选项总共有3部分组成:</p>
+<ol>
+  <li>General: 主要信息</li>
+  <li>Response Headers: 响应头</li>
+  <li>Request Headers: 请求头</li>
+</ol>
+
+<ul>
+  <li>Response 选项用来查看响应体信息</li>
+</ul>
+<hr />
+
+<p>HTTP请求报文<br /></p>
+<ul>
+  <li>最常见的2种: GET, POST
+    <ul>
+      <li>GET 获取(或少量提交)Web服务器数据
+        <ul>
+          <li>可以少量提交查询参数, 但是容易被缓存下来, 不安全</li>
+        </ul>
+      </li>
+      <li>POST 提交给Web服务器数据
+        <ul>
+          <li>请求体中任意类型, 不会被缓存, 安全</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>请求报文格式总结:<br />
+4部分:<br /></p>
+<blockquote>
+  <p>请求行: 方法 路径 版本 \r\n<br />
+请求头: key:value \r\n<br />
+空行: \r\n<br />
+请求体(POST): 浏览器需要提交给服务器的数据内容<br /></p>
+</blockquote>
+
+<ul>
+  <li>出现GET, POST说明是请求报文</li>
+</ul>
+<hr />
+
+<p>HTTP响应报文格式总结:<br />
+4部分:<br /></p>
+<blockquote>
+  <p>状态行: 版本 状态码 状态说明 \r\n<br />
+响应头: key:value \r\n<br />
+空行: \r\n<br />
+响应体: 服务器给浏览器发送的数据内容<br /></p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">状态码</th>
+      <th style="text-align: left">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1xx</td>
+      <td style="text-align: left">继续</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2xx</td>
+      <td style="text-align: left">成功</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3xx</td>
+      <td style="text-align: left">重定向</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4xx</td>
+      <td style="text-align: left">客户端错误</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5xx</td>
+      <td style="text-align: left">服务器错误</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<p>请求头内容(常用)</p>
+<ul>
+  <li>Host: www.xxx.com 服务器主机地址和端口号 默认80</li>
+  <li>Connection: keep-alive 长连接
+    <ul>
+      <li>close 短连接</li>
+    </ul>
+  </li>
+  <li>User-Agent: 用户代理 浏览器身份</li>
+  <li>Accept: 接受文件类型</li>
+  <li>Accept-Encoding: 接受的文件压缩格式 提高用户体验</li>
+  <li>Accept-Language: 接受的语言和其权重</li>
+</ul>
+
+:ET

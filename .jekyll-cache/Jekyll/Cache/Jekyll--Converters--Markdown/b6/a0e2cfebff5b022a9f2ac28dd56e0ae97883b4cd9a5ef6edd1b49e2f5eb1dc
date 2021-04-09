@@ -1,0 +1,18 @@
+I"Z<p>CSS - Cascading Style Sheet 层叠样式表<br />
+美化页面的语言<br />
+作用:<br /></p>
+<ol>
+  <li>美化界面</li>
+  <li>控制页面布局
+<br />
+基本语法:
+    <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">选择器</span> <span class="p">{</span>
+  <span class="err">样式规则;</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+    <p>样式规则 - <code class="language-plaintext highlighter-rouge">属性名:属性值</code><br />
+选择器: 选择要添加样式的标签<br /></p>
+  </li>
+</ol>
+
+:ET

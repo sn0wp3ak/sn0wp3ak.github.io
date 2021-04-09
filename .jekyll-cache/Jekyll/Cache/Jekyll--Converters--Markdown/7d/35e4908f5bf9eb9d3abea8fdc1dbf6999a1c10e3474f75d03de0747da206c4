@@ -1,0 +1,147 @@
+I"<p>CSS - Cascading Style Sheet 层叠样式表<br />
+美化页面的语言<br />
+作用:<br /></p>
+<ol>
+  <li>美化界面</li>
+  <li>控制页面布局
+<br /></li>
+</ol>
+
+<p>基本语法:</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">选择器</span> <span class="p">{</span>
+  <span class="err">样式规则;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>样式规则 - <code class="language-plaintext highlighter-rouge">属性名:属性值</code><br />
+选择器: 选择要添加样式的标签<br /></p>
+<hr />
+
+<p>CSS的三种引入方式<br /></p>
+<ol>
+  <li>行内式</li>
+  <li>内嵌式</li>
+  <li>外链式
+<br /></li>
+</ol>
+
+<ul>
+  <li>行内式
+    <ul>
+      <li>直接在标签的style这个属性中添加CSS样式</li>
+      <li>优点: 方便, 直观</li>
+      <li>缺点: 缺乏可重用性<br /></li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;标签名 style="样式属性名:属性值"&gt;
+</code></pre></div></div>
+
+<ul>
+  <li>内嵌式
+    <ul>
+      <li>在<code class="language-plaintext highlighter-rouge">&lt;head&gt;</code>标签中加入<code class="language-plaintext highlighter-rouge">&lt;style&gt;</code>标签并在其中编写CSS代码</li>
+      <li>优点: 方便在一个页面中复用和维护</li>
+      <li>缺点: 在多个页面中可重用性还是不高<br /></li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;head&gt;</span>
+	<span class="nt">&lt;style </span><span class="na">type=</span><span class="s">""</span><span class="nt">&gt;</span>
+		<span class="nt">选择器</span> <span class="p">{</span>
+			<span class="err">样式规则;</span>	
+		<span class="p">}</span>
+	<span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>外链式
+    <ul>
+      <li>CSS代码写在<code class="language-plaintext highlighter-rouge">.css</code>文件中, 在<code class="language-plaintext highlighter-rouge">&lt;head&gt;</code>标签中加入<code class="language-plaintext highlighter-rouge">&lt;link&gt;</code>标签引入</li>
+      <li>优点: CSS和HTML分离, 便于整个页面系统的规划和维护, 可重用性强</li>
+      <li>缺点: CSS代码过于集中, 维护不当容易造成混乱<br /></li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"路径/main.css"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+<hr />
+
+<h4 id="css选择器">CSS选择器</h4>
+<p>作用: 选择标签, 为标签添加样式<br />
+种类:<br /></p>
+<blockquote>
+  <p>标签选择器<br />
+类选择器<br />
+层级(后代)选择器<br />
+id选择器<br />
+组选择器<br />
+伪类选择器<br /></p>
+</blockquote>
+
+<p>1.标签选择器</p>
+<ul>
+  <li>以<code class="language-plaintext highlighter-rouge">标签名</code>开头</li>
+  <li>影响的范围大, 一般作为通用设置</li>
+</ul>
+
+<p>2.类选择器</p>
+<ul>
+  <li>以<code class="language-plaintext highlighter-rouge">.</code>开头</li>
+  <li>一个类选择器可用于多个标签, 一个标签也可以对应多个类选择器</li>
+  <li>以空格分隔</li>
+  <li>灵活, 可复用性</li>
+  <li>应用频率最高<br /></li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;style&gt;</span>
+	<span class="nc">.blue</span><span class="p">{</span> <span class="p">}</span>
+	<span class="nc">.big</span><span class="p">{</span> <span class="p">}</span>
+	<span class="nc">.box</span><span class="p">{</span> <span class="p">}</span>
+<span class="nt">&lt;/style&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"blue"</span><span class="nt">&gt;&lt;div&gt;</span>
+<span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"blue big box"</span><span class="nt">&gt;&lt;/h1&gt;</span>
+</code></pre></div></div>
+
+<p>3.层级选择器</p>
+<ul>
+  <li>以选择器(外层)选择器(内层)为开头</li>
+  <li>主要用于标签嵌套的结构中</li>
+  <li>减少命名</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">外层 内层 并不一定是父子层, 也可能是祖孙层, 适用于所有后代关系</code><br /></p>
+
+<p>4.id选择器</p>
+<ul>
+  <li>根据id这个属性来选择标签</li>
+  <li>以<code class="language-plaintext highlighter-rouge">#id_value</code>开头</li>
+  <li>id名称不能重复</li>
+  <li>id选择器只对应于页面上一个元素, 不能复用</li>
+  <li><code class="language-plaintext highlighter-rouge">id</code>这个名字一般不作为程序员自己定义的id名称</li>
+</ul>
+
+<p>5.组选择器</p>
+<ul>
+  <li>以<code class="language-plaintext highlighter-rouge">,</code>分隔</li>
+  <li>公有样式常用</li>
+</ul>
+
+<p>6.伪类选择器</p>
+<ul>
+  <li>用户和网站交互的时候用来改变显示效果</li>
+  <li>如以:hover开头 --&gt; 鼠标悬停效果</li>
+</ul>
+
+<hr />
+
+<h4 id="盒子模型">盒子模型</h4>
+<p>把HTML页面上的元素, 看作一个矩形盒子<br />
+矩形盒子是由: 内容content, 内边距padding, 边框border, 外边距margin 这四个部分组成<br />
+相关样式属性:<br /></p>
+
+:ET
