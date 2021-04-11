@@ -4,14 +4,15 @@ $bodyFont: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-seri
 
 $tablebg: #fafafa;
 
-$prebg: #232323;
-$pregreen: #99ad6a;
-$prefg: #e8e8d3;
-$preblue: #597bc5;
-$precyan: #71b9f8;
+$prebg: #fbf1c7;
+$pregreen: #98971a;
+$prefg: #3c3836;
+$preblue: #458588;
 $preyellow: #d8ad4c;
-$pregrey: #888888;
-$prered: #cf6a4c;
+$pregrey: #7c6f64;
+$prered: #cc241d;
+$preaqua: #689d6a;
+$prepurple: #b16286;
 
 $green: #008000;
 
@@ -115,6 +116,7 @@ pre {
   color: $prefg;
   border: 0;
   font-size: 16px;
+  font-weight: 530;
   padding: 15px;
   overflow: auto;
 }
@@ -160,8 +162,8 @@ code.highlighter-rouge {
 
 .highlight {
 
-  .k {
-    color: $preblue;
+  .k , {
+    color: $prered;
   }
 
   .ow {
@@ -169,15 +171,15 @@ code.highlighter-rouge {
   }
 
   .kn {
-    color: $precyan;
+    color: $preaqua;
   }
 
   .nf {
-    color: $preyellow;
+    color: $preblue;
   }
 
   .bp {
-    color: $preyellow;
+    color: $prepurple;
   }
 
   .s {
@@ -189,7 +191,7 @@ code.highlighter-rouge {
   }
 
   .mi {
-    color: $prered;
+    color: $prepurple;
   }
 }
 
