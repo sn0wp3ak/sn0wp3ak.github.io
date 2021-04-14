@@ -1,5 +1,4 @@
-I"�<p><img src="/assets/post_image/Moby-logo.png" height="50" weight="50" /><br />
-用docker的理由</p>
+I"T<p>用docker的理由</p>
 <ol>
   <li>更高效地利用系统资源 – 不需要虚拟硬件</li>
   <li>更快的启动速度 – 直接运行在宿主内核上</li>

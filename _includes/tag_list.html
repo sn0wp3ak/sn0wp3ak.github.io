@@ -1,6 +1,11 @@
 {% for tag in site.tags %}
         {% if tag[0] == include.param %}
         <h2>{{ tag[0] }}</h2>
+		{% if tag[0] == "apache" %}
+			<p>
+				<img src="/assets/post_image/httpd.png" height=50 weight=50><br>
+			</p>
+		{% endif %}
         <ul>
                 {% for post in tag[1] %}
                         <li>

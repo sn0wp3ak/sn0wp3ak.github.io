@@ -1,6 +1,28 @@
 {% for category in site.categories %}
 	{% if category[0] == include.param %}
         <h2>{{ category[0] }}</h2>
+		<!-- add category image -->
+		{% if category[0] == "docker" %}
+			<p>
+			<img src="/assets/post_image/Moby-logo.png" height=50 weight=50><br>
+			</p>
+		{% elsif category[0] == "django" %}
+			<p>
+			<img src="/assets/post_image/django-logo.png" height="15%" width="15%"><br>
+			</p>
+		{% elsif category[0] == "flask" %}
+			<p>
+			<img src="/assets/post_image/flask-logo.png" height="20%" width="20%"><br>
+			</p>
+		{% elsif category[0] == "git" %}
+			<p>
+			<img src="/assets/post_image/git-logo.png" height="8%" width="8%"><br>
+			</p>
+		{% elsif category[0] == "linux" %}
+			<p>
+			<img src="/assets/post_image/linux-logo.png" height="8%" width="8%"><br>
+			</p>
+		{% endif %}
         <ul>
                 {% for post in category[1] %}
                         <li>
