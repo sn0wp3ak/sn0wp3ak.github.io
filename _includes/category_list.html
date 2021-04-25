@@ -10,9 +10,17 @@
 			<p>
 			<img src="/assets/post_image/django-logo.png" height="15%" width="15%"><br>
 			</p>
+		{% elsif category[0] == "vim" %}
+			<p>
+			<img src="/assets/post_image/vim-logo.jpg" height="13%" width="13%"><br>
+			</p>
 		{% elsif category[0] == "flask" %}
 			<p>
 			<img src="/assets/post_image/flask-logo.png" height="20%" width="20%"><br>
+			</p>
+		{% elsif category[0] == "ansible" %}
+			<p>
+			<img src="/assets/post_image/ansible-logo.png" height="8%" width="8%"><br>
 			</p>
 		{% elsif category[0] == "git" %}
 			<p>
@@ -21,6 +29,15 @@
 		{% elsif category[0] == "linux" %}
 			<p>
 			<img src="/assets/post_image/linux-logo.png" height="8%" width="8%"><br>
+			</p>
+
+		{% elsif category[0] == "python" %}
+			<p>
+			<img src="/assets/post_image/python-logo.png" height="8%" width="8%"><br>
+			</p>
+		{% elsif category[0] == "java" %}
+			<p>
+			<img src="/assets/post_image/java-logo.png" height="8%" width="8%"><br>
 			</p>
 		{% endif %}
         <ul>
