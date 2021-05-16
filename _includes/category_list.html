@@ -1,43 +1,43 @@
 {% for category in site.categories %}
 	{% if category[0] == include.param %}
-        <h2>{{ category[0] }}</h2>
+        <h1>{{ category[0] }}</h1>
 		<!-- add category image -->
 		{% if category[0] == "docker" %}
 			<p>
-			<img src="/assets/post_image/Moby-logo.png" height=50 weight=50><br>
+			<img src="/assets/post_image/Moby-logo.png" height="50" width="69.72"><br>
 			</p>
 		{% elsif category[0] == "django" %}
 			<p>
-			<img src="/assets/post_image/django-logo.png" height="15%" width="15%"><br>
+			<img src="/assets/post_image/django-logo.png" height="50" width="109.89"><br>
 			</p>
 		{% elsif category[0] == "vim" %}
 			<p>
-			<img src="/assets/post_image/vim-logo.jpg" height="13%" width="13%"><br>
+			<img src="/assets/post_image/vim-logo.jpg" height="50" width="68.19"><br>
 			</p>
 		{% elsif category[0] == "flask" %}
 			<p>
-			<img src="/assets/post_image/flask-logo.png" height="20%" width="20%"><br>
+			<img src="/assets/post_image/flask-logo.png" height="50" width="118.06"><br>
 			</p>
 		{% elsif category[0] == "ansible" %}
 			<p>
-			<img src="/assets/post_image/ansible-logo.png" height="8%" width="8%"><br>
+			<img src="/assets/post_image/ansible-logo.png" height="50" width="50"><br>
 			</p>
 		{% elsif category[0] == "git" %}
 			<p>
-			<img src="/assets/post_image/git-logo.png" height="8%" width="8%"><br>
+			<img src="/assets/post_image/git-logo.png" height="50" width="50"><br>
 			</p>
 		{% elsif category[0] == "linux" %}
 			<p>
-			<img src="/assets/post_image/linux-logo.png" height="8%" width="8%"><br>
+			<img src="/assets/post_image/linux-logo.png" height="59.21" width="50"><br>
 			</p>
 
 		{% elsif category[0] == "python" %}
 			<p>
-			<img src="/assets/post_image/python-logo.png" height="8%" width="8%"><br>
+			<img src="/assets/post_image/python-logo.png" height="50" width="50"><br>
 			</p>
 		{% elsif category[0] == "java" %}
 			<p>
-			<img src="/assets/post_image/java-logo.png" height="8%" width="8%"><br>
+			<img src="/assets/post_image/java-logo.png" height="66.31" width="50"><br>
 			</p>
 		{% endif %}
         <ul>

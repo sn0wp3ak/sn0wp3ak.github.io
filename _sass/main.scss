@@ -4,15 +4,15 @@ $bodyFont: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-seri
 
 $tablebg: #fafafa;
 
-$prebg: #fafafa;
-$pregreen: #98971a;
-$prefg: #3c3836;
-$preblue: #458588;
-$preyellow: #d8ad4c;
-$pregrey: #7c6f64;
-$prered: #cc241d;
-$preaqua: #689d6a;
-$prepurple: #b16286;
+$prebg: #282828;
+$pregreen: #b8bb26;
+$prefg: #ebdbb2;
+$preblue: #83a598;
+$preyellow: #fabd2f;
+$pregrey: #928374;
+$prered: #fb4934;
+$preaqua: #8ec07c;
+$prepurple: #d3869b;
 
 $green: #008000;
 
@@ -115,7 +115,7 @@ pre {
   background: $prebg;
   color: $prefg;
   border: 0;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 530;
   padding: 15px;
   overflow: auto;
@@ -129,7 +129,7 @@ blockquote {
 }
 
 code.highlighter-rouge {
-  color: #1177aa;
+  color: #e74c3c;
   background: $bg;
   border-left: 2px solid $bg;
   border-right: 2Px solid $bg;
@@ -206,8 +206,14 @@ code.highlighter-rouge {
 
 
 #main a {
-  color: #005386;
-  text-decoration: underline;
+  color: #2e86c1;
+  text-decoration: none;
+}
+
+#main a:hover {
+  color: #cb4335;
+  background: #ddd;
+  text-decoration: none;
 }
 
 h1 {
@@ -228,4 +234,9 @@ h3 {
 h4 {
 	margin: 1em 1ex 0.5ex 0;
 	font-size: 0.9em;
+}
+
+
+.circle_square {
+	border-radius:50%;
 }
