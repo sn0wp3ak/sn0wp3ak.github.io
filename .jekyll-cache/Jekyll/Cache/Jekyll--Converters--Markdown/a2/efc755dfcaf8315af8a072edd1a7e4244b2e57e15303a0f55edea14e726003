@@ -1,0 +1,26 @@
+I"�<h2 id="复数操作">复数操作</h2>
+
+<blockquote>
+  <p>重复多次某种动作 Esc + num + action<br /></p>
+</blockquote>
+
+<blockquote>
+  <p>例: <br />
+光标向右移动10位 <code class="language-plaintext highlighter-rouge">Esc + 10 + 右键</code><br />
+命令行输入5个a <code class="language-plaintext highlighter-rouge">Esc + 5 + a</code><br /></p>
+</blockquote>
+
+<h2 id="光标在行内的移动">光标在行内的移动</h2>
+
+<blockquote>
+  <p>到行首 Ctrl + a<br />
+到行尾 Ctrl + e<br /></p>
+</blockquote>
+
+<h2 id="指令相关">指令相关</h2>
+
+<blockquote>
+  <p>重复上一次执行的指令 !!<br /></p>
+
+</blockquote>
+:ET
