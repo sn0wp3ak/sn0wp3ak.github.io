@@ -1,0 +1,13 @@
+I"�<p><img src="/assets/post_image/ansible_command_exc.png" /><br /></p>
+
+<ol>
+  <li>加载配置文件</li>
+  <li>找主机配置文件, 确定目标主机</li>
+  <li>加载要使用的模块</li>
+  <li>用ansible把模块和命令生成的临时.py文件传输至远程服务器</li>
+  <li>给文件+x可执行权限</li>
+  <li>执行并返回结果</li>
+  <li>删除临时.py文件,并退出</li>
+</ol>
+
+:ET
