@@ -13,7 +13,10 @@
 			<p>
 				<img src="/assets/post_image/redis-logo.png" height=50 width=72.6><br>
 			</p>
-
+		{% elsif tag[0] == "archlinux" %}
+			<p>
+				<img src="/assets/post_image/arch-logo.jpg" height=50 width=50><br>
+			</p>
 		{% endif %}
         <ul>
                 {% for post in tag[1] %}
