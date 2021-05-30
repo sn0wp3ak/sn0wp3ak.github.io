@@ -4,17 +4,14 @@ $bodyFont: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-seri
 
 $tablebg: #fafafa;
 
-$prebg: #353535;
-$pregreen: #b8bb26;
-$prefg: #ebdbb2;
-$preblue: #83a598;
-$preyellow: #fabd2f;
-$pregrey: #928374;
-$prered: #fb4934;
-$preaqua: #8ec07c;
-$prepurple: #d3869b;
+$prebg: #fff;
+$prefg: #24292e;
+$preblue: #005cc5;
+$pregrey: #6a737d;
+$prered: #d73a49;
+$prepurple: #6f42c1;
+$preorange: #e36209;
 
-$green: #008000;
 
 #header {
   background: #eee;
@@ -101,20 +98,11 @@ body {
   font-family: sans-serif;
 }
 
-#indexpre {
-  background: $prebg;
-  color: $pregreen;
-  border-left: 10px solid $prebg;
-  border-right: 10px solid $prebg;
-  border-top: 15px solid $prebg;
-  border-bottom: 20px solid $prebg;
-  font-size: 16px;
-}
 
 pre {
   background: $prebg;
   color: $prefg;
-  border: 0;
+  border: 1px solid #000;
   font-size: 16px;
   font-weight: 530;
   padding: 15px;
@@ -129,12 +117,12 @@ blockquote {
 }
 
 code.highlighter-rouge {
-  color: #3498db;
+  color: #005cc5;
   background: $bg;
   border-left: 2px solid $bg;
   border-right: 2Px solid $bg;
   font-size: 1.3em;
-  font-weight: 550;
+  font-weight: 700;
   padding-left: 1px;
   padding-right: 1px;
 }
@@ -160,7 +148,7 @@ code.highlighter-rouge {
 
 .highlight {
 
-  .k , {
+  .k , .o {
     color: $prered;
   }
 
@@ -169,19 +157,23 @@ code.highlighter-rouge {
   }
 
   .kn {
-    color: $preaqua;
+    color: $prered;
+  }
+
+  .nb {
+    color: $preorange;
   }
 
   .nf {
-    color: $preblue;
-  }
-
-  .bp {
     color: $prepurple;
   }
 
+  .bp {
+    color: $preblue;
+  }
+
   .s {
-    color: $pregreen;
+    color: #032f62;
   }
   
   .c, .c1, .cd, .cm, .cs {
@@ -189,7 +181,7 @@ code.highlighter-rouge {
   }
 
   .mi {
-    color: $prepurple;
+    color: $preblue;
   }
 }
 
@@ -204,12 +196,12 @@ code.highlighter-rouge {
 
 
 #main a {
-  color: #2e86c1;
+  color: #005cc5;
   text-decoration: none;
 }
 
 #main a:hover {
-  color: #cb4335;
+  color: #d73a49;
   background: #ddd;
   text-decoration: none;
 }
