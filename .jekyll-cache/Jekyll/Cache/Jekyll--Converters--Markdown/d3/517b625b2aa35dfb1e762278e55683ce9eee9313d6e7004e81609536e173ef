@@ -1,0 +1,60 @@
+I"
+<p>受控端操作系统以 windows server 2008R2 SP1 企业版为样例<br /></p>
+<h2 id="控制端">控制端</h2>
+<p>控制端Linux需要用pip安装一个python包: <code class="language-plaintext highlighter-rouge">pywinrm</code><br /></p>
+<h2 id="受控端">受控端</h2>
+<ol>
+  <li>安装 <code class="language-plaintext highlighter-rouge">Microsoft .NET Framework 4.5</code>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">注意顺序</code>: 要先安装.NET4.5后升级powershell, 并且重启机器</li>
+      <li>推荐使用离线安装包</li>
+    </ul>
+  </li>
+  <li>升级powershell到<code class="language-plaintext highlighter-rouge">4.0</code>以上版本
+    <ul>
+      <li>windows server 2012及以上的版本默认powershell是4.0不需要升级</li>
+      <li><code class="language-plaintext highlighter-rouge">get-host</code>命令可以查看powershell的版本</li>
+      <li>2008R2装完机默认powershell是2.0版本
+<img src="/assets/post_image/ansible_windows_1.png" width="80%" height="80%" /><br /></li>
+      <li>升级完成并且重启后, get-host看到版本号为4.0
+<img src="/assets/post_image/ansible_windows_2.png" width="80%" height="80%" /><br /></li>
+    </ul>
+  </li>
+  <li>修改powershell的策略
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 查看策略
+get-executionpolicy
+# 把策略修改为remotesigned
+set-executionpolicy remotesigned
+</code></pre></div>    </div>
+  </li>
+  <li>设置windows的远程管理
+    <ul>
+      <li>快速配置winrm service并启动该服务<br />
+<img src="/assets/post_image/ansible_windows_3.png" width="80%" height="80%" /><br /></li>
+      <li>查看监听状态<br />
+<img src="/assets/post_image/ansible_windows_4.png" width="80%" height="80%" /><br /></li>
+      <li>启用远程连接认证<br />
+<img src="/assets/post_image/ansible_windows_5.png" width="80%" height="80%" /><br /></li>
+      <li>设置加密方式为允许非加密<br />
+<img src="/assets/post_image/ansible_windows_6.png" width="80%" height="80%" /><br /></li>
+      <li>命令整理:<br />
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>winrm quickconfig
+winrm enumerate winrm/config/listener
+winrm set winrm/config/service/auth '@{Basic="true"}'
+winrm set winrm/config/service '@{AllowUnencrypted="true"}'
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>windows防火墙配置
+    <ul>
+      <li>高级安全 Windows 防火墙</li>
+      <li>添加<code class="language-plaintext highlighter-rouge">入站</code>规则: 新建 --&gt; 端口 --&gt; TCP --&gt; 特定: 5985</li>
+      <li>名称可以随便取(eg:Ansible)</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="小测试">小测试</h2>
+
+:ET
