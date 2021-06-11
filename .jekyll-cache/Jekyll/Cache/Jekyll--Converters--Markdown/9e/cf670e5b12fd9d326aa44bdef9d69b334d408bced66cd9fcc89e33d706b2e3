@@ -1,0 +1,96 @@
+I"<h2 id="处理器">处理器</h2>
+<p>CPU</p>
+<ul>
+  <li>Central Processing Unit</li>
+  <li>中央处理器</li>
+</ul>
+
+<p>RISC</p>
+<ul>
+  <li>Reduced Instruction Set Computing</li>
+  <li>精简指令集</li>
+</ul>
+
+<p>CISC</p>
+<ul>
+  <li>Complex Instruction Set Computing</li>
+  <li>复杂指令集</li>
+</ul>
+
+<h2 id="内存">内存</h2>
+<p>RAM</p>
+<ul>
+  <li>Random Access Memory</li>
+  <li>随机访问内存</li>
+</ul>
+
+<p>DRAM</p>
+<ul>
+  <li>Dynamic RAM</li>
+  <li>动态随机访问内存(断电后数据消失)</li>
+</ul>
+
+<p>SRAM</p>
+<ul>
+  <li>Static RAM</li>
+  <li>静态随机访问内存</li>
+</ul>
+
+<p>DDR</p>
+<ul>
+  <li>Double Data Rate</li>
+  <li>双倍数据传输速度</li>
+</ul>
+
+<p>ROM</p>
+<ul>
+  <li>Read Only Memory</li>
+  <li>只读存储器</li>
+  <li>过去BIOS存放的地方</li>
+</ul>
+
+<h2 id="显卡">显卡</h2>
+<p>VGA</p>
+<ul>
+  <li>Vedio Graphics Array</li>
+  <li>显卡</li>
+</ul>
+
+<p>PCI</p>
+<ul>
+  <li>Peripheral Component Interconnect</li>
+  <li>外设组件互连标准(总线标准)</li>
+</ul>
+
+<p>AGP</p>
+<ul>
+  <li>Accelerated Graphics Port</li>
+  <li>加速图形端口</li>
+</ul>
+
+<p>PCIe</p>
+<ul>
+  <li>PCI-Express</li>
+  <li>高速串行计算机扩展总线标准</li>
+</ul>
+
+<h2 id="硬盘">硬盘</h2>
+<p>IDE</p>
+<ul>
+  <li>Integrated Drive Electronics</li>
+  <li>电子集成驱动器</li>
+</ul>
+
+<p>SATA</p>
+<ul>
+  <li>Serial Advanced Technology Attachment</li>
+  <li>串行高级技术附件</li>
+</ul>
+
+<p>SCSI</p>
+<ul>
+  <li>Small Computer System Interface</li>
+  <li>小型计算机系统接口</li>
+</ul>
+
+:ET

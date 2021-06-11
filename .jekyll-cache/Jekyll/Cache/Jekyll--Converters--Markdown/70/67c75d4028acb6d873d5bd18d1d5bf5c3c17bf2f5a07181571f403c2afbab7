@@ -1,0 +1,41 @@
+I"�<h2 id="operations-运维">Operations 运维</h2>
+<p>LB</p>
+<ul>
+  <li>Load Balance</li>
+  <li>负载均衡</li>
+</ul>
+
+<p>HA</p>
+<ul>
+  <li>High Availability</li>
+  <li>高可用</li>
+</ul>
+
+<p>HPC</p>
+<ul>
+  <li>High Performance Computing</li>
+  <li>高性能计算</li>
+</ul>
+
+<p>MTTR</p>
+<ul>
+  <li>Mean Time To Repair</li>
+  <li>平均故障时间</li>
+</ul>
+
+<h2 id="共享存储">共享存储</h2>
+<p>NAS</p>
+<ul>
+  <li>Network Attached Storage</li>
+  <li>网络附加存储</li>
+  <li>基于网络的共享文件系统</li>
+</ul>
+
+<p>SAN</p>
+<ul>
+  <li>Storage Area Network</li>
+  <li>存储区域网络</li>
+  <li>基于网络的块级别的共享</li>
+</ul>
+
+:ET

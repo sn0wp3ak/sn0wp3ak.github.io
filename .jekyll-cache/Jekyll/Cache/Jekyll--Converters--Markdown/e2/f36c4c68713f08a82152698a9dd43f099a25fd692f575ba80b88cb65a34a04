@@ -1,0 +1,212 @@
+I"r<h2 id="网络设备">网络设备</h2>
+<p>Switch</p>
+<ul>
+  <li>交换机</li>
+</ul>
+
+<p>Router</p>
+<ul>
+  <li>路由器</li>
+</ul>
+
+<p>Firewall</p>
+<ul>
+  <li>防火墙</li>
+</ul>
+
+<p>IPS</p>
+<ul>
+  <li>Intrusion Prevention System</li>
+  <li>入侵预防系统</li>
+</ul>
+
+<p>IDS</p>
+<ul>
+  <li>Intrusion Detection System</li>
+  <li>入侵检测系统</li>
+</ul>
+
+<p>WAF</p>
+<ul>
+  <li>Web Application Firewall</li>
+  <li>Web应用程序防火墙</li>
+</ul>
+
+<h2 id="网络协议标准">网络协议/标准</h2>
+<p>FTP</p>
+<ul>
+  <li>File Transfer Protocol</li>
+  <li>文件传输协议</li>
+</ul>
+
+<p>TFTP</p>
+<ul>
+  <li>Trivial File Transfer Protocol</li>
+  <li>简单文件传输协议</li>
+</ul>
+
+<p>RDP</p>
+<ul>
+  <li>Remote Desktop Protocol</li>
+  <li>远程桌面协议</li>
+</ul>
+
+<p>Telnet</p>
+<ul>
+  <li>远程终端协议</li>
+</ul>
+
+<p>SMB</p>
+<ul>
+  <li>Server Messages Block</li>
+  <li>服务器消息块协议</li>
+</ul>
+
+<p>VPN</p>
+<ul>
+  <li>Virtual Private Network</li>
+  <li>虚拟私人网络</li>
+</ul>
+
+<p>VTP</p>
+<ul>
+  <li>VLAN Trunking Protocol</li>
+  <li>虚拟局域网中继协议</li>
+  <li>Cisco私有协议</li>
+</ul>
+
+<p>RIP</p>
+<ul>
+  <li>Routing Information Protocol</li>
+  <li>路由信息协议</li>
+  <li>动态路由协议</li>
+</ul>
+
+<p>VLAN</p>
+<ul>
+  <li>Virtual LAN</li>
+  <li>虚拟局域网</li>
+</ul>
+
+<p>NAT</p>
+<ul>
+  <li>Network Address Translation</li>
+  <li>网络地址转换</li>
+</ul>
+
+<p>SNAT</p>
+<ul>
+  <li>Source Network Address Translation</li>
+  <li>源网络地址转换</li>
+</ul>
+
+<p>DNAT</p>
+<ul>
+  <li>Destination Network Address Translation</li>
+  <li>目标网络地址转换</li>
+</ul>
+
+<p>HSRP</p>
+<ul>
+  <li>Hot Standby Router Protocol</li>
+  <li>热备份路由协议</li>
+</ul>
+
+<p>IP</p>
+<ul>
+  <li>Internet Protocol</li>
+  <li>网络互连协议</li>
+</ul>
+
+<p>ICMP</p>
+<ul>
+  <li>Internet Control Message Protocol</li>
+  <li>网络控制报文协议</li>
+</ul>
+
+<p>ARP</p>
+<ul>
+  <li>Address Resolution Protocol</li>
+  <li>地址解析协议</li>
+</ul>
+
+<p>DHCP</p>
+<ul>
+  <li>Dynamic Host Configuration Protocol</li>
+  <li>动态主机配置协议</li>
+</ul>
+
+<p>DNS</p>
+<ul>
+  <li>Domain Names System</li>
+  <li>域名系统</li>
+</ul>
+
+<p>TCP</p>
+<ul>
+  <li>Transmission Control Protocol</li>
+  <li>传输控制协议</li>
+  <li>面向连接, 可靠</li>
+</ul>
+
+<p>UDP</p>
+<ul>
+  <li>User Datagram Protocol</li>
+  <li>用户数据报协议</li>
+</ul>
+
+<p>vrrp</p>
+<ul>
+  <li>Virtual Router Redundancy Protocol</li>
+  <li>虚拟路由冗余协议</li>
+  <li>解决静态网关单点风险</li>
+  <li>软件层—keepalived</li>
+  <li>物理层—路由器、三层交换机</li>
+</ul>
+
+<h2 id="网络覆盖范围">网络覆盖范围</h2>
+<p>LAN</p>
+<ul>
+  <li>Local Area Network</li>
+  <li>局域网(内网)</li>
+</ul>
+
+<p>WAN</p>
+<ul>
+  <li>Wide Area Network</li>
+  <li>广域网(外网)</li>
+</ul>
+
+<h2 id="邮件协议">邮件协议</h2>
+<p>SMTP</p>
+<ul>
+  <li>Simple Mail Transfer Protocol</li>
+  <li>简单电子邮件传输协议</li>
+</ul>
+
+<p>POP3</p>
+<ul>
+  <li>Post Office Protocol 3</li>
+  <li>邮局协议版本3</li>
+</ul>
+
+<p>IMAP4</p>
+<ul>
+  <li>Internet Message Access Protocol 4</li>
+  <li>网络消息访问协议版本4</li>
+</ul>
+
+<h2 id="组织机构">组织机构</h2>
+<p>IDC</p>
+<ul>
+  <li>Internet Data Center</li>
+  <li>网络数据中心</li>
+</ul>
+
+<p>CDN</p>
+<ul>
+  <li>Content Delivery Network</li>
+  <li>内容分发网络</li>
+</ul>
+
+:ET
