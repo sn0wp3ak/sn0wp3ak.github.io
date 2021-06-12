@@ -1,0 +1,58 @@
+I"�<h2 id="正则表达式">正则表达式</h2>
+<p><code class="language-plaintext highlighter-rouge">元字符 meta character</code></p>
+<ul>
+  <li>用于描述出现模式的字符</li>
+</ul>
+
+<p><strong>常见的元字符</strong>:<br /></p>
+<ul>
+  <li>描述目标字符
+    <blockquote>
+      <p>.  相当于 [^\n]    匹配任意一个字符(除换行符外)<br />
+\l 相当于 [a-z] <br />
+\L 相当于 [^a-z]<br />
+\u 相当于 [A-Z] <br />
+\U 相当于 [^A-Z]<br />
+\w [0-9a-zA-Z_] <br />
+\W [^0-9a-zA-Z_]<br />
+\d [0-9]        <br />
+\D [^0-9]       <br />
+十六进制        <br />
+\x [0-9A-Fa-f]  <br />
+\X [^0-9A-Fa-f] <br /></p>
+    </blockquote>
+  </li>
+  <li>描述出现次数的元字符
+    <blockquote>
+      <p>*   0个或任意个 <br />
++  1个或任意个<br />
+\?  0个或1个  <br /></p>
+    </blockquote>
+  </li>
+</ul>
+
+<p>{m,n} m到n-1个
+{n}  n个
+{n,} 至少n个
+{,m} 至多m-1个，可以为0</p>
+
+<p>描述位置
+^ 行的开头
+$ 行的结尾
+&lt; 单词的开头
+&gt; 单词的结尾</p>
+
+<p>描述子模式(分组)
+() 用来标识一个子模式
+\0 整个匹配
+\1 第一个子模式
+\2 第二个子模式</p>
+
+<p>描述非打印字符
+\n 换行
+\r  回车
+\t  制表
+\s  空白符
+\S 非空白符</p>
+
+:ET
