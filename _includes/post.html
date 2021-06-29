@@ -36,7 +36,7 @@
         <div id="nav">
 		{% if page.categories[0] %}
                 <li>
-		分类:<br>
+		<img src="/assets/folder.png"> 分类:<br>
 		<a href="/category_sub/{{ page.categories[0] }}">
 			{{ page.categories[0] }}
                 </a>
@@ -44,7 +44,7 @@
 		{% endif %}
 		{% if page.tags[0] %}
                 <li>
-		标签:<br>
+		<img src="/assets/ta.png"> 标签:<br>
 		<a href="/tag_sub/{{ page.tags[0] }}">
 			{{ page.tags[0] }}
                 </a>
@@ -54,14 +54,14 @@
 		{% capture posttime %}{{ page.date | date: '%Y' }}{% endcapture %}
 		{% if currentyear == posttime %}
                 <li>
-		日期:<br>
+		<img src="/assets/calendar.png"> 日期:<br>
 		<a href="/archive_sub/currentyear">
 			{{ page.date | date: '%Y-%m-%d'}}
                 </a>
                 </li>
 		{% else %}
                 <li>
-		日期:<br>
+		<img src="/assets/calendar.png"> 日期:<br>
 		<a href="/archive_sub/{{ page.date | date: '%Y' }}">
 			{{ page.date | date: '%Y-%m-%d'}}
                 </a>
