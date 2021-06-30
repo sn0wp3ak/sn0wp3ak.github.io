@@ -1,6 +1,6 @@
 <!-- 页头 -->
 <div id="header">
-	sn0wp3ak.github.io &nbsp; <span>{{ page.title }}</span>
+	<img src="/assets/snowflake.png" id="headericon">&nbsp;sn0wp3ak.github.io &nbsp; <span>{{ page.title }}</span>
 </div>
 <!-- 菜单 -->
 <div id="menu">
@@ -36,7 +36,7 @@
         <div id="nav">
 		{% if page.categories[0] %}
                 <li>
-		<img src="/assets/folder.png"> 分类:<br>
+		&nbsp;<img src="/assets/folder.png"> 分类:<br>
 		<a href="/category_sub/{{ page.categories[0] }}">
 			{{ page.categories[0] }}
                 </a>
@@ -44,7 +44,7 @@
 		{% endif %}
 		{% if page.tags[0] %}
                 <li>
-		<img src="/assets/ta.png"> 标签:<br>
+		&nbsp;<img src="/assets/ta.png"> 标签:<br>
 		<a href="/tag_sub/{{ page.tags[0] }}">
 			{{ page.tags[0] }}
                 </a>
@@ -54,14 +54,14 @@
 		{% capture posttime %}{{ page.date | date: '%Y' }}{% endcapture %}
 		{% if currentyear == posttime %}
                 <li>
-		<img src="/assets/calendar.png"> 日期:<br>
+		&nbsp;<img src="/assets/calendar.png"> 日期:<br>
 		<a href="/archive_sub/currentyear">
 			{{ page.date | date: '%Y-%m-%d'}}
                 </a>
                 </li>
 		{% else %}
                 <li>
-		<img src="/assets/calendar.png"> 日期:<br>
+		&nbsp;<img src="/assets/calendar.png"> 日期:<br>
 		<a href="/archive_sub/{{ page.date | date: '%Y' }}">
 			{{ page.date | date: '%Y-%m-%d'}}
                 </a>

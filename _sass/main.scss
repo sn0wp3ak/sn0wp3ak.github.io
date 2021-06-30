@@ -16,14 +16,20 @@ $preorange: #e36209;
 #header {
   background: #eee;
   color: #1177aa;
-  font-size: 1.50em;
+  font-size: 1.78em;
   clear: both;
-  padding: 0.7ex 0.7ex 0.7ex 1em;
+  padding: 0.7ex 0.7ex 0.7ex 0.7em;
 }
 
 #header span {
   color: #555555;
 }
+
+#headericon {
+  width: 25px;
+  height: 25px;
+}
+
 
 #menu {
   clear: both;
@@ -54,15 +60,15 @@ $preorange: #e36209;
   float: left;
   margin: 0 1px 0 0;
   padding: 1em 0;
-  border-right: 1px dotted #ccc;
+  border-right: 3px dotted #ccc;
   width: 200px;
   color: $fg;
   background: $bg;
 }
 
 #nav li {
-  margin: 0;
-  padding: 0;
+  margin-left: 0px;
+  padding: 0px;
   list-style: none;
 }
 
@@ -75,6 +81,7 @@ $preorange: #e36209;
   display: block;
   margin: 0;
   padding: 0.8ex 2em 0.8ex 1em;
+  text-align: left;
 }
 
 #nav a:hover {
