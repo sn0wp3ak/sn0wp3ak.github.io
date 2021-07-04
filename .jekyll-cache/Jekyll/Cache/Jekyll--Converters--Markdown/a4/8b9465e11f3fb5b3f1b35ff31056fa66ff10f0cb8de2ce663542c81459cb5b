@@ -1,0 +1,52 @@
+I"$
+<h2 id="环境说明">环境说明</h2>
+<p>模拟内网主机, 使用VMware虚拟机但不连接外网，仅确保联通性(宿主和虚拟机相互能ping通)<br /></p>
+
+<p>虚拟机操作系统: CentOS Linux release 7.8.2003 (Core)<br />
+虚拟机内核版本: 3.10.0-1127.el7.x86_64<br /></p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">完全</code>不使用yum安装</strong><br /> 
+但是至少需要一台<strong>能联网</strong>的主机, 去下载依赖的rpm包和tar包, 并确保有可用介质能把下载到的各种包传输到离线主机上去<br /></p>
+
+<h2 id="软件包总览">软件包总览</h2>
+<p><code class="language-plaintext highlighter-rouge">注意: 在安装编译用的rpm包时, 一定一定要看清楚版本号, 必须和系统已有的相关软件包版本一致, 否则无法安装</code><br /></p>
+<ul>
+  <li>先用<code class="language-plaintext highlighter-rouge">rpm -qa | grep xxx</code>查询一下有没有<code class="language-plaintext highlighter-rouge">xxx</code>的包存在, 再根据它的版本号去选择对应的<code class="language-plaintext highlighter-rouge">devel包</code>的版本<br /></li>
+  <li>安装指令: <code class="language-plaintext highlighter-rouge">rpm -ivh xxx.rpm</code><br /></li>
+</ul>
+
+<h3 id="-python3相关">-Python3相关:</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">(非常重要)</code>在编译Python3之前就要确认安装的rpm包: sqlite-devel-3.7.17-8.el7_7.1.x86_64.rpm(版本号根据sqlite包的版本号选择)</li>
+  <li>编译安装Python3之前, 需要搞定的依赖包
+    <ul>
+      <li>zlib-devel-*.rpm</li>
+      <li>bzip2-devel-*.rpm</li>
+      <li></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="-django相关">-Django相关:</h3>
+<ul>
+  <li>Django源码包: Django-1.11.29.tar.gz (这个版本可以改变, 但是不确定会不会有别的问题出现, 有待补充)</li>
+  <li>pytz包(python包, 可以通过Pypi下载)
+    <ul>
+      <li>解决Django运行报错: No module named ‘pytz’</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="编译安装python3">编译安装Python3</h2>
+
+<p>一般Centos7上都预装Python2.7, 并且在/usr/bin下会有python这个软链接指向python2<br />
+不需要动原来的软链接, 也不需要修改YUM配置, 直接用python3作为新的链接文件就可以避免这些问题<br />
+而且python和python3同时存在, 也更灵活, 对于环境隔离也有优势<br />
+最重要的是不会影响系统中原来就用python2编译的其他软件<br /></p>
+
+<ul>
+  <li>解压Python3包</li>
+  <li>进入</li>
+</ul>
+
+:ET

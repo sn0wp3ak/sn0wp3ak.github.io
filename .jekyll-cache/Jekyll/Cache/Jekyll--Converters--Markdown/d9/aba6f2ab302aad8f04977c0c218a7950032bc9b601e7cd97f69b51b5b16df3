@@ -1,0 +1,110 @@
+I"�<h2 id="环境说明">环境说明</h2>
+<p>模拟内网主机, 使用VMware虚拟机但不连接外网，仅确保联通性(宿主和虚拟机相互能ping通)<br /></p>
+
+<p>虚拟机操作系统: CentOS Linux release 7.8.2003 (Core)<br />
+虚拟机内核版本: 3.10.0-1127.el7.x86_64<br /></p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">完全</code>不使用yum安装</strong><br /> 
+但是至少需要一台<strong>能联网</strong>的主机, 去下载依赖的rpm包和tar包, 并确保有可用介质能把下载到的各种包传输到离线主机上去<br /></p>
+
+<h2 id="软件包总览">软件包总览</h2>
+<p><code class="language-plaintext highlighter-rouge">注意: 在安装编译用的rpm包时, 一定一定要看清楚版本号, 必须和系统已有的相关软件包版本一致, 否则无法安装</code><br /></p>
+<ul>
+  <li>先用<code class="language-plaintext highlighter-rouge">rpm -qa | grep xxx</code>查询一下有没有<code class="language-plaintext highlighter-rouge">xxx</code>的包存在, 再根据它的版本号去选择对应的<code class="language-plaintext highlighter-rouge">devel包</code>的版本<br /></li>
+  <li>安装指令: <code class="language-plaintext highlighter-rouge">rpm -ivh xxx.rpm</code><br /></li>
+</ul>
+
+<h3 id="-python3相关">-Python3相关:</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">(非常重要)</code>在编译Python3之前就要确认安装的rpm包: sqlite-devel-3.7.17-8.el7_7.1.x86_64.rpm(版本号根据sqlite包的版本号选择)
+    <ul>
+      <li>解决Django运行报错: django.core.exceptions.ImproperlyConfigured: Error loading either pysqlite2 or sqlite3 modules (tried in that order): No module named ‘_sqlite3’</li>
+    </ul>
+  </li>
+  <li>编译安装Python3之前, 需要搞定的依赖包(具体版本因系统版本而异)
+    <ul>
+      <li>zlib-devel-1.2.7-18.el7.x86_64.rpm</li>
+      <li>bzip2-devel-1.0.6-13.el7.x86_64.rpm</li>
+      <li>epel-release-7-11.noarch.rpm</li>
+      <li>ncurses-devel-5.9-14.20130511.el7_4.x86_64.rpm</li>
+      <li>sqlite-devel-3.7.17-8.el7_7.1.x86_64.rpm</li>
+      <li>!!如果系统中有gcc了, 那么下面的包可以省略不安, 请用<code class="language-plaintext highlighter-rouge">rpm -qa</code>先行确认</li>
+      <li>mpfr-3.1.1-4.el7.x86_64.rpm</li>
+      <li>libmpc-1.0.1-3.el7.x86_64.rpm</li>
+      <li>kernel-headers-3.10.0-1127.el7.x86_64.rpm</li>
+      <li>glibc-headers-2.17-307.el7.x86_64.rpm</li>
+      <li>glibc-devel-2.17-307.el7.x86_64.rpm</li>
+      <li>cpp-4.8.5-39.el7.x86_64.rpm</li>
+      <li>gcc-4.8.5-39.el7.x86_64.rpm</li>
+      <li>libstdc++-4.8.5-39.el7.x86_64.rpm</li>
+      <li>libstdc++-devel-4.8.5-39.el7.x86_64.rpm</li>
+      <li>gcc-c++-4.8.5-39.el7.x86_64.rpm</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="-django相关">-Django相关:</h3>
+<ul>
+  <li>Django源码包: <code class="language-plaintext highlighter-rouge">Django-1.11.29.tar.gz</code> (这个版本可以改变, 但是不确定会不会有别的问题出现, 有待补充)</li>
+  <li>pytz包(python包, 可以通过PyPI下载)
+    <ul>
+      <li>解决Django运行报错: No module named ‘pytz’</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="编译安装python3">编译安装Python3</h2>
+
+<p>-一般Centos7上都预装Python2.7, 并且在/usr/bin下会有python这个软链接指向python2<br />
+-不需要动原来的软链接, 也不需要修改YUM配置, 直接用python3作为新的链接文件就可以避免这些问题<br />
+-而且python和python3同时存在, 也更灵活, 对于环境隔离也有优势<br />
+-最重要的是不会影响系统中原来就用python2编译的其他软件<br /></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">tar zxvf</code>解压Python3包</li>
+  <li>进入解压出来的目录</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./configure <span class="nt">--prefix</span><span class="o">=</span>/usr/local/python3.6 <span class="nt">--enable-shared</span>
+make
+make <span class="nb">install
+ln</span> <span class="nt">-s</span> /usr/local/python3.6/bin/python3 /usr/bin/python3
+<span class="nb">echo</span> <span class="s2">"/usr/local/python3.6/lib"</span> <span class="o">&gt;</span> /etc/ld.so.conf.d/python3.6.conf
+ldconfig
+python3 <span class="nt">-V</span>
+</code></pre></div></div>
+<p>给pip建立软链接:<br /></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ln</span> <span class="nt">-s</span> /usr/local/python3.6/bin/pip3.6 /usr/bin/pip
+pip <span class="nt">-V</span>
+</code></pre></div></div>
+
+<h2 id="创建虚拟环境">创建虚拟环境</h2>
+<p>使用Python3内建模块<code class="language-plaintext highlighter-rouge">venv</code><br />
+创建一个目录专门存放各种python虚拟环境<br /></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>virtualenvs
+<span class="nb">cd </span>virtualenvs
+</code></pre></div></div>
+<p>在该目录下创建虚拟环境<br /></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nt">-m</span> venv django_env
+</code></pre></div></div>
+<p>进入虚拟环境<br /></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">.</span> django_env/bin/activate
+<span class="c"># 或者</span>
+<span class="nb">source </span>django_env/bin/activate
+</code></pre></div></div>
+<p>退出虚拟环境<br /></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deactivate
+</code></pre></div></div>
+
+<h2 id="离线安装django">离线安装Django</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">tar zxvf</code>解压Django包</li>
+  <li>进入解压出来的目录<code class="language-plaintext highlighter-rouge">python3 setup.py install</code></li>
+  <li><code class="language-plaintext highlighter-rouge">pip list | grep django</code>检查一下</li>
+  <li>安装<code class="language-plaintext highlighter-rouge">pytz</code>包</li>
+</ul>
+
+<h2 id="创建并运行django项目">创建并运行Django项目</h2>
+
+:ET
